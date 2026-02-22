@@ -13,11 +13,15 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - [x] **Schritt 1: Wissensdatenbank** - 63 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
 - [x] **Schritt 2: Eingabeformular + CSV/JSON Import** - BloodworkEntry mit manuellem Input, CSV-Upload, localStorage
 - [x] **Schritt 3: Dashboard mit Ampelsystem** - Vollstaendiges Analyse-Dashboard mit Ampel-Uebersicht, Kategorie-Cards, kritische Werte Alert, Erfassungsgrad
-- [ ] Schritt 4: Einzelwert-Detailansicht mit Gauge
+- [x] **Schritt 4: Einzelwert-Detailansicht** - SVG-Range-Bar, Interpretation, Optimierung, verwandte Werte, Quellen. Route /wert/:id
+- [x] **PDF-Import** - pdfjs-dist, positionsbasierte Zeilenrekonstruktion, 50+ Lab-Name-Mappings, Einheiten-Umrechnung
 - [ ] Schritt 5: Cross-Value-Analyse
 - [ ] Schritt 6: Trendansicht (Zeitverlauf)
-- [ ] Schritt 7: Empfehlungen & Optimierung
-- [ ] Schritt 8: PDF-Export
+- [ ] Schritt 7: Empfehlungen & Optimierung (foods.json + supplements.json Daten vorhanden!)
+- [ ] Schritt 8: PDF-Export / Berichte
+- [ ] Profile/Personen (mehrere Nutzer mit eigenen Werten)
+- [ ] updates-from-research.json (34 Patches) in Hauptdatenbank mergen
+- [ ] BloodworkEntry refactoren (inline Helpers → shared utils)
 
 ## Datenstruktur
 - `src/data/bloodwork-knowledge.json` - Gesamte Wissensdatenbank (63 Werte)
@@ -54,13 +58,15 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - American Thyroid Association (ATA) Guidelines (Biotin-Interferenz)
 - WHO Iron Assessment Guidelines (Ferritin/CRP-Ratio)
 
-## Supplement-Datenbank (2026-02-22)
-- `src/data/supplements.json` - Zusammengeführt aus Gemini + Perplexity Recherche
+## Supplement-Datenbank (2026-02-22, v1.1.0)
+- `src/data/supplements.json` - Zusammengeführt aus Gemini + Perplexity + ChatGPT Recherche
 - 17 Supplements in 6 Kategorien (Basis/Bedingt/Optional Lipide/Hormone/Schlaf/Homocystein)
 - Stufe 1 (Muss): D3+K2, Omega-3, Magnesium
 - Stufe 2 (Bedingtes Muss): Eisen+VitC, B-Komplex, Schilddrüse (Se/Jod/Zn), Vitamin C
 - Stufe 3 (Optional): Berberin, Bergamotte, Q10, Niacin, Ashwagandha, Bor, DHEA, Zink, Schlaf-Stack, Homocystein-Stack
-- Enthält: Timing-Schedule (5 Tageszeiten), Interaktionsmatrix (9 neg / 9 pos), Kostenübersicht (7 Levels), Qualitätskriterien
+- Enthält: Timing-Schedule (5 Tageszeiten), Interaktionsmatrix (11 neg / 11 pos), Kostenübersicht (7 Levels), Qualitätskriterien (11 Marken)
+- Neue Felder: bfrHinweis, bfrWarnung, efsaReferenz, dgeReferenz, sicherheitshinweisB6, b12DosierungsPraxis, zusaetzlicheMarker, rechtlicherStatus
+- Allgemeine Hinweise: 10 (erweitert um Kontraindikationen, B6-Sicherheit, BfR-Ashwagandha)
 
 ## Research-Updates (2026-02-22)
 - `src/data/updates-from-research.json` - 34 Update-Objekte aus 3 Research-Quellen
@@ -73,5 +79,9 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - Medizinisch-professioneller Look
 - Ampel: 🔴 Kritisch / 🟡 Suboptimal / 🟢 Optimal
 
-## Nächster Schritt
-Schritt 4: Einzelwert-Detailansicht mit Gauge-Diagramm (Recharts) bauen.
+## Nächster Schritt (Session 2026-02-23)
+1. **Profile/Personen** — Name-Feld in Entries, Profil-Selector, getrennte Datenhaltung
+2. **PDF-Import testen** — Bioscentia PDF nochmal testen (Vitamin B12, Folsäure, Selen, Zink, Insulin Fixes verifizieren)
+3. **Schritt 7: Empfehlungen** — Personalisierte Supplement-/Ernährungs-/Lifestyle-Tipps basierend auf aktuellen Werten (Daten in foods.json + supplements.json vorhanden)
+4. **Schritt 5: Cross-Value-Analyse** — Zusammenhänge zwischen Werten (z.B. Eisen-Panel, Schilddrüse)
+5. **Berichte/PDF-Export** — Zusammenfassender Bericht als PDF
