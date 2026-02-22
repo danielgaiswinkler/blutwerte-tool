@@ -1,0 +1,731 @@
+{
+  "supplements": [
+    {
+      "id": "vitamin-d3-k2",
+      "name": "Vitamin D3 + K2",
+      "category": "basis",
+      "categoryLabel": "Basis-Stack",
+      "bloodValueIds": ["vitamin-d", "vitamin-d-1-25"],
+      "wirkstoffformGut": "Cholecalciferol (D3) gelöst in Trägeröl (z.B. MCT) aus Lanolin oder Flechten (vegan); K2 als MK-7 all-trans (>=99,7%, z.B. K2VITAL von Kappa Bioscience)",
+      "wirkstoffformSchlecht": "Vitamin D2 (Ergocalciferol) - geringere Bioverfügbarkeit und kürzere Halbwertszeit; Trockenpulver-Kapseln ohne Fettbegleitung; K2 als MK-4 (extrem kurze Halbwertszeit) oder cis-Form (biologisch inaktiv)",
+      "dosierungPraevention": "1.000-4.000 IE D3 + 100 ug K2 MK-7 täglich",
+      "dosierungMangel": "5.000-10.000 IE D3 + 200 ug K2 (adaptiert nach Körpergewicht und basalem 25-OH-D3-Wert, unter ärztlicher Kontrolle über 8-12 Wochen)",
+      "timing": "Morgens oder mittags, zwingend zur fetthaltigen Mahlzeit (fettlöslich, Mizellenbildung)",
+      "synergien": ["Magnesium (essenziell für D3-Aktivierung)", "Omega-3", "Calcium", "Bor (verbessert D3-Nutzung)"],
+      "antagonisten": ["Hochdosiertes Vitamin A (konkurriert um fettlösliche Transporter)", "Hochdosiertes Vitamin E (konkurriert um fettlösliche Transporter)", "Orlistat (hemmt Aufnahme fettlöslicher Vitamine)"],
+      "mindestAbstand": "Gleichzeitige Einnahme mit extrem hohen Dosen anderer fettlöslicher Vitamine vermeiden",
+      "medikamentenWechselwirkungen": [
+        "Thiazid-Diuretika (erhöhtes Risiko für Hyperkalzämie durch renale Calciumretention)",
+        "Corticosteroide (beschleunigen den Vitamin-D-Abbau)",
+        "Vitamin-K-Antagonisten (Marcumar/Warfarin): K2 kann Wirkung abschwächen - zwingend Rücksprache mit Arzt"
+      ],
+      "kontrolleNach": "3 Monate (Zeitpunkt des pharmakokinetischen Steady-State des 25-OH-D3)",
+      "empfohleneMarken": ["Sunday Natural", "natural elements (D3+K2 Depot)", "VitaMoment", "Nordic Oil", "Naturtreu", "gloryfeel"],
+      "preisProMonat": "2-10 EUR",
+      "evidenzgrad": "Stark",
+      "evidenzDetail": "Meta-Analysen zur Knochendichte, Sturzprävention und Immunmodulation; ~60% der Erwachsenen in DE unterversorgt (RKI)",
+      "besondereHinweise": "Ohne adäquate K2- und Magnesium-Versorgung kann hochdosiertes D3 zu unphysiologischen Calciumspiegeln und konsekutiver Gefäßverkalkung führen. In Mitteleuropa Oktober-April praktisch keine endogene Synthese. Überdosierung >100 ng/ml vermeiden (Hyperkalzämie-Risiko).",
+      "mussStufe": 1,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "omega-3-epa-dha",
+      "name": "Omega-3 (EPA/DHA)",
+      "category": "basis",
+      "categoryLabel": "Basis-Stack",
+      "bloodValueIds": ["omega-3-index", "omega6-omega3-ratio", "triglyceride", "hs-crp"],
+      "wirkstoffformGut": "Triglycerid-Form (rTG) aus Fischöl oder Algenöl (vegan); Phospholipide aus Krillöl; zwingend mit niedrigem TOTOX-Wert",
+      "wirkstoffformSchlecht": "Ethylester-Form (EE) - erfordert enzymatische Rückwandlung, schlechtere Resorption (~70% vs. rTG), häufiger Aufstoßen; ranziges Öl (hoher TOTOX-Wert induziert oxidativen Stress); billige Fischölkapseln ohne EPA/DHA-Mengenangabe",
+      "dosierungPraevention": "1.000-2.000 mg kombiniertes EPA/DHA täglich",
+      "dosierungMangel": "2.000-4.000 mg kombiniertes EPA/DHA (therapeutisch bei manifester systemischer Inflammation oder Triglycerid-Senkung); EFSA: bis 5 g/Tag sicher",
+      "timing": "Mittags oder abends, zwingend zur fetthaltigen Hauptmahlzeit",
+      "synergien": ["Vitamin D3 (gemeinsame Fettlöslichkeit)", "Vitamin E (essenzielles Antioxidans zum Schutz der Doppelbindungen)"],
+      "antagonisten": ["Keine direkten Absorptionsantagonisten, jedoch antagonisiert ein Omega-6-Überschuss aus der Nahrung die systemische Wirkung"],
+      "mindestAbstand": "Nicht relevant",
+      "medikamentenWechselwirkungen": [
+        "Antikoagulanzien (Blutverdünner wie Marcumar, ASS, NOAKs): Potenzielle Erhöhung der Blutungsneigung bei Dosierungen >3-4 g/Tag",
+        "Kann LDL bei sehr hoher Dosis leicht erhöhen"
+      ],
+      "kontrolleNach": "3-4 Monate (Omega-3-Index aus Erythrozytenmembran, entspricht Erythrozyten-Lebensdauer)",
+      "empfohleneMarken": ["Norsan (Omega-3 Total)", "Sunday Natural (Omega-3 rTG)", "Nordic Oil", "natural elements", "QIDOSHA (Algenöl)", "Edubily"],
+      "preisProMonat": "15-35 EUR",
+      "evidenzgrad": "Stark",
+      "evidenzDetail": "Umfassende Meta-Analysen zur Triglyceridsenkung und kardioprotektiven Wirkung; hochdosiert (4g Icosapent-Ethyl) in REDUCE-IT positiv",
+      "besondereHinweise": "Äußerste Priorität auf Schwermetallreinigung und unabhängige Laborprüfungen des TOTOX-Werts legen, da oxidierte Fischöle hochgradig pro-inflammatorisch wirken. Algenöl als vegane Alternative. Kühl lagern.",
+      "mussStufe": 1,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "magnesium",
+      "name": "Magnesium",
+      "category": "basis",
+      "categoryLabel": "Basis-Stack",
+      "bloodValueIds": ["magnesium"],
+      "wirkstoffformGut": "Magnesium-Bisglycinat (Chelat, ideal abends), Magnesium-Malat (Energie, ideal morgens), Magnesium-Citrat (gut bioverfügbar), Magnesium-Threonat (ZNS-gängig, für kognitive Funktion)",
+      "wirkstoffformSchlecht": "Magnesiumoxid (~4% Bioverfügbarkeit, stark laxierend), Magnesiumsulfat, Magnesiumcarbonat (gering resorbierbar) - wirken rein osmotisch im Darm",
+      "dosierungPraevention": "300-400 mg elementares Magnesium täglich",
+      "dosierungMangel": "400-600 mg elementares Magnesium (zwingend über den Tag aufgeteilt zur Vermeidung der Sättigung der Transportproteine und osmotischer Diarrhoe)",
+      "timing": "Abends (Bisglycinat zur neurologischen Beruhigung) oder morgens (Malat zur Energieproduktion); idealerweise nüchtern oder mit leichtem Abstand zu Mahlzeiten",
+      "synergien": ["Vitamin D3 (Mg für D3-Aktivierung benötigt)", "Vitamin B6 (erhöht intrazelluläres Mg)", "Glycin", "Taurin"],
+      "antagonisten": ["Zink (in hohen Dosen kompetitiv)", "Eisen", "Hochdosiertes Calcium", "Phytate (Ballaststoffe in Getreide)"],
+      "mindestAbstand": "Mindestens 2-4 Stunden zu Eisenpräparaten, hochdosiertem Calcium und ballaststoffreichen Mahlzeiten",
+      "medikamentenWechselwirkungen": [
+        "Protonenpumpeninhibitoren (PPI) blockieren die Resorption durch pH-Verschiebung drastisch",
+        "Tetracycline und Bisphosphonate: Resorption wird durch Magnesiumkomplexbildung blockiert",
+        "L-Thyroxin: 2-4 h Abstand einhalten",
+        "Fluorchinolone: Komplexbildung"
+      ],
+      "kontrolleNach": "2-3 Monate (zwingend als intrazelluläre Vollblutanalyse, Serum-Magnesium ist diagnostisch wertlos)",
+      "empfohleneMarken": ["Sunday Natural (Magnesium-Komplex 11 Ultra)", "natural elements (Magnesium-Komplex 5-fach)", "Biogena", "Naturtreu", "Edubily", "moleqlar (Magnesium L-Threonat)"],
+      "preisProMonat": "8-20 EUR",
+      "evidenzgrad": "Stark",
+      "evidenzDetail": "Umfangreiche Evidenz für Krampfprävention, Blutdruckmodulation, Insulinsensitivität und Schlafqualität",
+      "besondereHinweise": "Bei schwerer Niereninsuffizienz (Kreatinin-Clearance <20 mL/min) zwingend ärztlich abklären. Tagesdosis immer splitten. Immer auf elementaren Mg-Gehalt achten (nicht Verbindungsgewicht). Start mit niedrigerer Dosis, langsam steigern.",
+      "mussStufe": 1,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "eisen-bisglycinat-vitamin-c",
+      "name": "Eisenbisglycinat + Vitamin C",
+      "category": "bedingt",
+      "categoryLabel": "Bedingtes Muss",
+      "bloodValueIds": ["ferritin", "serum-eisen", "transferrin", "transferrinsaettigung", "haemoglobin"],
+      "wirkstoffformGut": "Eisen-Bisglycinat (Aminosäure-Chelat) oder liposomales Eisen; Vitamin C als Ascorbinsäure, Acerola, Camu-Camu oder gepuffertes Calciumascorbat",
+      "wirkstoffformSchlecht": "Eisen(II)-sulfat (10-20% Bioverfügbarkeit, 40-60% GI-Nebenwirkungen, Fenton-Reaktion im Darm), Eisenoxid, Eisen(III)-hydroxid-Polymaltose",
+      "dosierungPraevention": "Generell ohne Indikation nicht empfohlen; Ausnahme: menstruierende Frauen mit starken Blutungen oder veganer Ernährung (10-15 mg) + 50-200 mg Vitamin C",
+      "dosierungMangel": "20-100 mg elementares Eisen (ideal: Einnahme jeden zweiten Tag zur strategischen Umgehung der reaktiven Hepcidin-Blockade) + 200 mg Vitamin C",
+      "timing": "Morgens strikt nüchtern (30-60 Minuten vor dem Frühstück) zusammen mit Vitamin C / Orangensaft",
+      "synergien": ["Vitamin C (Ascorbinsäure) - reduziert Fe3+ zu Fe2+", "Lactoferrin", "Organische Säuren (z.B. aus Sauerkraut)"],
+      "antagonisten": ["Calcium (insbesondere Milchprodukte)", "Zink", "Magnesium", "Tannine (Kaffee, Schwarztee)", "Polyphenole", "Phytate (Vollkorn)", "Oxalate (Spinat, Rhabarber)"],
+      "mindestAbstand": "Zwingend mindestens 2-4 Stunden zu Kaffee, Tee, Milchprodukten, Magnesium- und Zinkpräparaten",
+      "medikamentenWechselwirkungen": [
+        "L-Thyroxin (Komplexbildung behindert Hormonresorption, 2-4h Abstand)",
+        "Methyldopa, Ciprofloxacin, Tetrazykline (Aufnahme durch Komplexbildung behindert)",
+        "NSAR (Ibuprofen, Diclofenac) verstärken Magen-Darm-Schleimhautschädigung",
+        "Protonenpumpenhemmer (reduzieren Eisenaufnahme)"
+      ],
+      "kontrolleNach": "2-3 Monate (zwingend hs-CRP miterfassen, da Ferritin als Akute-Phase-Protein bei Entzündungen falsch hoch ausfällt)",
+      "empfohleneMarken": ["Sunday Natural (Eisen-Chelat 45mg + Vit C)", "Biogena", "Formmed", "natural elements", "korodrogerie", "Vitabay"],
+      "preisProMonat": "5-25 EUR",
+      "evidenzgrad": "Stark",
+      "evidenzDetail": "Klinische Evidenz für Bisglycinat bezüglich höherer Verträglichkeit und adäquater Hämoglobin-Antwort bei Anämie; Eisenresorptionssteigerung durch Vitamin C in zahlreichen RCTs belegt",
+      "besondereHinweise": "Männer und postmenopausale Frauen dürfen Eisen niemals blind supplementieren - Akkumulationen (Hämochromatose) sind toxisch für Leber und Herz. Alternierende Dosierung (jeden zweiten Tag) ist pharmakokinetisch überlegen (Hepcidin-Blockade). Dunkelstühlung ist normal.",
+      "mussStufe": 2,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "aktiver-b-komplex",
+      "name": "Aktiver B-Komplex (B12, B9, B6, B2)",
+      "category": "bedingt",
+      "categoryLabel": "Bedingtes Muss",
+      "bloodValueIds": ["vitamin-b12", "holotranscobalamin", "folsaeure", "homocystein"],
+      "wirkstoffformGut": "Methylcobalamin + Adenosylcobalamin (B12), 5-MTHF / Quatrefolic / Metafolin (Folat), Pyridoxal-5-Phosphat / P5P (B6), Riboflavin-5-Phosphat / R5P (B2); alle bioaktivierten Formen umgehen MTHFR-Polymorphismus",
+      "wirkstoffformSchlecht": "Cyanocobalamin (benötigt enzymatische Decyanierung, enthält Cyanid-Gruppe), synthetische Folsäure (potenziell toxische UMFA-Akkumulation bei MTHFR-Mutation), Pyridoxin-HCl (inaktiv, >100 mg neurotoxisch)",
+      "dosierungPraevention": "5-10 ug B12, 200-800 ug 5-MTHF, 5-25 mg P5P, 5-10 mg R5P im synergistischen Komplex",
+      "dosierungMangel": "500-5.000 ug B12 (bei perniziöser Anämie ggf. i.m. Injektion), 800-2.000 ug 5-MTHF, 20-50 mg P5P, 10-25 mg R5P; ggf. sublingual",
+      "timing": "Morgens oder mittags zum Frühstück (B-Vitamine können abends schlafstörend wirken - Energiestoffwechsel); B12 sublingual für bessere Aufnahme",
+      "synergien": ["B-Vitamine arbeiten obligat synergistisch (Quartett B2, B6, B9, B12)", "Betain (TMG) und Cholin unterstützen Methylierung"],
+      "antagonisten": ["Extrem hochdosiertes Vitamin C kann B12-Struktur in wässriger Lösung zerstören"],
+      "mindestAbstand": "Bei isolierter Einnahme von Mega-Dosen Vitamin C: 2 Stunden Abstand zum B-Komplex",
+      "medikamentenWechselwirkungen": [
+        "Metformin senkt intestinale B12-Resorption erheblich",
+        "Protonenpumpenhemmer (PPI) reduzieren B12-Aufnahme",
+        "Antikonvulsiva interagieren negativ mit Folsäure-Metabolismus",
+        "Methotrexat ist direkter Folsäure-Antagonist",
+        "Lachgas inaktiviert B12",
+        "L-Dopa (Parkinson): B6 kann Wirkung modulieren"
+      ],
+      "kontrolleNach": "2-3 Monate (zwingend Holo-TC und Homocystein bestimmen, Serum-B12 ist nicht aussagekräftig)",
+      "empfohleneMarken": ["REPAVITAL (B Komplex extra)", "Sunday Natural", "Dr. Jacob's", "Aportha", "Neurolab", "Edubily", "natural elements"],
+      "preisProMonat": "8-30 EUR",
+      "evidenzgrad": "Stark",
+      "evidenzDetail": "Robuste Cochrane-Evidenz zur Homocysteinsenkung und neurologischen Protektion; Cofaktor in >100 Enzymreaktionen",
+      "besondereHinweise": "Vegane Ernährung erfordert zwingend lebenslange B12-Substitution (pflanzliche Quellen liefern nur inaktive Analoga). Bei MTHFR-Polymorphismus profitieren Patienten massiv von Riboflavin (B2), das das mutierte Enzym stabilisiert. Biotin (B7) stört Schilddrüsen-Labortests - 3-5 Tage vor Blutabnahme absetzen!",
+      "mussStufe": 2,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "schilddruesen-naehrstoffe",
+      "name": "Schilddrüsen-Nährstoffe (Selen, Jod, Zink)",
+      "category": "bedingt",
+      "categoryLabel": "Bedingtes Muss",
+      "bloodValueIds": ["tsh", "ft3", "ft4", "rt3", "tpo-ak", "selen", "ft3-rt3-ratio"],
+      "wirkstoffformGut": "Selen: Natriumselenit (spezifisch bei Hashimoto/Autoimmunität) oder L-Selenomethionin (bei generellem Mangel, höhere Bioverfügbarkeit); Jod: Kaliumjodid (standardisiert); Zink: Zinkbisglycinat oder Zinkpicolinat",
+      "wirkstoffformSchlecht": "Kelp-Extrakte ohne exakte Standardisierung (Risiko massiver Jod-Schwankungen und Schwermetallbelastungen); Zinkoxid (geringe Bioverfügbarkeit); Zinksulfat (Magenreizung)",
+      "dosierungPraevention": "50-100 ug Selen, 100-150 ug Jod, 10-15 mg Zink",
+      "dosierungMangel": "200 ug Selen (therapeutisch zur TPO-AK-Senkung bei Hashimoto), max. 200 ug Jod, 25-50 mg Zink (für 4-8 Wochen, dann Reduktion auf 15 mg)",
+      "timing": "Zink und Selen nüchtern oder zwischen den Mahlzeiten; Jod morgens zur Mahlzeit. Bei L-Thyroxin-Medikation strikter zeitlicher Abstand!",
+      "synergien": ["Selen + Jod + Vitamin A (synergistisch für T4/T3-Konversion)", "Vitamin E (verbessert antioxidative Selen-Wirkung)", "Myo-Inositol (bei Hashimoto synergistisch)", "Vitamin B6 (Zink-Aufnahme)"],
+      "antagonisten": ["Natriumselenit + Vitamin C (Ascorbinsäure reduziert Selenit zu elementarem, nicht-resorbierbarem Selen)", "Hohe Dosen Eisen behindern Zinkaufnahme kompetitiv", "Calcium (hemmt Zinkaufnahme)"],
+      "mindestAbstand": "1-2 Stunden Abstand zwischen Natriumselenit und Vitamin C; zwingend 2-4 Stunden Abstand zu L-Thyroxin; 2-4h Abstand Zink zu Eisen und Calcium",
+      "medikamentenWechselwirkungen": [
+        "L-Thyroxin bildet schwer lösliche Komplexe mit Eisen, Calcium, Zink - Hormonresorption drastisch gesenkt",
+        "Antibiotika (Tetracycline, Fluorchinolone): 2h Abstand zu Zink",
+        "Amiodaron (enthält Jod - Rücksprache mit Arzt)",
+        "Penicillamin (Wechselwirkung mit Zink)"
+      ],
+      "kontrolleNach": "2-3 Monate (TSH, fT3, fT4, TPO-AK, Selen-Spiegel)",
+      "empfohleneMarken": ["Naturtreu (Drüsenschild)", "Sunday Natural", "ESN (T3 Support)", "Purazell", "MensSana", "natural elements", "Cefasel 200 nutri"],
+      "preisProMonat": "10-25 EUR",
+      "evidenzgrad": "Mittel bis Stark",
+      "evidenzDetail": "Zahlreiche RCTs belegen Reduktion von TPO-Antikörpern durch Selen bei Hashimoto; Jodmangel in Deutschland weit verbreitet; Zink essentiell für >300 Enzyme",
+      "besondereHinweise": "Kritische Biotin-Warnung: Hochdosiertes Biotin (>5 mg) stört Labor-Immunoassays - falsch niedrige TSH- und falsch hohe fT4/fT3-Werte. Biotin zwingend 72 Stunden vor Blutabnahme absetzen! Bei Hashimoto: Jod nur nach ärztlicher Rücksprache! Selen-Toxizität ab ca. 400 ug/Tag. Bei Langzeit-Zink >25 mg: Kupfer (1-2 mg/Tag) supplementieren.",
+      "mussStufe": 2,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "berberin",
+      "name": "Berberin",
+      "category": "optional-lipide",
+      "categoryLabel": "Lipid & Herz-Stack (Optional)",
+      "bloodValueIds": ["ldl", "hdl", "triglyceride", "apob", "nuechtern-glukose", "hba1c"],
+      "wirkstoffformGut": "Berberinhydrochlorid (Standardform); neuere Formen: Dihydroberberin, Berberin-Phytosom (höhere Bioverfügbarkeit)",
+      "wirkstoffformSchlecht": "Niedrig dosierte Berberin-Extrakte ohne standardisierten Wirkstoffgehalt",
+      "dosierungPraevention": "500 mg Berberin (nicht als allgemeine Prävention empfohlen, nur bei Indikation)",
+      "dosierungMangel": "900-1.500 mg Berberin (verteilt auf 2-3 Einzeldosen)",
+      "timing": "Zwingend direkt vor oder zur kohlenhydratreichen Mahlzeit (15-30 min vorher) zur AMPK-Aktivierung",
+      "synergien": ["Citrus Bergamotte (extrem synergistisch auf Lipidprofil)", "Coenzym Q10", "Omega-3", "Rote Reishefe", "Policosanol"],
+      "antagonisten": ["Keine signifikanten diätetischen Antagonisten bekannt"],
+      "mindestAbstand": "Nicht primär relevant bezüglich der Absorption",
+      "medikamentenWechselwirkungen": [
+        "ABSOLUTE VORSICHT: Starker Inhibitor der CYP450-Enzyme (insbes. CYP3A4) - verlangsamt Abbau zahlreicher Medikamente drastisch",
+        "Makrolid-Antibiotika: toxische Interaktion",
+        "Metformin: Hypoglykämie-Risiko (additive Blutzuckersenkung)",
+        "Statine: erhöhte Akkumulationsgefahr durch CYP-Hemmung",
+        "Immunsuppressiva: Wechselwirkung möglich",
+        "Blutverdünner: Vorsicht"
+      ],
+      "kontrolleNach": "8-12 Wochen (vollständiges Lipidprofil, Leberwerte/Transaminasen, HbA1c, Nüchternblutzucker)",
+      "empfohleneMarken": ["Sunday Natural", "QIDOSHA", "MST Nutrition", "natural elements", "Edubily"],
+      "preisProMonat": "15-25 EUR",
+      "evidenzgrad": "Mittel bis Stark",
+      "evidenzDetail": "Umfassende Meta-Analysen belegen Wirksamkeit bei Typ-2-Diabetes und Dyslipidämie; LDL-Senkung ~0,5 mmol/l, Triglyceride ~0,3 mmol/l; klinische Potenz vergleichbar mit leichten Statinen und Metformin",
+      "besondereHinweise": "Starke antimikrobielle Eigenschaften - in Zyklen anwenden (8-12 Wochen Einnahme, 2-4 Wochen Pause) um Mikrobiom zu schonen. Verbraucherzentrale warnt vor hohen Dosen wegen GI-Nebenwirkungen. Einschleichen! Leberwerte kontrollieren.",
+      "mussStufe": 3,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "citrus-bergamotte",
+      "name": "Citrus Bergamotte",
+      "category": "optional-lipide",
+      "categoryLabel": "Lipid & Herz-Stack (Optional)",
+      "bloodValueIds": ["ldl", "hdl", "triglyceride", "gesamtcholesterin"],
+      "wirkstoffformGut": "Standardisierter Citrus Bergamotte Extrakt mit hohem Polyphenolanteil (Brutieridin, Melitidin, Naringin); idealerweise mit Piperin für verbesserte Bioverfügbarkeit",
+      "wirkstoffformSchlecht": "Unstandardisiertes Bergamotte-Fruchtpulver ohne nachgewiesenen Wirkstoffgehalt; ätherisches Bergamotteöl (nicht wirksam für Lipide)",
+      "dosierungPraevention": "500 mg standardisierter Extrakt täglich",
+      "dosierungMangel": "500-1.000 mg täglich (in Studien meist 550-600 mg)",
+      "timing": "Zur Mahlzeit (1-2x täglich); Gemini empfiehlt vor dem Essen oder zur Abendmahlzeit",
+      "synergien": ["Piperin (Bioenhancer)", "Berberin (additive Lipidsenkung)", "Artischocken-Extrakt", "Omega-3"],
+      "antagonisten": ["Keine bekannten"],
+      "mindestAbstand": "Nicht relevant",
+      "medikamentenWechselwirkungen": [
+        "Statine: additive cholesterinsenkende Wirkung (HMG-CoA-Reduktase-Hemmung) - ggf. Dosisanpassung, erhöhtes Nebenwirkungsrisiko"
+      ],
+      "kontrolleNach": "8-12 Wochen (Lipidpanel)",
+      "empfohleneMarken": ["QIDOSHA (Citrus Bergamot + Piperin)", "MST Nutrition", "Sunday Natural"],
+      "preisProMonat": "15-25 EUR",
+      "evidenzgrad": "Mittel",
+      "evidenzDetail": "Mehrere RCTs: LDL-Senkung -12% bis -41%, Gesamtcholesterin -12% bis -31%; erste Studie zur Atherosklerose-Hemmung (CIMT-Reduktion); HDL-Anstieg",
+      "besondereHinweise": "Natürliche Statin-Alternative; hemmt sanft HMG-CoA-Reduktase ohne muskuläre Toxizität der Statine. Mindestens 8-12 Wochen Einnahme für messbare Effekte. Progressive Wirkungssteigerung über die Zeit.",
+      "mussStufe": 3,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "coenzym-q10",
+      "name": "Coenzym Q10 (Ubiquinol)",
+      "category": "optional-lipide",
+      "categoryLabel": "Lipid & Herz-Stack (Optional)",
+      "bloodValueIds": ["coenzym-q10", "ldl", "hdl"],
+      "wirkstoffformGut": "Ubiquinol (reduzierte, direkt bioaktive Form, bis zu 8-fach höhere Bioverfügbarkeit); Markenrohstoff: Kaneka Ubiquinol",
+      "wirkstoffformSchlecht": "Ubichinon (oxidierte Form) - wird von Personen über 40 Jahren und Statin-Nutzern extrem schlecht in die aktive Form umgewandelt",
+      "dosierungPraevention": "100 mg Ubiquinol täglich",
+      "dosierungMangel": "200-300 mg Ubiquinol (obligat unter Statintherapie)",
+      "timing": "Morgens oder mittags, unbedingt zur fetthaltigen Mahlzeit zur Solubilisierung (fettlöslich)",
+      "synergien": ["Omega-3-Fettsäuren", "Vitamin E", "Selen", "D-Ribose", "Magnesium"],
+      "antagonisten": ["Keine direkten bekannt"],
+      "mindestAbstand": "Nicht relevant",
+      "medikamentenWechselwirkungen": [
+        "Statine senken die körpereigene Q10-Produktion massiv (Mevalonat-Weg-Blockade) - Supplementierung unter Statintherapie medizinisch obligat",
+        "Warfarin: Q10 kann Wirkung abschwächen"
+      ],
+      "kontrolleNach": "3 Monate (Q10-Spiegel, subjektive Energie)",
+      "empfohleneMarken": ["Sunday Natural (Kaneka Ubiquinol)", "Dr. Wolz (Cardio Protect Q10)", "QIDOSHA (Ubiquinol Kaneka)", "natural elements"],
+      "preisProMonat": "15-30 EUR",
+      "evidenzgrad": "Mittel",
+      "evidenzDetail": "Cochrane-Review: Q10 bei Herzinsuffizienz vielversprechend aber nicht abschließend belegt; Q10-Senkung durch Statine gut dokumentiert; unerlässlich für mitochondrialen Elektronentransport",
+      "besondereHinweise": "Bei allen Statin-Nutzern Q10 empfehlen! Ab 40+ Ubiquinol statt Ubichinon bevorzugen. Statin-induzierte Myopathie (Muskelschmerzen) ist primär durch Q10-Depletion verursacht.",
+      "mussStufe": 3,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "niacin",
+      "name": "Niacin (Vitamin B3)",
+      "category": "optional-lipide",
+      "categoryLabel": "Lipid & Herz-Stack (Optional)",
+      "bloodValueIds": ["hdl", "ldl", "triglyceride", "lpa"],
+      "wirkstoffformGut": "Nikotinsäure (für Lipidwirkung); Nicotinamid-Ribosid / NR (für NAD+-Synthese); Inositolhexanicotinat (Flush-free, möglicherweise geringere Lipidwirkung)",
+      "wirkstoffformSchlecht": "Nicotinamid hat KEINE Wirkung auf Cholesterin/Lipide; Retard-Formulierungen haben erhöhtes Lebertoxizitätsrisiko",
+      "dosierungPraevention": "50-250 mg Nicotinamid/Tag (für NAD+) oder 250 mg Nicotinamid-Ribosid/Tag",
+      "dosierungMangel": "500-2.000 mg Nikotinsäure/Tag (einschleichen mit 250 mg, langsam steigern zur Flush-Toleranz)",
+      "timing": "Zur Mahlzeit (abends); ASS 100 mg 30 min vorher kann Flush reduzieren",
+      "synergien": ["Omega-3 (additive Triglyceridsenkung)", "Coenzym Q10"],
+      "antagonisten": ["Keine direkten bekannt"],
+      "mindestAbstand": "Nicht relevant",
+      "medikamentenWechselwirkungen": [
+        "Statine: Kombination kann Myopathie/Rhabdomyolyse-Risiko erhöhen; Lebertransaminasen zwingend monitoren",
+        "Diabetes-Medikamente: Niacin kann Blutzucker erhöhen"
+      ],
+      "kontrolleNach": "4-6 Wochen (Leberwerte!), dann 3 Monate (vollständiges Lipidprofil)",
+      "empfohleneMarken": ["Bonusan (Niacin flush-free 500 Komplex)", "Unimedica", "NOW Foods (Flush-free)", "nutri-direct", "Sunday Natural"],
+      "preisProMonat": "10-20 EUR",
+      "evidenzgrad": "Mittel bis Stark",
+      "evidenzDetail": "Stark für HDL-Steigerung (einziges Supplement mit starkem HDL-Effekt); eine der wenigen Substanzen die Lp(a) signifikant senken kann (~20%); Gesamtmortalitätssenkung in Outcome-Studien enttäuschend trotz guter Lipideffekte",
+      "besondereHinweise": "Niacin-Flush (Hautrötung, Wärme) bei Nikotinsäure ist harmlos aber unangenehm - tritt nicht bei Inositolhexanicotinat oder Nicotinamid auf. Leberwerte regelmäßig kontrollieren bei Dosen >500 mg/Tag. Hochdosiertes Niacin in Kombination mit Statinen erfordert zwingend Monitoring.",
+      "mussStufe": 3,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "ashwagandha",
+      "name": "Ashwagandha (KSM-66)",
+      "category": "optional-hormone",
+      "categoryLabel": "Hormon & Stress-Stack (Optional)",
+      "bloodValueIds": ["cortisol", "testosteron-gesamt", "testosteron-frei", "shbg"],
+      "wirkstoffformGut": "Ashwagandha Wurzel-Extrakt (zwingend KSM-66, auf min. 5% Withanolide standardisiert); Vollspektrum-Wurzelextrakt (keine Blätter)",
+      "wirkstoffformSchlecht": "Unstandardisiertes Ashwagandha-Blattpulver (hohes Risiko für Schwermetallkontamination und marginaler Wirkstoffgehalt); Extrakte mit Blattanteil (weniger erforscht)",
+      "dosierungPraevention": "300 mg Ashwagandha KSM-66 täglich",
+      "dosierungMangel": "600-1.200 mg KSM-66 täglich (2x 300-600 mg, einschleichen!)",
+      "timing": "Primär abends (zur nächtlichen Cortisolsenkung und Schlafverbesserung); bei 2x täglich: morgens + abends",
+      "synergien": ["CBD (tiefe neuronale Entspannung)", "Magnesium", "Rhodiola rosea", "Vitamin D3"],
+      "antagonisten": ["Keine direkten Supplement-Antagonisten"],
+      "mindestAbstand": "Nicht relevant",
+      "medikamentenWechselwirkungen": [
+        "Immunsuppressiva: Ashwagandha stimuliert potenziell das Immunsystem",
+        "Schilddrüsenmedikamente: kann TSH, fT3, fT4 anheben - bei Schilddrüsenerkrankungen Rücksprache mit Arzt",
+        "Beruhigungsmittel/Benzodiazepine: additive Sedierung"
+      ],
+      "kontrolleNach": "4-8 Wochen (Cortisol-Tagesprofil, ggf. Schilddrüsenwerte, SHBG, freies Testosteron)",
+      "empfohleneMarken": ["Sunday Natural (KSM-66)", "ESN", "natural elements", "Biogena", "moleqlar"],
+      "preisProMonat": "10-20 EUR",
+      "evidenzgrad": "Mittel bis Stark",
+      "evidenzDetail": "Robuste RCTs: signifikante Cortisolsenkung, Schlafverbesserung, Stressreduktion (Anxiolyse), Testosteronanstieg bei Männern; spürbare Effekte nach 4-8 Wochen",
+      "besondereHinweise": "Zyklische Einnahme (8 Wochen on, 2-4 Wochen Pause) um Down-Regulation der Rezeptoren zu vermeiden. Nicht in Schwangerschaft/Stillzeit. Bei Autoimmunerkrankungen Vorsicht (immunstimulierend). Nachtschattengewächs.",
+      "mussStufe": 3,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "bor",
+      "name": "Bor (Boron)",
+      "category": "optional-hormone",
+      "categoryLabel": "Hormon & Stress-Stack (Optional)",
+      "bloodValueIds": ["testosteron-frei", "shbg", "estradiol"],
+      "wirkstoffformGut": "Natriumborat (Borax), patentiertes Calciumfructoborat, Borcitrat, Bor-Glycinat - alle gut resorbierbar",
+      "wirkstoffformSchlecht": "Borsäure (als Supplement nicht empfohlen - hauptsächlich industrielle Verwendung)",
+      "dosierungPraevention": "3 mg Bor täglich",
+      "dosierungMangel": "6-10 mg Bor täglich (in strengen Zyklen, nicht dauerhaft >10 mg)",
+      "timing": "Morgens zur Mahlzeit",
+      "synergien": ["Vitamin D3 (Bor verlängert die Halbwertszeit von D3)", "Magnesium (Bor verbessert renale Mg-Retention)", "Calcium"],
+      "antagonisten": ["Keine bekannten"],
+      "mindestAbstand": "Nicht relevant",
+      "medikamentenWechselwirkungen": [
+        "Östrogentherapie (additive Östrogenwirkung)"
+      ],
+      "kontrolleNach": "4-8 Wochen (freies Testosteron, SHBG, Östradiol)",
+      "empfohleneMarken": ["Sunday Natural", "natural elements", "Edubily", "Life Extension"],
+      "preisProMonat": "4-8 EUR",
+      "evidenzgrad": "Schwach bis Mittel",
+      "evidenzDetail": "Einzelne RCTs: freies Testosteron +25%, SHBG-Senkung; drastische Reduktion pro-inflammatorischer Biomarker (hsCRP, TNF-alpha); Knochenstoffwechsel sicherer Nutzen; Daten teils widersprüchlich (bei manchen Studien stieg Östrogen stärker als Testosteron)",
+      "besondereHinweise": "Bor akkumuliert bei kontinuierlicher Hochdosisgabe und kann die Nieren belasten (nicht dauerhaft >10 mg). Hormon-Effekt individuell testen. Verbraucherzentrale warnt vor hohen Dosen.",
+      "mussStufe": 3,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "dhea",
+      "name": "DHEA (Dehydroepiandrosteron)",
+      "category": "optional-hormone",
+      "categoryLabel": "Hormon & Stress-Stack (Optional)",
+      "bloodValueIds": ["dhea-s", "testosteron-gesamt", "testosteron-frei", "estradiol"],
+      "wirkstoffformGut": "Mikronisiertes DHEA (oral)",
+      "wirkstoffformSchlecht": "Nicht-mikronisierte Formen (schlechtere Absorption)",
+      "dosierungPraevention": "Nicht präventiv supplementieren - nur bei nachgewiesenem DHEA-S-Mangel!",
+      "dosierungMangel": "Frauen: 5-25 mg/Tag; Männer: 10-50 mg/Tag (streng titriert nach Blutwert und Geschlecht); 6x pro Woche bei leichter Kumulation",
+      "timing": "Zwingend am Morgen (entsprechend der physiologischen zirkadianen Rhythmik der Nebenniere / DHEA-Peak)",
+      "synergien": ["Vitamin D3", "Zink (natürlicher Aromatase-Modulator)", "Bor"],
+      "antagonisten": ["Keine direkten bekannt"],
+      "mindestAbstand": "DHEA morgens, Ashwagandha abends - natürlichen Cortisol-Rhythmus nicht stören",
+      "medikamentenWechselwirkungen": [
+        "Hormonersatztherapien und orale Kontrazeptiva: unvorhersehbare Interaktion",
+        "Insulin/Antidiabetika: kann Insulinresistenz beeinflussen",
+        "Tamoxifen/Aromatasehemmer: kontraindiziert bei hormonabhängigen Tumoren",
+        "Testosteron/Östrogen-Präparate: additive Hormonwirkung"
+      ],
+      "kontrolleNach": "8-12 Wochen (DHEA-S, Testosteron gesamt/frei, Östradiol, PSA bei Männern)",
+      "empfohleneMarken": ["WLS Products", "Regenbogen Apotheke (pharmazeutisches DHEA)", "Sunday Natural", "Life Extension (Import)"],
+      "preisProMonat": "8-15 EUR",
+      "evidenzgrad": "Mittel",
+      "evidenzDetail": "RCTs bei postmenopausalen Frauen und älteren Erwachsenen; Anti-Aging-Nutzen umstritten; Hormonspiegel-Normalisierung belegt",
+      "besondereHinweise": "NUR bei nachgewiesenem DHEA-S-Mangel und unter ärztlicher Kontrolle! In DE verschreibungspflichtig (als Arzneimittel). Bei Männern mit hohem Körperfettanteil: Risiko der peripheren Aromatisation zu Östradiol (Gynäkomastie). DHEA-Spiegel kulminiert im 3. Lebensjahrzehnt und fällt danach kontinuierlich ab.",
+      "mussStufe": 3,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "zink-hormon",
+      "name": "Zink (Hormonfokus)",
+      "category": "optional-hormone",
+      "categoryLabel": "Hormon & Stress-Stack (Optional)",
+      "bloodValueIds": ["testosteron-gesamt", "testosteron-frei", "shbg"],
+      "wirkstoffformGut": "Zinkbisglycinat (höchste Bioverfügbarkeit, magenfreundlich), Zinkcitrat, Zinkpicolinat",
+      "wirkstoffformSchlecht": "Zinkoxid (sehr geringe Bioverfügbarkeit), Zinksulfat (Magenreizung)",
+      "dosierungPraevention": "10-15 mg/Tag",
+      "dosierungMangel": "25-50 mg/Tag für 4-8 Wochen, dann Reduktion auf 15 mg",
+      "timing": "Abends zum Abendessen (oder vor dem Schlafen); mind. 2-4h nach Eisen",
+      "synergien": ["Vitamin B6 (Zink-Aufnahme)", "Vitamin A"],
+      "antagonisten": ["Eisen (kompetitive Hemmung)", "Calcium", "Kupfer (langfristig hohe Zinkdosen senken Kupfer)"],
+      "mindestAbstand": "2-4h zu Eisen und Calcium",
+      "medikamentenWechselwirkungen": [
+        "Antibiotika (Tetracycline, Fluorchinolone): 2h Abstand",
+        "Penicillamin"
+      ],
+      "kontrolleNach": "3 Monate",
+      "empfohleneMarken": ["Sunday Natural", "natural elements", "Edubily", "Zink-Biomed"],
+      "preisProMonat": "4-8 EUR",
+      "evidenzgrad": "Stark",
+      "evidenzDetail": "Essentielles Spurenelement für >300 Enzyme, Immunfunktion, Schilddrüse; Cofaktor für Testosteronsynthese und Aromatase-Modulation",
+      "besondereHinweise": "Bei Langzeit-Supplementierung >25 mg: Kupfer-Supplementierung erwägen (1-2 mg Kupfer/Tag) um Kupfermangel vorzubeugen. Zink ist entscheidend für T3-Bindung an intrazelluläre Schilddrüsenrezeptoren und TSH-Ausschüttung.",
+      "mussStufe": 3,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "schlaf-stack",
+      "name": "Schlaf-Stack (Magnesium-Bisglycinat, Glycin, L-Theanin)",
+      "category": "optional-schlaf",
+      "categoryLabel": "Schlaf & Regeneration (Optional)",
+      "bloodValueIds": ["magnesium", "cortisol"],
+      "wirkstoffformGut": "Magnesium als Bisglycinat-Chelat; freies Glycin als isoliertes Pulver (>99% Reinheit); freies L-Theanin (reines L-Isomer aus Camellia sinensis)",
+      "wirkstoffformSchlecht": "Magnesiumoxid/Magnesiumcarbonat (rein osmotisch, neurologisch ungeeignet); DL-Theanin (Racemat, enthält inaktives D-Isomer)",
+      "dosierungPraevention": "200 mg elementares Magnesium (als Bisglycinat) + 1-2 g Glycin + 100-200 mg L-Theanin",
+      "dosierungMangel": "400 mg elementares Magnesium + 3 g Glycin + 200-400 mg L-Theanin (bei Stress/Insomnie)",
+      "timing": "Präzise 30-60 Minuten vor der Nachtruhe",
+      "synergien": ["Glycin und L-Theanin synergistisch zur Stimulation endogener Melatonin-Produktion", "GABA", "NAC (GlyNAC-Kombination für Glutathion)", "Ashwagandha KSM-66 (nächtliche Cortisolsenkung)"],
+      "antagonisten": ["Keine direkten Antagonisten für die neurologische Wirkung"],
+      "mindestAbstand": "2 Stunden Abstand zu PPIs und hochdosiertem Calcium (Magnesium-Resorption)",
+      "medikamentenWechselwirkungen": [
+        "Niereninsuffizienz (Kreatinin-Clearance <20 mL/min): Gefahr toxischer Magnesium-Akkumulation",
+        "L-Theanin: additive Verstärkung von Blutdrucksenkern (vasodilatatorisch)",
+        "Beruhigungsmittel/Benzodiazepine: additive Sedierung",
+        "Clozapin (antipsychotisch): Wechselwirkung mit Glycin möglich"
+      ],
+      "kontrolleNach": "Klinisches Assessment der Schlafqualität (Wearables: Oura-Ring, Garmin); Magnesium-Vollblutwert nach 3 Monaten",
+      "empfohleneMarken": ["Sunday Natural", "Biogena", "Bärenapotheke", "Edubily", "natural elements", "neuro-pulse (L-Theanin)"],
+      "preisProMonat": "15-30 EUR",
+      "evidenzgrad": "Mittel",
+      "evidenzDetail": "Robuste RCT-Daten für L-Theanin (Alpha-Wellen-Steigerung) und Glycin (subjektive Schlafqualität, Kerntemperatursenkung); Magnesium-Bisglycinat als NMDA-Rezeptor-Blocker reduziert neuronale Hyperaktivität",
+      "besondereHinweise": "Magnesium-Bisglycinat liefert bereits Glycin als Chelat-Partner. Reines Glycin-Pulver ist extrem kosteneffizient mit angenehmem süßlichem Geschmack - ideal zum Einrühren in Kräutertee (z.B. Rooibos). L-Theanin nicht sedierend sondern anxiolytisch - fördert entspannte Wachheit/Einschlafübergang. Sicher bis 900 mg L-Theanin/Tag, keine Abhängigkeit. Glycin bis 30 g/Tag als sicher eingestuft.",
+      "mussStufe": 3,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "homocystein-stack",
+      "name": "Homocystein-Stack (B-Komplex + TMG)",
+      "category": "optional-homocystein",
+      "categoryLabel": "Homocystein-Senkung (Optional)",
+      "bloodValueIds": ["homocystein", "vitamin-b12", "holotranscobalamin", "folsaeure"],
+      "wirkstoffformGut": "5-MTHF (Quatrefolic/Metafolin), Methylcobalamin + Adenosylcobalamin, Pyridoxal-5-Phosphat (P5P/B6), Riboflavin-5-Phosphat (R5P/B2), Betain (Trimethylglycin/TMG)",
+      "wirkstoffformSchlecht": "Synthetische Folsäure (bei MTHFR-Polymorphismen nicht umwandelbar), Cyanocobalamin (ineffizient)",
+      "dosierungPraevention": "Moderater aktiver B-Komplex: 400-800 ug 5-MTHF, 500-1.000 ug B12, 10-20 mg P5P, 10 mg R5P",
+      "dosierungMangel": "Therapeutische Dosen bei Homocystein >15: 800-1.000 ug 5-MTHF, 1.000 ug bioaktives B12, 10-25 mg P5P, 10-25 mg R5P, flankiert von 1-2 g Betain (TMG)",
+      "timing": "Morgens oder mittags",
+      "synergien": ["Betain (TMG) und Cholin als alternative B12-unabhängige Methyl-Donatoren in der Leber", "Alle vier B-Vitamine arbeiten synergistisch im Methylierungszyklus"],
+      "antagonisten": ["Keine direkten Antagonisten für diesen Abbauweg"],
+      "mindestAbstand": "Nicht relevant für die Stoffwechselkaskade",
+      "medikamentenWechselwirkungen": [
+        "L-Dopa (Parkinson): hochdosiertes peripheres B6 (P5P) kann Wirksamkeit modulieren",
+        "Methotrexat: direkter Folsäure-Antagonist",
+        "Metformin und PPI: senken B12-Resorption"
+      ],
+      "kontrolleNach": "6-8 Wochen nach Supplementierungsbeginn. Kritischer Hinweis: Plasma-Probe muss binnen 30 Minuten abzentrifugiert und gekühlt werden (Erythrozyten produzieren in vitro weiter Homocystein = falsch hohe Werte)",
+      "empfohleneMarken": ["Sunday Natural (Homocystein-Komplex)", "Aportha (Homocystein Balance)", "Neurolab", "Dr. Jacob's", "Biogena", "Pure Encapsulations", "REPAVITAL"],
+      "preisProMonat": "10-25 EUR",
+      "evidenzgrad": "Stark",
+      "evidenzDetail": "Umfassende Cochrane-Meta-Analysen belegen drastische und zuverlässige Homocysteinsenkung durch B-Vitamin-Therapie; Folat senkt Homocystein um 20-28%; Kombination mit B12, B6 und B2 additiv wirksam",
+      "besondereHinweise": "Homocystein ist hochgradig endothelschädigend - unabhängiger Risikofaktor für Herzinfarkt, Schlaganfall und neurodegenerative Erkrankungen. Bei homozygotem MTHFR-Polymorphismus (C677T): hochdosiertes Riboflavin (B2) stabilisiert die fehlerhafte Struktur des mutierten MTHFR-Enzyms. Plasma-Homocystein Zielbereich: <10 umol/L, Optimum <8 umol/L.",
+      "mussStufe": 3,
+      "sources": ["Gemini Supplement-Datenbank", "Perplexity Supplement-Datenbank"]
+    },
+    {
+      "id": "vitamin-c",
+      "name": "Vitamin C (Ascorbinsäure)",
+      "category": "bedingt",
+      "categoryLabel": "Bedingtes Muss",
+      "bloodValueIds": ["ferritin", "serum-eisen"],
+      "wirkstoffformGut": "Natürliches Vitamin C aus Acerola, Camu-Camu, Hagebutte; gepuffertes Vitamin C (Calciumascorbat/Ester-C) für magenempfindliche Personen",
+      "wirkstoffformSchlecht": "Reine Ascorbinsäure in Megadosen - kann Magenreizung verursachen; synthetisch hergestellt gleichwertig aber schlechter verträglich bei >1 g",
+      "dosierungPraevention": "200-500 mg/Tag",
+      "dosierungMangel": "50-200 mg zusammen mit der Eisen-Einnahme (zur Eisenresorptionssteigerung)",
+      "timing": "Morgens zusammen mit Eisen (nüchtern); NICHT gleichzeitig mit Natriumselenit",
+      "synergien": ["Eisen (steigert Resorption signifikant - reduziert Fe3+ zu Fe2+)", "Kollagen-Synthese"],
+      "antagonisten": ["Natriumselenit (reduziert Selenit zu nicht-resorbierbarem Selen)", "Extrem hochdosiert: kann B12-Struktur in wässriger Lösung zerstören"],
+      "mindestAbstand": "1-2 Stunden zu Natriumselenit; 2 Stunden zu B12 bei Mega-Dosen",
+      "medikamentenWechselwirkungen": [
+        "Kann Urin-Tests verfälschen",
+        "Bei Nierensteinneigung Vorsicht bei >1 g/Tag"
+      ],
+      "kontrolleNach": "Nicht spezifisch nötig (ggf. Vitamin-C-Spiegel bei Mangelverdacht)",
+      "empfohleneMarken": ["natural elements (Acerola-Kapseln)", "Sunday Natural", "Edubily", "korodrogerie"],
+      "preisProMonat": "3-8 EUR",
+      "evidenzgrad": "Stark",
+      "evidenzDetail": "Eisenresorptionssteigerung durch Vitamin C in zahlreichen RCTs belegt",
+      "besondereHinweise": "Wasserlöslich - Überschuss wird ausgeschieden. Dosen >500 mg bringen kaum zusätzlichen Nutzen. Primär als Synergist für Eisenaufnahme relevant.",
+      "mussStufe": 2,
+      "sources": ["Perplexity Supplement-Datenbank"]
+    }
+  ],
+
+  "timingSchedule": [
+    {
+      "zeit": "Morgens (Nüchtern, 30-60 Min vor dem Frühstück)",
+      "rationale": "Maximale Absorption auf leeren Magen, keine kompetitiven Ionen, Respektierung der Cortisol-Kurve",
+      "supplements": [
+        "L-Thyroxin (falls verschrieben - absoluter Vorrang, immer isoliert!)",
+        "Eisenbisglycinat + Vitamin C (an Tagen ohne L-Thyroxin)",
+        "DHEA (zur Imitation des natürlichen Cortisol/DHEA-Peaks)"
+      ]
+    },
+    {
+      "zeit": "Morgens (Zum Frühstück, zwingend fetthaltig)",
+      "rationale": "Solubilisierung fettlöslicher Vitamine, Aktivierung des zellulären Energiestoffwechsels für den Tag",
+      "supplements": [
+        "Vitamin D3 + K2 (fettlöslich)",
+        "B-Vitamine / Homocystein-Stack",
+        "Niacin / Nicotinamid-Ribosid (NAD+-Synthese)",
+        "Coenzym Q10 (Ubiquinol, fettlöslich)",
+        "Selen (zur Mahlzeit)",
+        "Jod (zur Mahlzeit)",
+        "Bor (zur Mahlzeit)",
+        "Citrus Bergamotte",
+        "Ashwagandha (1. Dosis, falls 2x täglich)"
+      ]
+    },
+    {
+      "zeit": "Mittags / Nachmittags (Zwischen den Mahlzeiten oder zum Essen)",
+      "rationale": "Vermeidung von Komplexbildungen mit den morgendlichen Supplementen, Blutzuckermodulation",
+      "supplements": [
+        "Berberin (direkt vor der kohlenhydratreichsten Mahlzeit zur AMPK-Aktivierung)",
+        "Berberin (2. Dosis bei 2-3x täglicher Einnahme)",
+        "Omega-3 (alternativ, falls morgens vergessen)"
+      ]
+    },
+    {
+      "zeit": "Abends (Zur Hauptmahlzeit)",
+      "rationale": "Langsame nächtliche Resorption, Unterstützung der hepatischen Lipogenese-Hemmung, Trennung von kompetitiven Mineralstoffen",
+      "supplements": [
+        "Omega-3-Fettsäuren (fetthaltige Mahlzeit erhöht Resorption)",
+        "Citrus Bergamotte (alternativ abends)",
+        "Zink (zum Abendessen, mind. 2-4h nach Eisen!)",
+        "Berberin (3. Dosis bei 3x täglicher Einnahme)",
+        "Ashwagandha (2. Dosis bei Schlaffokus)"
+      ]
+    },
+    {
+      "zeit": "Nachts (30-60 Minuten vor dem Schlafengehen)",
+      "rationale": "Induktion des Parasympathikus, Blockade exzitatorischer Neurotransmitter, Absenkung der Körperkerntemperatur",
+      "supplements": [
+        "Magnesium-Bisglycinat (NMDA-Rezeptor-Blockade, Muskelrelaxation)",
+        "Glycin (3 g in Wasser/Tee auflösen, senkt Körperkerntemperatur)",
+        "L-Theanin (Alpha-Wellen-Steigerung, GABA-Erhöhung)",
+        "Ashwagandha KSM-66 (nachhaltige Senkung nächtlicher Cortisol-Ausschüttung)",
+        "Magnesium-Threonat (optional, ZNS-gängig)"
+      ]
+    }
+  ],
+
+  "interactionMatrix": {
+    "negativInteractions": [
+      {
+        "substanzA": "Eisen",
+        "substanzB": "Zink, Calcium, Magnesium",
+        "mechanismus": "Massive kompetitive Hemmung an den DMT1-Transportern im Darmlumen; Eisen wird nicht resorbiert",
+        "abstand": "2-4 Stunden"
+      },
+      {
+        "substanzA": "Eisen",
+        "substanzB": "Tannine, Polyphenole (Kaffee, Tee)",
+        "mechanismus": "Sofortige Bildung massiver, unlöslicher Komplexe im sauren Milieu des Magens",
+        "abstand": "1-2 Stunden"
+      },
+      {
+        "substanzA": "L-Thyroxin",
+        "substanzB": "Calcium, Eisen, Zink, Magnesium (alle Mineralien)",
+        "mechanismus": "Bildung schwer löslicher Komplexe, welche die lebenswichtige T4-Absorption physikalisch verhindern",
+        "abstand": "Mindestens 2-4 Stunden"
+      },
+      {
+        "substanzA": "Magnesium",
+        "substanzB": "PPI (Pantoprazol, Omeprazol)",
+        "mechanismus": "PPI verändern den Magen-pH drastisch und blockieren die Magnesium-Resorption massiv - systemische Mängel möglich",
+        "abstand": "Mg ggf. parenteral oder als transdermales Öl applizieren, Serumwerte engmaschig überwachen"
+      },
+      {
+        "substanzA": "Natriumselenit",
+        "substanzB": "Vitamin C",
+        "mechanismus": "Ascorbinsäure reduziert das bioaktive Selenit sofort im Magen zu elementarem, nicht-resorbierbarem rotem Selen",
+        "abstand": "1-2 Stunden"
+      },
+      {
+        "substanzA": "Berberin",
+        "substanzB": "Makrolide, Statine, CYP450-Substrate",
+        "mechanismus": "Hemmung der CYP450-Enzyme (wie Grapefruit); drastische Akkumulationsgefahr pharmazeutischer Wirkstoffe in der Leber",
+        "abstand": "Strenge ärztliche Abklärung zwingend erforderlich"
+      },
+      {
+        "substanzA": "Zink (>25 mg langfristig)",
+        "substanzB": "Kupfer",
+        "mechanismus": "Langfristig hohe Zinkdosen senken Kupferspiegel - Kupfermangel möglich",
+        "abstand": "Kupfer separat supplementieren (1-2 mg/Tag)"
+      },
+      {
+        "substanzA": "Calcium (hohe Dosis)",
+        "substanzB": "Zink",
+        "mechanismus": "Calcium hemmt Zinkaufnahme",
+        "abstand": "2 Stunden"
+      },
+      {
+        "substanzA": "Biotin (B7, >5 mg)",
+        "substanzB": "Schilddrüsen-Bluttest",
+        "mechanismus": "Biotin stört Streptavidin-Biotin-basierte Labor-Immunoassays: falsch niedrige TSH, falsch hohe fT3/fT4 - täuscht Hyperthyreose vor",
+        "abstand": "3-5 Tage vor Bluttest absetzen"
+      }
+    ],
+    "positiveInteractions": [
+      {
+        "kombination": "D3 + K2 + Magnesium",
+        "effekt": "K2 lenkt Calcium in Knochen statt Gefäße; Magnesium aktiviert D3 (Hydroxylierungsschritte)"
+      },
+      {
+        "kombination": "Eisen + Vitamin C",
+        "effekt": "Vitamin C steigert Eisenresorption signifikant (reduziert Fe3+ zu Fe2+)"
+      },
+      {
+        "kombination": "5-MTHF + B12 + P5P + R5P",
+        "effekt": "Homocystein-Senkung - alle Cofaktoren des Remethylierungs- und Transsulfurierungswegs abgedeckt"
+      },
+      {
+        "kombination": "Selen + Jod + Zink",
+        "effekt": "Schilddrüsen-Trias: Selen für Deiodinase + Glutathionperoxidase, Jod als Hormonbaustein, Zink für T3-Rezeptorbindung"
+      },
+      {
+        "kombination": "Magnesium + L-Theanin + Glycin",
+        "effekt": "Schlaf-Stack: additiv entspannend durch GABAerge Signalwege, NMDA-Blockade und Kerntemperatursenkung"
+      },
+      {
+        "kombination": "Q10 + Omega-3 + Bergamotte",
+        "effekt": "Herzgesundheits-Stack: mitochondriale Energieversorgung + antiinflammatorisch + Lipidsenkung"
+      },
+      {
+        "kombination": "D3 + Bor",
+        "effekt": "Synergistisch für Hormonhaushalt; Bor verlängert D3-Halbwertszeit"
+      },
+      {
+        "kombination": "Berberin + Bergamotte",
+        "effekt": "Additive Lipidsenkung über verschiedene Mechanismen (AMPK + HMG-CoA-Reduktase)"
+      },
+      {
+        "kombination": "Ashwagandha + Magnesium-Bisglycinat",
+        "effekt": "Cortisolsenkung + neuronale Beruhigung für optimale Schlafarchitektur"
+      }
+    ]
+  },
+
+  "costOverview": [
+    {
+      "level": "Präventiver Basis-Stack",
+      "supplements": "Vitamin D3/K2, Omega-3 (rTG), Magnesium-Bisglycinat",
+      "kostenProMonat": "25-65 EUR",
+      "zielgruppe": "Nahezu jeder Erwachsene in der DACH-Region"
+    },
+    {
+      "level": "Erweiterter Basis-Stack (+ Methylierung)",
+      "supplements": "Basis + Aktiver B-Komplex (Methylierung)",
+      "kostenProMonat": "33-95 EUR",
+      "zielgruppe": "Veganer/Vegetarier, MTHFR-Polymorphismus-Träger, erhöhtes Homocystein"
+    },
+    {
+      "level": "Basis + Schilddrüsen-Support",
+      "supplements": "Basis + Selen, Jod, Zink",
+      "kostenProMonat": "36-90 EUR",
+      "zielgruppe": "Hashimoto, Schilddrüsenunterfunktion, Jodmangel"
+    },
+    {
+      "level": "Spezifischer Dyslipidämie-Stack",
+      "supplements": "Berberin, Citrus Bergamotte, Ubiquinol, Niacin",
+      "kostenProMonat": "40-80 EUR",
+      "zielgruppe": "Manifeste Dyslipidämie (hohes LDL/ApoB, Insulinresistenz)"
+    },
+    {
+      "level": "Basis + Herz/Lipide",
+      "supplements": "Basis + Q10, Bergamotte, hochdosiertes Omega-3",
+      "kostenProMonat": "55-100 EUR",
+      "zielgruppe": "Kardiovaskuläres Risikoprofil, Statin-Nutzer"
+    },
+    {
+      "level": "Basis + Schlaf-Stack",
+      "supplements": "Basis + L-Theanin, Glycin, höherdosiertes Magnesium-Bisglycinat",
+      "kostenProMonat": "38-70 EUR",
+      "zielgruppe": "Chronische Insomnie, Stress-induzierte Schlafstörungen"
+    },
+    {
+      "level": "Komplett-Intervention (Maximale Abdeckung)",
+      "supplements": "Basis + Hormone (Ashwagandha, Bor) + Lipide + Schlaf-Stack + B-Komplex",
+      "kostenProMonat": "120-250 EUR",
+      "zielgruppe": "Umfassende metabolische Optimierung unter ärztlicher Begleitung"
+    }
+  ],
+
+  "qualitaetskriterien": {
+    "beschreibung": "Qualitätskriterien für NEM auf dem deutschen Markt",
+    "kriterien": [
+      "Laborgeprüft (unabhängige deutsche Labore)",
+      "Made in Germany / EU",
+      "Frei von unnötigen Zusatzstoffen (Magnesiumstearat, Titandioxid)",
+      "Aktive/bioverfügbare Wirkstoffformen (Chelate statt Oxide)",
+      "Transparente Deklaration (elementarer Gehalt, nicht Verbindungsgewicht)",
+      "Glasverpackung bevorzugt (bei Ölen/empfindlichen Stoffen)"
+    ],
+    "topMarkenDE": [
+      { "name": "Sunday Natural", "fokus": "Breites Sortiment, Glasverpackung, hohe Qualität" },
+      { "name": "natural elements", "fokus": "Sehr gutes Preis-Leistungs-Verhältnis, laborgeprüft" },
+      { "name": "Biogena", "fokus": "Pharmazeutische Qualität, Reinsubstanzen" },
+      { "name": "Edubily", "fokus": "Wissenschaftlich fundiert, gute Formulierungen" },
+      { "name": "QIDOSHA", "fokus": "Spezialisierte Extrakte, gute Rohstoffe" },
+      { "name": "moleqlar", "fokus": "Longevity-Fokus, premium" },
+      { "name": "Naturtreu", "fokus": "Natürliche Komplexpräparate" },
+      { "name": "Norsan", "fokus": "Premium Omega-3 (Fischöl und Algenöl)" }
+    ]
+  },
+
+  "allgemeineHinweise": [
+    "Blutwerte ZUERST testen: Niemals blind supplementieren - immer vorher umfassendes Blutbild (Vitamin D, Ferritin, B12/Holo-TC, Homocystein, Selen, Zink, Schilddrüse, Lipide)",
+    "Regelmäßiges Re-Testing alle 3-6 Monate als einziges rationales Korrektiv für Dosisanpassung",
+    "Einschleichen: Bei Magnesium, Berberin und Ashwagandha mit niedrigerer Dosis starten und über 1-2 Wochen steigern",
+    "Zyklische Einnahme: Berberin (8-12 Wochen on, 2-4 Wochen off), Ashwagandha (8 Wochen on, 2-4 Wochen off), Bor (nicht dauerhaft >10 mg)",
+    "Ärztliche Begleitung obligatorisch bei: Eisen, DHEA, Jod (bei Hashimoto), hochdosiertem Niacin, Berberin bei Medikamenteneinnahme",
+    "Biotin-Warnung: Biotin (B7) verfälscht Schilddrüsen-Labortests - 3-5 Tage vor jeder Blutabnahme absetzen"
+  ],
+
+  "meta": {
+    "version": "1.0.0",
+    "erstelltAm": "2026-02-22",
+    "quellen": [
+      "Gemini - Supplement-Datenbank zur Blutwert-Optimierung (2026)",
+      "Perplexity - Supplement-Datenbank Blutwerte (2026)"
+    ],
+    "anzahlSupplements": 16,
+    "kategorien": {
+      "basis": "Muss - Stufe 1 (Basis-Stack DACH-Region)",
+      "bedingt": "Bedingtes Muss - Stufe 2 (Abhängig von Diät, Alter, Genetik)",
+      "optional-lipide": "Kann - Stufe 3 (Lipid & Herz-Stack)",
+      "optional-hormone": "Kann - Stufe 3 (Hormon & Stress-Stack)",
+      "optional-schlaf": "Kann - Stufe 3 (Schlaf & Regeneration)",
+      "optional-homocystein": "Kann - Stufe 3 (Homocystein-Senkung)"
+    }
+  }
+}
