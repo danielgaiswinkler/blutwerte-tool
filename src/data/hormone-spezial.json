@@ -1,0 +1,1613 @@
+[
+  {
+    "id": "tsh",
+    "name": "TSH (Thyreoidea-stimulierendes Hormon)",
+    "category": "schilddruese",
+    "categoryLabel": "Schilddruese",
+    "description": "TSH wird von der Hirnanhangsduese (Hypophyse) ausgeschuettet und steuert die Schilddruese. Ein hoher TSH-Wert bedeutet, dass die Hypophyse die Schilddruese staerker stimulieren muss - ein Zeichen, dass die Schilddruese zu wenig Hormone produziert. TSH allein ist NIEMALS aussagekraeftig - immer zusammen mit fT3 und fT4 bewerten! Funktionelle Medizin empfiehlt einen TSH unter 2.0 mU/l fuer optimale Stoffwechselfunktion.",
+    "unit": "mU/l",
+    "alternativeUnits": [
+      { "unit": "mIU/l", "factor": 1 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0.4, "max": 4.0 },
+      "female": { "min": 0.4, "max": 4.0 }
+    },
+    "optimal": {
+      "male": { "min": 0.5, "max": 2.0, "target": 1.0 },
+      "female": { "min": 0.5, "max": 2.0, "target": 1.0 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Schilddruesenueberfunktion (Hyperthyreose)",
+          "Morbus Basedow (Autoimmun-Hyperthyreose)",
+          "Ueberdosierung von Schilddruesenhormonen (L-Thyroxin)",
+          "Autonomes Schilddruesenadenom (heisser Knoten)",
+          "Subakute Thyreoiditis (voruebergehend)",
+          "Sekundaere Hyperthyreose durch Hypophyseninsuffizienz",
+          "Uebermassige Jodzufuhr (jodinduzierte Hyperthyreose)"
+        ],
+        "symptoms": [
+          "Herzrasen, Herzrhythmusstoerungen",
+          "Gewichtsverlust trotz gutem Appetit",
+          "Nervositaet, innere Unruhe, Zittern",
+          "Schlaflosigkeit",
+          "Durchfall",
+          "Haarausfall",
+          "Schwitzen, Waermeunvertraeglichkeit",
+          "Muskelschwaeche"
+        ],
+        "relatedValues": ["ft3", "ft4", "cortisol"],
+        "actions": [
+          "Schilddruesen-Antikoerper bestimmen (TPO-AK, TRAK)",
+          "fT3 und fT4 bestimmen lassen",
+          "Schilddruesen-Ultraschall durchfuehren lassen",
+          "Endokrinologen aufsuchen",
+          "Bei Medikamenteneinnahme: Dosis ueberpruefen lassen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Schilddruesenunterfunktion (Hypothyreose)",
+          "Hashimoto-Thyreoiditis (haeufigste Ursache)",
+          "Jodmangel",
+          "Selenmangel (beeintraechtigt T4-zu-T3-Konversion)",
+          "Eisenmangel (beeintraechtigt Schilddruesenfunktion)",
+          "Chronischer Stress (Cortisol hemmt TSH-Achse)",
+          "Subklinische Hypothyreose (fruehes Stadium)",
+          "Medikamente wie Lithium oder Amiodaron"
+        ],
+        "symptoms": [
+          "Muedigkeit, Erschoepfung, Antriebslosigkeit",
+          "Gewichtszunahme trotz normalem Essen",
+          "Kaelteempfindlichkeit",
+          "Trockene Haut und Haare",
+          "Verstopfung",
+          "Depressive Verstimmung",
+          "Konzentrationsstoerungen (Brain Fog)",
+          "Haarausfall"
+        ],
+        "relatedValues": ["ft3", "ft4", "cortisol"],
+        "actions": [
+          "fT3 und fT4 mitbestimmen (TSH nie allein bewerten!)",
+          "TPO-Antikoerper testen (Hashimoto ausschliessen)",
+          "Selen-Status pruefen (wichtig fuer T4-zu-T3-Konversion)",
+          "Eisen/Ferritin pruefen",
+          "Schilddruesen-Ultraschall durchfuehren lassen"
+        ]
+      },
+      "optimal": {
+        "meaning": "TSH im funktionell optimalen Bereich (0.5-2.0 mU/l). Die Hypophyse muss die Schilddruese nicht uebermassig stimulieren - ein Zeichen fuer gute Schilddruesenfunktion. Idealerweise unter 1.5 mU/l. Dennoch immer fT3 und fT4 mitbewerten fuer das vollstaendige Bild."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "TSH isoliert gemessen",
+        "interpretation": "TSH ohne fT3 und fT4 nicht aussagekraeftig, immer zusammen bestimmen. TSH allein kann Konversionsstoerungen und subklinische Dysfunktionen maskieren.",
+        "severity": "warning"
+      },
+      {
+        "condition": "tsh > 2.0 AND (ft3 < optimal OR ft4 < optimal)",
+        "interpretation": "Hinweis auf subklinische Schilddruesenunterfunktion. Grundstoffe pruefen: Eisen, Selen, Jod, Tyrosin.",
+        "severity": "warning"
+      },
+      {
+        "condition": "tsh > 2.5",
+        "interpretation": "TSH im oberen Bereich. Funktionelle Medizin empfiehlt TSH unter 2.0, idealerweise unter 1.5. Schilddruese genauer beobachten und fT3/fT4 bestimmen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "tsh < 0.27",
+        "interpretation": "TSH supprimiert. Moegliche Ueberfunktion. Dringend fT3 und fT4 bestimmen und Endokrinologen konsultieren.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Stressmanagement: Chronischer Stress hemmt die TSH-Achse ueber Cortisol",
+        "Ausreichend Schlaf (7-9 Stunden): Schilddruesenhormone werden nachts reguliert",
+        "Moderate Bewegung: Unterstuetzt Schilddruesenfunktion, Uebertraining vermeiden",
+        "Gluten bei Hashimoto ueberpruefen: Molekulare Aehnlichkeit mit Schilddruesengewebe",
+        "Goitrogene Lebensmittel (roher Kohl, Soja) in Massen bei Unterfunktion",
+        "Ausreichend Protein: Tyrosin (Aminosaeure) ist Baustein fuer Schilddruesenhormone"
+      ],
+      "supplements": [
+        {
+          "name": "Selen (Selenomethionin)",
+          "dosage": "100-200 ug taeglich",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Essenziell fuer T4-zu-T3-Konversion. Reduziert TPO-Antikoerper bei Hashimoto. Nicht ueber 200 ug."
+        },
+        {
+          "name": "Jod",
+          "dosage": "150-200 ug taeglich",
+          "timing": "Morgens zu einer Mahlzeit",
+          "notes": "Nur bei nachgewiesenem Jodmangel. Bei Hashimoto vorsichtig dosieren und mit Selen kombinieren."
+        },
+        {
+          "name": "Eisen (bei Mangel)",
+          "dosage": "Gemaess Ferritin-Wert",
+          "timing": "Nuechtern oder mit Vitamin C",
+          "notes": "Eisen ist noetig fuer die Schilddruesenhormon-Produktion. Ferritin sollte ueber 50 ng/ml sein."
+        }
+      ],
+      "redFlags": [
+        "TSH ueber 10 mU/l: Dringend Endokrinologe aufsuchen, manifeste Hypothyreose",
+        "TSH unter 0.1 mU/l: Moegliche schwere Ueberfunktion, sofort aerztliche Abklaerung",
+        "Schnelle TSH-Veraenderungen in kurzer Zeit: Koennen auf Autoimmunprozess hinweisen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "ft3",
+    "name": "Freies T3 (Trijodthyronin)",
+    "category": "schilddruese",
+    "categoryLabel": "Schilddruese",
+    "description": "Freies T3 ist DAS aktive Schilddruesenhormon. Es ist 3-5x staerker als T4 und steuert den Stoffwechsel, die Energieproduktion und die Koerpertemperatur. Nur ca. 20% des T3 wird direkt in der Schilddruese produziert - 80% entsteht durch Umwandlung von T4 zu T3 in Leber, Nieren und anderen Geweben. Diese Konversion benoetigt Selen, Eisen und Zink. Ein niedriges fT3 bei normalem fT4 deutet auf ein Konversionsproblem hin.",
+    "unit": "pg/ml",
+    "alternativeUnits": [
+      { "unit": "pmol/l", "factor": 1.536 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 2.0, "max": 4.4 },
+      "female": { "min": 2.0, "max": 4.4 }
+    },
+    "optimal": {
+      "male": { "min": 3.0, "max": 4.0, "target": 3.5 },
+      "female": { "min": 3.0, "max": 4.0, "target": 3.5 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Konversionsstoerung T4 zu T3 (Selen-, Eisen- oder Zinkmangel)",
+          "Schilddruesenunterfunktion (Hypothyreose)",
+          "Low-T3-Syndrom bei schwerer Erkrankung oder starkem Kaloriendefizit",
+          "Chronischer Stress (Cortisol hemmt T4-zu-T3-Konversion)",
+          "Leberfunktionsstoerung (Hauptort der Konversion)",
+          "Fasten oder extreme Diaeten",
+          "Hashimoto-Thyreoiditis",
+          "Medikamente wie Betablocker oder Amiodaron"
+        ],
+        "symptoms": [
+          "Ausgepragte Muedigkeit und Energiemangel",
+          "Kaelteempfindlichkeit, kalte Haende und Fuesse",
+          "Gewichtszunahme und Schwierigkeiten abzunehmen",
+          "Brain Fog, Konzentrationsprobleme",
+          "Depression und Antriebslosigkeit",
+          "Trockene Haut, bruechige Naegel"
+        ],
+        "relatedValues": ["ft4", "tsh", "cortisol"],
+        "actions": [
+          "Selen-Status pruefen (Selen ist Co-Faktor der Deiodasen, die T4 zu T3 umwandeln)",
+          "Ferritin pruefen (Eisen wird fuer die Konversion benoetigt, Ziel: ueber 50 ng/ml)",
+          "Zink-Status pruefen",
+          "Leberwerte pruefen (GPT, GOT, GGT)",
+          "Cortisol pruefen (chronischer Stress hemmt Konversion)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Schilddruesenueberfunktion (Hyperthyreose)",
+          "Morbus Basedow",
+          "Ueberdosierung von T3-Praeparaten (Thybon)",
+          "T3-Thyreotoxikose",
+          "Autonomes Adenom",
+          "Subakute Thyreoiditis mit Hormonfreisetzung"
+        ],
+        "symptoms": [
+          "Herzrasen, Palpitationen",
+          "Gewichtsverlust",
+          "Nervositaet, Zittern",
+          "Schlaflosigkeit",
+          "Durchfall",
+          "Schwitzen, Hitzewallungen"
+        ],
+        "relatedValues": ["ft4", "tsh"],
+        "actions": [
+          "TSH und fT4 mitbestimmen",
+          "Schilddruesen-Antikoerper (TRAK) testen",
+          "Endokrinologen konsultieren",
+          "Schilddruesen-Szintigraphie erwaegen"
+        ]
+      },
+      "optimal": {
+        "meaning": "fT3 im optimalen Bereich (oberes Drittel des Referenzbereichs). Die T4-zu-T3-Konversion funktioniert gut. Gute Voraussetzung fuer optimalen Stoffwechsel, Energie und kognitive Funktion."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "ft3 < 3.0 AND ft4 >= 1.1",
+        "interpretation": "Konversionsproblem wahrscheinlich: fT4 ist normal, aber fT3 zu niedrig. Die Umwandlung von T4 zu T3 ist gestoert. Selen, Eisen und Zink pruefen - diese Naehrstoffe sind essenziell fuer die Deiodasen-Enzyme.",
+        "severity": "warning"
+      },
+      {
+        "condition": "ft3 < 2.8",
+        "interpretation": "fT3 im unteren Drittel des Referenzbereichs. Kann Muedigkeit, Kaelteempfindlichkeit und Gewichtszunahme erklaeren. Schilddruesen-Grundstoffe optimieren.",
+        "severity": "attention"
+      },
+      {
+        "condition": "ft3 > 4.0 AND tsh < 0.4",
+        "interpretation": "fT3 erhoeht bei supprimiertem TSH: Deutlicher Hinweis auf Schilddruesenueberfunktion. Endokrinologische Abklaerung dringend empfohlen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausreichend Kalorien: Starkes Kaloriendefizit senkt T3 (Koerper faehrt Stoffwechsel herunter)",
+        "Kohlenhydrate nicht komplett streichen: Moderate Kohlenhydrate unterstuetzen T4-zu-T3-Konversion",
+        "Stress reduzieren: Cortisol hemmt die T4-zu-T3-Konversion direkt",
+        "Ausreichend Schlaf: Schilddruesenhormone werden im Schlaf reguliert",
+        "Leberpflege: Leber ist Hauptort der T3-Konversion - Alkohol reduzieren, gruenes Gemuese essen",
+        "Regelmaessige Bewegung: Unterstuetzt Schilddruesenfunktion und Konversion"
+      ],
+      "supplements": [
+        {
+          "name": "Selen (Selenomethionin)",
+          "dosage": "100-200 ug taeglich",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Wichtigster Co-Faktor fuer die Deiodasen-Enzyme (T4-zu-T3-Konversion). Paranuss: 1-2 Stueck pro Tag als natuerliche Quelle."
+        },
+        {
+          "name": "Zink",
+          "dosage": "15-30 mg taeglich",
+          "timing": "Abends zu einer Mahlzeit",
+          "notes": "Co-Faktor fuer T4-zu-T3-Konversion. Nicht dauerhaft ueber 40 mg ohne aerztliche Kontrolle."
+        },
+        {
+          "name": "Eisen (bei Ferritin unter 50)",
+          "dosage": "Individuell nach Ferritin-Wert",
+          "timing": "Nuechtern mit Vitamin C, 2h Abstand zu Schilddruesenmedikamenten",
+          "notes": "Eisen ist noetig fuer die Schilddruesenhormon-Synthese und Konversion."
+        }
+      ],
+      "redFlags": [
+        "fT3 deutlich erhoeht bei supprimiertem TSH: Dringend Endokrinologe aufsuchen",
+        "fT3 sehr niedrig trotz Supplementierung: Weitergehende Diagnostik noetig",
+        "Schneller Gewichtsverlust mit erhoehtem fT3: Hyperthyreose ausschliessen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "ft4",
+    "name": "Freies T4 (Thyroxin)",
+    "category": "schilddruese",
+    "categoryLabel": "Schilddruese",
+    "description": "Freies T4 (Thyroxin) ist die Speicher- und Transportform der Schilddruesenhormone. Es wird direkt in der Schilddruese produziert und dient als Vorstufe fuer das aktive T3. Etwa 80% des T3 im Koerper entsteht durch Umwandlung von T4. T4 hat eine lange Halbwertszeit von ca. 7 Tagen und ist daher ein stabiler Marker fuer die Schilddruesenproduktion. Die Umwandlung zu T3 findet vor allem in Leber und Nieren statt und benoetigt Selen.",
+    "unit": "ng/dl",
+    "alternativeUnits": [
+      { "unit": "pmol/l", "factor": 12.87 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0.8, "max": 1.8 },
+      "female": { "min": 0.8, "max": 1.8 }
+    },
+    "optimal": {
+      "male": { "min": 1.0, "max": 1.5, "target": 1.3 },
+      "female": { "min": 1.0, "max": 1.5, "target": 1.3 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Schilddruesenunterfunktion (Hypothyreose)",
+          "Hashimoto-Thyreoiditis (Autoimmunangriff auf die Schilddruese)",
+          "Jodmangel (Jod ist Baustein von T4: 4 Jod-Atome)",
+          "Schilddruesen-OP oder Radiojodtherapie",
+          "Medikamente (Lithium, Amiodaron)",
+          "Sekundaere Hypothyreose (Hypophysen-Problem)",
+          "Schwere systemische Erkrankung (Non-Thyroidal-Illness-Syndrom)"
+        ],
+        "symptoms": [
+          "Muedigkeit und Energiemangel",
+          "Kaelteempfindlichkeit",
+          "Gewichtszunahme",
+          "Trockene Haut und Haare",
+          "Verstopfung",
+          "Konzentrationsstoerungen"
+        ],
+        "relatedValues": ["ft3", "tsh"],
+        "actions": [
+          "TSH und fT3 mitbestimmen",
+          "TPO-Antikoerper testen (Hashimoto?)",
+          "Jodversorgung ueberpruefen",
+          "Schilddruesen-Ultraschall",
+          "Endokrinologe konsultieren"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Schilddruesenueberfunktion (Hyperthyreose)",
+          "Morbus Basedow",
+          "Ueberdosierung von L-Thyroxin",
+          "Subakute Thyreoiditis (Entzuendung setzt gespeichertes T4 frei)",
+          "Autonomes Adenom",
+          "Fruehe Phase einer Hashimoto-Thyreoiditis (Hashitoxikose)"
+        ],
+        "symptoms": [
+          "Herzrasen, Palpitationen",
+          "Nervositaet, innere Unruhe",
+          "Gewichtsverlust",
+          "Schwitzen",
+          "Schlaflosigkeit",
+          "Zittern"
+        ],
+        "relatedValues": ["ft3", "tsh"],
+        "actions": [
+          "TSH und fT3 bestimmen",
+          "TRAK-Antikoerper testen (Morbus Basedow?)",
+          "Schilddruesen-Szintigraphie erwaegen",
+          "Endokrinologen konsultieren",
+          "Bei Medikamenteneinnahme: Dosis reduzieren"
+        ]
+      },
+      "optimal": {
+        "meaning": "fT4 im optimalen Bereich (mittleres bis oberes Drittel). Die Schilddruese produziert ausreichend Hormon-Vorstufen. Wichtig: Entscheidend ist, ob die Konversion zu aktivem T3 gut funktioniert - daher immer fT3 mitbewerten."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "ft4 >= 1.1 AND ft3 < 3.0",
+        "interpretation": "fT4 normal bei niedrigem fT3: Hinweis auf gestoerte T4-zu-T3-Konversion. Selen, Eisen und Zink als Co-Faktoren der Deiodasen pruefen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "ft4 < 1.0 AND tsh > 2.5",
+        "interpretation": "fT4 im unteren Bereich bei erhoehtem TSH. Hypothyreose moeglich. Endokrinologische Abklaerung empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "ft4 > 1.5 AND tsh < 0.4",
+        "interpretation": "fT4 erhoeht bei supprimiertem TSH. Hyperthyreose wahrscheinlich. Dringend Endokrinologe aufsuchen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Jodreiche Ernaehrung: Seefisch, Meeresalgen, jodiertes Salz (Jod ist Baustein von T4)",
+        "Tyrosin-reiche Lebensmittel: Eier, Kaese, Huhn, Nuesse (Aminosaeure fuer Schilddruesenhormone)",
+        "Stress reduzieren: Cortisol beeintraechtigt die Schilddruesenachse",
+        "Goitrogene (schilddruesenhemmende Stoffe) in rohem Kohl, Soja - bei Unterfunktion kochen statt roh essen",
+        "Ausreichend Schlaf fuer hormonelle Regulation"
+      ],
+      "supplements": [
+        {
+          "name": "Jod",
+          "dosage": "150-200 ug taeglich",
+          "timing": "Morgens zu einer Mahlzeit",
+          "notes": "Baustein fuer T4 (Tetra-Jod-Thyronin = 4 Jod-Atome). Bei Hashimoto nur unter aerztlicher Kontrolle und zusammen mit Selen."
+        },
+        {
+          "name": "L-Tyrosin",
+          "dosage": "500-1000 mg taeglich",
+          "timing": "Morgens auf leeren Magen",
+          "notes": "Aminosaeure-Baustein fuer Schilddruesenhormone. Nicht bei Hyperthyreose."
+        },
+        {
+          "name": "Selen",
+          "dosage": "100-200 ug taeglich",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Schuetzt die Schilddruese vor oxidativem Stress und unterstuetzt T4-Produktion."
+        }
+      ],
+      "redFlags": [
+        "fT4 deutlich unter Referenz bei erhoehtem TSH: Manifeste Hypothyreose, aerztliche Behandlung noetig",
+        "fT4 deutlich erhoeht bei supprimiertem TSH: Hyperthyreose, sofort Endokrinologe",
+        "Schnelle Veraenderungen des fT4: Koennen auf akute Schilddruesenentzuendung hinweisen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "testosteron-gesamt",
+    "name": "Gesamt-Testosteron",
+    "category": "sexualhormone",
+    "categoryLabel": "Sexualhormone (Mann)",
+    "description": "Gesamt-Testosteron umfasst das gesamte Testosteron im Blut: ca. 44% an SHBG gebunden, ca. 54% an Albumin gebunden und nur 1-3% frei und biologisch aktiv. Es ist das wichtigste maennliche Sexualhormon, spielt aber auch bei Frauen eine Rolle fuer Libido, Muskelkraft und Knochengesundheit. WICHTIG: Testosteron hat einen zirkadianen Rhythmus mit hoechsten Werten morgens zwischen 7-10 Uhr. Blutabnahme daher immer VOR 10 Uhr morgens! Der Referenzbereich vieler Labore (250-1000 ng/dl) ist viel zu weit - ein Wert von 250 ng/dl ist bereits ein Mangel. SHBG immer mitbestimmen, um das freie Testosteron beurteilen zu koennen.",
+    "unit": "ng/dl",
+    "alternativeUnits": [
+      { "unit": "nmol/l", "factor": 0.0347 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 250, "max": 1000 },
+      "female": { "min": 15, "max": 70 }
+    },
+    "optimal": {
+      "male": { "min": 600, "max": 900, "target": 750 },
+      "female": { "min": 20, "max": 50, "target": 35 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Primaerer Hypogonadismus (Hodeninsuffizienz)",
+          "Sekundaerer Hypogonadismus (Hypophyse/Hypothalamus-Stoerung)",
+          "Chronischer Stress und erhoehtes Cortisol (Cortisol Steal)",
+          "Schlafmangel (Testosteron wird im Tiefschlaf produziert)",
+          "Uebergewicht und Insulinresistenz (Fettgewebe aromatisiert Testosteron zu Oestrogen)",
+          "Altersbedingter Rueckgang (ca. 1-2% pro Jahr ab 30)",
+          "Medikamente (Opioide, Steroide, Statine)",
+          "Alkoholmissbrauch"
+        ],
+        "symptoms": [
+          "Libidoverlust, erektile Dysfunktion",
+          "Muedigkeit und Antriebslosigkeit",
+          "Muskelschwund und reduzierte Kraft",
+          "Zunahme von Koerperfett (besonders Bauch)",
+          "Depressive Verstimmung, Reizbarkeit",
+          "Konzentrationsstoerungen"
+        ],
+        "relatedValues": ["testosteron-frei", "shbg", "estradiol", "cortisol", "dhea-s"],
+        "actions": [
+          "Blutabnahme vor 10 Uhr morgens wiederholen (zirkadianer Rhythmus)",
+          "SHBG und freies Testosteron mitbestimmen",
+          "LH und FSH bestimmen (primaer vs. sekundaer)",
+          "Cortisol und DHEA-S pruefen (Stressachse)",
+          "Koerperfettanteil reduzieren bei Uebergewicht"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Exogene Testosteron-Zufuhr (TRT, Anabolika)",
+          "Nebennierentumor",
+          "Hodentumor",
+          "Kongenitale Nebennierenhyperplasie",
+          "Polyzystisches Ovarsyndrom (PCOS) bei Frauen",
+          "Uebermaessiger Gebrauch von DHEA-Supplementen"
+        ],
+        "symptoms": [
+          "Akne und fettige Haut",
+          "Aggressivitaet und Stimmungsschwankungen",
+          "Haarausfall (androgenetisch)",
+          "Vergroesserung der Prostata",
+          "Erhoehter Haematokrit (Bluteindickung)",
+          "Bei Frauen: Hirsutismus, tiefe Stimme, Zyklusstörungen"
+        ],
+        "relatedValues": ["testosteron-frei", "shbg", "estradiol", "dhea-s"],
+        "actions": [
+          "Anabolikaeinnahme ausschliessen/offenlegen",
+          "DHEA-S bestimmen (Nebennierenquelle?)",
+          "Estradiol pruefen (erhoehte Aromatisierung?)",
+          "Prostata-Screening bei Maennern ueber 40",
+          "Bei Frauen: PCOS-Diagnostik (Ultraschall, LH/FSH-Ratio)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Gesamt-Testosteron im funktionell optimalen Bereich. Gute Voraussetzung fuer Muskelaufbau, Libido, Knochengesundheit und mentale Leistungsfaehigkeit. Entscheidend ist zusaetzlich das freie Testosteron - daher SHBG mitbewerten."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Abnahme nach 10 Uhr",
+        "interpretation": "Testosteron hat einen zirkadianen Rhythmus mit hoechsten Werten zwischen 7-10 Uhr morgens. Blutabnahme vor 10 Uhr empfohlen fuer aussagekraeftige Werte.",
+        "severity": "attention"
+      },
+      {
+        "condition": "testosteron-gesamt normal AND shbg erhoeht",
+        "interpretation": "Bei hohem SHBG kann das Gesamt-Testosteron normal erscheinen, aber das freie (aktive) Testosteron ist reduziert. Freies Testosteron berechnen oder messen lassen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "testosteron-gesamt < 400 AND Alter < 50",
+        "interpretation": "Testosteron unter 400 ng/dl bei Maennern unter 50 ist funktionell zu niedrig, auch wenn es im Referenzbereich liegt. Ursachensuche und Optimierung empfohlen.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Schlaf optimieren: 7-9 Stunden, Testosteron wird hauptsaechlich im Tiefschlaf produziert",
+        "Krafttraining: Schwere Grunduebungen (Kniebeugen, Kreuzheben) steigern Testosteron nachweislich",
+        "Koerperfett reduzieren: Fettgewebe aromatisiert Testosteron zu Oestrogen",
+        "Stress reduzieren: Cortisol und Testosteron stehen in inverser Beziehung (Cortisol Steal)",
+        "Alkohol minimieren: Alkohol senkt Testosteron direkt und erhoeht Aromatisierung",
+        "Kalte Duschen/Eisbaden: Kann Testosteron-Produktion unterstuetzen"
+      ],
+      "supplements": [
+        {
+          "name": "Zink",
+          "dosage": "25-50 mg taeglich",
+          "timing": "Abends zu einer Mahlzeit",
+          "notes": "Essenziell fuer Testosteron-Synthese. Hemmt Aromatase (weniger Umwandlung zu Oestrogen). Nicht dauerhaft ueber 50 mg."
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": "4000-5000 IE taeglich",
+          "timing": "Morgens zu einer fetthaltigen Mahlzeit",
+          "notes": "Vitamin-D-Mangel korreliert stark mit niedrigem Testosteron. Ziel: 25-OH-Vitamin-D 40-60 ng/ml."
+        },
+        {
+          "name": "Magnesium",
+          "dosage": "400-600 mg taeglich",
+          "timing": "Abends (foerdert auch Schlaf)",
+          "notes": "Erhoehtes freies Testosteron bei guter Magnesiumversorgung. Magnesiumglycinat oder -citrat bevorzugen."
+        },
+        {
+          "name": "Ashwagandha (KSM-66)",
+          "dosage": "600 mg taeglich",
+          "timing": "Morgens und abends je 300 mg",
+          "notes": "Klinisch belegt: Senkt Cortisol um 30%, steigert Testosteron um 15-20%. Adaptogen."
+        }
+      ],
+      "redFlags": [
+        "Testosteron unter 200 ng/dl: Dringend endokrinologische Abklaerung",
+        "Schneller Testosteron-Abfall: Kann auf Hodentumor oder Hypophysenproblem hinweisen",
+        "Gynaeokomastie (Brustwachstum bei Maennern): Estradiol und Prolaktin pruefen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "testosteron-frei",
+    "name": "Freies Testosteron",
+    "category": "sexualhormone",
+    "categoryLabel": "Sexualhormone (Mann)",
+    "description": "Freies Testosteron ist der biologisch aktive Anteil des Gesamt-Testosterons. Nur 1-3% des gesamten Testosterons zirkulieren frei im Blut und koennen an Rezeptoren binden. Der Rest ist an SHBG (fest gebunden, inaktiv) und Albumin (locker gebunden, teils verfuegbar) gekoppelt. Freies Testosteron ist der aussagekraeftigere Marker, da man ein normales Gesamt-Testosteron haben kann, aber bei hohem SHBG trotzdem zu wenig aktives Hormon zur Verfuegung steht. Kann direkt gemessen (Gleichgewichtsdialyse) oder berechnet werden (Vermeulen-Formel aus Gesamt-Testosteron, SHBG und Albumin).",
+    "unit": "pg/ml",
+    "alternativeUnits": [
+      { "unit": "pmol/l", "factor": 3.467 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 5.0, "max": 25.0 },
+      "female": { "min": 0.5, "max": 3.5 }
+    },
+    "optimal": {
+      "male": { "min": 15.0, "max": 25.0, "target": 20.0 },
+      "female": { "min": 1.0, "max": 2.5, "target": 1.5 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Erhoehtes SHBG (bindet mehr Testosteron, weniger frei verfuegbar)",
+          "Niedriges Gesamt-Testosteron (weniger Gesamtpool)",
+          "Schilddruesenueberfunktion (erhoeht SHBG)",
+          "Lebererkrankungen (Leber produziert SHBG)",
+          "Oestrogen-Dominanz (erhoeht SHBG-Produktion)",
+          "Chronischer Stress (senkt Testosteron, erhoeht SHBG)",
+          "Medikamente (orale Kontrazeptiva bei Frauen erhoehen SHBG stark)",
+          "Altersbedingter SHBG-Anstieg"
+        ],
+        "symptoms": [
+          "Libidoverlust, erektile Dysfunktion",
+          "Muedigkeit trotz normalem Gesamt-Testosteron",
+          "Muskelschwaeche und reduzierte Regeneration",
+          "Depressive Verstimmung",
+          "Konzentrationsstoerungen",
+          "Reduzierte Koerperbehaarung"
+        ],
+        "relatedValues": ["testosteron-gesamt", "shbg", "estradiol", "cortisol"],
+        "actions": [
+          "SHBG bestimmen (haeufigste Ursache fuer niedriges freies Testo bei normalem Gesamt-Testo)",
+          "Schilddruesenwerte pruefen (Ueberfunktion erhoeht SHBG)",
+          "Leberwerte kontrollieren",
+          "Estradiol messen (Oestrogen-Dominanz?)",
+          "Bei Frauen: Orale Kontrazeptiva als Ursache in Betracht ziehen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Exogene Testosteron-Zufuhr (TRT, Anabolika, Testosteron-Gel)",
+          "Sehr niedriges SHBG (mehr freies Testosteron)",
+          "Insulinresistenz (senkt SHBG)",
+          "Uebergewicht (senkt SHBG ueber Insulinresistenz)",
+          "PCOS bei Frauen",
+          "Nebennierentumor"
+        ],
+        "symptoms": [
+          "Akne und fettige Haut",
+          "Aggressivitaet, Reizbarkeit",
+          "Haarausfall (androgenetisch)",
+          "Erhoehter Haematokrit",
+          "Schlafapnoe",
+          "Bei Frauen: Hirsutismus, Virilisierung"
+        ],
+        "relatedValues": ["testosteron-gesamt", "shbg", "estradiol", "dhea-s"],
+        "actions": [
+          "SHBG bestimmen (sehr niedriges SHBG als Ursache?)",
+          "Insulinresistenz abklaeren (HbA1c, Nuechterninsulin)",
+          "Haematokrit kontrollieren (Bluteindickung?)",
+          "Prostata-Screening bei Maennern",
+          "Bei Frauen: PCOS-Diagnostik"
+        ]
+      },
+      "optimal": {
+        "meaning": "Freies Testosteron im optimalen Bereich. Genuegend biologisch aktives Testosteron fuer Muskelaufbau, Libido, Knochengesundheit und kognitive Funktion. Das Verhaeltnis von Gesamt-Testosteron zu SHBG ist ausgeglichen."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "testosteron-gesamt normal AND testosteron-frei niedrig",
+        "interpretation": "Gesamt-Testosteron ist normal, aber freies Testosteron ist zu niedrig. Haeufigste Ursache: Erhoehtes SHBG. SHBG pruefen und ggf. Massnahmen zur SHBG-Senkung ergreifen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "testosteron-frei niedrig AND shbg > 50 (Mann)",
+        "interpretation": "Erhoehtes SHBG bindet zu viel Testosteron. Moegliche Ursachen: Schilddruesenueberfunktion, Leberstress, Oestrogenueberschuss. Ursache behandeln statt nur Testosteron erhoehen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "testosteron-frei < 10 AND Alter < 40 (Mann)",
+        "interpretation": "Freies Testosteron deutlich zu niedrig fuer das Alter. Endokrinologische Abklaerung empfohlen. LH, FSH, Prolaktin und SHBG bestimmen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "SHBG natuerlich senken: Uebergewicht reduzieren, Insulinsensitivitaet verbessern",
+        "Krafttraining: Steigert Testosteron und verbessert Insulinsensitivitaet",
+        "Schlaf optimieren: Testosteron-Produktion findet im Tiefschlaf statt",
+        "Stress managen: Cortisol konkurriert mit Testosteron auf der Produktionsachse",
+        "Alkohol stark reduzieren: Erhoeht SHBG und Aromatisierung zu Oestrogen"
+      ],
+      "supplements": [
+        {
+          "name": "Bor",
+          "dosage": "6-10 mg taeglich",
+          "timing": "Morgens zu einer Mahlzeit",
+          "notes": "Studien zeigen SHBG-Senkung und Erhoehung des freien Testosterons um bis zu 28%. Sicher in dieser Dosierung."
+        },
+        {
+          "name": "Magnesium",
+          "dosage": "400-600 mg taeglich",
+          "timing": "Abends",
+          "notes": "Erhoehtes freies Testosteron bei optimaler Magnesiumversorgung. Unterstuetzt auch die Schlafqualitaet."
+        },
+        {
+          "name": "Brennnesselwurzel-Extrakt",
+          "dosage": "300-600 mg taeglich",
+          "timing": "Aufgeteilt auf 2 Dosen",
+          "notes": "Kann SHBG-Bindung reduzieren und so freies Testosteron erhoehen. Traditionell bei Prostatabeschwerden eingesetzt."
+        }
+      ],
+      "redFlags": [
+        "Freies Testosteron unter 5 pg/ml bei Maennern: Dringend endokrinologische Abklaerung",
+        "Gynaeokomastie: Testosteron/Oestrogen-Verhaeltnis pruefen",
+        "Ploetzlicher Libidoverlust mit niedrigem freien Testosteron: Organische Ursache ausschliessen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "shbg",
+    "name": "SHBG (Sexualhormon-bindendes Globulin)",
+    "category": "sexualhormone",
+    "categoryLabel": "Sexualhormone (Mann)",
+    "description": "SHBG ist ein in der Leber produziertes Transportprotein, das Sexualhormone (Testosteron, Oestrogen, DHT) im Blut bindet und damit deren Bioverfuegbarkeit reguliert. An SHBG gebundene Hormone sind biologisch inaktiv. SHBG ist der Schluessel zum Verstaendnis, warum jemand ein normales Gesamt-Testosteron haben kann, aber trotzdem Symptome eines Testosteronmangels zeigt: Hohes SHBG = weniger freies, aktives Testosteron. SHBG steigt mit dem Alter, bei Schilddruesenueberfunktion, Oestrogenueberschuss und Leberbelastung. Es sinkt bei Uebergewicht, Insulinresistenz und Hypothyreose.",
+    "unit": "nmol/l",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 10, "max": 57 },
+      "female": { "min": 18, "max": 114 }
+    },
+    "optimal": {
+      "male": { "min": 20, "max": 40, "target": 30 },
+      "female": { "min": 30, "max": 70, "target": 50 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Uebergewicht und Adipositas (Fettgewebe senkt SHBG)",
+          "Insulinresistenz und Typ-2-Diabetes",
+          "Hypothyreose (Schilddruesenunterfunktion)",
+          "Anabolika- oder Testosteron-Einnahme",
+          "Polyzystisches Ovarsyndrom (PCOS) bei Frauen",
+          "Nephrotisches Syndrom",
+          "Akromegalie (Wachstumshormonueberschuss)",
+          "Cushing-Syndrom (Cortisolexzess)"
+        ],
+        "symptoms": [
+          "Akne (mehr freie Androgene verfuegbar)",
+          "Fettige Haut und Haare",
+          "Haarausfall (androgenetisch durch mehr freies DHT)",
+          "Bei Frauen: Hirsutismus, Zyklusstörungen",
+          "Erhoehter Haematokrit",
+          "Ggf. erhoehte Aggressivitaet"
+        ],
+        "relatedValues": ["testosteron-gesamt", "testosteron-frei", "estradiol", "tsh"],
+        "actions": [
+          "Insulinresistenz abklaeren (HbA1c, Nuechterninsulin, HOMA-IR)",
+          "Schilddruesenwerte pruefen (fT3, fT4, TSH)",
+          "Koerperfettanteil bestimmen und ggf. reduzieren",
+          "Bei Frauen: PCOS-Diagnostik",
+          "Anabolikaeinnahme offenlegen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Schilddruesenueberfunktion (Hyperthyreose)",
+          "Lebererkrankungen (Leber produziert SHBG)",
+          "Oestrogenueberschuss (orale Kontrazeptiva, Oestrogen-Therapie)",
+          "Altersbedingter Anstieg (SHBG steigt ca. 1-2% pro Jahr)",
+          "Starker Gewichtsverlust / Magersucht",
+          "HIV-Infektion",
+          "Antiepileptika (Phenytoin, Carbamazepin)",
+          "Schwangerschaft (bei Frauen)"
+        ],
+        "symptoms": [
+          "Symptome eines funktionellen Testosteronmangels trotz normalem Gesamt-Testosteron",
+          "Libidoverlust",
+          "Muedigkeit und Antriebslosigkeit",
+          "Muskelschwaeche",
+          "Depressive Verstimmung",
+          "Erektile Dysfunktion bei Maennern"
+        ],
+        "relatedValues": ["testosteron-gesamt", "testosteron-frei", "estradiol", "ft3", "ft4", "tsh"],
+        "actions": [
+          "Freies Testosteron berechnen oder messen (entscheidend bei hohem SHBG)",
+          "Schilddruesenwerte pruefen (Hyperthyreose erhoeht SHBG stark)",
+          "Leberwerte kontrollieren (GPT, GOT, GGT)",
+          "Medikamenten-Review (orale Kontrazeptiva, Antiepileptika)",
+          "Oestrogen-Quellen identifizieren (Xenooestrogene in Plastik, Kosmetik)"
+        ]
+      },
+      "optimal": {
+        "meaning": "SHBG im optimalen Bereich. Ausgewogenes Verhaeltnis zwischen gebundenem und freiem Testosteron. Die Bioverfuegbarkeit der Sexualhormone ist gut reguliert."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "shbg > 50 AND testosteron-gesamt normal (Mann)",
+        "interpretation": "SHBG erhoeht bei normalem Gesamt-Testosteron: Das freie, biologisch aktive Testosteron ist wahrscheinlich reduziert. Symptome eines Testosteronmangels trotz 'normaler' Werte moeglich.",
+        "severity": "warning"
+      },
+      {
+        "condition": "shbg < 20 (Mann)",
+        "interpretation": "SHBG sehr niedrig. Haeufig bei Uebergewicht und Insulinresistenz. Metabolische Gesundheit pruefen (HbA1c, Nuechterninsulin). Erhoehtes kardiovaskulaeres Risiko.",
+        "severity": "attention"
+      },
+      {
+        "condition": "shbg steigt bei Frauen unter oraler Kontrazeption",
+        "interpretation": "Orale Kontrazeptiva erhoehen SHBG um das 2-4fache. Dies senkt freies Testosteron stark und kann Libidoverlust verursachen. Effekt kann nach Absetzen monatelang anhalten.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Koerperfett optimieren: Uebergewicht senkt SHBG, Untergewicht erhoeht es - Normalgewicht anstreben",
+        "Insulinsensitivitaet verbessern: Krafttraining, Intervallfasten, Kohlenhydratqualitaet",
+        "Alkohol reduzieren: Alkohol erhoeht SHBG ueber Leberbelastung",
+        "Xenooestrogene vermeiden: BPA in Plastik, Parabene in Kosmetik erhoehen SHBG",
+        "Schilddruese optimieren: Sowohl Ueber- als auch Unterfunktion beeinflussen SHBG"
+      ],
+      "supplements": [
+        {
+          "name": "Bor",
+          "dosage": "6-10 mg taeglich",
+          "timing": "Morgens zu einer Mahlzeit",
+          "notes": "Kann SHBG senken und freies Testosteron erhoehen. Studien zeigen Effekt bereits nach einer Woche."
+        },
+        {
+          "name": "Magnesium",
+          "dosage": "400-600 mg taeglich",
+          "timing": "Abends",
+          "notes": "Kann SHBG-Bindung reduzieren und freies Testosteron erhoehen."
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": "4000-5000 IE taeglich",
+          "timing": "Morgens mit Fett",
+          "notes": "Vitamin-D-Mangel korreliert mit erhoehtem SHBG. Optimaler 25-OH-Vitamin-D-Spiegel: 40-60 ng/ml."
+        }
+      ],
+      "redFlags": [
+        "SHBG ueber 100 nmol/l bei Maennern: Starker Verdacht auf Leberpathologie oder Hyperthyreose",
+        "SHBG unter 10 nmol/l: Metabolisches Syndrom ausschliessen, erhoehtes kardiovaskulaeres Risiko",
+        "Ploetzliche SHBG-Veraenderungen: Schilddruese und Leber zeitnah kontrollieren"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "dhea-s",
+    "name": "DHEA-S (Dehydroepiandrosteron-Sulfat)",
+    "category": "sexualhormone",
+    "categoryLabel": "Sexualhormone (Mann)",
+    "description": "DHEA-S ist das am haeufigsten vorkommende Steroidhormon im Koerper und wird als 'Anti-Aging-Hormon' bezeichnet. Es wird hauptsaechlich in der Nebennierenrinde produziert und dient als Vorstufe (Prohormon) fuer sowohl Testosteron als auch Oestrogen. DHEA-S erreicht seinen Hoechststand mit ca. 25 Jahren und faellt danach kontinuierlich ab - um ca. 10% pro Dekade. Ein niedriger DHEA-S-Spiegel korreliert mit beschleunigter Alterung, Immunschwaeche und kardiovaskulaeren Risiken. DHEA-S ist stabiler als DHEA und eignet sich daher besser als Labormarker.",
+    "unit": "ug/dl",
+    "alternativeUnits": [
+      { "unit": "umol/l", "factor": 0.02714 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 80, "max": 560 },
+      "female": { "min": 35, "max": 430 }
+    },
+    "optimal": {
+      "male": { "min": 300, "max": 500, "target": 400 },
+      "female": { "min": 200, "max": 350, "target": 275 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Altersbedingter Rueckgang (natuerliche Abnahme ab ca. 25-30 Jahren)",
+          "Chronischer Stress und Nebennierenschwaechung (Adrenal Fatigue)",
+          "Cortisol Steal: Pregnenolon wird zu Cortisol statt DHEA umgebaut",
+          "Nebenniereninsuffizienz (Morbus Addison)",
+          "Langzeiteinnahme von Kortikosteroiden",
+          "Chronische Entzuendungen und Autoimmunerkrankungen",
+          "Schlafmangel und Uebertraining"
+        ],
+        "symptoms": [
+          "Beschleunigte Alterung und vorzeitiges Altern",
+          "Muedigkeit und verminderte Belastbarkeit",
+          "Libidoverlust",
+          "Immunschwaeche, haeufige Infekte",
+          "Trockene Haut und Augen",
+          "Depressive Verstimmung"
+        ],
+        "relatedValues": ["cortisol", "testosteron-gesamt", "testosteron-frei", "estradiol"],
+        "actions": [
+          "Cortisol morgens messen (Cortisol Steal ausschliessen)",
+          "Stressbelastung evaluieren und reduzieren",
+          "Schlafqualitaet und -dauer optimieren (7-9 Stunden)",
+          "DHEA-Supplementierung unter aerztlicher Kontrolle erwaegen",
+          "Nebennierendiagnostik bei sehr niedrigen Werten"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "DHEA-Supplementierung (haeufigste Ursache)",
+          "Nebennierentumor (selten, aber wichtig auszuschliessen)",
+          "Kongenitale Nebennierenhyperplasie",
+          "Polyzystisches Ovarsyndrom (PCOS) bei Frauen",
+          "Cushing-Syndrom",
+          "Ektope ACTH-Produktion"
+        ],
+        "symptoms": [
+          "Akne und fettige Haut",
+          "Haarausfall (androgenetisch)",
+          "Bei Frauen: Hirsutismus, Zyklusstörungen, tiefe Stimme",
+          "Aggressivitaet und Stimmungsschwankungen",
+          "Schlafprobleme"
+        ],
+        "relatedValues": ["cortisol", "testosteron-gesamt", "estradiol"],
+        "actions": [
+          "DHEA-Supplemente absetzen falls eingenommen",
+          "Nebennierentumor per Bildgebung ausschliessen (bei deutlicher Erhoehung)",
+          "Bei Frauen: PCOS-Diagnostik (LH/FSH, Ultraschall, Testosteron)",
+          "17-OH-Progesteron bestimmen (kongenitale Nebennierenhyperplasie?)"
+        ]
+      },
+      "optimal": {
+        "meaning": "DHEA-S im optimalen Bereich - ein Zeichen fuer gute Nebennierenfunktion und ausreichende Produktion von Hormonvorstufen. Korreliert mit besserer Immunfunktion, Knochengesundheit und vitalem Altern."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "dhea-s niedrig AND cortisol erhoeht",
+        "interpretation": "Klassisches Cortisol-Steal-Muster: Chronischer Stress fuehrt dazu, dass Pregnenolon bevorzugt zu Cortisol statt zu DHEA und Sexualhormonen umgebaut wird. Stressreduktion ist prioritaer.",
+        "severity": "warning"
+      },
+      {
+        "condition": "dhea-s niedrig AND testosteron-gesamt niedrig (Mann)",
+        "interpretation": "DHEA-S ist Vorstufe von Testosteron. Niedrige Werte beider Hormone deuten auf Nebennierenschwaeche oder chronischen Stress hin. Nebennierenachse pruefen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "dhea-s sehr niedrig fuer Alter",
+        "interpretation": "DHEA-S altersbedingt niedrig, aber unter dem alterstypischen Durchschnitt. Beschleunigte Alterung moeglich. Lebensstiloptimierung und ggf. DHEA-Supplementierung erwaegen.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Stressreduktion: Chronischer Stress ist der groesste DHEA-S-Killer (Cortisol Steal)",
+        "Schlaf optimieren: DHEA-Produktion findet primaer nachts statt",
+        "Regelmaessige moderate Bewegung: Unterstuetzt Nebennierenfunktion",
+        "Uebertraining vermeiden: Erschoepft die Nebennieren",
+        "Meditation und Atemtechniken: Nachgewiesene Senkung von Cortisol und Schonung der DHEA-Produktion"
+      ],
+      "supplements": [
+        {
+          "name": "DHEA",
+          "dosage": "Maenner: 25-50 mg, Frauen: 10-25 mg taeglich",
+          "timing": "Morgens, da DHEA natuerlich morgens am hoechsten ist",
+          "notes": "NUR unter aerztlicher Kontrolle mit regelmaessiger Laborkontrolle. In Deutschland verschreibungspflichtig. Kann zu Testosteron und Oestrogen konvertiert werden."
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": "1000-2000 mg taeglich",
+          "timing": "Ueber den Tag verteilt",
+          "notes": "Unterstuetzt die Nebennierenfunktion. Die Nebennieren haben die hoechste Vitamin-C-Konzentration im Koerper."
+        },
+        {
+          "name": "Pantothensaeure (Vitamin B5)",
+          "dosage": "500 mg taeglich",
+          "timing": "Morgens",
+          "notes": "Unterstuetzt die Steroidhormonsynthese in der Nebenniere. Wichtig fuer die Cortisol- und DHEA-Produktion."
+        }
+      ],
+      "redFlags": [
+        "DHEA-S deutlich ueber Altersnorm ohne Supplementierung: Nebennierentumor ausschliessen",
+        "DHEA-S bei Frauen stark erhoeht mit Virilisierungszeichen: Dringende endokrinologische Abklaerung",
+        "DHEA-S unter 50 ug/dl bei Maennern unter 40: Nebenniereninsuffizienz pruefen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "estradiol",
+    "name": "Estradiol (E2)",
+    "category": "sexualhormone",
+    "categoryLabel": "Sexualhormone (Mann)",
+    "description": "Estradiol (E2) ist das potenteste natuerliche Oestrogen und spielt bei beiden Geschlechtern eine wichtige Rolle. Bei Maennern wird es durch Aromatisierung von Testosteron gebildet - hauptsaechlich im Fettgewebe. Ein ausgewogenes Verhaeltnis von Testosteron zu Estradiol ist entscheidend: Zu viel Estradiol bei Maennern fuehrt zu Gynaeokomastie, Wassereinlagerung und Libidoverlust. Zu wenig Estradiol schadet den Knochen, dem Gehirn und dem Herz-Kreislauf-System. Bei Frauen variiert Estradiol stark je nach Zyklusphase, Menopausenstatus und hormoneller Verhuetung.",
+    "unit": "pg/ml",
+    "alternativeUnits": [
+      { "unit": "pmol/l", "factor": 3.671 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 10, "max": 40 },
+      "female": { "min": 20, "max": 400 }
+    },
+    "optimal": {
+      "male": { "min": 20, "max": 30, "target": 25 },
+      "female": { "min": 30, "max": 200, "target": 100 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Aromatasemangel (genetisch oder medikamentoes)",
+          "Sehr niedriges Testosteron (weniger Substrat fuer Aromatisierung)",
+          "Aromatasehemmer-Einnahme (Anastrozol, Letrozol)",
+          "Niedriger Koerperfettanteil (weniger Aromataseaktivitaet)",
+          "Menopause bei Frauen",
+          "Hypophyseninsuffizienz",
+          "Ovarialinsuffizienz bei Frauen"
+        ],
+        "symptoms": [
+          "Knochenabbau und erhoehtes Osteoporoserisiko",
+          "Gelenkschmerzen und -steifigkeit",
+          "Kognitive Einschraenkungen",
+          "Depressive Verstimmung",
+          "Bei Frauen: Hitzewallungen, vaginale Trockenheit",
+          "Bei Maennern: Erhoehtes kardiovaskulaeres Risiko"
+        ],
+        "relatedValues": ["testosteron-gesamt", "testosteron-frei", "shbg", "progesteron"],
+        "actions": [
+          "Testosteron-Status pruefen (Estradiol wird aus Testosteron gebildet)",
+          "Koerperfettanteil ueberpruefen (zu niedrig kann Estradiol senken)",
+          "Medikamenten-Review (Aromatasehemmer?)",
+          "Knochendichtemessung bei laengerfristig niedrigem Estradiol",
+          "Bei Frauen: Gynaekologische Abklaerung"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Uebergewicht/Adipositas (mehr Aromataseaktivitaet im Fettgewebe)",
+          "Erhoehte Aromataseaktivitaet",
+          "Exogene Oestrogenzufuhr (Hormontherapie, orale Kontrazeptiva)",
+          "Lebererkrankungen (reduzierter Oestrogenabbau)",
+          "Testosteron-Therapie ohne Aromatasehemmer",
+          "Alkoholmissbrauch (erhoeht Aromatisierung)",
+          "Xenooestrogene aus Umwelt (BPA, Phthalate, Pestizide)"
+        ],
+        "symptoms": [
+          "Bei Maennern: Gynaeokomastie (Brustwachstum)",
+          "Wassereinlagerung und Blaehing",
+          "Libidoverlust bei Maennern",
+          "Stimmungsschwankungen, emotionale Labilitaet",
+          "Gewichtszunahme besonders an Hueften und Oberschenkeln",
+          "Bei Frauen: PMS, Brustspannen, starke Blutungen"
+        ],
+        "relatedValues": ["testosteron-gesamt", "shbg", "progesteron"],
+        "actions": [
+          "Koerperfettanteil reduzieren (weniger Aromataseaktivitaet)",
+          "Leberwerte pruefen (Leber baut Oestrogen ab)",
+          "Alkoholkonsum reduzieren",
+          "Xenooestrogene vermeiden (Plastik, Kosmetik mit Parabenen)",
+          "Bei TRT: Aromatasehemmer-Dosierung mit Arzt besprechen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Estradiol im optimalen Bereich. Bei Maennern zeigt dies ein gutes Testosteron-Estradiol-Gleichgewicht. Estradiol schuetzt Knochen, Gehirn und Herz-Kreislauf-System. Bei Frauen abhaengig von der Zyklusphase zu bewerten."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "estradiol erhoeht AND testosteron-gesamt niedrig (Mann)",
+        "interpretation": "Erhoehte Aromatisierung: Testosteron wird vermehrt in Estradiol umgewandelt. Haeufig bei Uebergewicht. Koerperfettreduktion ist die wichtigste Massnahme.",
+        "severity": "warning"
+      },
+      {
+        "condition": "estradiol < 15 (Mann)",
+        "interpretation": "Estradiol zu niedrig bei Maennern. Erhoehtes Risiko fuer Osteoporose und kardiovaskulaere Erkrankungen. Auch Maenner brauchen Estradiol fuer Knochengesundheit.",
+        "severity": "attention"
+      },
+      {
+        "condition": "estradiol stark schwankend (Frau)",
+        "interpretation": "Estradiol variiert naturgemaess stark im weiblichen Zyklus: Follikelphase 30-120 pg/ml, Ovulation 100-400 pg/ml, Lutealphase 50-200 pg/ml. Immer mit Zyklusphase korrelieren.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Koerperfett optimieren: Fettgewebe ist Hauptort der Aromatisierung bei Maennern",
+        "Alkohol stark reduzieren: Erhoeht Aromataseaktivitaet und belastet die Leber",
+        "Xenooestrogene vermeiden: BPA-freie Behaelter, natuerliche Kosmetik, Bio-Lebensmittel",
+        "Kreuzbluetengemuese essen: Brokkoli, Blumenkohl, Rosenkohl enthalten DIM und I3C (natuerliche Oestrogen-Metabolismus-Unterstuetzer)",
+        "Leberpflege: Leber ist zentral fuer den Oestrogenabbau"
+      ],
+      "supplements": [
+        {
+          "name": "DIM (Diindolylmethan)",
+          "dosage": "100-200 mg taeglich",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Natuerlicher Wirkstoff aus Kreuzbluetengemuese. Unterstuetzt den gesunden Oestrogen-Metabolismus und die Ausscheidung."
+        },
+        {
+          "name": "Zink",
+          "dosage": "25-50 mg taeglich",
+          "timing": "Abends zu einer Mahlzeit",
+          "notes": "Natuerlicher Aromatasehemmer. Reduziert die Umwandlung von Testosteron zu Oestrogen."
+        },
+        {
+          "name": "Calcium-D-Glucarat",
+          "dosage": "500-1000 mg taeglich",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Unterstuetzt die Glucuronidierung in der Leber und damit den Oestrogenabbau."
+        }
+      ],
+      "redFlags": [
+        "Gynaeokomastie bei Maennern: Estradiol, Prolaktin und Leberwerte sofort pruefen",
+        "Estradiol deutlich erhoeht ohne erkennbare Ursache: Oestrogenproduzierende Tumoren ausschliessen",
+        "Bei Frauen: Stark erhoehtes Estradiol ausserhalb der Ovulationsphase abklaeren lassen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "cortisol",
+    "name": "Cortisol (morgens)",
+    "category": "stressachse",
+    "categoryLabel": "Stressachse",
+    "description": "Cortisol ist das wichtigste Stresshormon des Koerpers und wird in der Nebennierenrinde produziert. Es folgt einem zirkadianen Rhythmus mit hoechsten Werten morgens zwischen 6-8 Uhr (Aufwachreaktion) und niedrigsten Werten gegen Mitternacht. Cortisol reguliert den Blutzucker, das Immunsystem, den Blutdruck und die Entzuendungsreaktion. WICHTIG: Bei chronischem Stress kommt es zum sogenannten 'Cortisol Steal' oder 'Pregnenolon Steal' - der Koerper baut die Hormonvorstufe Pregnenolon bevorzugt zu Cortisol um, statt daraus Testosteron, Progesteron oder DHEA zu bilden. Dies erklaert, warum chronisch gestresste Menschen oft niedrige Sexualhormone haben.",
+    "unit": "ug/dl",
+    "alternativeUnits": [
+      { "unit": "nmol/l", "factor": 27.59 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 5, "max": 25 },
+      "female": { "min": 5, "max": 25 }
+    },
+    "optimal": {
+      "male": { "min": 10, "max": 18, "target": 14 },
+      "female": { "min": 10, "max": 18, "target": 14 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Nebenniereninsuffizienz (Morbus Addison)",
+          "Nebennierenschwaeche nach langem chronischem Stress (Endstadium: Burnout der Nebennieren)",
+          "Abruptes Absetzen von Kortikosteroiden (iatrogene Nebenniereninsuffizienz)",
+          "Hypophyseninsuffizienz (sekundaere Nebenniereninsuffizienz)",
+          "Autoimmun-Adrenalitis",
+          "Schwere chronische Erschoepfung (CFS)",
+          "Fortgeschrittene Nebennierenschwaeche (HPA-Achsen-Dysregulation)"
+        ],
+        "symptoms": [
+          "Extreme Muedigkeit, besonders morgens (kommen nicht in die Gaenge)",
+          "Niedriger Blutdruck, Schwindel beim Aufstehen",
+          "Salzhunger (Natriumverlust bei Nebenniereninsuffizienz)",
+          "Gewichtsverlust",
+          "Dunkle Hautverfaerbung (bei Morbus Addison)",
+          "Uebelkeit, Bauchschmerzen"
+        ],
+        "relatedValues": ["dhea-s", "testosteron-gesamt", "progesteron"],
+        "actions": [
+          "Blutabnahme morgens 6-8 Uhr wiederholen (zirkadianer Rhythmus beachten)",
+          "ACTH-Stimulationstest erwaegen (Goldstandard fuer Nebenniereninsuffizienz)",
+          "DHEA-S bestimmen (niedrig bei Nebennierenschwaeche)",
+          "Cortisol-Tagesprofil im Speichel (4 Messungen) fuer genaueres Bild",
+          "Endokrinologen konsultieren bei deutlich erniedrigten Werten"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Chronischer psychischer oder physischer Stress",
+          "Cushing-Syndrom (Cortisolexzess)",
+          "Exogene Kortikosteroideinnahme",
+          "Depression und Angststoerungen",
+          "Schlafmangel und Schlafstoerungen",
+          "Uebertraining / exzessiver Sport",
+          "Uebermaessiger Kaffeekonsum",
+          "Adipositas (viszerales Fett)"
+        ],
+        "symptoms": [
+          "Schlafstoerungen (wach trotz Muedigkeit)",
+          "Gewichtszunahme besonders am Bauch (Stammfettsucht)",
+          "Erhoehter Blutdruck",
+          "Erhoehter Blutzucker / Insulinresistenz",
+          "Muskelschwund und duenne Haut",
+          "Immunschwaeche, haeufige Infekte"
+        ],
+        "relatedValues": ["dhea-s", "testosteron-gesamt", "testosteron-frei", "progesteron", "tsh"],
+        "actions": [
+          "Stressquellen identifizieren und reduzieren",
+          "Cortisol-Tagesprofil im Speichel (genauer als Einzelmessung)",
+          "Bei Verdacht auf Cushing: 24h-Urin-Cortisol oder Dexamethason-Hemmtest",
+          "Schlafhygiene optimieren",
+          "DHEA-S und Sexualhormone pruefen (Cortisol Steal)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Cortisol im optimal-physiologischen Bereich fuer eine Morgenmessung. Die Nebennieren arbeiten gut und die Stressachse (HPA-Achse) ist ausgeglichen. Gute Balance zwischen Stress-Response und Erholung."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Chronischer Stress",
+        "interpretation": "Cortisol Steal: Pregnenolon wird zu Cortisol statt zu Sexualhormonen umgewandelt, erklaert niedrige Testosteron/Progesteron-Werte. Stressreduktion ist die wichtigste Massnahme fuer das gesamte Hormonpanel.",
+        "severity": "attention"
+      },
+      {
+        "condition": "cortisol erhoeht AND dhea-s niedrig",
+        "interpretation": "Klassisches Muster fuer chronischen Stress: Cortisol hoch, DHEA-S niedrig. Die Nebenniere priorisiert Cortisol auf Kosten von DHEA und Sexualhormonen. Cortisol/DHEA-S-Ratio als Stressindikator.",
+        "severity": "warning"
+      },
+      {
+        "condition": "cortisol niedrig AND dhea-s niedrig",
+        "interpretation": "Beide Nebennierenmarker niedrig: Moegliche Nebennierenerschoepfung (spaetes Stadium). Kann nach langer Phase chronischen Stresses auftreten. Endokrinologische Abklaerung empfohlen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Stressmanagement: Meditation, Atemuebungen (4-7-8 Methode), Yoga nachweislich wirksam",
+        "Schlaf optimieren: 7-9 Stunden, regelmaessige Schlafenszeiten, dunkles kuehleres Schlafzimmer",
+        "Koffein vor 12 Uhr begrenzen: Kaffee erhoeht Cortisol, Halbwertszeit 5-6 Stunden",
+        "Uebertraining vermeiden: Intensives Training erhoeht Cortisol, ausreichend Regeneration einplanen",
+        "Morgenroutine: Sonnenlicht am Morgen unterstuetzt den natuerlichen Cortisol-Rhythmus",
+        "Soziale Kontakte: Oxytocin (bei positiven sozialen Interaktionen) senkt Cortisol"
+      ],
+      "supplements": [
+        {
+          "name": "Ashwagandha (KSM-66)",
+          "dosage": "600 mg taeglich",
+          "timing": "Morgens und abends je 300 mg",
+          "notes": "Staerkstes evidenzbasiertes Adaptogen. Senkt Cortisol um ca. 30% in klinischen Studien. Unterstuetzt auch Testosteron."
+        },
+        {
+          "name": "Phosphatidylserin",
+          "dosage": "300-800 mg taeglich",
+          "timing": "Abends",
+          "notes": "Kann erhoehte Cortisolwerte senken, besonders bei stressbedingter Erhoehung. Auch hilfreich bei sportbedingtem Cortisol."
+        },
+        {
+          "name": "Magnesium (Glycinat oder Threonat)",
+          "dosage": "400-600 mg taeglich",
+          "timing": "Abends vor dem Schlafengehen",
+          "notes": "Magnesium reguliert die HPA-Achse herunter. Magnesium-Threonat hat zusaetzlich neuroprotektive Eigenschaften."
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": "1000-2000 mg taeglich",
+          "timing": "Ueber den Tag verteilt",
+          "notes": "Die Nebennieren haben die hoechste Vitamin-C-Konzentration im Koerper. Bedarf steigt bei Stress massiv."
+        }
+      ],
+      "redFlags": [
+        "Morgendliches Cortisol unter 3 ug/dl: Addison-Krise moeglich, sofort Endokrinologe aufsuchen",
+        "Cortisol dauerhaft ueber 25 ug/dl mit Vollmondgesicht und Stammfettsucht: Cushing-Syndrom ausschliessen",
+        "Ploetzlicher Cortisol-Abfall nach langer Kortikosteroid-Therapie: Langsames Ausschleichen notwendig, Nebennierenkrise moeglich"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "omega-3-index",
+    "name": "Omega-3-Index",
+    "category": "spezial",
+    "categoryLabel": "Spezialwerte",
+    "description": "Der Omega-3-Index misst den Anteil der Omega-3-Fettsaeuren EPA (Eicosapentaensaeure) und DHA (Docosahexaensaeure) an den Gesamtfettsaeuren der Erythrozytenmembran, angegeben in Prozent. Er ist ein langfristiger Marker (reflektiert die letzten 8-12 Wochen, entsprechend der Lebensdauer roter Blutkoerperchen) und damit stabiler als eine Plasma-Messung. Der deutsche Durchschnitt liegt bei nur 4-6% - weit unter dem kardioprotektiven Ziel von 8-11%. Ein niedriger Omega-3-Index ist ein unabhaengiger Risikofaktor fuer Herzinfarkt, Schlaganfall und ploetzlichen Herztod. Japan hat mit einem Durchschnitt von 8-10% deutlich niedrigere kardiovaskulaere Todesraten.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": { "min": 4, "max": 100 },
+      "female": { "min": 4, "max": 100 }
+    },
+    "optimal": {
+      "male": { "min": 8, "max": 11, "target": 10 },
+      "female": { "min": 8, "max": 11, "target": 10 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Zu geringe Zufuhr von fettem Seefisch (Lachs, Makrele, Sardinen, Hering)",
+          "Keine oder unzureichende Omega-3-Supplementierung",
+          "Hoher Konsum von Omega-6-Fettsaeuren (Sonnenblumenoel, Sojaoel, Maisoel)",
+          "Malabsorption von Fetten (Gallensaeure-Mangel, Pankreasinsuffizienz)",
+          "Genetische Varianten im FADS-Gen (reduzierte EPA/DHA-Umwandlung)",
+          "Chronische Entzuendungen (erhoehter Verbrauch von EPA/DHA)"
+        ],
+        "symptoms": [
+          "Trockene Haut und Augen",
+          "Konzentrations- und Gedaechtnisprobleme",
+          "Depressive Verstimmung",
+          "Erhoehte Entzuendungsneigung",
+          "Gelenkschmerzen",
+          "Erhoehtes kardiovaskulaeres Risiko (klinisch oft asymptomatisch)"
+        ],
+        "relatedValues": ["homocystein"],
+        "actions": [
+          "Omega-3-reiche Ernaehrung: 2-3 Portionen fetten Seefisch pro Woche",
+          "Hochdosierte Omega-3-Supplementierung mit EPA und DHA (2-4 g taeglich)",
+          "Omega-6-Zufuhr reduzieren: Pflanzenoele wie Sonnenblumen- und Sojaoel ersetzen",
+          "Nach 3 Monaten Omega-3-Index erneut messen (Erythrozyten-Lebensdauer)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Hohe Omega-3-Supplementierung (ueber 4-5 g EPA/DHA taeglich)",
+          "Sehr hoher Fischkonsum",
+          "Seltene genetische Variante mit erhoehter EPA/DHA-Einlagerung"
+        ],
+        "symptoms": [
+          "Leicht erhoehte Blutungsneigung (bei sehr hohen Dosen)",
+          "Fischiger Nachgeschmack",
+          "Magen-Darm-Beschwerden bei Ueberdosierung"
+        ],
+        "relatedValues": ["homocystein"],
+        "actions": [
+          "Omega-3-Dosierung reduzieren",
+          "Vor geplanten Operationen: Arzt ueber hohe Omega-3-Einnahme informieren",
+          "Blutgerinnungswerte pruefen bei Omega-3-Index ueber 14%"
+        ]
+      },
+      "optimal": {
+        "meaning": "Omega-3-Index im optimalen Bereich (8-11%). Maximaler kardioprotektiver Schutz, niedrigstes Risiko fuer ploetzlichen Herztod. Gute entzuendungshemmende Basis, positiver Einfluss auf Gehirngesundheit, Stimmung und Gelenkgesundheit."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "omega-3-index < 4",
+        "interpretation": "Omega-3-Index unter 4% - hoechste Risikokategorie fuer kardiovaskulaere Ereignisse. Dringende Supplementierung mit mindestens 2-3 g EPA/DHA taeglich empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "omega-3-index 4-8",
+        "interpretation": "Omega-3-Index im Durchschnittsbereich, aber noch nicht im protektiven Bereich (Ziel: 8-11%). Supplementierung mit 1-2 g EPA/DHA taeglich empfohlen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "omega-3-index optimal AND homocystein erhoeht",
+        "interpretation": "Guter Omega-3-Status, aber Homocystein erhoeht. Omega-3 allein reicht nicht zur kardiovaskulaeren Risikoreduktion. B-Vitamine (B12, Folsaeure, B6) fuer Homocystein-Senkung ergaenzen.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "2-3 Portionen fetten Seefisch pro Woche: Lachs, Makrele, Sardinen, Hering (Wildfang bevorzugen)",
+        "Omega-6-Fettsaeuren reduzieren: Sonnenblumen-, Soja-, Maisoel durch Olivenoel und Kokosoel ersetzen",
+        "Omega-6:Omega-3-Verhaeltnis verbessern: Ziel unter 5:1 (westliche Ernaehrung oft 15-20:1)",
+        "Leinsamen, Walnuesse und Chiasamen als pflanzliche Omega-3-Quellen (ALA, aber schlechte Konversion zu EPA/DHA)",
+        "Verarbeitete Lebensmittel meiden: Enthalten oft versteckte Omega-6-reiche Oele"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3 (Fischoel oder Algenoel)",
+          "dosage": "2-4 g EPA/DHA taeglich (bei Index unter 6%: 3-4 g, bei 6-8%: 2-3 g)",
+          "timing": "Zu einer fetthaltigen Mahlzeit (verbessert Absorption um 300%)",
+          "notes": "Triglycerid-Form bevorzugen (bessere Bioverfuegbarkeit als Ethylester). Algenoel als vegane Alternative. Auf Reinheit achten (IFOS-Zertifizierung)."
+        },
+        {
+          "name": "Vitamin E (gemischte Tocopherole)",
+          "dosage": "100-200 IE taeglich",
+          "timing": "Zusammen mit Omega-3",
+          "notes": "Schuetzt Omega-3-Fettsaeuren vor Oxidation. Viele hochwertige Omega-3-Praeparate enthalten bereits Vitamin E."
+        }
+      ],
+      "redFlags": [
+        "Omega-3-Index unter 4%: Hoechste kardiovaskulaere Risikokategorie, sofortige Intervention noetig",
+        "Bei Einnahme von Blutverduennern (Marcumar, NOAKs): Arzt informieren bei hoher Omega-3-Dosierung (ueber 3 g)",
+        "Fischallergie: Auf Algenoel ausweichen, nicht auf Supplementierung verzichten"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "homocystein",
+    "name": "Homocystein",
+    "category": "spezial",
+    "categoryLabel": "Spezialwerte",
+    "description": "Homocystein ist eine schwefelhaltige Aminosaeure, die als Zwischenprodukt im Methionin-Stoffwechsel entsteht. Es wird normalerweise durch zwei Wege abgebaut: 1) Remethylierung zu Methionin (benoetigt Vitamin B12 und Folsaeure als Co-Faktoren) und 2) Transsulfurierung zu Cystein (benoetigt Vitamin B6). Ein erhoehter Homocystein-Spiegel ist ein unabhaengiger Risikofaktor fuer Herz-Kreislauf-Erkrankungen, da Homocystein die Gefaesswand direkt schaedigt, die Blutgerinnung aktiviert und oxidativen Stress foerdert. Homocystein ist zudem ein hervorragender funktioneller Marker fuer B-Vitamin-Mangel - selbst wenn B12 und Folsaeure noch im Referenzbereich liegen, kann erhoehtes Homocystein auf einen funktionellen Mangel hinweisen.",
+    "unit": "umol/l",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 5, "max": 15 },
+      "female": { "min": 5, "max": 15 }
+    },
+    "optimal": {
+      "male": { "min": 5, "max": 8, "target": 7 },
+      "female": { "min": 5, "max": 8, "target": 7 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Sehr hohe B-Vitamin-Supplementierung",
+          "Niedriger Methionin-Spiegel (z.B. bei veganer Ernaehrung)",
+          "Selten: Genetische Variante mit erhoehtem Abbau"
+        ],
+        "symptoms": [
+          "In der Regel keine Symptome bei niedrigem Homocystein",
+          "Sehr niedriges Homocystein ist klinisch selten relevant",
+          "Grundsaetzlich: Je niedriger, desto besser (im Normalbereich)"
+        ],
+        "relatedValues": ["omega-3-index"],
+        "actions": [
+          "Kein Handlungsbedarf bei niedrigem Homocystein",
+          "Ggf. B-Vitamin-Dosierung anpassen wenn sehr hoch dosiert"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Vitamin-B12-Mangel (haeufigste Ursache, besonders bei Vegetariern/Veganern)",
+          "Folsaeure-Mangel (zweithaeufigste Ursache)",
+          "Vitamin-B6-Mangel",
+          "MTHFR-Genmutation (reduzierte Methylierungskapazitaet, betrifft ca. 10-15% der Bevoelkerung)",
+          "Niereninsuffizienz (reduzierter Abbau)",
+          "Schilddruesenunterfunktion",
+          "Medikamente (Methotrexat, Metformin, PPIs, Antiepileptika)",
+          "Hoher Methioninkonsum bei gleichzeitigem B-Vitamin-Mangel"
+        ],
+        "symptoms": [
+          "Meist asymptomatisch (stilles kardiovaskulaeres Risiko!)",
+          "Muedigkeit und Konzentrationsstoerungen (B-Vitamin-Mangel)",
+          "Kribbeln und Taubheitsgefuehle in Haenden und Fuessen (B12-Mangel)",
+          "Depressive Verstimmung",
+          "Erhoehtes Risiko fuer Arteriosklerose, Herzinfarkt, Schlaganfall",
+          "Erhoehtes Demenzrisiko bei chronisch erhoehtem Homocystein"
+        ],
+        "relatedValues": ["omega-3-index"],
+        "actions": [
+          "Vitamin B12 (Holotranscobalamin) bestimmen",
+          "Folsaeure-Status pruefen",
+          "Vitamin B6 messen",
+          "Bei MTHFR-Verdacht: Methylierte B-Vitamine verwenden (Methylfolat, Methylcobalamin)",
+          "Nierenfunktion pruefen (Kreatinin, GFR)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Homocystein im optimalen Bereich (5-8 umol/l). Die Methylierung funktioniert gut und die B-Vitamin-Versorgung ist ausreichend. Niedriges kardiovaskulaeres Risiko durch Homocystein. Gute Voraussetzung fuer gesunde Gefaesse und kognitive Funktion."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "B12 oder Folsaeure niedrig",
+        "interpretation": "Homocystein als funktioneller Marker fuer B-Vitamin-Mangel. Bei Erhoehung B12, Folsaeure und B6 supplementieren. Methylierte Formen (Methylcobalamin, Methylfolat) bei MTHFR-Mutation bevorzugen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "homocystein > 12 AND kardiovaskulaere Risikofaktoren",
+        "interpretation": "Erhoehtes Homocystein verstaerkt andere kardiovaskulaere Risikofaktoren (Bluthochdruck, Rauchen, Dyslipidaemie). Synergistisches Risiko. B-Vitamin-Supplementierung zur Senkung dringend empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "homocystein erhoeht trotz B-Vitamin-Supplementierung",
+        "interpretation": "MTHFR-Genmutation wahrscheinlich. Auf methylierte B-Vitamine umstellen (5-MTHF statt Folsaeure, Methylcobalamin statt Cyanocobalamin). Nierenfunktion ausschliessen.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "B12-reiche Lebensmittel: Leber, Fleisch, Fisch, Eier, Milchprodukte (bei veganer Ernaehrung Supplementierung PFLICHT)",
+        "Folsaeure-reiche Lebensmittel: Gruenes Blattgemuese, Huelsenfruechte, Spargel, Avocado",
+        "B6-reiche Lebensmittel: Huhn, Lachs, Kartoffeln, Bananen, Kichererbsen",
+        "Alkohol reduzieren: Hemmt die B-Vitamin-Aufnahme und den Homocystein-Abbau",
+        "Ausreichend Protein: Methionin aus Protein wird zu Homocystein umgebaut - bei hohem Proteinkonsum B-Vitamine erhoehen"
+      ],
+      "supplements": [
+        {
+          "name": "Methylcobalamin (aktives B12)",
+          "dosage": "500-1000 ug taeglich",
+          "timing": "Morgens sublingual",
+          "notes": "Methylierte Form - kann direkt im Methylierungszyklus verwendet werden. Besser als Cyanocobalamin, besonders bei MTHFR-Mutation."
+        },
+        {
+          "name": "5-MTHF (aktive Folsaeure / Methylfolat)",
+          "dosage": "400-800 ug taeglich",
+          "timing": "Morgens",
+          "notes": "Bereits aktive Form der Folsaeure, muss nicht mehr durch MTHFR-Enzym umgewandelt werden. Essentiell bei MTHFR-Mutation."
+        },
+        {
+          "name": "Vitamin B6 (Pyridoxal-5-Phosphat / P5P)",
+          "dosage": "25-50 mg taeglich",
+          "timing": "Morgens",
+          "notes": "Aktive Form von B6. Co-Faktor fuer den Transsulfurierungsweg des Homocystein-Abbaus. Nicht ueber 100 mg (Neuropathie-Risiko)."
+        },
+        {
+          "name": "TMG (Trimethylglycin / Betain)",
+          "dosage": "500-1000 mg taeglich",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Alternativer Methylgruppendonor. Kann Homocystein ueber einen B12-unabhaengigen Weg senken. Hilfreich als Ergaenzung zu B-Vitaminen."
+        }
+      ],
+      "redFlags": [
+        "Homocystein ueber 15 umol/l: Deutlich erhoehtes kardiovaskulaeres und neurodegeneratives Risiko, sofortige B-Vitamin-Supplementierung",
+        "Homocystein ueber 30 umol/l: Schwere Hyperhomocysteinaemie, dringende aerztliche Abklaerung (Niere, genetisch, B12-Mangel)",
+        "Neurologische Symptome (Kribbeln, Taubheit) bei erhoehtem Homocystein: B12-Mangel kann irreversible Nervenschaeden verursachen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "progesteron",
+    "name": "Progesteron",
+    "category": "sexualhormone",
+    "categoryLabel": "Sexualhormone (Mann)",
+    "description": "Progesteron ist ein Steroidhormon, das bei Frauen hauptsaechlich im Gelbkoerper (Corpus luteum) nach dem Eisprung und waehrend der Schwangerschaft in der Plazenta produziert wird. Bei Maennern wird es in kleinen Mengen in den Nebennieren und Hoden gebildet. Progesteron ist die Vorstufe vieler anderer Hormone (Cortisol, Testosteron, Estradiol) und hat beruhigende, schlaffoerdernde und angstloesende Eigenschaften durch seine Wirkung auf GABA-Rezeptoren. Bei Frauen ist das Progesteron/Estradiol-Verhaeltnis entscheidend: In der Lutealphase sollte die Ratio ueber 75 liegen. Niedriges Progesteron ist eine der haeufigsten Ursachen fuer PMS, Schlafstoerungen und Zyklusprobleme. Bei Maennern korreliert niedriges Progesteron oft mit dem Cortisol-Steal-Phaenomen bei chronischem Stress.",
+    "unit": "ng/ml",
+    "alternativeUnits": [
+      { "unit": "nmol/l", "factor": 3.18 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0.1, "max": 0.3 },
+      "female": { "min": 0.1, "max": 25 }
+    },
+    "optimal": {
+      "male": { "min": 0.15, "max": 0.25, "target": 0.2 },
+      "female": { "min": 12, "max": 25, "target": 18 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Corpus-luteum-Insuffizienz (ungenuegender Gelbkoerper nach Eisprung)",
+          "Anovulatorische Zyklen (kein Eisprung = kein Gelbkoerper = kein Progesteron)",
+          "Chronischer Stress und Cortisol Steal (Pregnenolon wird zu Cortisol statt Progesteron)",
+          "Oestrogen-Dominanz (relatives Ungleichgewicht Progesteron/Oestrogen)",
+          "Perimenopause (Progesteron faellt zuerst, Oestrogen spaeter)",
+          "Schilddruesenunterfunktion (beeintraechtigt Ovulation)",
+          "Starker Stress, Untergewicht oder uebermaessiger Sport",
+          "Hyperprolaktinaemie (erhoehtes Prolaktin hemmt Ovulation)"
+        ],
+        "symptoms": [
+          "PMS: Stimmungsschwankungen, Brustspannen, Blaehing vor der Periode",
+          "Schlafstoerungen und Durchschlafprobleme (Progesteron ist schlaffoerdernd ueber GABA)",
+          "Angst und Nervositaet",
+          "Unregelmaessige oder starke Menstruationsblutungen",
+          "Schmierblutungen vor der Periode",
+          "Unfruchtbarkeit oder Fehlgeburten im Fruehstadium"
+        ],
+        "relatedValues": ["estradiol", "cortisol", "testosteron-gesamt", "tsh"],
+        "actions": [
+          "Progesteron in der Lutealphase messen (Tag 19-22 bei 28-Tage-Zyklus)",
+          "Estradiol parallel bestimmen (Progesteron/Estradiol-Ratio berechnen)",
+          "Cortisol pruefen (Cortisol Steal als Ursache?)",
+          "Schilddruesenwerte pruefen (Hypothyreose beeintraechtigt Ovulation)",
+          "Ovulation ueberwachen (Basaltemperatur, LH-Tests)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Schwangerschaft (starker physiologischer Progesteronanstieg)",
+          "Kongenitale Nebennierenhyperplasie (21-Hydroxylase-Mangel)",
+          "Exogene Progesteron-Zufuhr (Creme, Kapseln, Spritze)",
+          "Ovarialtumor (selten)",
+          "Nebennierentumor (selten)",
+          "Hydatiforme Mole (sehr selten)"
+        ],
+        "symptoms": [
+          "Muedigkeit und Schlaeferigkeit",
+          "Blaehing und Wassereinlagerung",
+          "Brustspannen",
+          "Depressive Verstimmung",
+          "Schwindel"
+        ],
+        "relatedValues": ["estradiol", "cortisol", "dhea-s"],
+        "actions": [
+          "Schwangerschaft ausschliessen (hCG-Test)",
+          "Exogene Progesteronzufuhr ueberpruefen",
+          "Bei Maennern: 17-OH-Progesteron bestimmen (Nebennierenhyperplasie?)",
+          "Gynaekologische Abklaerung bei Frauen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Progesteron im optimalen Bereich. Bei Frauen in der Lutealphase Zeichen fuer gute Gelbkoerperfunktion und normale Ovulation. Gute Voraussetzung fuer Fruchtbarkeit, erholsamen Schlaf und emotionale Ausgeglichenheit. Bei Maennern: Ausgeglichene Nebennierenfunktion."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Progesteron/Estradiol-Ratio < 75 (Lutealphase Frau)",
+        "interpretation": "Oestrogen-Dominanz: Progesteron ist relativ zum Estradiol zu niedrig. Haeufige Ursache fuer PMS, Brustspannen, starke Blutungen und Schlafstoerungen. Progesteron-Unterstuetzung und Oestrogen-Metabolismus optimieren.",
+        "severity": "warning"
+      },
+      {
+        "condition": "progesteron niedrig AND cortisol erhoeht (Mann)",
+        "interpretation": "Cortisol Steal bei Maennern: Pregnenolon (Progesteron-Vorstufe) wird bevorzugt zu Cortisol umgebaut statt zu Progesteron und Testosteron. Stressreduktion ist die ursaechliche Therapie.",
+        "severity": "attention"
+      },
+      {
+        "condition": "progesteron sehr niedrig in Lutealphase (Frau)",
+        "interpretation": "Lutealphasendefekt oder anovulatorischer Zyklus. Kann Unfruchtbarkeit und fruehe Fehlgeburten erklaeren. Gynaekologische Abklaerung empfohlen. Ovulation pruefen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Stressreduktion: Cortisol Steal ist die haeufigste Ursache fuer niedrige Progesteron-Werte",
+        "Schlaf optimieren: Progesteron wird schlafbegleitend reguliert und foerdert seinerseits den Schlaf",
+        "Vitamin C: 750 mg taeglich kann Progesteron-Spiegel um bis zu 77% erhoehen (Studie bei Lutealphasendefekt)",
+        "Koerperfett optimieren: Sowohl Unter- als auch Uebergewicht beeintraechtigen die Ovulation",
+        "Hochintensiven Sport in der Lutealphase reduzieren: Kann Progesteron senken",
+        "Xenooestrogene meiden: Erhoehen relatives Oestrogen und verschlechtern die Progesteron/Oestrogen-Ratio"
+      ],
+      "supplements": [
+        {
+          "name": "Vitex agnus-castus (Moenchspfeffer)",
+          "dosage": "20-40 mg Extrakt taeglich",
+          "timing": "Morgens nuechtern",
+          "notes": "Nachgewiesene Wirkung auf LH-Erhoehung und Progesteron-Steigerung. Besonders wirksam bei PMS und Lutealphasendefekt. 3-6 Monate einnehmen fuer vollen Effekt."
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": "750 mg taeglich",
+          "timing": "Ueber den Tag verteilt",
+          "notes": "Studie zeigt 77% Anstieg des Progesteron-Spiegels bei Lutealphasendefekt. Unterstuetzt auch die Nebennierenfunktion."
+        },
+        {
+          "name": "Vitamin B6 (P5P)",
+          "dosage": "50-100 mg taeglich",
+          "timing": "Morgens",
+          "notes": "Unterstuetzt die Progesteron-Produktion und den Abbau von ueberschuessigem Oestrogen in der Leber. Nicht ueber 100 mg (Neuropathie-Risiko)."
+        },
+        {
+          "name": "Zink",
+          "dosage": "25-30 mg taeglich",
+          "timing": "Abends zu einer Mahlzeit",
+          "notes": "Essenziell fuer die Progesteron-Produktion und Folikelreifung. Unterstuetzt FSH bei der Stimulation der Eierstoecke."
+        }
+      ],
+      "redFlags": [
+        "Progesteron in der Lutealphase unter 5 ng/ml bei Kinderwunsch: Dringende gynaekologische Abklaerung",
+        "Wiederholte Fehlgeburten: Progesteron und Progesteron/Estradiol-Ratio pruefen lassen",
+        "Progesteron erhoeht bei ausbleibender Periode: Schwangerschaft oder Tumor ausschliessen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  }
+]

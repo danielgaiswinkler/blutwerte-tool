@@ -1,0 +1,961 @@
+[
+  {
+    "id": "gesamtcholesterin",
+    "name": "Gesamtcholesterin",
+    "category": "lipide",
+    "categoryLabel": "Herzgesundheit & Lipid-Panel",
+    "description": "Gesamtcholesterin ist die Summe aus LDL-, HDL- und VLDL-Cholesterin. Thiemo Osterhaus betont ausdruecklich: Gesamtcholesterin allein ist NICHT aussagekraeftig und sagt wenig ueber das tatsaechliche kardiovaskulaere Risiko aus. Ein hoher Wert kann sowohl durch schuetzendes HDL als auch durch atherogenes LDL bedingt sein. Moderne Lipidologie fokussiert auf ApoB und die LDL-Partikelanzahl statt auf Gesamtcholesterin. Ohne Kontext (ApoB, Triglyceride, HDL) ist Gesamtcholesterin eine nahezu bedeutungslose Metrik. Es dient lediglich als grober Orientierungswert und sollte immer im Zusammenhang mit dem vollstaendigen Lipid-Panel interpretiert werden.",
+    "unit": "mg/dl",
+    "alternativeUnits": [
+      {
+        "unit": "mmol/l",
+        "factor": 0.02586
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0, "max": 200 },
+      "female": { "min": 0, "max": 200 }
+    },
+    "optimal": {
+      "male": { "min": 150, "max": 200, "target": 180 },
+      "female": { "min": 150, "max": 200, "target": 180 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Schwere Lebererkrankung oder Leberzirrhose",
+          "Hyperthyreose (Schilddruesenueberfunktion)",
+          "Malabsorption oder Malnutrition",
+          "Chronische Infektionen oder schwere Entzuendungen",
+          "Genetische Hypocholesterinaemie (Abetalipoproteinaemie)",
+          "Medikamente (hochdosierte Statine, PCSK9-Hemmer)",
+          "Fortgeschrittene Krebserkrankungen",
+          "Schwere Sepsis oder systemische Entzuendungsreaktion"
+        ],
+        "symptoms": [
+          "Haeufig symptomlos",
+          "Bei sehr niedrigen Werten: moegliche Hormonmangel-Symptome (Cholesterin ist Vorstufe der Steroidhormone)",
+          "Moeglicherweise erhoehte Infektanfaelligkeit",
+          "Stimmungsschwankungen und depressive Verstimmung (Cholesterin wichtig fuer Gehirnfunktion und Serotonin-Rezeptoren)",
+          "Trockene Haut und Schleimhaeute"
+        ],
+        "relatedValues": ["ldl", "hdl", "triglyceride", "apob"],
+        "actions": [
+          "Schilddruesenwerte pruefen (TSH, fT3, fT4)",
+          "Leberwerte kontrollieren (GOT, GPT, GGT, Bilirubin)",
+          "Ernaehrungsstatus und Proteinzufuhr evaluieren",
+          "Bei Werten unter 120 mg/dl: aerztliche Abklaerung dringend empfohlen",
+          "Medikamentenanamnese pruefen (Statine, Fibrate)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Ernaehrungsbedingt (gesaettigte Fette, Transfette, hohe Kalorienzufuhr)",
+          "Genetisch (familiaere Hypercholesterinaemie - FH)",
+          "Hypothyreose (Schilddruesenunterfunktion)",
+          "Nierenerkrankungen (nephrotisches Syndrom)",
+          "Medikamente (Kortikosteroide, Thiazide, orale Kontrazeptiva)",
+          "Adipositas und Insulinresistenz",
+          "Cholestase (Gallenstau)",
+          "Schwangerschaft (physiologisch erhoeht)"
+        ],
+        "symptoms": [
+          "In der Regel voellig symptomlos",
+          "Bei stark erhoehten Werten: Xanthelasmen (gelbliche Fettablagerungen an den Augenlidern)",
+          "Arcus corneae (weisslicher Ring um die Hornhaut, besonders bei juengeren Menschen verdaechtig)",
+          "Bei FH: Sehnenxanthome (besonders Achillessehne und Fingerstreckseiten)",
+          "Langfristig: stille Atherosklerose ohne spuerbare Symptome"
+        ],
+        "relatedValues": ["ldl", "hdl", "triglyceride", "apob", "lpa"],
+        "actions": [
+          "WICHTIG: Gesamtcholesterin allein ist KEIN guter Risikomarker!",
+          "ApoB bestimmen lassen (deutlich aussagekraeftiger als Gesamtcholesterin)",
+          "Lipid-Panel vollstaendig analysieren (HDL, LDL, Triglyceride, ApoB)",
+          "Triglycerid/HDL-Ratio berechnen fuer Einschaetzung der Insulinsensitivitaet",
+          "Schilddruesenwerte (TSH) pruefen - Hypothyreose ist haeufige Ursache"
+        ]
+      },
+      "optimal": {
+        "meaning": "Ein Gesamtcholesterin im optimalen Bereich (150-200 mg/dl) ist ein grober Anhaltspunkt, reicht aber NICHT fuer eine zuverlaessige kardiovaskulaere Risikobewertung. Osterhaus betont: Entscheidend sind ApoB, die Triglycerid/HDL-Ratio und das Gesamtbild des Lipid-Panels. Gesamtcholesterin sollte nie isoliert betrachtet oder als alleinige Entscheidungsgrundlage fuer eine Therapie herangezogen werden."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "gesamtcholesterin > 200 AND apob < 80 AND trig_hdl_ratio < 1.5",
+        "interpretation": "Gesamtcholesterin ueber 200, aber ApoB niedrig und Triglycerid/HDL-Ratio gut. Dies spricht fuer ein Muster mit grossen, weniger atherogenen LDL-Partikeln (Pattern A). Das kardiovaskulaere Risiko ist wahrscheinlich deutlich geringer als der Gesamtcholesterin-Wert vermuten laesst. ApoB ist hier der fuehrende Marker.",
+        "severity": "info"
+      },
+      {
+        "condition": "gesamtcholesterin < 200 AND apob > 90",
+        "interpretation": "Trotz normalem Gesamtcholesterin ist ApoB erhoeht! Dies deutet auf viele kleine, dichte LDL-Partikel hin (Pattern B) und ein HOEHERES Risiko als der Gesamtcholesterin-Wert suggeriert. ApoB ist hier der wichtigere Marker und sollte als Grundlage fuer Therapieentscheidungen dienen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "gesamtcholesterin > 300",
+        "interpretation": "Stark erhoehtes Gesamtcholesterin. Familiaere Hypercholesterinaemie (FH) muss ausgeschlossen werden. Vollstaendige Lipid-Diagnostik inklusive ApoB und Lp(a) dringend empfohlen. Kardiologische Vorstellung erwaegen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Mediterrane Ernaehrung: Olivenoel, Nuesse, Fisch, Gemuese, Huelsenfruechte",
+        "Transfette komplett vermeiden (verarbeitete Lebensmittel, Frittiertes, Backmargarinen)",
+        "Ballaststoffzufuhr erhoehen (30+ g/Tag): Haferflocken, Leinsamen, Flohsamenschalen, Gemuese",
+        "Regelmaessige Bewegung: 150-300 Min. moderate oder 75-150 Min. intensive Aktivitaet pro Woche",
+        "Koerpergewicht optimieren (Adipositas verschlechtert das gesamte Lipidprofil)",
+        "Alkoholkonsum reduzieren oder eliminieren",
+        "Stress-Management betreiben (chronischer Stress erhoeht Cholesterin ueber Cortisol)"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsaeuren (EPA/DHA)",
+          "dosage": "2-4 g EPA+DHA taeglich",
+          "timing": "Zu den Mahlzeiten (fetthaltig fuer bessere Resorption)",
+          "notes": "Senkt primaer Triglyceride und verbessert das Gesamtlipidprofil. Hochwertiges, auf Schwermetalle getestetes Produkt waehlen. EPA-betontes Praeparat bevorzugen."
+        },
+        {
+          "name": "Ballaststoff-Supplement (Psyllium/Flohsamenschalen)",
+          "dosage": "5-10 g taeglich",
+          "timing": "Vor den Mahlzeiten mit viel Wasser",
+          "notes": "Kann LDL-Cholesterin um 5-15% senken durch Bindung von Gallensaeuren im Darm. Langsam einschleichen, um Blaehungen zu vermeiden."
+        },
+        {
+          "name": "Bergamotte-Extrakt",
+          "dosage": "500-1000 mg taeglich",
+          "timing": "Morgens",
+          "notes": "Studien zeigen moderate Verbesserung des Lipidprofils. Kein Ersatz fuer Statine bei hohem Risiko. Qualitativ hochwertiges Extrakt mit standardisiertem Flavonoidgehalt waehlen."
+        }
+      ],
+      "redFlags": [
+        "Gesamtcholesterin ueber 300 mg/dl: Familiaere Hypercholesterinaemie ausschliessen - sofortige aerztliche Abklaerung",
+        "Gesamtcholesterin unter 120 mg/dl: Leber- und Schilddruesenfunktion dringend pruefen",
+        "Gesamtcholesterin nie isoliert betrachten - IMMER mit ApoB, HDL, Triglyceriden zusammen bewerten"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "ldl",
+    "name": "LDL-Cholesterin",
+    "category": "lipide",
+    "categoryLabel": "Herzgesundheit & Lipid-Panel",
+    "description": "LDL-Cholesterin (Low-Density-Lipoprotein) wird als 'schlechtes Cholesterin' bezeichnet und ist ein Hauptfokus der konventionellen Kardiologie. Osterhaus betont jedoch: LDL allein ist nicht so aussagekraeftig wie ApoB. Entscheidend ist nicht die Masse an Cholesterin in den Partikeln, sondern die ANZAHL der atherogenen Partikel. Kleine, dichte LDL-Partikel (sdLDL, small dense LDL) sind deutlich gefaehrlicher als grosse, fluffige LDL-Partikel, weil sie leichter in die Arterienwand eindringen und dort laenger verweilen. LDL wird haeufig per Friedewald-Formel berechnet, was bei Triglyceriden ueber 400 mg/dl oder sehr niedrigem LDL ungenau wird. Eine direkte LDL-Messung ist dann vorzuziehen. Bei Diskordanz zwischen LDL-C und ApoB ist IMMER ApoB der bessere Prediktor fuer das kardiovaskulaere Risiko.",
+    "unit": "mg/dl",
+    "alternativeUnits": [
+      {
+        "unit": "mmol/l",
+        "factor": 0.02586
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0, "max": 130 },
+      "female": { "min": 0, "max": 130 }
+    },
+    "optimal": {
+      "male": { "min": 0, "max": 100, "target": 80 },
+      "female": { "min": 0, "max": 100, "target": 80 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Medikamente (Statine, PCSK9-Hemmer, Ezetimib)",
+          "Hyperthyreose (Schilddruesenueberfunktion)",
+          "Schwere Lebererkrankung oder Leberinsuffizienz",
+          "Malabsorption oder schwere Malnutrition",
+          "Genetisch (Hypobetalipoproteinaemie, Abetalipoproteinaemie)",
+          "Chronische Infektionskrankheiten",
+          "Myeloproliferative Erkrankungen",
+          "Schwere katabole Zustaende (Sepsis, schwere Verbrennungen)"
+        ],
+        "symptoms": [
+          "In der Regel symptomlos",
+          "Bei extrem niedrigen Werten (<20 mg/dl): theoretisch moegliche Beeintraechtigung der Steroidhormonsynthese, klinisch aber selten relevant",
+          "Studien zeigen keinen Schaden bei LDL von 20-40 mg/dl unter medikamentoeser Therapie",
+          "Bei genetischer Abetalipoproteinaemie: Fettmalabsorption und neurologische Symptome"
+        ],
+        "relatedValues": ["apob", "hdl", "triglyceride", "gesamtcholesterin"],
+        "actions": [
+          "Bei medikamentoes bedingten niedrigen Werten: in der Regel kein Handlungsbedarf",
+          "Leberwerte kontrollieren wenn nicht medikamentoes bedingt",
+          "Schilddruesenfunktion pruefen (TSH, fT3, fT4)",
+          "Ernaehrungsstatus evaluieren bei unerklaerlich niedrigem LDL"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Ernaehrungsbedingt (gesaettigte Fette, Transfette, hohe Kalorienzufuhr)",
+          "Genetisch (familiaere Hypercholesterinaemie - FH, Praevalenz 1:250)",
+          "Hypothyreose (Schilddruesenunterfunktion) - haeufig uebersehene Ursache",
+          "Nephrotisches Syndrom (Nierenfunktionsstoerung)",
+          "Adipositas und Insulinresistenz",
+          "Medikamente (Progestine, Anabolika, Kortikosteroide, Thiazide)",
+          "Cholestase (Gallenstau, Gallenwegserkrankungen)",
+          "Bei Keto/Low-Carb: 'Lean Mass Hyper-Responder' - LDL steigt, ApoB oft nicht proportional"
+        ],
+        "symptoms": [
+          "LDL-Erhoehung ist voellig symptomlos - Atherosklerose entwickelt sich still ueber Jahrzehnte",
+          "Bei FH: Sehnenxanthome (Achillessehne, Fingerstreckseiten), Arcus corneae in jungem Alter",
+          "Langfristig: Angina pectoris, Herzinfarkt, Schlaganfall, periphere arterielle Verschlusskrankheit",
+          "Xanthelasmen (gelbliche Fettablagerungen an den Augenlidern)"
+        ],
+        "relatedValues": ["apob", "lpa", "hdl", "triglyceride", "gesamtcholesterin", "trig-hdl-ratio"],
+        "actions": [
+          "ApoB bestimmen lassen - DAS ist der entscheidende kardiovaskulaere Risikomarker!",
+          "Bei LDL-ApoB-Diskordanz: ApoB ist IMMER der bessere Prediktor",
+          "Lp(a) einmalig messen lassen (genetischer Risikofaktor, aendert sich nicht)",
+          "Familiaere Hypercholesterinaemie ausschliessen (Familienanamnese, Klinik)",
+          "Schilddruesenwerte pruefen (TSH) - Hypothyreose ist haeufige und behandelbare Ursache"
+        ]
+      },
+      "optimal": {
+        "meaning": "LDL-Cholesterin im optimalen Bereich (unter 100 mg/dl) reduziert das Lebenszeitrisiko fuer Atherosklerose erheblich. Osterhaus betont die kumulative Exposition: Jedes Jahr mit niedrigem LDL/ApoB reduziert das Gesamtrisiko. Trotzdem gilt: ApoB ist der ueberlegene Marker. Ein LDL unter 100 mg/dl mit ApoB unter 80 mg/dl ist ein exzellentes Lipidprofil."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "ldl > 130 AND apob < 80",
+        "interpretation": "Diskordanz: LDL-Cholesterin erhoeht, aber ApoB relativ niedrig. Die LDL-Partikel sind gross und cholesterinreich (wenige Partikel, viel Cholesterin pro Partikel = Pattern A). Das Risiko ist geringer als der LDL-Wert allein vermuten laesst. ApoB ist hier der zuverlaessigere Marker. Haeufig bei Low-Carb/Keto-Ernaehrung ('Lean Mass Hyper-Responder').",
+        "severity": "info"
+      },
+      {
+        "condition": "ldl < 130 AND apob > 90",
+        "interpretation": "Gefaehrliche Diskordanz: LDL-Cholesterin normal, aber ApoB erhoeht! Viele kleine, dichte LDL-Partikel (wenig Cholesterin pro Partikel, aber VIELE Partikel = Pattern B). Das tatsaechliche Risiko ist HOEHER als der LDL-Wert suggeriert. Bei Diskordanz bestimmt ApoB das Risiko.",
+        "severity": "warning"
+      },
+      {
+        "condition": "ldl > 190",
+        "interpretation": "Stark erhoehtes LDL. Familiaere Hypercholesterinaemie (FH) muss ausgeschlossen werden. ApoB und Lp(a) bestimmen, Familienanamnese erheben, kardiologische Vorstellung empfohlen. Bei FH liegt das Risiko fuer fruehe kardiovaskulaere Ereignisse massiv erhoeht.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Mediterrane Ernaehrung: Reich an einfach ungesaettigten Fettsaeuren (Olivenoel), Omega-3 (Fisch), Ballaststoffen",
+        "Transfette komplett eliminieren (industriell gehartete Fette, Backwaren, Fertigprodukte)",
+        "Gesaettigte Fette moderat halten (nicht komplett eliminieren, aber Qualitaet beachten)",
+        "Raffinierte Kohlenhydrate und Zucker reduzieren (treiben small dense LDL)",
+        "Ballaststoffe erhoehen: 30-40 g/Tag (Haferflocken, Huelsenfruechte, Leinsamen, Gemuese)",
+        "Regelmaessige Bewegung: Besonders Ausdauertraining verbessert die LDL-Partikelgroesse",
+        "Krafttraining: Verbessert Insulinsensitivitaet und damit indirekt das Lipidprofil",
+        "Koerpergewicht optimieren: Jedes Kilogramm weniger verbessert das Lipidprofil",
+        "Schlafqualitaet optimieren: Schlafmangel verschlechtert Lipidwerte"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsaeuren (EPA/DHA)",
+          "dosage": "2-4 g EPA+DHA taeglich",
+          "timing": "Zu fettreicher Mahlzeit",
+          "notes": "Primaer triglycerid-senkend, verbessert aber auch die LDL-Partikelgroesse. EPA-betonte Praeparate bevorzugen."
+        },
+        {
+          "name": "Phytosterole",
+          "dosage": "2 g taeglich",
+          "timing": "Zu den Mahlzeiten verteilt",
+          "notes": "Kann LDL um 5-15% senken durch Hemmung der Cholesterinabsorption im Darm. Nicht bei Sitosterolaemie."
+        },
+        {
+          "name": "Psyllium (Flohsamenschalen)",
+          "dosage": "10-15 g taeglich",
+          "timing": "Vor den Mahlzeiten mit reichlich Wasser",
+          "notes": "Loesliche Ballaststoffe binden Gallensaeuren und senken LDL. Langsam eindosieren um Verdauungsbeschwerden zu vermeiden."
+        },
+        {
+          "name": "Berberin",
+          "dosage": "500 mg 2-3x taeglich",
+          "timing": "Vor den Mahlzeiten",
+          "notes": "Kann LDL um 20-30% senken. Upreguliert LDL-Rezeptoren in der Leber. Wechselwirkungen mit Medikamenten beachten (CYP-Enzyme)."
+        }
+      ],
+      "redFlags": [
+        "LDL ueber 190 mg/dl: Familiaere Hypercholesterinaemie ausschliessen (betrifft 1:250 Menschen!)",
+        "LDL-ApoB-Diskordanz: IMMER ApoB als fuehrenden Marker verwenden",
+        "Fruehe kardiovaskulaere Ereignisse in der Familie (Maenner <55, Frauen <65): aggressivere Lipidtherapie notwendig"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "hdl",
+    "name": "HDL-Cholesterin",
+    "category": "lipide",
+    "categoryLabel": "Herzgesundheit & Lipid-Panel",
+    "description": "HDL-Cholesterin (High-Density-Lipoprotein) wird als 'gutes Cholesterin' bezeichnet und spielt eine zentrale Rolle im reversen Cholesterintransport: Es nimmt ueberschuessiges Cholesterin aus den Gefaesswaaenden und peripheren Geweben auf und transportiert es zurueck zur Leber zur Ausscheidung. Hoeheres HDL ist generell mit einem niedrigeren kardiovaskulaeren Risiko assoziiert. Allerdings ist nicht nur die HDL-Menge entscheidend, sondern auch die HDL-Funktion. Pharmakologische HDL-Erhoehung (z.B. durch CETP-Hemmer) hat in Studien keinen Zusatznutzen gezeigt. HDL ist besonders im Verhaeltnis zu Triglyceriden aussagekraeftig: Die Triglycerid/HDL-Ratio ist ein einfacher und kostenloser Surrogatmarker fuer Insulinresistenz und small dense LDL.",
+    "unit": "mg/dl",
+    "alternativeUnits": [
+      {
+        "unit": "mmol/l",
+        "factor": 0.02586
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 40, "max": 999 },
+      "female": { "min": 50, "max": 999 }
+    },
+    "optimal": {
+      "male": { "min": 50, "max": 80, "target": 60 },
+      "female": { "min": 55, "max": 85, "target": 65 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Metabolisches Syndrom und Insulinresistenz",
+          "Adipositas (besonders viszerales Bauchfett)",
+          "Bewegungsmangel (einer der staerksten HDL-senkenden Faktoren)",
+          "Rauchen (senkt HDL signifikant)",
+          "Hohe Zufuhr raffinierter Kohlenhydrate und Zucker",
+          "Typ-2-Diabetes mellitus",
+          "Anabole Steroide und bestimmte Medikamente (Betablocker, Progestine)",
+          "Genetisch (z.B. Tangier-Krankheit, LCAT-Mangel)"
+        ],
+        "symptoms": [
+          "HDL-Mangel selbst verursacht keine direkten Symptome",
+          "Zeichen des metabolischen Syndroms: Bauchfett, erhoehter Blutdruck, erhoehte Nuechtern-Glukose",
+          "Langfristig: erhoehtes Risiko fuer Atherosklerose und kardiovaskulaere Ereignisse",
+          "Zusammen mit hohen Triglyceriden: Muedigkeit, Energietiefs nach Mahlzeiten"
+        ],
+        "relatedValues": ["triglyceride", "trig-hdl-ratio", "apob", "gesamtcholesterin"],
+        "actions": [
+          "Insulinresistenz abklaeren (Nuechtern-Insulin, HOMA-IR bestimmen)",
+          "Triglyceride checken (niedrig HDL + hohe Triglyceride = klassisches metabolisches Syndrom-Muster)",
+          "Regelmaessige Bewegung aufnehmen - effektivste nicht-medikamentoese HDL-Erhoehung!",
+          "Rauchen aufgeben (erhoeht HDL um ca. 5-10%)",
+          "Gesunde Fette erhoehen (Olivenoel, Avocado, Nuesse, fetter Fisch)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Genetisch bedingt (CETP-Mangel, familiäer)",
+          "Intensiver regelmaessiger Ausdauersport",
+          "Moderater Alkoholkonsum (moderat erhoehend)",
+          "Medikamente (Niacin, Fibrate, Oestrogene)",
+          "Schilddruesenfunktionsstoerung"
+        ],
+        "symptoms": [
+          "Sehr hohes HDL (>100 mg/dl) ist nicht automatisch protektiv",
+          "Bei genetischem CETP-Mangel kann hochnormales HDL dysfunktional sein",
+          "Studien zeigen U-foermige Kurve: HDL ueber 90-100 mg/dl bietet moeglicherweise keinen zusaetzlichen Schutz",
+          "Bei Alkohol-bedingter Erhoehung: Leberbelastung beachten"
+        ],
+        "relatedValues": ["triglyceride", "ldl", "apob", "gesamtcholesterin"],
+        "actions": [
+          "Bei HDL ueber 100 mg/dl: nicht automatisch als positiv werten",
+          "HDL-Funktion ist wichtiger als die absolute Menge",
+          "Alkoholkonsum als moegliche Ursache evaluieren und ggf. reduzieren",
+          "Gesamtes Lipidprofil und ApoB bewerten, nicht nur HDL isoliert"
+        ]
+      },
+      "optimal": {
+        "meaning": "HDL im optimalen Bereich zeigt einen gut funktionierenden reversen Cholesterintransport an. In Kombination mit niedrigen Triglyceriden (Trig/HDL-Ratio unter 1.5) spricht dies fuer gute Insulinsensitivitaet und ein guenstiges, nicht-atherogenes Lipidprofil. HDL wird am besten durch Lebensstil beeinflusst: Bewegung, gesunde Fette, wenig Zucker."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "hdl < 40 (Maenner) oder hdl < 50 (Frauen) AND triglyceride > 150",
+        "interpretation": "Klassisches Muster des metabolischen Syndroms: Niedriges HDL und hohe Triglyceride. Stark hinweisend auf Insulinresistenz und ein atherogenes Lipidprofil mit vielen kleinen, dichten LDL-Partikeln. Nuechtern-Insulin und HOMA-IR bestimmen. Lebensstilaenderung ist die wichtigste Massnahme.",
+        "severity": "warning"
+      },
+      {
+        "condition": "hdl < 50 AND triglyceride > 100",
+        "interpretation": "Suboptimale Triglycerid/HDL-Konstellation. Beginnende Insulinresistenz moeglich. Triglycerid/HDL-Ratio berechnen und Nuechtern-Insulin kontrollieren.",
+        "severity": "attention"
+      },
+      {
+        "condition": "hdl > 90",
+        "interpretation": "Sehr hohes HDL. Haeufig genetisch bedingt oder durch intensive koerperliche Aktivitaet. Ab ca. 100 mg/dl nimmt der zusaetzliche Schutzeffekt nicht mehr zu. Alkoholkonsum als moegliche Ursache pruefen.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Regelmaessige Bewegung ist die effektivste Massnahme: HDL-Erhoehung um 5-15% moeglich",
+        "Ausdauertraining: 150-300 Min./Woche moderate Intensitaet (Joggen, Schwimmen, Radfahren)",
+        "Krafttraining: 2-3x/Woche, verbessert Insulinsensitivitaet und damit HDL",
+        "Rauchen aufgeben: erhoeht HDL um ca. 5-10%",
+        "Gesunde Fette: Olivenoel, Avocado, Nuesse, fetter Fisch (Lachs, Makrele, Sardinen)",
+        "Raffinierte Kohlenhydrate und Zucker stark reduzieren",
+        "Koerpergewicht optimieren: Jedes Kilogramm Fettabbau verbessert HDL",
+        "Genuegend Schlaf: 7-9 Stunden (Schlafmangel senkt HDL)"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsaeuren (EPA/DHA)",
+          "dosage": "2-4 g EPA+DHA taeglich",
+          "timing": "Zu fettreicher Mahlzeit",
+          "notes": "Verbessert das HDL/Triglycerid-Verhaeltnis signifikant. EPA-betonte Praeparate bevorzugen."
+        },
+        {
+          "name": "Niacin (Vitamin B3)",
+          "dosage": "500-1000 mg taeglich (nur Flush-freie Form)",
+          "timing": "Abends zum Essen",
+          "notes": "Staerkster HDL-Erhoeher unter Supplements (+15-30%). ABER: AIM-HIGH und HPS2-THRIVE Studien zeigten keinen Zusatznutzen zu Statinen. Nur nach aerztlicher Ruecksprache. Leberwerte kontrollieren."
+        },
+        {
+          "name": "Olivenblaettextrakt",
+          "dosage": "500-1000 mg taeglich",
+          "timing": "Morgens",
+          "notes": "Kann HDL moderat erhoehen und hat antioxidative sowie blutdrucksenkende Eigenschaften."
+        }
+      ],
+      "redFlags": [
+        "HDL unter 35 mg/dl: Deutlich erhoehtes kardiovaskulaeres Risiko, metabolisches Syndrom sehr wahrscheinlich",
+        "HDL niedrig + Triglyceride hoch + Bauchumfang erhoeht: Metabolisches Syndrom - umfassende aerztliche Abklaerung",
+        "HDL pharmakologisch zu erhoehen hat keinen bewiesenen klinischen Nutzen (AIM-HIGH, HPS2-THRIVE)"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "triglyceride",
+    "name": "Triglyceride",
+    "category": "lipide",
+    "categoryLabel": "Herzgesundheit & Lipid-Panel",
+    "description": "Triglyceride sind die haeufigste Fettform im Blut und dienen als Energiespeicher. Erhoehte Triglyceride sind ein starker Hinweis auf Insulinresistenz und metabolische Dysfunktion. WICHTIG laut Osterhaus: Triglyceride muessen NUECHTERN gemessen werden (12 Stunden Nahrungskarenz)! Nicht-Nuechternwerte sind deutlich hoeher und nicht vergleichbar. Die Triglycerid/HDL-Ratio ist ein besonders wichtiger Marker: Unter 1 spricht fuer gute Insulinsensitivitaet, ueber 2 macht eine Insulinresistenz wahrscheinlich. Triglyceride werden stark durch Zucker, Alkohol und raffinierte Kohlenhydrate beeinflusst - die Ernaehrung ist der staerkste Hebel. Fruktose wird in der Leber direkt zu Triglyceriden umgewandelt, was erklaert, warum Fruchtsaefte und Softdrinks die Werte besonders stark erhoehen.",
+    "unit": "mg/dl",
+    "alternativeUnits": [
+      {
+        "unit": "mmol/l",
+        "factor": 0.01129
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0, "max": 150 },
+      "female": { "min": 0, "max": 150 }
+    },
+    "optimal": {
+      "male": { "min": 0, "max": 80, "target": 60 },
+      "female": { "min": 0, "max": 80, "target": 60 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Sehr kohlenhydratarme Ernaehrung (Keto, Carnivore, Low-Carb)",
+          "Hyperthyreose (Schilddruesenueberfunktion)",
+          "Malabsorption (Zoeliakie, Morbus Crohn)",
+          "Schwere Malnutrition oder Hungerzustaende",
+          "Fortgeschrittene Lebererkrankung (Syntheseleistung reduziert)",
+          "Uebermaessige koerperliche Aktivitaet bei geringer Kalorienzufuhr"
+        ],
+        "symptoms": [
+          "Sehr niedrige Triglyceride (<40 mg/dl) sind selten problematisch",
+          "Moeglicherweise Hinweis auf Malnutrition bei gleichzeitig niedrigem Koerpergewicht",
+          "Bei ketogener Ernaehrung normal und erwuenscht",
+          "Kann auf unzureichende Energiezufuhr hindeuten wenn unbeabsichtigt"
+        ],
+        "relatedValues": ["hdl", "trig-hdl-ratio", "apob"],
+        "actions": [
+          "Bei Keto/Low-Carb: in der Regel unproblematisch und erwuenscht",
+          "Ernaehrungsstatus und Kalorienzufuhr pruefen wenn nicht ernaehrungsbedingt",
+          "Schilddruese pruefen (Hyperthyreose senkt Triglyceride)",
+          "Malabsorption ausschliessen bei unerklaerl. niedrigen Werten"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Hohe Kohlenhydratzufuhr (besonders Zucker, Fruktose, raffinierte KH, Fruchtsaefte, Softdrinks)",
+          "Insulinresistenz und Hyperinsulinaemie (Leber produziert vermehrt VLDL)",
+          "Alkoholkonsum (auch moderat! Alkohol wird in der Leber zu Triglyceriden umgewandelt)",
+          "Adipositas (besonders viszerales Bauchfett)",
+          "Typ-2-Diabetes mellitus",
+          "Hypothyreose (Schilddruesenunterfunktion)",
+          "Medikamente (Betablocker, Thiazide, Kortikosteroide, Retinoide, Oestrogene)",
+          "Genetisch (familiaere Hypertriglyceridaemie)"
+        ],
+        "symptoms": [
+          "Meist voellig symptomlos",
+          "Bei extrem hohen Werten (>500 mg/dl): akutes Pankreatitis-Risiko!",
+          "Bei >1000 mg/dl: eruptive Xanthome, Lipaemia retinalis, akute Pankreatitis",
+          "Chronisch erhoehte Triglyceride: Fettleber, Atherosklerose",
+          "Metabolisches Syndrom-Zeichen: Bauchfett, Muedigkeit, Energietiefs nach kohlenhydratreichen Mahlzeiten",
+          "Schaumiger oder trueber Urin bei extremer Erhoehung"
+        ],
+        "relatedValues": ["hdl", "trig-hdl-ratio", "apob", "gesamtcholesterin", "ldl"],
+        "actions": [
+          "Sicherstellen, dass NUECHTERN gemessen wurde (12 Stunden Nahrungskarenz)!",
+          "Triglycerid/HDL-Ratio berechnen (bester Surrogatmarker fuer Insulinresistenz)",
+          "Kohlenhydrate reduzieren - effektivste Einzelmassnahme!",
+          "Zucker und Fruktose stark einschraenken (Fruchtsaefte, Softdrinks eliminieren)",
+          "Alkohol pausieren oder stark reduzieren"
+        ]
+      },
+      "optimal": {
+        "meaning": "Nuechtern-Triglyceride im optimalen Bereich (unter 80 mg/dl) sprechen fuer eine gute Insulinsensitivitaet und einen gesunden Kohlenhydratstoffwechsel. In Kombination mit gutem HDL (Trig/HDL-Ratio unter 1.0) ist dies ein Zeichen fuer ein exzellentes, nicht-atherogenes Lipidprofil mit grossen LDL-Partikeln. Osterhaus betont: Triglyceride unter 80 sind ein starkes Zeichen metabolischer Gesundheit."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "triglyceride > 150 AND trig-hdl-ratio > 2.0",
+        "interpretation": "Erhoehte Triglyceride bei hoher Trig/HDL-Ratio. Starker Hinweis auf Insulinresistenz. Die Leber produziert bei Insulinresistenz vermehrt VLDL-Partikel (triglyceridreich). Nuechtern-Insulin und HOMA-IR bestimmen. Kohlenhydratreduktion und Bewegung sind die wichtigsten Massnahmen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "triglyceride > 100 AND hdl < 50",
+        "interpretation": "Atherogene Dyslipidaemie: Erhoehte Triglyceride und niedriges HDL. Typisch fuer Insulinresistenz mit vielen kleinen, dichten LDL-Partikeln. Das kardiovaskulaere Risiko ist erhoeht, auch wenn LDL-Cholesterin normal sein kann. ApoB bestimmen!",
+        "severity": "warning"
+      },
+      {
+        "condition": "triglyceride > 500",
+        "interpretation": "Stark erhoehte Triglyceride. PANKREATITIS-RISIKO! Sofortige aerztliche Behandlung erforderlich. Alkohol sofort pausieren, stark fettarme Ernaehrung, ggf. Fibrate oder hochdosierte Omega-3-Fettsaeuren.",
+        "severity": "warning"
+      },
+      {
+        "condition": "triglyceride < 70 AND hdl > 60",
+        "interpretation": "Exzellentes Triglycerid/HDL-Profil. Spricht fuer sehr gute Insulinsensitivitaet und ein guenstiges Lipidpartikelmuster mit grossen LDL-Partikeln (Pattern A).",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Kohlenhydrate reduzieren: Effektivste Einzelmassnahme! Besonders raffinierte KH und Zucker eliminieren",
+        "Fruktose stark limitieren: Fruktose wird direkt in der Leber zu Triglyceriden umgewandelt (Fruchtsaefte, Softdrinks, Agavensirup)",
+        "Alkohol reduzieren oder pausieren: Alkohol erhoeht Triglyceride direkt ueber die Leber",
+        "Mediterrane Ernaehrung: Olivenoel, fetter Fisch, Nuesse, Gemuese, Huelsenfruechte",
+        "Intermittierendes Fasten kann Triglyceride signifikant senken (z.B. 16:8 Time-Restricted Eating)",
+        "Regelmaessige Bewegung: Sowohl Ausdauer als auch Krafttraining senken Triglyceride",
+        "HIIT (High Intensity Interval Training) ist besonders effektiv fuer Triglycerid-Senkung",
+        "Koerpergewicht optimieren: Jedes Kilogramm weniger senkt Triglyceride messbar",
+        "Genuegend Schlaf: Schlafmangel erhoeht Triglyceride ueber Cortisol und Insulinresistenz"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsaeuren (EPA/DHA)",
+          "dosage": "2-4 g EPA+DHA taeglich (bei hohen Triglyceriden: bis 4 g)",
+          "timing": "Zu fettreicher Mahlzeit fuer optimale Resorption",
+          "notes": "Staerkster natuerlicher Triglycerid-Senker! Kann Triglyceride um 20-50% senken. EPA-betonte Praeparate bevorzugen. Bei >500 mg/dl ggf. verschreibungspflichtiges EPA (Icosapent-Ethyl) erwaegen."
+        },
+        {
+          "name": "Berberin",
+          "dosage": "500 mg 2-3x taeglich",
+          "timing": "Vor den Mahlzeiten",
+          "notes": "Verbessert Insulinsensitivitaet und senkt Triglyceride ueber AMPK-Aktivierung. Wechselwirkungen mit Medikamenten beachten (CYP-Enzyme)."
+        },
+        {
+          "name": "Magnesium",
+          "dosage": "400-600 mg Magnesiumglycinat taeglich",
+          "timing": "Abends (foerdert zusaetzlich Schlafqualitaet)",
+          "notes": "Magnesium-Mangel verschlechtert Insulinsensitivitaet. Viele Menschen sind subklinisch mangelhaft. Supplementierung kann Triglyceride indirekt ueber bessere Insulinsensitivitaet verbessern."
+        }
+      ],
+      "redFlags": [
+        "Triglyceride ueber 500 mg/dl: Akutes Pankreatitis-Risiko! Sofortige aerztliche Behandlung notwendig",
+        "Triglyceride ueber 1000 mg/dl: Medizinischer Notfall moeglich - Notaufnahme erwaegen",
+        "IMMER sicherstellen, dass NUECHTERN gemessen wurde (12 Stunden Nahrungskarenz) - Nicht-Nuechternwerte koennen 2-3x hoeher sein"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "apob",
+    "name": "ApoB (Apolipoprotein B)",
+    "category": "lipide",
+    "categoryLabel": "Herzgesundheit & Lipid-Panel",
+    "description": "Apolipoprotein B ist laut Osterhaus DER wichtigste einzelne kardiovaskulaere Risikomarker ueberhaupt. Jeder atherogene Lipoprotein-Partikel (LDL, VLDL, IDL, Lp(a)) traegt GENAU EIN ApoB-Molekuel auf seiner Oberflaeche. ApoB misst daher direkt die Gesamtanzahl aller atherogenen Partikel im Blut. Dies ist entscheidend, denn Atherosklerose wird durch die ANZAHL der Partikel getrieben, die in die Arterienwand eindringen koennen, nicht durch die Menge an Cholesterin in ihnen. ApoB ist besser als LDL-Cholesterin, weil es ALLE atherogenen Partikel erfasst (LDL, VLDL, IDL, Lp(a)) und nicht nur einen Teil. 'So niedrig wie moeglich' ist das Ziel - bei hohem Risiko idealerweise unter 30 mg/dl. Mendelsche Randomisierungsstudien bestaetigen: Lebenslang niedriges ApoB bedeutet ein drastisch reduziertes kardiovaskulaeres Risiko.",
+    "unit": "mg/dl",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0, "max": 130 },
+      "female": { "min": 0, "max": 130 }
+    },
+    "optimal": {
+      "male": { "min": 0, "max": 80, "target": 60 },
+      "female": { "min": 0, "max": 80, "target": 60 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Medikamente (Statine, PCSK9-Hemmer, Ezetimib - Therapieziel erreicht!)",
+          "Abetalipoproteinaemie (extrem seltene genetische Erkrankung)",
+          "Hyperthyreose (Schilddruesenueberfunktion)",
+          "Schwere Lebererkrankung mit reduzierter Syntheseleistung",
+          "Schwere Malnutrition"
+        ],
+        "symptoms": [
+          "Klinisch gibt es kein 'zu niedriges' ApoB",
+          "Mendelsche Randomisierung zeigt: Menschen mit genetisch lebenslang niedrigem ApoB haben massiv reduziertes Herzinfarktrisiko",
+          "Bei Abetalipoproteinaemie (extrem selten): Fettmalabsorption, neurologische Symptome, Retinitis pigmentosa"
+        ],
+        "relatedValues": ["ldl", "triglyceride", "gesamtcholesterin", "hdl"],
+        "actions": [
+          "Niedriges ApoB ist grundsaetzlich erstrebenswert und NICHT behandlungsbeduerftig",
+          "Bei medikamentoes bedingten niedrigen Werten: Therapieziel erreicht - weiter so!",
+          "Nur bei Verdacht auf genetische Abetalipoproteinaemie weitere Diagnostik noetig"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Ernaehrungsbedingt (gesaettigte Fette, Transfette, hohe Kalorienzufuhr)",
+          "Genetisch (familiaere Hypercholesterinaemie - FH, familiaere kombinierte Hyperlipidaemie)",
+          "Insulinresistenz und metabolisches Syndrom (Leber produziert vermehrt VLDL-Partikel)",
+          "Hypothyreose (Schilddruesenunterfunktion)",
+          "Nephrotisches Syndrom (Nierenfunktionsstoerung)",
+          "Adipositas (besonders viszerales Fett steigert VLDL-Produktion)",
+          "Typ-2-Diabetes mellitus",
+          "Cholestase und Gallenwegserkrankungen"
+        ],
+        "symptoms": [
+          "ApoB-Erhoehung ist komplett symptomlos",
+          "Atherosklerose entwickelt sich schleichend und still ueber Jahrzehnte",
+          "Erst kardiovaskulaere Ereignisse (Herzinfarkt, Schlaganfall) machen sich bemerkbar",
+          "Osterhaus betont: Atherosklerose beginnt bereits in jungen Jahren - die Konsequenzen zeigen sich Jahrzehnte spaeter",
+          "Bei FH: moeglicherweise Sehnenxanthome und Arcus corneae als aeussere Zeichen"
+        ],
+        "relatedValues": ["ldl", "triglyceride", "lpa", "hdl", "gesamtcholesterin", "trig-hdl-ratio"],
+        "actions": [
+          "ApoB ueber 80 mg/dl: Aktive Massnahmen zur Senkung empfohlen",
+          "ApoB ueber 100 mg/dl: Signifikant erhoehtes Risiko, Therapie dringend empfohlen",
+          "Lp(a) einmalig bestimmen lassen (zusaetzlicher genetischer Risikofaktor)",
+          "Lebensstilaenderungen: Mediterrane Ernaehrung, Bewegung, Gewichtsoptimierung",
+          "Pharmakotherapie mit Arzt besprechen: Statine (30-50% ApoB-Senkung), Ezetimib (+15-20%), PCSK9-Hemmer (+50-60%)"
+        ]
+      },
+      "optimal": {
+        "meaning": "ApoB im optimalen Bereich (unter 80 mg/dl) bedeutet eine niedrige Gesamtanzahl atherogener Partikel im Blut. Dies ist der beste veraenderbare Schutz vor Atherosklerose. Osterhaus betont: Die kumulative Exposition gegenueber atherogenen Partikeln bestimmt das Lebenszeitrisiko. Jedes Jahr mit niedrigem ApoB reduziert die Gesamtbelastung der Arterienwand. Pro 10 mg/dl niedrigerem ApoB sinkt das kardiovaskulaere Risiko ueberproportional."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "apob > 90 AND ldl < 130",
+        "interpretation": "Gefaehrliche Diskordanz: ApoB hoch, LDL-C normal. Viele kleine, dichte LDL-Partikel (jeweils wenig Cholesterin, aber VIELE Partikel). Das tatsaechliche Risiko entspricht dem ApoB, NICHT dem LDL-C. Dieses Muster wird bei alleiniger LDL-Messung haeufig uebersehen. Dies ist die 'gefaehrlichste Diskordanz' in der Lipidologie.",
+        "severity": "warning"
+      },
+      {
+        "condition": "apob > 100",
+        "interpretation": "Signifikant erhoehtes ApoB. Deutlich erhoehtes kardiovaskulaeres Risiko. Jeder Punkt ueber 80 mg/dl erhoeht die atherogene Belastung. Aggressive Lipid-Senkung mit Arzt besprechen. Lebensstilaenderungen allein reichen bei diesen Werten haeufig nicht aus - Pharmakotherapie erwaegen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "apob > 60 AND lpa > 75",
+        "interpretation": "Doppeltes Risiko: Erhoehtes ApoB plus genetisch erhoehtes Lp(a). Lp(a) ist nicht veraenderbar, daher muss ApoB umso aggressiver gesenkt werden. Ziel-ApoB bei hohem Lp(a): moeglichst unter 50 mg/dl. PCSK9-Hemmer koennen sowohl ApoB als auch Lp(a) senken.",
+        "severity": "warning"
+      },
+      {
+        "condition": "apob < 60",
+        "interpretation": "Exzellenter ApoB-Wert. Niedrige Partikelanzahl bedeutet minimale atherogene Belastung der Arterienwand. Optimaler Schutz vor Atherosklerose.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Mediterrane Ernaehrung: Nachgewiesene ApoB-Senkung um 5-10%",
+        "Gesaettigte Fette moderat halten (nicht eliminieren, aber bewusst dosieren, Qualitaet beachten)",
+        "Transfette komplett eliminieren (Frittiertes, Margarine, industrielle Backwaren)",
+        "Raffinierte Kohlenhydrate und Zucker reduzieren (senken VLDL-Produktion der Leber)",
+        "Ballaststoffe erhoehen (30-40 g/Tag): Binden Gallensaeuren, Leber muss Cholesterin verbrauchen",
+        "Regelmaessige Bewegung: Ausdauer + Krafttraining verbessern das Lipidprofil",
+        "Koerpergewicht optimieren: Viszerales Fett treibt die VLDL/ApoB-Produktion der Leber",
+        "Insulinresistenz adressieren (Insulinresistenz erhoeht die VLDL-Produktion massiv)",
+        "Schlaf optimieren: 7-9 Stunden pro Nacht",
+        "Stress-Management: Chronischer Stress erhoeht ApoB ueber Cortisol"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsaeuren (EPA/DHA)",
+          "dosage": "2-4 g EPA+DHA taeglich",
+          "timing": "Zu fettreicher Mahlzeit",
+          "notes": "Senkt VLDL-Partikel (Teil des ApoB-Pools). EPA-betonte Praeparate bevorzugen. Kann ApoB indirekt um 5-10% senken."
+        },
+        {
+          "name": "Psyllium (Flohsamenschalen)",
+          "dosage": "10-15 g taeglich",
+          "timing": "Vor den Mahlzeiten mit reichlich Wasser",
+          "notes": "Loesliche Ballaststoffe binden Gallensaeuren und koennen die LDL-Partikelanzahl senken. Langsam einschleichen."
+        },
+        {
+          "name": "Phytosterole",
+          "dosage": "2 g taeglich",
+          "timing": "Zu den Mahlzeiten verteilt",
+          "notes": "Blockieren Cholesterin-Absorption im Darm. Koennen ApoB um 5-10% senken. Nicht bei Sitosterolaemie."
+        },
+        {
+          "name": "Berberin",
+          "dosage": "500 mg 2-3x taeglich",
+          "timing": "Vor den Mahlzeiten",
+          "notes": "Upreguliert LDL-Rezeptoren und verbessert Insulinsensitivitaet. Kann ApoB messbar senken. Wechselwirkungen mit Medikamenten beachten."
+        }
+      ],
+      "redFlags": [
+        "ApoB ueber 130 mg/dl: Hohes Risiko, Pharmakotherapie sehr wahrscheinlich notwendig - zeitnah aerztlich vorstellen",
+        "ApoB-LDL-Diskordanz (ApoB hoch, LDL normal): Wird haeufig uebersehen - ApoB IMMER mitbestimmen lassen!",
+        "Supplements allein reichen bei deutlich erhoehtem ApoB (>100 mg/dl) selten aus - Pharmakotherapie mit Arzt besprechen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "lpa",
+    "name": "Lp(a) (Lipoprotein(a))",
+    "category": "lipide",
+    "categoryLabel": "Herzgesundheit & Lipid-Panel",
+    "description": "Lipoprotein(a) ist ein LDL-aehnliches Partikel mit einem zusaetzlichen Apolipoprotein(a)-Protein, das kovalent an ApoB gebunden ist. Osterhaus betont: Lp(a) ist zu ueber 90% GENETISCH determiniert und aendert sich im Laufe des Lebens kaum. Es muss daher nur EINMAL im Leben gemessen werden. Erhoehtes Lp(a) ist ein unabhaengiger, kausaler Risikofaktor fuer Atherosklerose, Aortenklappenstenose und thrombotische Ereignisse - UNABHAENGIG von LDL. Etwa 20% der Bevoelkerung haben erhoehte Werte. Das Tueckische: Lp(a) kann durch Lifestyle-Massnahmen und die meisten Supplements NICHT gesenkt werden. Wer ein erhoehtes Lp(a) hat, muss alle anderen veraenderbaren Risikofaktoren umso strenger kontrollieren, insbesondere ApoB. Jeder Mensch sollte Lp(a) mindestens einmal im Leben messen lassen.",
+    "unit": "nmol/l",
+    "alternativeUnits": [
+      {
+        "unit": "mg/dl",
+        "factor": 0.4167
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0, "max": 75 },
+      "female": { "min": 0, "max": 75 }
+    },
+    "optimal": {
+      "male": { "min": 0, "max": 30, "target": 15 },
+      "female": { "min": 0, "max": 30, "target": 15 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Genetisch bedingt (normaler Zustand bei ca. 80% der Bevoelkerung)",
+          "Grosse Lp(a)-Isoformen (viele Kringle-IV-Repeats = niedrigere Konzentration)",
+          "Niedrige Lp(a)-Werte sind grundsaetzlich erstrebenswert"
+        ],
+        "symptoms": [
+          "Keine negativen Symptome bei niedrigem Lp(a)",
+          "Niedriges Lp(a) ist optimal und kardiovaskulaer schuetzend",
+          "Kein Handlungsbedarf"
+        ],
+        "relatedValues": ["apob", "ldl"],
+        "actions": [
+          "Kein Handlungsbedarf - niedriges Lp(a) ist ideal",
+          "Erneute Messung NICHT notwendig (Wert aendert sich im Leben kaum)",
+          "Ergebnis dokumentieren fuer zukuenftige Arztbesuche"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "100% genetisch determiniert (autosomal vererbte Variation im LPA-Gen)",
+          "Variation der Kringle-IV-Repeats bestimmt die Lp(a)-Konzentration",
+          "Wenige Kringle-IV-Repeats = kleineres, aber hoeher konzentriertes Lp(a) = hoeheres Risiko",
+          "Nicht durch Ernaehrung, Bewegung oder die meisten Medikamente veraenderbar",
+          "Schilddruesenunterfunktion kann Lp(a) leicht erhoehen (reversibler Anteil)",
+          "Niereninsuffizienz kann Lp(a) leicht erhoehen"
+        ],
+        "symptoms": [
+          "Voellig symptomlos bis zum kardiovaskulaeren Ereignis",
+          "Erhoehtes Risiko fuer: Herzinfarkt, Schlaganfall, periphere arterielle Verschlusskrankheit",
+          "Erhoehtes Risiko fuer kalzifizierende Aortenklappenstenose",
+          "Erhoehtes thrombotisches Risiko (Lp(a) hemmt die Fibrinolyse durch Aehnlichkeit mit Plasminogen)",
+          "Beschleunigte Atherosklerose durch inflammatorische Wirkung der oxidierten Phospholipide auf Lp(a)"
+        ],
+        "relatedValues": ["apob", "ldl", "gesamtcholesterin"],
+        "actions": [
+          "WICHTIG: Lp(a) ist NICHT durch Lifestyle oder Supplements veraenderbar!",
+          "Alle anderen veraenderbaren Risikofaktoren umso aggressiver kontrollieren",
+          "ApoB-Zielwert niedriger ansetzen: unter 50 mg/dl, idealerweise unter 40 mg/dl",
+          "Blutdruck optimal einstellen (unter 120/80 mmHg)",
+          "Familienscreening: Verwandte 1. Grades sollten ebenfalls Lp(a) messen lassen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Lp(a) im optimalen Bereich (unter 30 nmol/l) bedeutet, dass dieser genetische Risikofaktor bei Ihnen NICHT relevant ist. Dies ist ein erheblicher Vorteil fuer die kardiovaskulaere Gesundheit. Osterhaus betont: Eine erneute Messung ist nicht notwendig, da sich Lp(a) im Laufe des Lebens nicht wesentlich aendert. Dokumentieren Sie das Ergebnis fuer zukuenftige Arztbesuche."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Einmalige Messung ausreichend",
+        "interpretation": "Lp(a) ist genetisch festgelegt und aendert sich im Leben kaum. Eine einmalige Messung reicht fuer die gesamte Lebenszeit aus. Der Wert sollte dokumentiert und bei jedem neuen Arzt kommuniziert werden.",
+        "severity": "info"
+      },
+      {
+        "condition": "lpa > 75 AND apob > 60",
+        "interpretation": "Doppeltes Risiko: Genetisch erhoehtes Lp(a) UND erhoehtes ApoB. Diese Kombination erhoeht das kardiovaskulaere Risiko ueberproportional. ApoB-Senkung hat hier hoechste Prioritaet. Ziel-ApoB: moeglichst unter 50 mg/dl, idealerweise unter 40 mg/dl. PCSK9-Hemmer koennen sowohl ApoB als auch Lp(a) senken und sollten mit dem Arzt besprochen werden.",
+        "severity": "warning"
+      },
+      {
+        "condition": "lpa > 125",
+        "interpretation": "Stark erhoehtes Lp(a) (oberhalb des 95. Perzentils). Signifikant erhoehtes Risiko fuer kardiovaskulaere Ereignisse und Aortenklappenstenose. Kardiologische Mitbetreuung dringend empfohlen. Alle veraenderbaren Risikofaktoren maximal aggressiv kontrollieren. Bei Progression der Atherosklerose: Lipoprotein-Apherese erwaegen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "WICHTIG: Lp(a) ist NICHT durch Lebensstil veraenderbar (ueber 90% genetisch determiniert)",
+        "Stattdessen alle anderen Risikofaktoren umso konsequenter optimieren:",
+        "ApoB so niedrig wie moeglich halten (mediterrane Ernaehrung, ggf. Medikamente)",
+        "Blutdruck konsequent unter 120/80 mmHg halten",
+        "Absolutes Rauchverbot (Rauchen + erhoehtes Lp(a) = massiv gesteigertes Risiko)",
+        "Regelmaessige Bewegung fuer allgemeine kardiovaskulaere Gesundheit",
+        "Koerpergewicht und Insulinsensitivitaet optimieren",
+        "Entzuendungsmarker niedrig halten (hsCRP unter 1 mg/l anstreben)"
+      ],
+      "supplements": [
+        {
+          "name": "Niacin (Vitamin B3)",
+          "dosage": "1000-2000 mg taeglich (NUR unter aerztlicher Aufsicht!)",
+          "timing": "Abends zum Essen",
+          "notes": "Kann Lp(a) um 20-30% senken. Aber: Klinischer Nutzen ist umstritten (AIM-HIGH, HPS2-THRIVE Studien). Flush-Nebenwirkung bei regulaerem Niacin. Leberwerte kontrollieren. UNBEDINGT mit Arzt besprechen."
+        },
+        {
+          "name": "Omega-3-Fettsaeuren (EPA/DHA)",
+          "dosage": "2-4 g EPA+DHA taeglich",
+          "timing": "Zu fettreicher Mahlzeit",
+          "notes": "Senkt Lp(a) NICHT direkt, aber verbessert das Gesamtlipidprofil und reduziert andere kardiovaskulaere Risikofaktoren (Triglyceride, Inflammation)."
+        },
+        {
+          "name": "Coenzym Q10",
+          "dosage": "100-200 mg taeglich",
+          "timing": "Morgens zu fettreicher Mahlzeit",
+          "notes": "Unterstuetzt kardiovaskulaere Gesundheit allgemein. Besonders wichtig bei gleichzeitiger Statin-Einnahme (Statine senken koerpereigenes CoQ10). Senkt Lp(a) nicht direkt."
+        }
+      ],
+      "redFlags": [
+        "Lp(a) ueber 75 nmol/l: Erhoehtes kardiovaskulaeres Risiko - alle anderen Risikofaktoren aggressiv kontrollieren",
+        "Lp(a) ueber 125 nmol/l: Stark erhoehtes Risiko - kardiologische Mitbetreuung dringend empfohlen",
+        "Lp(a) NICHT durch Diaet, Bewegung oder Supplements senkbar - keine Schuld bei erhoehten Werten!"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "trig-hdl-ratio",
+    "name": "Triglycerid/HDL-Ratio",
+    "category": "lipide",
+    "categoryLabel": "Herzgesundheit & Lipid-Panel",
+    "description": "Die Triglycerid/HDL-Ratio ist ein berechneter Wert (Triglyceride geteilt durch HDL, beide in mg/dl) und laut Osterhaus der beste Surrogatmarker fuer Insulinsensitivitaet. Sie korreliert stark mit der Praesenz kleiner, dichter LDL-Partikel und dem kardiovaskulaeren Risiko. Eine Ratio unter 1 bedeutet sehr gute Insulinsensitivitaet, zwischen 1 und 2 ist sie grenzwertig, und ueber 2 ist eine Insulinresistenz wahrscheinlich. Die Ratio ist einfach zu berechnen, kostenlos aus dem Standard-Lipidpanel verfuegbar und laut Osterhaus fuer das Screening sogar besser als der HOMA-IR-Index. Eine niedrige Ratio spricht fuer grosse, weniger atherogene LDL-Partikel (Pattern A), eine hohe Ratio fuer viele kleine, dichte LDL-Partikel (Pattern B) und ein atherogenes Lipidprofil.",
+    "unit": "",
+    "alternativeUnits": [],
+    "measurementType": "Berechnet",
+    "reference": {
+      "male": { "min": 0, "max": 2.0 },
+      "female": { "min": 0, "max": 2.0 }
+    },
+    "optimal": {
+      "male": { "min": 0, "max": 1.0, "target": 0.7 },
+      "female": { "min": 0, "max": 1.0, "target": 0.7 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Sehr niedrige Triglyceride bei gleichzeitig hohem HDL",
+          "Ketogene oder sehr kohlenhydratarme Ernaehrung",
+          "Sehr sportliche Menschen mit exzellenter Insulinsensitivitaet",
+          "Genetisch hohes HDL in Kombination mit niedrigen Triglyceriden"
+        ],
+        "symptoms": [
+          "Eine sehr niedrige Ratio (unter 0.5) ist KEIN Problem - im Gegenteil",
+          "Zeigt exzellente metabolische Gesundheit und Insulinsensitivitaet an",
+          "Spricht fuer grosse, nicht-atherogene LDL-Partikel (Pattern A)"
+        ],
+        "relatedValues": ["triglyceride", "hdl", "apob"],
+        "actions": [
+          "Kein Handlungsbedarf - exzellenter Wert!",
+          "Weiter so mit dem aktuellen Lebensstil",
+          "Zeigt an, dass die metabolische Gesundheit hervorragend ist"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Insulinresistenz und Hyperinsulinaemie (haeufigste Ursache)",
+          "Hohe Zufuhr raffinierter Kohlenhydrate, Zucker und Fruktose",
+          "Metabolisches Syndrom (Bauchfett, Bluthochdruck, erhoehte Glukose)",
+          "Adipositas, besonders viszerales Bauchfett",
+          "Bewegungsmangel",
+          "Alkoholkonsum (erhoeht Triglyceride, senkt teils HDL)",
+          "Typ-2-Diabetes mellitus",
+          "Medikamente (Betablocker, Thiazide senken HDL und erhoehen Triglyceride)"
+        ],
+        "symptoms": [
+          "Die Ratio selbst verursacht keine direkten Symptome",
+          "Zeigt an: Viele kleine, dichte LDL-Partikel (hochgradig atherogen)",
+          "Zeigt an: Insulinresistenz (auch wenn Blutzucker noch im Normalbereich!)",
+          "Langfristig: Erhoehtes Risiko fuer Atherosklerose, Typ-2-Diabetes, nicht-alkoholische Fettleber",
+          "Begleitsymptome der Insulinresistenz: Muedigkeit nach dem Essen, Heisshunger auf Suesses, Bauchfettansammlung"
+        ],
+        "relatedValues": ["triglyceride", "hdl", "apob", "ldl", "gesamtcholesterin"],
+        "actions": [
+          "Insulinresistenz abklaeren: Nuechtern-Insulin und HOMA-IR bestimmen",
+          "Kohlenhydrate reduzieren - effektivste Einzelmassnahme!",
+          "Zucker und Fruktose stark einschraenken (Softdrinks, Fruchtsaefte eliminieren)",
+          "Regelmaessige Bewegung aufnehmen (Kraft- UND Ausdauertraining)",
+          "Koerpergewicht optimieren, insbesondere viszerales Bauchfett reduzieren"
+        ]
+      },
+      "optimal": {
+        "meaning": "Eine Triglycerid/HDL-Ratio unter 1.0 spricht fuer exzellente Insulinsensitivitaet, grosse LDL-Partikel (Pattern A) und ein guenstiges metabolisches Profil. Osterhaus betont: Dies ist ein einfacher, kostenloser Marker, der erstaunlich viel ueber die metabolische Gesundheit und das kardiovaskulaere Risiko aussagt. Besser als HOMA-IR fuer ein schnelles Screening."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "trig-hdl-ratio > 2.0",
+        "interpretation": "Triglycerid/HDL-Ratio ueber 2.0: Insulinresistenz ist wahrscheinlich. Viele kleine, dichte LDL-Partikel (Pattern B) und ein atherogenes Lipidprofil sind zu erwarten. Nuechtern-Insulin und HOMA-IR bestimmen. Kohlenhydratreduktion, Bewegung und Gewichtsoptimierung sind die wichtigsten Massnahmen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "trig-hdl-ratio > 3.0",
+        "interpretation": "Deutlich erhoehte Ratio. Metabolisches Syndrom sehr wahrscheinlich. Umfassende metabolische Abklaerung: Nuechtern-Insulin, HOMA-IR, HbA1c, Nuechtern-Glukose. ApoB bestimmen. Aerztliche Betreuung und aggressive Lebensstilaenderungen dringend empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "trig-hdl-ratio < 1.0",
+        "interpretation": "Exzellente Triglycerid/HDL-Ratio unter 1.0! Spricht fuer sehr gute Insulinsensitivitaet und ein nicht-atherogenes Lipidprofil mit grossen LDL-Partikeln. Metabolische Gesundheit wahrscheinlich hervorragend.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Kohlenhydrate reduzieren: Senkt Triglyceride (Zaehler) und ist die effektivste Massnahme zur Ratio-Verbesserung",
+        "Raffinierte Kohlenhydrate und Zucker stark einschraenken (Weissmehl, Zucker, Fruchtsaefte)",
+        "Fruktose limitieren (wird direkt in der Leber zu Triglyceriden umgewandelt)",
+        "Gesunde Fette erhoehen: Olivenoel, Avocado, Nuesse, fetter Fisch (erhoeht HDL = Nenner, senkt Triglyceride = Zaehler)",
+        "Regelmaessige Bewegung: Kraft- und Ausdauertraining verbessern BEIDE Seiten der Ratio",
+        "HIIT (High Intensity Interval Training) besonders effektiv fuer Triglycerid-Senkung",
+        "Koerpergewicht optimieren: Viszerales Bauchfett reduzieren",
+        "Alkohol reduzieren oder pausieren (erhoeht Triglyceride direkt)",
+        "Intermittierendes Fasten kann die Ratio verbessern",
+        "Schlafqualitaet optimieren: Schlafmangel verschlechtert Insulinsensitivitaet und damit die Ratio"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsaeuren (EPA/DHA)",
+          "dosage": "2-4 g EPA+DHA taeglich",
+          "timing": "Zu fettreicher Mahlzeit",
+          "notes": "Senkt Triglyceride (Zaehler der Ratio) um 20-50%. Effektivstes Supplement zur Ratio-Verbesserung. EPA-betonte Praeparate bevorzugen."
+        },
+        {
+          "name": "Berberin",
+          "dosage": "500 mg 2-3x taeglich",
+          "timing": "Vor den Mahlzeiten",
+          "notes": "Verbessert Insulinsensitivitaet und senkt Triglyceride ueber AMPK-Aktivierung. Verbessert beide Seiten der Ratio. Wechselwirkungen mit Medikamenten beachten."
+        },
+        {
+          "name": "Magnesium",
+          "dosage": "400-600 mg Magnesiumglycinat taeglich",
+          "timing": "Abends",
+          "notes": "Verbessert Insulinsensitivitaet und damit indirekt die Ratio. Viele Menschen sind subklinisch mangelhaft. Foerdert zusaetzlich die Schlafqualitaet."
+        }
+      ],
+      "redFlags": [
+        "Ratio ueber 3.0: Metabolisches Syndrom wahrscheinlich - umfassende aerztliche Abklaerung empfohlen",
+        "IMMER sicherstellen, dass Triglyceride NUECHTERN gemessen wurden (12h Karenz) - sonst ist die Ratio verfaelscht und nicht verwertbar",
+        "Bei sehr hoher Ratio trotz guter Ernaehrung: genetische Ursachen pruefen (familiaere Hypertriglyceridaemie, familiaer niedriges HDL)"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  }
+]

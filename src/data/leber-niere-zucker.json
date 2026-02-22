@@ -1,0 +1,1573 @@
+[
+  {
+    "id": "got",
+    "name": "GOT / AST (Glutamat-Oxalacetat-Transaminase)",
+    "category": "leber",
+    "categoryLabel": "Leberwerte",
+    "description": "GOT (auch AST genannt) ist ein Enzym, das vor allem in Leber, Herz und Skelettmuskulatur vorkommt. Es wird bei Zellschäden ins Blut freigesetzt. Da es nicht leberspezifisch ist, muss eine Erhöhung immer im Zusammenhang mit anderen Werten (GPT, CK) interpretiert werden. Der De-Ritis-Quotient (GOT/GPT) gibt wichtige diagnostische Hinweise: >1 spricht für Leberzellnekrose oder alkoholische Schädigung, <1 für einen leichteren Leberschaden wie nicht-alkoholische Fettleber.",
+    "unit": "U/l",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0, "max": 50 },
+      "female": { "min": 0, "max": 35 }
+    },
+    "optimal": {
+      "male": { "min": 10, "max": 30, "target": 20 },
+      "female": { "min": 10, "max": 25, "target": 18 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Vitamin-B6-Mangel (GOT ist ein B6-abhängiges Enzym)",
+          "Niereninsuffizienz (gestörter B6-Stoffwechsel)",
+          "Häufige Dialyse",
+          "Schwangerschaft (Hämodilution)",
+          "Mangelernährung mit generellem Vitaminmangel"
+        ],
+        "symptoms": [
+          "In der Regel keine direkten Symptome durch niedrige GOT",
+          "Mögliche Symptome des zugrunde liegenden B6-Mangels: Müdigkeit, Hautveränderungen",
+          "Periphere Neuropathie bei schwerem B6-Mangel"
+        ],
+        "relatedValues": ["gpt", "ggt", "vitamin-b6"],
+        "actions": [
+          "Vitamin-B6-Status überprüfen lassen",
+          "Nierenfunktion kontrollieren",
+          "Ernährungszustand evaluieren"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Leberzellschaden (Hepatitis, Fettleber, toxische Schädigung)",
+          "Muskelschaden oder intensives Training (GOT kommt auch in der Skelettmuskulatur vor)",
+          "Herzmuskelschaden (z.B. Herzinfarkt)",
+          "Alkoholmissbrauch",
+          "Medikamente (Statine, Paracetamol, Antibiotika)",
+          "Gallenstau (Cholestase)",
+          "Autoimmunhepatitis",
+          "Hämochromatose (Eisenspeicherkrankheit)"
+        ],
+        "symptoms": [
+          "Müdigkeit und Abgeschlagenheit",
+          "Oberbauchschmerzen rechts",
+          "Gelbfärbung der Haut oder Augen (Ikterus)",
+          "Dunkler Urin",
+          "Übelkeit und Appetitlosigkeit",
+          "Muskelschmerzen bei muskulärer Ursache"
+        ],
+        "relatedValues": ["gpt", "ggt", "bilirubin", "ck", "ldh"],
+        "actions": [
+          "CK-Wert bestimmen lassen um Muskelschaden auszuschließen",
+          "Alkoholkonsum ehrlich bewerten und ggf. reduzieren",
+          "Medikamentenliste mit dem Arzt durchgehen",
+          "GPT-Wert vergleichen: GPT > GOT spricht eher für Leber",
+          "Bei persistierender Erhöhung: Ultraschall der Leber veranlassen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Leberzellen und Muskelzellen sind intakt. Es gibt keinen Hinweis auf eine relevante Zellschädigung. Der Wert spricht für eine gesunde Leberfunktion."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "got_erhoeht AND ck_erhoeht",
+        "interpretation": "Wenn sowohl GOT als auch CK erhöht sind, ist die GOT-Erhöhung sehr wahrscheinlich muskulär bedingt (Training, Muskelschaden) und NICHT auf eine Leberschädigung zurückzuführen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "got_erhoeht AND gpt_normal AND ck_normal",
+        "interpretation": "Isolierte GOT-Erhöhung bei normalem GPT und CK ist ungewöhnlich. Herzerkrankungen oder Makro-AST (harmlose Variante) in Betracht ziehen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "nach_intensivem_training",
+        "interpretation": "Nach intensivem Kraft- oder Ausdauertraining kann GOT für 24-72 Stunden erhöht sein. Dies ist physiologisch und kein Grund zur Sorge, wenn der Wert sich normalisiert.",
+        "severity": "info"
+      },
+      {
+        "condition": "got_gpt_ratio_groesser_1",
+        "interpretation": "Ein De-Ritis-Quotient (GOT/GPT) > 1 kann auf eine alkoholische Leberschädigung, Leberzirrhose oder muskuläre Ursache hinweisen. Bei Werten < 1 ist eher eine nicht-alkoholische Fettleber oder akute Hepatitis wahrscheinlich.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Alkoholkonsum reduzieren oder eliminieren (größter Hebel für Leberwerte)",
+        "Leberfreundliche Ernährung: viel Gemüse, Bitterstoffe, Artischocken, Kurkuma",
+        "Regelmäßige Bewegung zur Reduktion einer Fettleber",
+        "Ausreichend Schlaf (Leberregeneration nachts am aktivsten)",
+        "Übergewicht reduzieren (Fettleber ist häufigste Ursache erhöhter Leberwerte)",
+        "Medikamente nur nach Rücksprache mit dem Arzt, Paracetamol-Dosis beachten"
+      ],
+      "supplements": [
+        {
+          "name": "Mariendistel (Silymarin)",
+          "dosage": "200-400 mg Silymarin-Extrakt",
+          "timing": "Aufgeteilt auf 2-3 Einnahmen zu den Mahlzeiten",
+          "notes": "Gut untersuchter Leberschutz. Kann die Leberregeneration unterstützen."
+        },
+        {
+          "name": "NAC (N-Acetylcystein)",
+          "dosage": "600-1200 mg",
+          "timing": "Nüchtern oder zwischen den Mahlzeiten",
+          "notes": "Unterstützt die Glutathion-Produktion, wichtigstes Antioxidans der Leber. Wird auch klinisch bei Paracetamol-Vergiftung eingesetzt."
+        },
+        {
+          "name": "Vitamin B6 (Pyridoxal-5-Phosphat)",
+          "dosage": "25-50 mg",
+          "timing": "Morgens zum Frühstück",
+          "notes": "GOT ist B6-abhängig. Bei Mangel kann GOT falsch niedrig sein."
+        }
+      ],
+      "redFlags": [
+        "GOT über 3x oberer Referenzwert → zeitnah zum Arzt",
+        "GOT zusammen mit Gelbsucht (Ikterus) → sofort zum Arzt",
+        "Plötzlicher starker Anstieg zusammen mit Oberbauchschmerzen → Notfall abklären"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "gpt",
+    "name": "GPT / ALT (Glutamat-Pyruvat-Transaminase)",
+    "category": "leber",
+    "categoryLabel": "Leberwerte",
+    "description": "GPT (auch ALT genannt) ist ein Enzym, das vorwiegend in der Leber vorkommt und daher leberspezifischer ist als GOT. Eine Erhöhung deutet stärker auf eine Leberschädigung hin als bei GOT. Das Verhältnis von GOT zu GPT (De-Ritis-Quotient) gibt zusätzliche diagnostische Hinweise auf die Art der Leberschädigung.",
+    "unit": "U/l",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0, "max": 50 },
+      "female": { "min": 0, "max": 35 }
+    },
+    "optimal": {
+      "male": { "min": 10, "max": 30, "target": 20 },
+      "female": { "min": 10, "max": 25, "target": 18 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Vitamin-B6-Mangel",
+          "Chronische Niereninsuffizienz",
+          "Kein klinisch relevantes Problem bei niedrigen Werten",
+          "Schwangerschaft (Hämodilution)",
+          "Mangelernährung"
+        ],
+        "symptoms": [
+          "Keine direkten Symptome durch niedrige GPT-Werte",
+          "Mögliche Symptome eines B6-Mangels: Müdigkeit, Nervosität",
+          "Hautveränderungen bei schwerem Mangel"
+        ],
+        "relatedValues": ["got", "ggt", "vitamin-b6"],
+        "actions": [
+          "In der Regel kein Handlungsbedarf",
+          "Bei sehr niedrigen Werten ggf. Vitamin-B6-Status prüfen",
+          "Nierenfunktion kontrollieren bei gleichzeitig niedrigem GOT"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Nicht-alkoholische Fettleber (NAFLD/NASH) – häufigste Ursache",
+          "Alkoholische Leberschädigung",
+          "Virushepatitis (Hepatitis A, B, C)",
+          "Medikamentennebenwirkungen (Statine, Schmerzmittel, Antibiotika)",
+          "Autoimmunhepatitis",
+          "Stoffwechselerkrankungen (Hämochromatose, Morbus Wilson)",
+          "Übergewicht und metabolisches Syndrom",
+          "Herzinsuffizienz mit Stauungsleber"
+        ],
+        "symptoms": [
+          "Häufig symptomlos (Fettleber macht lange keine Beschwerden!)",
+          "Müdigkeit und verminderte Leistungsfähigkeit",
+          "Druckgefühl im rechten Oberbauch",
+          "Verdauungsbeschwerden nach fettreichen Mahlzeiten",
+          "Gelbsucht bei starker Schädigung",
+          "Übelkeit und Appetitlosigkeit"
+        ],
+        "relatedValues": ["got", "ggt", "bilirubin", "triglyceride", "nuechtern-glukose"],
+        "actions": [
+          "Leberultraschall veranlassen (Fettleber erkennen)",
+          "Hepatitis-Serologie (B und C) bestimmen lassen",
+          "De-Ritis-Quotient berechnen: GOT/GPT",
+          "Alkoholkonsum reduzieren",
+          "Körpergewicht normalisieren"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Leber arbeitet gesund und es gibt keinen Hinweis auf Zellschäden. Der leberspezifischste Transaminase-Wert liegt im idealen Bereich."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "got_gpt_ratio_groesser_1",
+        "interpretation": "De-Ritis-Quotient (GOT/GPT) > 1: Hinweis auf alkoholische Leberschädigung, fortgeschrittene Fibrose/Zirrhose oder muskuläre Ursache. Bei reiner Fettleber ist der Quotient typischerweise < 1.",
+        "severity": "attention"
+      },
+      {
+        "condition": "got_gpt_ratio_kleiner_1",
+        "interpretation": "De-Ritis-Quotient (GOT/GPT) < 1: Typisch für nicht-alkoholische Fettleber oder akute Hepatitis. Eher günstiger als Quotient > 1.",
+        "severity": "info"
+      },
+      {
+        "condition": "gpt_erhoeht AND triglyceride_erhoeht AND nuechtern_glukose_erhoeht",
+        "interpretation": "Kombination aus erhöhtem GPT, erhöhten Triglyceriden und erhöhter Nüchtern-Glukose ist ein starker Hinweis auf metabolisches Syndrom mit Fettleber. Ernährungs- und Lebensstilintervention dringend empfohlen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Fruktose drastisch reduzieren (Soft Drinks, Fruchtsäfte, Agavensirup) – Fruktose wird direkt in der Leber verstoffwechselt",
+        "Alkoholkonsum minimieren oder eliminieren",
+        "Übergewicht reduzieren (bereits 5-10% Gewichtsverlust verbessert Fettleber deutlich)",
+        "Regelmäßiges Training (Kraft + Ausdauer) reduziert intrahepatisches Fett",
+        "Mediterrane Ernährung bevorzugen (Olivenöl, Fisch, Gemüse, Nüsse)",
+        "Intervallfasten (16:8) kann Leberfett reduzieren",
+        "Ausreichend Cholin über die Ernährung (Eier, Leber, Fisch) – wichtig für Fettabtransport aus der Leber"
+      ],
+      "supplements": [
+        {
+          "name": "Mariendistel (Silymarin)",
+          "dosage": "200-400 mg Silymarin-Extrakt",
+          "timing": "2-3x täglich zu den Mahlzeiten",
+          "notes": "Evidenzbasierter Leberschutz. Kann GPT-Werte bei Fettleber senken."
+        },
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-4 g EPA+DHA",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Können Leberfett und Triglyceride senken. Hochdosiert bei Fettleber sinnvoll."
+        },
+        {
+          "name": "Cholin",
+          "dosage": "500-1000 mg",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Essenzieller Nährstoff für den Fettabtransport aus der Leber. Viele Menschen sind unterversorgt."
+        },
+        {
+          "name": "NAC (N-Acetylcystein)",
+          "dosage": "600-1200 mg",
+          "timing": "Nüchtern",
+          "notes": "Glutathion-Vorläufer, unterstützt die Entgiftungskapazität der Leber."
+        }
+      ],
+      "redFlags": [
+        "GPT über 3x oberer Referenzwert → zeitnah zum Arzt",
+        "GPT über 10x oberer Referenzwert → akute Leberschädigung, sofort Arzt",
+        "GPT zusammen mit Gelbsucht → sofort zum Arzt"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "ggt",
+    "name": "GGT (Gamma-Glutamyltransferase)",
+    "category": "leber",
+    "categoryLabel": "Leberwerte",
+    "description": "GGT ist das empfindlichste Enzym für Leber- und Gallenwegserkrankungen. Es reagiert besonders sensibel auf Alkohol, Medikamente und Gallenstauungen. GGT ist auch ein Marker für oxidativen Stress und wird zunehmend als eigenständiger kardiovaskulärer Risikofaktor betrachtet.",
+    "unit": "U/l",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0, "max": 60 },
+      "female": { "min": 0, "max": 40 }
+    },
+    "optimal": {
+      "male": { "min": 10, "max": 30, "target": 18 },
+      "female": { "min": 8, "max": 25, "target": 14 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Hypothyreose (Schilddrüsenunterfunktion)",
+          "Magnesiummangel",
+          "Kein klinisch relevantes Problem",
+          "Genetische Varianten mit niedrigerer Enzymaktivität",
+          "Sehr gesunder Lebensstil ohne Alkohol und Medikamentenbelastung"
+        ],
+        "symptoms": [
+          "Keine direkten Symptome durch niedrige GGT",
+          "Symptome der zugrunde liegenden Schilddrüsenunterfunktion möglich",
+          "Keine negativen Auswirkungen – niedrig ist in der Regel positiv"
+        ],
+        "relatedValues": ["got", "gpt", "tsh"],
+        "actions": [
+          "Kein spezifischer Handlungsbedarf",
+          "Bei sehr niedrigen Werten Schilddrüse prüfen",
+          "Magnesiumspiegel bestimmen bei Verdacht"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Alkoholkonsum (GGT ist der sensibelste Alkohol-Marker)",
+          "Medikamente (Antiepileptika, Barbiturate, Statine, orale Kontrazeptiva)",
+          "Gallenstau/Gallenwegserkrankungen",
+          "Fettleber (alkoholisch und nicht-alkoholisch)",
+          "Pankreaserkrankungen",
+          "Diabetes mellitus und metabolisches Syndrom",
+          "Herzinsuffizienz (Stauungsleber)",
+          "Übergewicht und Adipositas"
+        ],
+        "symptoms": [
+          "Oft symptomlos bei leichter Erhöhung",
+          "Müdigkeit und Leistungsminderung",
+          "Juckreiz (bei Gallenstau)",
+          "Oberbauchbeschwerden",
+          "Fettunverträglichkeit",
+          "Gelbsucht bei ausgeprägter Cholestase"
+        ],
+        "relatedValues": ["got", "gpt", "bilirubin", "alkalische-phosphatase"],
+        "actions": [
+          "Alkoholkonsum ehrlich evaluieren und für mindestens 4 Wochen pausieren",
+          "Medikamentenliste überprüfen",
+          "Leberultraschall bei persistierender Erhöhung",
+          "Bei isolierter GGT-Erhöhung auch an Gallenwege und Pankreas denken",
+          "Metabolisches Syndrom ausschließen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Leber- und Gallenwege arbeiten einwandfrei. Ein niedriger GGT-Wert ist auch ein Zeichen für wenig oxidativen Stress und ein niedrigeres kardiovaskuläres Risiko."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "ggt_erhoeht AND got_gpt_normal",
+        "interpretation": "Isolierte GGT-Erhöhung ohne Transaminasen-Erhöhung: Häufigste Ursache ist Alkohol oder Medikamente. Kann auch auf beginnende Gallenwegserkrankung hinweisen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "ggt_erhoeht AND got_gpt_erhoeht",
+        "interpretation": "GGT zusammen mit GOT/GPT erhöht spricht für eine relevante Leberschädigung. Die Kombination verstärkt den Verdacht auf Fettleber, Hepatitis oder toxische Schädigung.",
+        "severity": "warning"
+      },
+      {
+        "condition": "ggt_erhoeht AND bilirubin_erhoeht",
+        "interpretation": "GGT und Bilirubin gleichzeitig erhöht: Verdacht auf Gallenstau (Cholestase). Ultraschall der Gallenwege dringend empfohlen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Alkohol komplett meiden für 4-8 Wochen, dann nur moderat (GGT normalisiert sich oft rasch)",
+        "Kaffee trinken: 2-3 Tassen pro Tag sind nachweislich leberprotektiv und senken GGT",
+        "Übergewicht reduzieren",
+        "Zuckerkonsum reduzieren, insbesondere Fruktose",
+        "Regelmäßige körperliche Aktivität",
+        "Medikamente auf Leberverträglichkeit prüfen lassen"
+      ],
+      "supplements": [
+        {
+          "name": "Mariendistel (Silymarin)",
+          "dosage": "200-400 mg Silymarin-Extrakt",
+          "timing": "2-3x täglich zu den Mahlzeiten",
+          "notes": "Kann GGT-Werte bei erhöhten Leberwerten nachweislich senken."
+        },
+        {
+          "name": "Vitamin D",
+          "dosage": "2000-4000 IE",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Vitamin-D-Mangel ist mit erhöhten GGT-Werten assoziiert."
+        },
+        {
+          "name": "Magnesium",
+          "dosage": "300-400 mg elementares Magnesium",
+          "timing": "Abends",
+          "notes": "Unterstützt die Leberfunktion und den Glutathion-Stoffwechsel."
+        }
+      ],
+      "redFlags": [
+        "GGT über 3x oberer Referenzwert → Arzt aufsuchen",
+        "GGT-Anstieg zusammen mit Gelbsucht und hellem Stuhl → sofort zum Arzt (Gallenstau!)",
+        "GGT kontinuierlich ansteigend trotz Alkoholverzicht → weitere Diagnostik nötig"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "bilirubin",
+    "name": "Bilirubin (gesamt)",
+    "category": "leber",
+    "categoryLabel": "Leberwerte",
+    "description": "Bilirubin ist ein gelbliches Abbauprodukt des Hämoglobins aus alten roten Blutkörperchen. Es wird in der Leber verarbeitet und über die Galle ausgeschieden. Leicht erhöhte Werte können auf das harmlose Gilbert-Syndrom (Morbus Meulengracht) hindeuten, das ca. 5% der Bevölkerung betrifft und sogar eine antioxidative Schutzwirkung bietet.",
+    "unit": "mg/dl",
+    "alternativeUnits": [
+      { "unit": "µmol/l", "factor": 17.1 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0.1, "max": 1.2 },
+      "female": { "min": 0.1, "max": 1.2 }
+    },
+    "optimal": {
+      "male": { "min": 0.2, "max": 0.8, "target": 0.5 },
+      "female": { "min": 0.2, "max": 0.8, "target": 0.5 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Kein klinisch relevantes Problem",
+          "Kann bei Eisenmangel vorkommen (weniger Hämoglobin-Abbau)",
+          "Selten: koronare Herzkrankheit (niedriges Bilirubin = weniger antioxidativer Schutz)",
+          "Niedrige Erythrozytenzahl",
+          "Sehr effiziente Leberkonjugation"
+        ],
+        "symptoms": [
+          "Keine direkten Symptome",
+          "Theoretisch verminderter antioxidativer Schutz",
+          "Möglicherweise Symptome des zugrunde liegenden Eisenmangels"
+        ],
+        "relatedValues": ["got", "gpt", "haemoglobin", "ferritin"],
+        "actions": [
+          "Kein direkter Handlungsbedarf",
+          "Bei sehr niedrigen Werten auf antioxidativen Status achten",
+          "Blutbild und Eisenstatus kontrollieren"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Gilbert-Syndrom (Morbus Meulengracht) – häufigste Ursache bei jungen Erwachsenen, harmlos!",
+          "Lebererkrankungen (Hepatitis, Zirrhose)",
+          "Gallenstau (Gallensteine, Tumor)",
+          "Hämolyse (verstärkter Abbau roter Blutkörperchen)",
+          "Medikamente (Rifampicin, Proteaseinhibitoren)",
+          "Fasten oder starker Stress (triggert Gilbert-Syndrom)",
+          "Neugeborenen-Gelbsucht (physiologisch)",
+          "Schwere Infektionen (Sepsis)"
+        ],
+        "symptoms": [
+          "Gelbfärbung der Haut und Augen (Ikterus) ab ca. 2 mg/dl",
+          "Dunkler Urin (bierbraun bei starker Erhöhung)",
+          "Heller/entfärbter Stuhl (bei Gallenstau)",
+          "Juckreiz (bei Cholestase)",
+          "Müdigkeit",
+          "Übelkeit bei Lebererkrankungen"
+        ],
+        "relatedValues": ["got", "gpt", "ggt", "alkalische-phosphatase", "retikulozyten", "ldh", "haptoglobin"],
+        "actions": [
+          "Direktes und indirektes Bilirubin differenzieren lassen",
+          "GOT, GPT und GGT kontrollieren um Leberursache zu prüfen",
+          "Bei jungen Erwachsenen mit leichter Erhöhung: Gilbert-Syndrom in Betracht ziehen",
+          "Hämolyse-Parameter prüfen (LDH, Haptoglobin, Retikulozyten)",
+          "Bei Verdacht auf Gallenstau: Ultraschall veranlassen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Bilirubin-Stoffwechsel funktioniert einwandfrei. Werte im mittleren Bereich bieten einen gewissen antioxidativen Schutz, da Bilirubin ein natürliches Antioxidans ist."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "bilirubin_leicht_erhoeht AND got_gpt_ggt_normal",
+        "interpretation": "Leicht erhöhtes Bilirubin bei völlig normalen Leberwerten (GOT, GPT, GGT): Sehr wahrscheinlich Gilbert-Syndrom. Dies ist harmlos und sogar vorteilhaft – Bilirubin wirkt als starkes Antioxidans und ist mit einem niedrigeren kardiovaskulären Risiko assoziiert.",
+        "severity": "info"
+      },
+      {
+        "condition": "bilirubin_erhoeht AND got_gpt_erhoeht",
+        "interpretation": "Erhöhtes Bilirubin zusammen mit erhöhten Transaminasen spricht für eine Leberzellschädigung. Weitere Diagnostik (Hepatitis-Serologie, Ultraschall) dringend empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "bilirubin_erhoeht AND ggt_erhoeht AND heller_stuhl",
+        "interpretation": "Erhöhtes Bilirubin mit erhöhtem GGT und hellem Stuhl: Verdacht auf Gallenstau (posthepatisch). Bildgebung der Gallenwege notwendig.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Bei Gilbert-Syndrom: Keine Behandlung nötig, ist sogar gesundheitlich vorteilhaft",
+        "Ausreichend trinken (unterstützt die Bilirubin-Ausscheidung)",
+        "Lebergesunde Ernährung mit viel Gemüse und Bitterstoffen",
+        "Alkohol meiden bei erhöhten Leberwerten",
+        "Regelmäßige Mahlzeiten (Fasten kann Bilirubin bei Gilbert-Syndrom erhöhen)"
+      ],
+      "supplements": [
+        {
+          "name": "Mariendistel (Silymarin)",
+          "dosage": "200-400 mg",
+          "timing": "Zu den Mahlzeiten",
+          "notes": "Nur sinnvoll bei leberbedingter Bilirubin-Erhöhung, nicht bei Gilbert-Syndrom."
+        },
+        {
+          "name": "Curcumin",
+          "dosage": "500-1000 mg (mit Piperin für bessere Aufnahme)",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Unterstützt den Gallenfluss und die Leberfunktion."
+        }
+      ],
+      "redFlags": [
+        "Bilirubin über 2 mg/dl mit Gelbsucht → zeitnah zum Arzt",
+        "Gelbsucht + dunkler Urin + heller Stuhl → sofort zum Arzt (Gallenstau!)",
+        "Gelbsucht + Fieber + Schmerzen rechter Oberbauch → Notfall (Cholangitis!)"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "kreatinin",
+    "name": "Kreatinin",
+    "category": "niere",
+    "categoryLabel": "Nierenwerte",
+    "description": "Kreatinin ist ein Abbauprodukt des Muskelstoffwechsels (Kreatin/Kreatinphosphat) und wird über die Nieren ausgeschieden. Es ist der Standard-Marker für die Nierenfunktion, hat aber eine wichtige Einschränkung: Bei muskulösen Menschen oder Kreatin-Supplementierung kann Kreatinin FALSCH ERHÖHT sein, ohne dass die Niere geschädigt ist. In diesen Fällen ist Cystatin C der bessere Marker. Kreatinin steigt zudem erst bei über 50% Nierenfunktionsverlust an – ein normaler Wert schließt eine beginnende Nierenschwäche nicht aus.",
+    "unit": "mg/dl",
+    "alternativeUnits": [
+      { "unit": "µmol/l", "factor": 88.4 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0.7, "max": 1.2 },
+      "female": { "min": 0.5, "max": 0.9 }
+    },
+    "optimal": {
+      "male": { "min": 0.8, "max": 1.1, "target": 0.95 },
+      "female": { "min": 0.6, "max": 0.8, "target": 0.7 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Geringe Muskelmasse (Sarkopenie, Bettlägerigkeit)",
+          "Untergewicht oder Mangelernährung",
+          "Schwangerschaft (erhöhte Nierendurchblutung)",
+          "Fortgeschrittene Lebererkrankung (weniger Kreatin-Synthese)",
+          "Sehr geringe Proteinzufuhr"
+        ],
+        "symptoms": [
+          "Keine direkten Symptome durch niedrige Kreatinin-Werte",
+          "Mögliche Symptome des Muskelmasseverlusts: Schwäche, Sturzneigung",
+          "Allgemeine Leistungsminderung"
+        ],
+        "relatedValues": ["gfr", "cystatin-c", "harnstoff", "gesamteiweiss"],
+        "actions": [
+          "Muskelmasse beurteilen (ggf. DEXA-Scan)",
+          "Ernährungszustand evaluieren",
+          "Proteinzufuhr überprüfen",
+          "Bei älteren Patienten: Sarkopenie-Screening"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Eingeschränkte Nierenfunktion (akut oder chronisch)",
+          "Hohe Muskelmasse / viel Sport (physiologisch, keine Nierenschädigung!)",
+          "Kreatin-Supplementierung (erhöht Kreatinin ohne Nierenschaden!)",
+          "Dehydration (vorübergehend)",
+          "Hoher Fleischkonsum (vorübergehend nach einer fleischreichen Mahlzeit)",
+          "Medikamente (ACE-Hemmer, Sartane, NSAIDs, bestimmte Antibiotika)",
+          "Akute Nierenschädigung (Schock, Sepsis, Nierenarterienstenose)",
+          "Harnwegsabflussstörung (Prostata, Steine)"
+        ],
+        "symptoms": [
+          "Bei leichter Erhöhung oft symptomlos",
+          "Müdigkeit und Leistungsminderung",
+          "Wassereinlagerungen (Ödeme)",
+          "Verminderter oder veränderter Urin",
+          "Übelkeit und Appetitlosigkeit",
+          "Juckreiz bei fortgeschrittener Nierenschwäche"
+        ],
+        "relatedValues": ["gfr", "cystatin-c", "harnstoff", "harnsaeure", "ck"],
+        "actions": [
+          "Cystatin C bestimmen lassen (verlässlicherer Nierenwert!)",
+          "Kreatin-Supplementierung und Trainingsintensität erfragen",
+          "GFR berechnen lassen (CKD-EPI-Formel)",
+          "Urin auf Eiweiß untersuchen (Albumin-Kreatinin-Quotient)",
+          "Blutdruck kontrollieren (häufige Ursache für Nierenschäden)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Nierenfunktion ist sehr gut. Der Kreatinin-Spiegel spiegelt eine normale Muskelmasse und eine effiziente renale Ausscheidung wider."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "sportler_oder_kreatin_supplementierung",
+        "interpretation": "Bei Sportlern oder Kreatin-Supplementierung ist Kreatinin nicht aussagekräftig für die Nierenfunktion. Kreatin wird zu Kreatinin abgebaut. Zur Beurteilung der Nierenfunktion unbedingt Cystatin C bestimmen lassen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "kreatinin_erhoeht AND cystatin_c_normal",
+        "interpretation": "Erhöhtes Kreatinin bei normalem Cystatin C: Die Nierenfunktion ist sehr wahrscheinlich normal! Die Kreatinin-Erhöhung ist durch Muskelmasse oder Kreatin-Supplementierung bedingt.",
+        "severity": "info"
+      },
+      {
+        "condition": "kreatinin_erhoeht AND cystatin_c_erhoeht",
+        "interpretation": "Sowohl Kreatinin als auch Cystatin C erhöht: Dies spricht für eine tatsächliche Einschränkung der Nierenfunktion. Weitere Diagnostik (Urin, Ultraschall) empfohlen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausreichend trinken: 2-3 Liter Wasser pro Tag (unterstützt die Nierenfunktion)",
+        "Blutdruck im optimalen Bereich halten (<130/85 mmHg)",
+        "Blutzucker gut einstellen (Diabetes ist häufigste Ursache für Nierenschäden)",
+        "NSAIDs (Ibuprofen, Diclofenac) meiden oder minimieren – nierenschädigend!",
+        "Moderate Proteinzufuhr (1,2-1,6 g/kg bei gesunder Niere ausreichend)",
+        "Nicht rauchen (Rauchen schädigt die Nierengefäße)"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-3 g EPA+DHA",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Können entzündungshemmend auf die Nieren wirken und den Blutdruck senken."
+        },
+        {
+          "name": "Coenzym Q10",
+          "dosage": "100-200 mg",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Kann den Blutdruck leicht senken und die Nierenfunktion unterstützen."
+        },
+        {
+          "name": "Vitamin D",
+          "dosage": "2000-4000 IE (je nach Spiegel)",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Vitamin-D-Mangel ist mit eingeschränkter Nierenfunktion assoziiert. Spiegel bestimmen lassen."
+        }
+      ],
+      "redFlags": [
+        "Kreatinin über 1,5 mg/dl bei Männern oder 1,1 mg/dl bei Frauen ohne bekannte Ursache → Arzt aufsuchen",
+        "Plötzlicher Kreatinin-Anstieg → sofort zum Arzt (akute Nierenschädigung möglich)",
+        "Kreatinin erhöht + Blut oder Schaum im Urin → dringend Nephrologen aufsuchen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "gfr",
+    "name": "eGFR (Geschätzte glomeruläre Filtrationsrate)",
+    "category": "niere",
+    "categoryLabel": "Nierenwerte",
+    "description": "Die eGFR gibt an, wie viel Blut die Nieren pro Minute filtern können und ist der wichtigste Parameter zur Beurteilung der Nierenfunktion. Sie wird meist aus dem Kreatinin-Wert berechnet (CKD-EPI-Formel), was bei muskulösen Menschen oder Kreatin-Nutzern zu falsch niedrigen Werten führen kann. Bei Sportlern sollte die Cystatin-C-basierte GFR verwendet werden.",
+    "unit": "ml/min/1.73m²",
+    "alternativeUnits": [],
+    "measurementType": "Berechnet",
+    "reference": {
+      "male": { "min": 90, "max": 999 },
+      "female": { "min": 90, "max": 999 }
+    },
+    "optimal": {
+      "male": { "min": 100, "max": 130, "target": 110 },
+      "female": { "min": 100, "max": 130, "target": 110 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Chronische Nierenerkrankung (CKD Stadien 1-5)",
+          "Diabetes mellitus (häufigste Ursache weltweit)",
+          "Bluthochdruck (zweithäufigste Ursache)",
+          "Falsch niedrig bei hoher Muskelmasse oder Kreatin-Supplementierung!",
+          "Altersbedingte Abnahme (ca. 1 ml/min/Jahr ab dem 40. Lebensjahr)",
+          "Medikamente (NSAIDs, ACE-Hemmer initial)",
+          "Dehydration (vorübergehend)",
+          "Glomerulonephritis und andere Nierenerkrankungen"
+        ],
+        "symptoms": [
+          "Oft jahrelang symptomlos (GFR 60-89)",
+          "Müdigkeit und Abgeschlagenheit",
+          "Wassereinlagerungen (Ödeme, vor allem Beine)",
+          "Schaumiger Urin (Eiweiß im Urin)",
+          "Verminderter Appetit und Übelkeit",
+          "Nächtlicher Harndrang"
+        ],
+        "relatedValues": ["kreatinin", "cystatin-c", "harnstoff", "harnsaeure", "albumin-urin"],
+        "actions": [
+          "Cystatin-C-basierte GFR bestimmen lassen (genauer bei Sportlern!)",
+          "Urin auf Albumin untersuchen (Albumin-Kreatinin-Quotient)",
+          "Blutdruck kontrollieren und optimieren",
+          "Blutzucker kontrollieren (HbA1c)",
+          "Medikamentenliste prüfen (nephrotoxische Substanzen meiden)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Hyperfiltration (kann bei beginnendem Diabetes vorkommen!)",
+          "Schwangerschaft (physiologisch erhöht)",
+          "Hohe Proteinzufuhr",
+          "Berechnungsfehler bei niedrigem Kreatinin",
+          "Geringe Muskelmasse (Kreatinin falsch niedrig → GFR falsch hoch)"
+        ],
+        "symptoms": [
+          "Keine direkten Symptome",
+          "Hyperfiltration bei Diabetes kann ein Frühzeichen für spätere Nierenschäden sein",
+          "In der Regel kein Anlass zur Sorge"
+        ],
+        "relatedValues": ["kreatinin", "nuechtern-glukose", "hba1c"],
+        "actions": [
+          "Bei Diabetes: Hyperfiltration als Warnzeichen ernst nehmen",
+          "Kontrolle in 6-12 Monaten",
+          "Muskelmasse beurteilen bei überraschend hoher GFR"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Nierenfiltration ist optimal. Die Nieren arbeiten effizient und filtern Abfallstoffe zuverlässig aus dem Blut."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "gfr_niedrig AND cystatin_c_normal",
+        "interpretation": "GFR (kreatininbasiert) niedrig, aber Cystatin C normal: Die Nierenfunktion ist sehr wahrscheinlich in Ordnung. Die GFR ist falsch niedrig berechnet, weil das Kreatinin durch Muskelmasse oder Kreatin-Supplementierung erhöht ist.",
+        "severity": "info"
+      },
+      {
+        "condition": "gfr_niedrig AND cystatin_c_erhoeht",
+        "interpretation": "Sowohl kreatininbasierte GFR als auch Cystatin C deuten auf eine eingeschränkte Nierenfunktion hin. Nephrologische Abklärung empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "gfr_60_bis_89",
+        "interpretation": "GFR 60-89 ml/min = CKD Stadium 2 (leichte Einschränkung). Bei Sportlern häufig falsch niedrig. Ohne weitere Befunde (Eiweiß im Urin, Ultraschall-Auffälligkeiten) oft klinisch nicht relevant.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Blutdruck konsequent unter 130/80 mmHg halten (wichtigster Schutzfaktor!)",
+        "Blutzucker optimieren (HbA1c < 5.7%)",
+        "Ausreichend trinken (2-3 Liter/Tag), aber nicht übertrieben",
+        "Salzkonsum moderat halten (5-6 g/Tag)",
+        "NSAIDs (Ibuprofen, Diclofenac) möglichst meiden",
+        "Regelmäßige Bewegung (verbessert Blutdruck und Blutzucker)",
+        "Rauchen aufgeben (schädigt Nierengefäße direkt)"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsäuren",
+          "dosage": "2-3 g EPA+DHA",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Entzündungshemmend, können Proteinurie reduzieren."
+        },
+        {
+          "name": "Vitamin D",
+          "dosage": "Nach Spiegel (Ziel: 40-60 ng/ml)",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Bei CKD ist die Vitamin-D-Aktivierung in der Niere eingeschränkt. Ärztlich abklären."
+        }
+      ],
+      "redFlags": [
+        "GFR unter 60 → Arzt aufsuchen",
+        "GFR unter 30 → dringend Nephrologe, Dialyse-Vorbereitung könnte nötig werden",
+        "GFR-Abfall um mehr als 5 ml/min pro Jahr → rasche Progression, Nephrologe aufsuchen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "cystatin-c",
+    "name": "Cystatin C",
+    "category": "niere",
+    "categoryLabel": "Nierenwerte",
+    "description": "Cystatin C ist ein kleines Protein, das von allen kernhaltigen Zellen konstant produziert und ausschließlich über die Nieren ausgeschieden wird. Im Gegensatz zu Kreatinin wird Cystatin C NICHT durch Muskelmasse, Kreatin-Supplementierung, Geschlecht oder Ernährung beeinflusst – es ist daher der Goldstandard für die Nierenfunktionsbewertung, besonders für Sportler. Laut Osterhaus sollte Cystatin C bei jedem großen Blutbild mit bestimmt werden.",
+    "unit": "mg/l",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0.5, "max": 1.0 },
+      "female": { "min": 0.5, "max": 1.0 }
+    },
+    "optimal": {
+      "male": { "min": 0.5, "max": 0.85, "target": 0.7 },
+      "female": { "min": 0.5, "max": 0.85, "target": 0.7 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Sehr selten klinisch relevant",
+          "Kann bei Schilddrüsenüberfunktion leicht erniedrigt sein",
+          "Hohe Kortikosteroid-Dosen können Cystatin C senken",
+          "Schwangerschaft (erstes Trimester)",
+          "Genetische Varianten mit niedrigerer Produktion"
+        ],
+        "symptoms": [
+          "Keine direkten Symptome durch niedrige Cystatin-C-Werte",
+          "Mögliche Symptome der Schilddrüsenüberfunktion (Gewichtsverlust, Herzrasen)",
+          "Grundsätzlich kein Grund zur Sorge"
+        ],
+        "relatedValues": ["kreatinin", "gfr", "tsh"],
+        "actions": [
+          "Kein Handlungsbedarf bei niedrigen Werten",
+          "Schilddrüsenfunktion prüfen bei auffällig niedrigen Werten",
+          "Kortikosteroid-Therapie als Ursache in Betracht ziehen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Eingeschränkte Nierenfunktion (verlässlichster Marker!)",
+          "Akute Nierenschädigung",
+          "Schilddrüsenunterfunktion (kann Cystatin C leicht erhöhen)",
+          "Systemische Entzündung (CRP stark erhöht)",
+          "Hochdosis-Kortikosteroid-Therapie",
+          "Maligne Erkrankungen (selten)"
+        ],
+        "symptoms": [
+          "Symptome der zugrunde liegenden Nierenfunktionseinschränkung",
+          "Müdigkeit, Wassereinlagerungen, veränderter Urin",
+          "Bei leichter Erhöhung häufig symptomlos",
+          "Übelkeit und Appetitlosigkeit bei fortgeschrittener Niereninsuffizienz"
+        ],
+        "relatedValues": ["kreatinin", "gfr", "harnstoff", "harnsaeure", "tsh", "hs-crp"],
+        "actions": [
+          "Cystatin-C-basierte GFR berechnen lassen",
+          "Schilddrüsenwerte prüfen (TSH) um Schilddrüse als Ursache auszuschließen",
+          "Urin auf Eiweiß untersuchen",
+          "Blutdruck kontrollieren",
+          "Bei persistierender Erhöhung: Nephrologe konsultieren"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Nierenfunktion ist nachweislich optimal. Da Cystatin C der zuverlässigste Nierenfunktionsmarker ist, gibt ein normaler Wert große Sicherheit über die Nierengesundheit."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "cystatin_c_normal AND kreatinin_erhoeht",
+        "interpretation": "Normales Cystatin C bei erhöhtem Kreatinin: Die Niere ist gesund! Das erhöhte Kreatinin ist durch Muskelmasse oder Kreatin-Supplementierung bedingt. Cystatin C bestätigt die gute Nierenfunktion.",
+        "severity": "info"
+      },
+      {
+        "condition": "cystatin_c_erhoeht AND kreatinin_normal",
+        "interpretation": "Erhöhtes Cystatin C bei normalem Kreatinin: Kann auf eine beginnende Nierenschwäche hinweisen, die durch Kreatinin noch nicht erkannt wird. Cystatin C erkennt Nierenschäden früher! Schilddrüsenwerte prüfen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "cystatin_c_erhoeht AND kreatinin_erhoeht",
+        "interpretation": "Beide Nierenwerte erhöht: Die Nierenfunktion ist mit hoher Wahrscheinlichkeit eingeschränkt. Nephrologische Abklärung empfohlen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Alle Maßnahmen zur Nierengesundheit gelten (siehe Kreatinin und GFR)",
+        "Blutdruck optimieren (< 130/80 mmHg)",
+        "Blutzucker gut einstellen",
+        "Ausreichend trinken",
+        "Nephrotoxische Medikamente meiden (NSAIDs!)",
+        "Regelmäßige Bewegung"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsäuren",
+          "dosage": "2-3 g EPA+DHA",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Nierenprotektiv und entzündungshemmend."
+        },
+        {
+          "name": "Astaxanthin",
+          "dosage": "4-12 mg",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Starkes Antioxidans, das in Studien nierenprotektive Eigenschaften gezeigt hat."
+        }
+      ],
+      "redFlags": [
+        "Cystatin C über 1.0 mg/l → ärztliche Abklärung empfohlen",
+        "Cystatin C über 1.3 mg/l → deutliche Nierenfunktionseinschränkung, Nephrologe aufsuchen",
+        "Cystatin C ansteigend über mehrere Messungen → progressive Nierenschädigung, dringend abklären"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "harnsaeure",
+    "name": "Harnsäure",
+    "category": "niere",
+    "categoryLabel": "Nierenwerte",
+    "description": "Harnsäure ist das Endprodukt des Purinstoffwechsels und wird über die Nieren ausgeschieden. Erhöhte Werte (Hyperurikämie) sind ein Risikofaktor für Gicht (besonders ab >7 mg/dl), Nierensteine und sind auch eng mit dem metabolischen Syndrom, Bluthochdruck und Herz-Kreislauf-Erkrankungen assoziiert. Harnsäure ist gleichzeitig ein wichtiges Antioxidans im Blut.",
+    "unit": "mg/dl",
+    "alternativeUnits": [
+      { "unit": "µmol/l", "factor": 59.48 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 3.5, "max": 7.0 },
+      "female": { "min": 2.5, "max": 5.7 }
+    },
+    "optimal": {
+      "male": { "min": 3.5, "max": 5.5, "target": 4.5 },
+      "female": { "min": 2.5, "max": 4.5, "target": 3.5 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Sehr purinarme Ernährung",
+          "Morbus Wilson (Kupferspeicherkrankheit)",
+          "SIADH (Syndrom der inadäquaten ADH-Sekretion)",
+          "Fanconi-Syndrom (tubuläre Nierenstörung)",
+          "Medikamente (hohe Dosen Salicylate, Losartan)",
+          "Xanthinurie (seltener Enzymdefekt)"
+        ],
+        "symptoms": [
+          "Keine direkten Symptome",
+          "Theoretisch verminderter antioxidativer Schutz (Harnsäure ist ein Antioxidans)",
+          "Mögliche Symptome der Grunderkrankung (Morbus Wilson: Lebersymptome)"
+        ],
+        "relatedValues": ["kreatinin", "gfr", "kupfer"],
+        "actions": [
+          "In der Regel kein Handlungsbedarf",
+          "Bei sehr niedrigen Werten (<2 mg/dl): Morbus Wilson ausschließen",
+          "Nierenfunktion überprüfen (Fanconi-Syndrom)",
+          "Medikamentenliste prüfen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Purinreiche Ernährung (Fleisch, Innereien, Meeresfrüchte, Bier)",
+          "Fruktose-Konsum (Fruktose erhöht Harnsäure direkt!)",
+          "Übergewicht und metabolisches Syndrom",
+          "Eingeschränkte Nierenfunktion (verminderte Ausscheidung)",
+          "Alkohol (besonders Bier und Spirituosen)",
+          "Dehydration",
+          "Medikamente (Diuretika, ASS in niedriger Dosierung)",
+          "Insulinresistenz (Insulin hemmt die Harnsäure-Ausscheidung)"
+        ],
+        "symptoms": [
+          "Gichtanfall: plötzliche extreme Gelenkschmerzen (typisch: Großzehengrundgelenk)",
+          "Gelenkrötung und Schwellung",
+          "Nierensteine (Harnsäuresteine)",
+          "Bei chronischer Erhöhung: Gichtknoten (Tophi)",
+          "Asymptomatisch: Viele Menschen mit erhöhter Harnsäure haben nie Gicht",
+          "Bluthochdruck (Harnsäure schädigt Gefäßendothel)"
+        ],
+        "relatedValues": ["kreatinin", "gfr", "triglyceride", "nuechtern-glukose", "nuechtern-insulin", "homa-ir"],
+        "actions": [
+          "Purinreiche Lebensmittel reduzieren",
+          "Fruktose-Konsum drastisch einschränken (Soft Drinks, Fruchtsäfte!)",
+          "Alkohol, besonders Bier, stark reduzieren",
+          "Viel trinken (2-3 Liter, am besten Wasser)",
+          "Nierenfunktion überprüfen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Purinstoffwechsel ist im Gleichgewicht. Die Harnsäure bietet antioxidativen Schutz, ohne dass ein erhöhtes Gicht- oder kardiovaskuläres Risiko besteht."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "harnsaeure_erhoeht AND triglyceride_erhoeht AND nuechtern_insulin_erhoeht",
+        "interpretation": "Erhöhte Harnsäure zusammen mit erhöhten Triglyceriden und erhöhtem Insulin: Klassisches Muster einer Insulinresistenz/metabolisches Syndrom. Insulin hemmt die renale Harnsäure-Ausscheidung.",
+        "severity": "warning"
+      },
+      {
+        "condition": "harnsaeure_ueber_7",
+        "interpretation": "Harnsäure über 7 mg/dl: Gichtrisiko steigt deutlich an. Auch ohne Symptome sollten Lebensstilmaßnahmen eingeleitet werden. Bei Werten über 9 mg/dl ist eine medikamentöse Behandlung zu erwägen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "harnsaeure_erhoeht AND gfr_erniedrigt",
+        "interpretation": "Erhöhte Harnsäure bei eingeschränkter Nierenfunktion: Die Niere kann Harnsäure nicht mehr ausreichend ausscheiden. Gleichzeitig kann erhöhte Harnsäure die Nieren weiter schädigen – ein Teufelskreis.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Fruktose-Zufuhr reduzieren (Soft Drinks, Fruchtsäfte, Agavensirup eliminieren – größter Hebel!)",
+        "Purinreiche Lebensmittel mäßigen (Innereien, Sardinen, Hering, Bier)",
+        "Alkohol reduzieren, Bier meiden (enthält viele Purine)",
+        "Viel Wasser trinken (2,5-3 Liter/Tag)",
+        "Kirschen und Sauerkirschsaft (nachweislich harnsäuresenkend)",
+        "Kaffee (moderater Konsum senkt Harnsäure)",
+        "Übergewicht langsam reduzieren (keine Crash-Diäten!)"
+      ],
+      "supplements": [
+        {
+          "name": "Vitamin C",
+          "dosage": "500-1000 mg",
+          "timing": "Über den Tag verteilt",
+          "notes": "Senkt Harnsäure nachweislich um ca. 0,5 mg/dl durch verbesserte renale Ausscheidung."
+        },
+        {
+          "name": "Sauerkirschextrakt",
+          "dosage": "500-1000 mg Extrakt oder 30 ml Saft",
+          "timing": "Täglich",
+          "notes": "Traditionell bei Gicht eingesetzt, kann Harnsäure und Gichtanfall-Häufigkeit senken."
+        },
+        {
+          "name": "Quercetin",
+          "dosage": "500 mg",
+          "timing": "1-2x täglich",
+          "notes": "Hemmt die Xanthinoxidase (Harnsäure-produzierendes Enzym) auf natürliche Weise."
+        }
+      ],
+      "redFlags": [
+        "Akuter Gichtanfall (extreme Gelenkschmerzen, Rötung, Schwellung) → sofort zum Arzt",
+        "Harnsäure über 9 mg/dl → ärztliche Behandlung empfohlen",
+        "Nierensteine + erhöhte Harnsäure → urologische Abklärung"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "nuechtern-glukose",
+    "name": "Nüchtern-Glukose (Blutzucker)",
+    "category": "blutzucker",
+    "categoryLabel": "Blutzucker & Insulin",
+    "description": "Die Nüchtern-Glukose misst den Blutzuckerspiegel nach mindestens 8 Stunden Nahrungskarenz. Sie ist ein Basiswert zur Beurteilung des Glukosestoffwechsels und zur Erkennung von Prädiabetes und Diabetes. Allerdings steigt die Nüchtern-Glukose erst relativ spät an – Insulinresistenz kann Jahre bis Jahrzehnte zuvor bestehen, bevor der Blutzucker steigt.",
+    "unit": "mg/dl",
+    "alternativeUnits": [
+      { "unit": "mmol/l", "factor": 0.0555 }
+    ],
+    "measurementType": "Plasma",
+    "reference": {
+      "male": { "min": 70, "max": 100 },
+      "female": { "min": 70, "max": 100 }
+    },
+    "optimal": {
+      "male": { "min": 75, "max": 90, "target": 85 },
+      "female": { "min": 75, "max": 90, "target": 85 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Zu lange Nüchternphase",
+          "Insulinom (insulinproduzierender Tumor, selten)",
+          "Reaktive Hypoglykämie (nach kohlenhydratreicher Mahlzeit)",
+          "Nebenniereninsuffizienz (Morbus Addison)",
+          "Medikamente (Insulin, Sulfonylharnstoffe, Beta-Blocker)",
+          "Alkoholkonsum (hemmt die Glukoneogenese in der Leber)",
+          "Starke körperliche Belastung",
+          "Schwere Lebererkrankung"
+        ],
+        "symptoms": [
+          "Zittern und Schwitzen",
+          "Herzrasen und Herzklopfen",
+          "Heißhunger",
+          "Konzentrationsstörungen und Verwirrtheit",
+          "Sehstörungen",
+          "Schwäche und Schwindel"
+        ],
+        "relatedValues": ["nuechtern-insulin", "hba1c", "homa-ir", "cortisol"],
+        "actions": [
+          "Bei Symptomen: sofort schnell verfügbare Kohlenhydrate zu sich nehmen (Traubenzucker)",
+          "Mahlzeitenfrequenz und -zusammensetzung überprüfen",
+          "Bei wiederholter Hypoglykämie: Insulin und Cortisol bestimmen lassen",
+          "Medikamente prüfen",
+          "Alkoholkonsum evaluieren"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Insulinresistenz und Prädiabetes (100-125 mg/dl nüchtern)",
+          "Diabetes mellitus Typ 2 (≥126 mg/dl nüchtern)",
+          "Diabetes mellitus Typ 1 (Autoimmun, Insulinmangel)",
+          "Stress und Cortisolerhöhung (Dawn-Phänomen am Morgen)",
+          "Medikamente (Kortison, Thiazide, Beta-Blocker)",
+          "Akute Infektion oder Entzündung",
+          "Cushing-Syndrom",
+          "Schwangerschaftsdiabetes"
+        ],
+        "symptoms": [
+          "Häufig symptomlos bei Prädiabetes und frühem Diabetes!",
+          "Vermehrter Durst (Polydipsie)",
+          "Häufiges Wasserlassen (Polyurie)",
+          "Müdigkeit und Abgeschlagenheit",
+          "Verschwommenes Sehen",
+          "Schlechte Wundheilung"
+        ],
+        "relatedValues": ["hba1c", "nuechtern-insulin", "homa-ir", "triglyceride", "hdl"],
+        "actions": [
+          "HbA1c bestimmen lassen (Langzeitwert, bestätigt Diagnose)",
+          "Nüchtern-Insulin bestimmen lassen (zeigt Insulinresistenz)",
+          "HOMA-IR berechnen lassen",
+          "Ernährungsumstellung: weniger Zucker und Weißmehl",
+          "Bei Wert ≥126 mg/dl: zeitnah zum Arzt"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Nüchtern-Blutzucker liegt im idealen Bereich. Dies deutet auf eine gute Insulinsensitivität und einen gesunden Glukosestoffwechsel hin. Trotzdem kann eine frühe Insulinresistenz vorliegen – Nüchtern-Insulin ist der sensitivere Marker."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "nuechtern_glukose_100_bis_125",
+        "interpretation": "Nüchtern-Glukose 100-125 mg/dl = Prädiabetes (gestörte Nüchternglukose). Das Diabetesrisiko ist deutlich erhöht. Jetzt ist der beste Zeitpunkt für Lebensstilinterventionen – Prädiabetes ist vollständig reversibel!",
+        "severity": "warning"
+      },
+      {
+        "condition": "nuechtern_glukose_ueber_126",
+        "interpretation": "Nüchtern-Glukose ≥126 mg/dl bei mindestens zwei Messungen = Diabetes mellitus. Ärztliche Behandlung notwendig.",
+        "severity": "warning"
+      },
+      {
+        "condition": "nuechtern_glukose_normal AND nuechtern_insulin_erhoeht",
+        "interpretation": "Normaler Blutzucker ABER erhöhtes Nüchtern-Insulin: Frühe Insulinresistenz! Die Bauchspeicheldrüse muss mehr Insulin produzieren um den Blutzucker noch normal zu halten. Dies ist ein Frühwarnzeichen – Jahre bevor der Blutzucker steigt.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Zucker und raffinierte Kohlenhydrate drastisch reduzieren",
+        "Proteinreiche Mahlzeiten mit gesunden Fetten und Ballaststoffen bevorzugen",
+        "Nach dem Essen 15-30 Minuten spazieren gehen (senkt postprandialen Blutzucker um 30-50%!)",
+        "Krafttraining: Muskeln sind der größte Glukosespeicher und verbessern die Insulinsensitivität",
+        "Schlaf optimieren (Schlafmangel verschlechtert die Insulinsensitivität drastisch)",
+        "Stress reduzieren (Cortisol erhöht den Blutzucker)",
+        "Essensreihenfolge beachten: Gemüse und Protein VOR Kohlenhydraten (senkt Blutzuckerspitze)"
+      ],
+      "supplements": [
+        {
+          "name": "Magnesium",
+          "dosage": "300-400 mg elementares Magnesium (Glycinat oder Malat)",
+          "timing": "Abends",
+          "notes": "Magnesiummangel ist mit Insulinresistenz assoziiert. Supplementierung verbessert die Insulinsensitivität nachweislich."
+        },
+        {
+          "name": "Berberin",
+          "dosage": "500 mg 2-3x täglich",
+          "timing": "Vor den Mahlzeiten",
+          "notes": "Natürlicher Blutzuckersenker, in Studien vergleichbar mit Metformin. Mit dem Arzt besprechen bei Medikamenteneinnahme."
+        },
+        {
+          "name": "Chrom",
+          "dosage": "200-400 µg Chrompicolinat",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Kann die Insulinsensitivität verbessern. Besonders bei nachgewiesenem Chrommangel wirksam."
+        },
+        {
+          "name": "Zimt (Ceylon)",
+          "dosage": "1-3 g oder als Extrakt",
+          "timing": "Zu den Mahlzeiten",
+          "notes": "Kann den Nüchtern-Blutzucker leicht senken. Nur Ceylon-Zimt verwenden (weniger Cumarin als Cassia-Zimt)."
+        }
+      ],
+      "redFlags": [
+        "Nüchtern-Glukose über 126 mg/dl → Arzt aufsuchen (Diabetes-Diagnose)",
+        "Nüchtern-Glukose über 200 mg/dl → sofort zum Arzt",
+        "Blutzucker unter 50 mg/dl → Notfall, sofort Traubenzucker + Arzt"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "hba1c",
+    "name": "HbA1c (Langzeit-Blutzucker)",
+    "category": "blutzucker",
+    "categoryLabel": "Blutzucker & Insulin",
+    "description": "HbA1c (glykiertes Hämoglobin) zeigt den durchschnittlichen Blutzuckerspiegel der letzten 8-12 Wochen. Glukose bindet sich an Hämoglobin in den roten Blutkörperchen – je höher der Blutzucker, desto mehr HbA1c. Es ist der Goldstandard für die Diabetesdiagnose und -kontrolle. Prädiabetes beginnt ab 5.7%, Diabetes ab 6.5%.",
+    "unit": "%",
+    "alternativeUnits": [
+      { "unit": "mmol/mol", "factor": 10.93 }
+    ],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": { "min": 4.0, "max": 5.7 },
+      "female": { "min": 4.0, "max": 5.7 }
+    },
+    "optimal": {
+      "male": { "min": 4.5, "max": 5.2, "target": 5.0 },
+      "female": { "min": 4.5, "max": 5.2, "target": 5.0 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Sehr niedrige Kohlenhydratzufuhr (ketogene Diät)",
+          "Häufige Hypoglykämien",
+          "Hämolytische Anämie (verkürzte Lebensdauer der Erythrozyten → falsch niedrig!)",
+          "Starker Blutverlust oder Bluttransfusion",
+          "Schwangerschaft (Hämodilution)",
+          "Eisenmangelanämie (manchmal falsch niedrig, manchmal falsch hoch)"
+        ],
+        "symptoms": [
+          "Symptome der zugrunde liegenden Hypoglykämie (Zittern, Schwitzen, Heißhunger)",
+          "Bei künstlich niedrigem Wert durch Anämie: Blässe, Müdigkeit",
+          "Bei ketogener Diät: Keine negativen Symptome zu erwarten"
+        ],
+        "relatedValues": ["nuechtern-glukose", "nuechtern-insulin", "haemoglobin", "ferritin", "retikulozyten"],
+        "actions": [
+          "Blutbild überprüfen (Anämie ausschließen)",
+          "Häufigkeit von Hypoglykämien evaluieren",
+          "Bei Diabetikern: Medikation anpassen lassen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Prädiabetes (5.7-6.4%)",
+          "Diabetes mellitus (≥6.5%)",
+          "Chronisch erhöhter Blutzucker durch Ernährung und Bewegungsmangel",
+          "Falsch hoch bei Eisenmangelanämie (verlängerte Erythrozyten-Lebensdauer)",
+          "Niereninsuffizienz (verlängerte Erythrozyten-Lebensdauer)",
+          "Alkoholismus",
+          "Medikamente (Kortison, Thiazide)",
+          "Cushing-Syndrom"
+        ],
+        "symptoms": [
+          "Bei Prädiabetes: oft symptomlos!",
+          "Vermehrter Durst und häufiges Wasserlassen",
+          "Müdigkeit",
+          "Verschwommenes Sehen",
+          "Häufige Infektionen",
+          "Langsame Wundheilung"
+        ],
+        "relatedValues": ["nuechtern-glukose", "nuechtern-insulin", "homa-ir", "triglyceride", "hdl"],
+        "actions": [
+          "Nüchtern-Glukose und Nüchtern-Insulin bestimmen",
+          "HOMA-IR berechnen lassen",
+          "Ernährung umstellen (Zucker und Weißmehl drastisch reduzieren)",
+          "Regelmäßige Bewegung einführen (Kraft + Ausdauer)",
+          "Bei HbA1c ≥6.5%: Diabetologen aufsuchen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Langzeit-Blutzucker liegt im idealen Bereich. Die Glykierung von Proteinen (AGEs) ist minimal, was vor Gefäßschäden, Neuropathie und anderen Diabetes-Komplikationen schützt."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "hba1c_5_7_bis_6_4",
+        "interpretation": "HbA1c 5.7-6.4% = Prädiabetes. Das Diabetesrisiko ist stark erhöht. Aber: Prädiabetes ist durch Lebensstilmaßnahmen vollständig umkehrbar. Jetzt handeln!",
+        "severity": "warning"
+      },
+      {
+        "condition": "hba1c_ab_6_5",
+        "interpretation": "HbA1c ≥6.5% = Diabetes mellitus (wenn durch zweite Messung bestätigt). Ärztliche Behandlung notwendig. Risiko für Folgeschäden steigt exponentiell.",
+        "severity": "warning"
+      },
+      {
+        "condition": "hba1c_normal AND nuechtern_insulin_erhoeht",
+        "interpretation": "HbA1c noch normal, aber Nüchtern-Insulin bereits erhöht: Frühe Insulinresistenz. Der Blutzucker wird noch durch vermehrte Insulinproduktion kompensiert. Dies ist das Fenster für Prävention!",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Zucker und raffinierte Kohlenhydrate eliminieren (größter Einzeleffekt!)",
+        "Ballaststoffreiche Ernährung (30+ g/Tag): Gemüse, Hülsenfrüchte, Nüsse",
+        "Regelmäßiges Kraft- und Ausdauertraining (verbessert HbA1c um 0.3-0.6%)",
+        "Nach jeder Mahlzeit 15-30 Minuten Bewegung (senkt postprandialen Blutzucker)",
+        "7-9 Stunden Schlaf pro Nacht (Schlafmangel erhöht Blutzucker nachweislich)",
+        "Stress-Management (Cortisol erhöht Blutzucker chronisch)",
+        "Essensreihenfolge: Gemüse → Protein/Fett → Kohlenhydrate"
+      ],
+      "supplements": [
+        {
+          "name": "Magnesium (Glycinat)",
+          "dosage": "300-400 mg",
+          "timing": "Abends",
+          "notes": "Verbessert die Insulinsensitivität und senkt HbA1c in Studien um 0.1-0.3%."
+        },
+        {
+          "name": "Berberin",
+          "dosage": "500 mg 2-3x täglich",
+          "timing": "Vor den Mahlzeiten",
+          "notes": "In Studien HbA1c-Senkung um 0.5-1%. Wirkmechanismus ähnlich Metformin. Ärztliche Rücksprache empfohlen."
+        },
+        {
+          "name": "Alpha-Liponsäure",
+          "dosage": "300-600 mg",
+          "timing": "Nüchtern",
+          "notes": "Verbessert die Insulinsensitivität und kann Neuropathie bei Diabetes lindern."
+        },
+        {
+          "name": "Vitamin D",
+          "dosage": "2000-4000 IE (nach Spiegel)",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Vitamin-D-Mangel ist mit höherem Diabetesrisiko assoziiert."
+        }
+      ],
+      "redFlags": [
+        "HbA1c über 6.5% → Arzt aufsuchen (Diabetes-Diagnose)",
+        "HbA1c über 8% → dringende ärztliche Behandlung (hohes Komplikationsrisiko)",
+        "HbA1c 5.7-6.4% mit Übergewicht und familiärer Belastung → proaktiv handeln"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "nuechtern-insulin",
+    "name": "Nüchtern-Insulin",
+    "category": "blutzucker",
+    "categoryLabel": "Blutzucker & Insulin",
+    "description": "Nüchtern-Insulin misst den Insulinspiegel nach mindestens 8 Stunden Nahrungskarenz. Es ist laut Osterhaus einer der wichtigsten und am meisten unterschätzten Blutwerte: Insulin steigt LANGE vor der Glukose bei Insulinresistenz an und ist damit der wichtigste Frühmarker für metabolische Erkrankungen. Funktionelle Medizin betrachtet Werte über 8 µU/ml bereits als Warnzeichen.",
+    "unit": "µU/ml",
+    "alternativeUnits": [
+      { "unit": "pmol/l", "factor": 6.945 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 2.0, "max": 25.0 },
+      "female": { "min": 2.0, "max": 25.0 }
+    },
+    "optimal": {
+      "male": { "min": 3.0, "max": 8.0, "target": 5.0 },
+      "female": { "min": 3.0, "max": 8.0, "target": 5.0 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Diabetes mellitus Typ 1 (autoimmune Zerstörung der Beta-Zellen)",
+          "Fortgeschrittener Typ-2-Diabetes (Beta-Zell-Erschöpfung)",
+          "LADA (Latent Autoimmune Diabetes in Adults)",
+          "Langfristige sehr kohlenhydratarme Ernährung (physiologisch, nicht pathologisch)",
+          "Insulinom nach Resektion"
+        ],
+        "symptoms": [
+          "Hoher Blutzucker trotz niedrigem Insulin (Insulinmangel)",
+          "Gewichtsverlust",
+          "Durst und häufiges Wasserlassen",
+          "Müdigkeit und Kraftlosigkeit"
+        ],
+        "relatedValues": ["nuechtern-glukose", "hba1c", "c-peptid", "gad-antikoerper"],
+        "actions": [
+          "C-Peptid bestimmen (zeigt eigene Insulinproduktion an)",
+          "GAD-Antikörper bei Verdacht auf Typ-1-Diabetes/LADA bestimmen",
+          "Blutzucker engmaschig kontrollieren",
+          "Bei Kohlenhydrat-armer Ernährung: niedriges Insulin ist normal und gewünscht"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Insulinresistenz (häufigste Ursache!)",
+          "Prädiabetes und frühes Stadium Typ-2-Diabetes",
+          "Metabolisches Syndrom",
+          "Übergewicht, besonders viszerales Fett (Bauchfett)",
+          "PCOS (Polyzystisches Ovarialsyndrom) bei Frauen",
+          "Cushing-Syndrom",
+          "Hohe Kohlenhydratzufuhr",
+          "Chronischer Stress und Schlafmangel"
+        ],
+        "symptoms": [
+          "Häufig KEINE offensichtlichen Symptome (stille Erkrankung!)",
+          "Schwierigkeit beim Abnehmen trotz Diät",
+          "Heißhungerattacken, besonders auf Süßes und Kohlenhydrate",
+          "Energietief nach den Mahlzeiten (postprandiale Müdigkeit)",
+          "Konzentrationsschwierigkeiten (Brain Fog)",
+          "Vermehrtes Bauchfett"
+        ],
+        "relatedValues": ["nuechtern-glukose", "hba1c", "homa-ir", "triglyceride", "hdl", "harnsaeure", "hs-crp"],
+        "actions": [
+          "HOMA-IR berechnen (Nüchtern-Insulin × Nüchtern-Glukose / 405)",
+          "Triglyceride und HDL bestimmen (Triglyceride/HDL-Ratio als Insulinresistenz-Marker)",
+          "Ernährung umstellen: Zucker und Weißmehl eliminieren",
+          "Krafttraining beginnen (Muskeln verbessern die Insulinsensitivität direkt)",
+          "Schlaf optimieren (7-9 Stunden)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Insulinsensitivität ist hervorragend. Die Bauchspeicheldrüse muss nur wenig Insulin produzieren um den Blutzucker stabil zu halten. Dies ist ein Zeichen für metabolische Gesundheit und schützt vor Typ-2-Diabetes, Herzerkrankungen und vielen chronischen Erkrankungen."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "nuechtern_insulin_ueber_10 AND nuechtern_glukose_normal",
+        "interpretation": "Erhöhtes Nüchtern-Insulin bei noch normalem Blutzucker: Frühe Insulinresistenz! Die Bauchspeicheldrüse kompensiert durch Überproduktion von Insulin. Der Blutzucker steigt erst, wenn die Beta-Zellen erschöpft sind – das kann 10-15 Jahre dauern. JETZT handeln!",
+        "severity": "warning"
+      },
+      {
+        "condition": "nuechtern_insulin_ueber_15",
+        "interpretation": "Nüchtern-Insulin über 15 µU/ml: Ausgeprägte Insulinresistenz. Hohes Risiko für Typ-2-Diabetes, kardiovaskuläre Erkrankungen und metabolisches Syndrom. Aggressive Lebensstilintervention dringend empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "nuechtern_insulin_ueber_8",
+        "interpretation": "In der funktionellen Medizin gelten Nüchtern-Insulin-Werte über 8 µU/ml als beginnende Insulinresistenz, auch wenn Laborberichte dies noch als 'normal' ausweisen. Prävention ist jetzt besonders effektiv.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Zucker und raffinierte Kohlenhydrate drastisch reduzieren (wichtigster Einzelschritt!)",
+        "Krafttraining 3-4x pro Woche (Muskeln sind der größte Insulinsensitivitäts-Booster)",
+        "Mindestens 150 Minuten moderate Ausdaueraktivität pro Woche",
+        "Schlaf optimieren: 7-9 Stunden, feste Zeiten (Schlafmangel → sofort mehr Insulinresistenz)",
+        "Intervallfasten (16:8 oder 18:6) – senkt Insulin direkt durch längere Fastenperioden",
+        "Stress reduzieren (Cortisol verschlechtert die Insulinsensitivität)",
+        "Essensreihenfolge: Gemüse → Protein/Fett → Kohlenhydrate (Glukosespitze um 50% reduziert)",
+        "Nach dem Essen bewegen (15-30 Min. Spaziergang senkt Insulinantwort deutlich)"
+      ],
+      "supplements": [
+        {
+          "name": "Magnesium (Glycinat oder Malat)",
+          "dosage": "300-400 mg",
+          "timing": "Abends",
+          "notes": "Magnesium ist essenziell für die Insulinsignaltransduktion. Mangel ist bei Insulinresistenz fast immer vorhanden."
+        },
+        {
+          "name": "Berberin",
+          "dosage": "500 mg 2-3x täglich",
+          "timing": "Vor den Mahlzeiten",
+          "notes": "Senkt Nüchtern-Insulin und verbessert die Insulinsensitivität. In Studien vergleichbar mit Metformin."
+        },
+        {
+          "name": "Inositol (Myo-Inositol + D-Chiro-Inositol)",
+          "dosage": "2-4 g Myo-Inositol + 50-100 mg D-Chiro-Inositol",
+          "timing": "Aufgeteilt auf 2 Dosen",
+          "notes": "Verbessert die Insulinsensitivität, besonders bei PCOS nachgewiesen. Sehr gut verträglich."
+        },
+        {
+          "name": "Chrom",
+          "dosage": "200-400 µg Chrompicolinat",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Kann die Insulinrezeptor-Sensitivität verbessern."
+        }
+      ],
+      "redFlags": [
+        "Nüchtern-Insulin über 25 µU/ml → Arzt aufsuchen",
+        "Nüchtern-Insulin über 15 µU/ml mit Übergewicht → proaktiv Diabetologen konsultieren",
+        "Nüchtern-Insulin sehr niedrig (<2 µU/ml) bei hohem Blutzucker → Verdacht auf Typ-1-Diabetes, sofort zum Arzt"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "homa-ir",
+    "name": "HOMA-IR (Insulinresistenz-Index)",
+    "category": "blutzucker",
+    "categoryLabel": "Blutzucker & Insulin",
+    "description": "Der HOMA-IR (Homeostatic Model Assessment of Insulin Resistance) ist ein berechneter Index zur Quantifizierung der Insulinresistenz. Berechnung: (Nüchtern-Glukose in mg/dl × Nüchtern-Insulin in µU/ml) / 405. Er ist der einfachste und beste Screening-Marker für Insulinresistenz in der Praxis. Ein HOMA-IR >2.5 deutet auf Insulinresistenz hin, >5.0 bedeutet ein stark erhöhtes Diabetes-Risiko.",
+    "unit": "(dimensionslos)",
+    "alternativeUnits": [],
+    "measurementType": "Berechnet",
+    "reference": {
+      "male": { "min": 0, "max": 2.5 },
+      "female": { "min": 0, "max": 2.5 }
+    },
+    "optimal": {
+      "male": { "min": 0.3, "max": 1.0, "target": 0.7 },
+      "female": { "min": 0.3, "max": 1.0, "target": 0.7 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Sehr hohe Insulinsensitivität (optimal!)",
+          "Kohlenhydratarme Ernährung oder Fasten",
+          "Sehr niedrige Insulinproduktion (Typ-1-Diabetes, LADA → hier aber Blutzucker erhöht)",
+          "Sehr aktiver Lebensstil mit viel Bewegung",
+          "Genetisch bedingt hohe Insulinsensitivität"
+        ],
+        "symptoms": [
+          "Keine negativen Symptome bei niedrigem HOMA-IR",
+          "Im Gegenteil: Zeichen exzellenter metabolischer Gesundheit",
+          "Gute Energieverteilung über den Tag"
+        ],
+        "relatedValues": ["nuechtern-insulin", "nuechtern-glukose", "hba1c"],
+        "actions": [
+          "Kein Handlungsbedarf – niedrige Werte sind optimal",
+          "Nur bei gleichzeitig hohem Blutzucker und niedrigem Insulin: Typ-1-Diabetes/LADA ausschließen",
+          "Aktuellen Lebensstil beibehalten"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Insulinresistenz",
+          "Metabolisches Syndrom",
+          "Prädiabetes und Typ-2-Diabetes",
+          "Übergewicht, besonders viszerales Fett",
+          "Bewegungsmangel",
+          "Chronischer Stress und Schlafmangel",
+          "Hohe Zufuhr von Zucker und raffinierten Kohlenhydraten",
+          "PCOS (Polyzystisches Ovarialsyndrom)"
+        ],
+        "symptoms": [
+          "Häufig asymptomatisch!",
+          "Schwierigkeiten beim Abnehmen",
+          "Energietiefs nach Mahlzeiten",
+          "Heißhunger auf Kohlenhydrate und Süßes",
+          "Vermehrtes Bauchfett",
+          "Chronische Müdigkeit"
+        ],
+        "relatedValues": ["nuechtern-insulin", "nuechtern-glukose", "hba1c", "triglyceride", "hdl", "harnsaeure", "gpt", "hs-crp"],
+        "actions": [
+          "Vollständiges metabolisches Panel: Triglyceride, HDL, Harnsäure, GPT, CRP",
+          "Ernährungsumstellung: Zucker und Weißmehl eliminieren, Protein erhöhen",
+          "Tägliche Bewegung: Kombination aus Kraft- und Ausdauertraining",
+          "Gewichtsreduktion bei Übergewicht (5-10% Gewichtsverlust verbessert HOMA-IR deutlich)",
+          "HOMA-IR in 3-6 Monaten kontrollieren"
+        ]
+      },
+      "optimal": {
+        "meaning": "Exzellente Insulinsensitivität. Die Zellen reagieren normal auf Insulin und die Bauchspeicheldrüse muss nicht übermäßig viel Insulin produzieren. Dies ist einer der besten Prädiktoren für langfristige metabolische Gesundheit und Langlebigkeit."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "homa_ir_ueber_2_5",
+        "interpretation": "HOMA-IR >2.5: Insulinresistenz wahrscheinlich. Die Zellen sprechen vermindert auf Insulin an. Ohne Intervention wird sich dies verschlechtern. Lebensstilmaßnahmen sind jetzt besonders wirksam.",
+        "severity": "warning"
+      },
+      {
+        "condition": "homa_ir_ueber_5",
+        "interpretation": "HOMA-IR >5.0: Diabetes-Risiko stark erhöht. Ausgeprägte Insulinresistenz. Intensive Intervention notwendig, ärztliche Begleitung dringend empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "homa_ir_erhoeht AND gpt_erhoeht",
+        "interpretation": "HOMA-IR erhöht zusammen mit erhöhtem GPT: Starker Verdacht auf nicht-alkoholische Fettlebererkrankung (NAFLD). Die Insulinresistenz treibt die Fetteinlagerung in der Leber. Leberultraschall empfohlen.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Zucker und raffinierte Kohlenhydrate eliminieren (Priorität Nr. 1)",
+        "Krafttraining 3-4x/Woche (beste Einzelmaßnahme für Insulinsensitivität)",
+        "Tägliche Bewegung: mindestens 8000-10000 Schritte",
+        "Intervallfasten (16:8 oder 18:6) – reduziert Insulinspiegel direkt",
+        "Schlaf optimieren: 7-9 Stunden, konstante Schlafenszeiten",
+        "Stress aktiv managen (Cortisol verschlechtert Insulinresistenz)",
+        "Proteinreiche Ernährung (1,6-2,2 g/kg Körpergewicht)",
+        "Ballaststoffzufuhr erhöhen (30-50 g/Tag)"
+      ],
+      "supplements": [
+        {
+          "name": "Magnesium (Glycinat)",
+          "dosage": "300-400 mg",
+          "timing": "Abends",
+          "notes": "Grundlegend für die Insulinsignaltransduktion. Die meisten Menschen sind unterversorgt."
+        },
+        {
+          "name": "Berberin",
+          "dosage": "500 mg 2-3x täglich",
+          "timing": "Vor den Mahlzeiten",
+          "notes": "Kann HOMA-IR signifikant senken. Wirkt ähnlich wie Metformin auf den AMPK-Pathway."
+        },
+        {
+          "name": "Inositol",
+          "dosage": "2-4 g Myo-Inositol",
+          "timing": "Aufgeteilt auf 2 Dosen, morgens und abends",
+          "notes": "Second-Messenger des Insulinsignalwegs. Verbessert HOMA-IR besonders bei Frauen mit PCOS."
+        },
+        {
+          "name": "Alpha-Liponsäure",
+          "dosage": "300-600 mg",
+          "timing": "Nüchtern",
+          "notes": "Starkes Antioxidans, verbessert die zelluläre Glukoseaufnahme."
+        }
+      ],
+      "redFlags": [
+        "HOMA-IR über 2.5 → Insulinresistenz, proaktiv handeln",
+        "HOMA-IR über 5.0 → Diabetes-Risiko stark erhöht, Arzt einbeziehen",
+        "HOMA-IR steigend trotz Lebensstilmaßnahmen → Medikation (Metformin) mit Arzt besprechen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  }
+]

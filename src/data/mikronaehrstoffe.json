@@ -1,0 +1,1404 @@
+[
+  {
+    "id": "ferritin",
+    "name": "Ferritin (Eisenspeicher)",
+    "category": "eisen",
+    "categoryLabel": "Eisen-Panel",
+    "description": "Ferritin ist das wichtigste Speicherprotein für Eisen im Körper. Es spiegelt die Eisenreserven wider und ist der erste Wert, der bei beginnendem Eisenmangel abfällt. WICHTIG: Ferritin ist ein Akute-Phase-Protein und steigt bei Entzündungen, Infektionen und Lebererkrankungen an – daher IMMER zusammen mit CRP beurteilen! Ein 'normaler' Ferritinwert bei gleichzeitig erhöhtem CRP kann einen Eisenmangel maskieren. Symptome treten bereits unter 50 ng/ml auf, obwohl dieser Wert labormedizinisch noch im Referenzbereich liegt.",
+    "unit": "ng/ml",
+    "alternativeUnits": [
+      { "unit": "µg/l", "factor": 1 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 30, "max": 400 },
+      "female": { "min": 15, "max": 150 }
+    },
+    "optimal": {
+      "male": { "min": 100, "max": 200, "target": 150 },
+      "female": { "min": 50, "max": 150, "target": 100 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Unzureichende Eisenzufuhr über die Ernährung (v.a. vegetarisch/vegan)",
+          "Chronischer Blutverlust (Menstruation, Magen-Darm-Blutungen, häufiges Blutspenden)",
+          "Verminderte Eisenresorption (Zöliakie, Morbus Crohn, Magensäure-Mangel, PPI-Einnahme)",
+          "Erhöhter Eisenbedarf (Schwangerschaft, Wachstum, intensiver Sport)",
+          "Magenbypass oder andere gastrointestinale Operationen",
+          "Chronische Entzündungen im Darm mit gestörter Resorption",
+          "Starke Menstruation (Hypermenorrhoe) – häufigste Ursache bei Frauen im gebärfähigen Alter",
+          "Helicobacter-pylori-Infektion (stört Eisenaufnahme im Magen)"
+        ],
+        "symptoms": [
+          "Chronische Müdigkeit und Erschöpfung (auch bei 'normalem' Hämoglobin)",
+          "Haarausfall (diffus, verstärkt beim Waschen und Kämmen)",
+          "Brüchige Nägel, Rillenbildung, Löffelnägel (Koilonychie)",
+          "Konzentrationsstörungen und Gehirnnebel (Brain Fog)",
+          "Restless Legs Syndrom (unruhige Beine, v.a. abends)",
+          "Kälteempfindlichkeit und kalte Hände/Füße"
+        ],
+        "relatedValues": [
+          "transferrin",
+          "transferrinsaettigung",
+          "vitamin-b12",
+          "folsaeure"
+        ],
+        "actions": [
+          "Eisenreiche Lebensmittel: rotes Fleisch, Leber, Muscheln, Linsen, Kürbiskerne",
+          "Vitamin C zu eisenreichen Mahlzeiten (verbessert die Resorption um das 3-6fache)",
+          "Kaffee und Tee NICHT zu den Mahlzeiten (Tannine hemmen Eisenaufnahme um bis zu 60%)",
+          "Bei Ferritin <30: Eisensupplementation unter ärztlicher Kontrolle erwägen",
+          "Ursache des Eisenmangels ärztlich abklären lassen (v.a. bei Männern und postmenopausalen Frauen)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Akute oder chronische Entzündung (Ferritin als Akute-Phase-Protein!)",
+          "Hereditäre Hämochromatose (genetische Eisenspeicherkrankheit)",
+          "Lebererkrankungen (Hepatitis, Fettleber, Leberzirrhose)",
+          "Hämolytische Anämien (verstärkter Erythrozytenabbau)",
+          "Wiederholte Bluttransfusionen",
+          "Alkoholmissbrauch (erhöht Ferritin unabhängig vom Eisenstatus)",
+          "Metabolisches Syndrom / Insulinresistenz",
+          "Übermäßige Eisensupplementation ohne ärztliche Kontrolle"
+        ],
+        "symptoms": [
+          "Gelenkschmerzen (besonders Fingergrundgelenke – typisch für Hämochromatose)",
+          "Chronische Müdigkeit und Abgeschlagenheit",
+          "Bauchschmerzen im rechten Oberbauch (Leberregion)",
+          "Dunkle Hautverfärbung (Bronzediabetes bei Hämochromatose)",
+          "Libidoverlust und Potenzprobleme",
+          "Herzrhythmusstörungen (bei schwerer Eisenüberladung)"
+        ],
+        "relatedValues": [
+          "transferrin",
+          "transferrinsaettigung"
+        ],
+        "actions": [
+          "CRP/Entzündungswerte prüfen – Ferritin kann durch Entzündung falsch erhöht sein",
+          "Bei Ferritin >500 und Transferrinsättigung >45%: Hämochromatose-Gentest (HFE-Mutation)",
+          "Leberwerte kontrollieren lassen (GOT, GPT, GGT)",
+          "Eisensupplemente sofort absetzen",
+          "Regelmäßiges Blutspenden kann überschüssiges Eisen reduzieren (ärztliche Rücksprache)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Deine Eisenspeicher sind gut gefüllt. Der Körper hat genügend Reserven für Energieproduktion, Sauerstofftransport und Immunfunktion. Ein Ferritin im optimalen Bereich korreliert mit besserer körperlicher und geistiger Leistungsfähigkeit."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "CRP >5 mg/l",
+        "interpretation": "Ferritin ist als Akute-Phase-Protein bei aktiver Entzündung falsch erhöht. Der tatsächliche Eisenspeicher könnte deutlich niedriger sein. Transferrinsättigung als zusätzlichen Marker heranziehen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Ferritin <50 bei Symptomen (Müdigkeit, Haarausfall, Kälteempfindlichkeit)",
+        "interpretation": "Eisenmangel wahrscheinlich trotz labormedizinischem Referenzbereich. Funktionelle Medizin empfiehlt ein Ferritin von mindestens 50, besser 80-100 ng/ml. Supplementierung erwägen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Ferritin <15 ng/ml",
+        "interpretation": "Entleerte Eisenspeicher! Manifester Eisenmangel sehr wahrscheinlich. Ärztliche Behandlung erforderlich, ggf. intravenöse Eiseninfusion.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Ferritin >500 ng/ml",
+        "interpretation": "Deutlich erhöhtes Ferritin. Hämochromatose muss ausgeschlossen werden. Transferrinsättigung und HFE-Gentest veranlassen. Auch Lebererkrankungen und schwere Entzündungen können ursächlich sein.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Eisenreiche Ernährung: rotes Fleisch 2-3x/Woche, Leber 1x/Woche, Muscheln, Austern",
+        "Pflanzliches Eisen: Kürbiskerne, Sesam, Linsen, Quinoa (Bioverfügbarkeit geringer als tierisch)",
+        "Vitamin C zu eisenreichen Mahlzeiten (Paprika, Zitrusfrüchte, Brokkoli)",
+        "Kaffee, Tee und Milchprodukte zeitlich getrennt von eisenreichen Mahlzeiten (mind. 1-2h Abstand)",
+        "Phytinsäure reduzieren: Hülsenfrüchte einweichen, Getreide fermentieren/keimen lassen",
+        "Kochen in Gusseisenpfannen kann Eisengehalt der Nahrung erhöhen"
+      ],
+      "supplements": [
+        {
+          "name": "Eisenbisglycinat",
+          "dosage": "20-40 mg elementares Eisen/Tag bei nachgewiesenem Mangel",
+          "timing": "Nüchtern morgens oder 2h nach der letzten Mahlzeit, zusammen mit Vitamin C",
+          "notes": "Beste Verträglichkeit unter den Eisenformen. Every-other-day-Dosierung kann die Resorption verbessern (Hepcidin-Rhythmus). Nicht zusammen mit Zink, Calcium oder Magnesium einnehmen."
+        }
+      ],
+      "redFlags": [
+        "Ferritin unter 15 ng/ml: Manifester Eisenmangel – Arztbesuch erforderlich",
+        "Ferritin über 500 ng/ml: Hämochromatose ausschließen – Arztbesuch erforderlich",
+        "Unerklärlicher Ferritin-Abfall bei Männern: GI-Blutung ausschließen (Stuhltest auf okkultes Blut)"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "transferrin",
+    "name": "Transferrin",
+    "category": "eisen",
+    "categoryLabel": "Eisen-Panel",
+    "description": "Transferrin ist das zentrale Transportprotein für Eisen im Blut. Es bindet Eisen und transportiert es zu den Zellen, die es benötigen (v.a. Knochenmark für die Blutbildung). Bei Eisenmangel produziert die Leber MEHR Transferrin, um das wenige vorhandene Eisen effizienter zu transportieren – daher ist ein erhöhtes Transferrin oft ein Zeichen für leere Eisenspeicher. Bei Eisenüberladung sinkt Transferrin entsprechend.",
+    "unit": "mg/dl",
+    "alternativeUnits": [
+      { "unit": "g/l", "factor": 0.01 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 200, "max": 360 },
+      "female": { "min": 200, "max": 360 }
+    },
+    "optimal": {
+      "male": { "min": 220, "max": 320 },
+      "female": { "min": 220, "max": 320 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Eisenüberladung (Hämochromatose) – weniger Transportprotein benötigt",
+          "Chronische Entzündungen (Transferrin ist ein negatives Akute-Phase-Protein)",
+          "Lebererkrankungen mit eingeschränkter Proteinsynthese (Leberzirrhose)",
+          "Nephrotisches Syndrom (Proteinverlust über die Niere)",
+          "Mangelernährung / Proteinmangel",
+          "Maligne Erkrankungen (Tumorerkrankungen)"
+        ],
+        "symptoms": [
+          "Oft asymptomatisch – Transferrin ist ein indirekter Marker",
+          "Symptome der Grunderkrankung (z.B. Ödeme bei nephrotischem Syndrom)",
+          "Bei Eisenüberladung: Gelenkschmerzen, Müdigkeit, Leberbeschwerden",
+          "Infektanfälligkeit bei chronischer Entzündung"
+        ],
+        "relatedValues": [
+          "ferritin",
+          "transferrinsaettigung"
+        ],
+        "actions": [
+          "Ferritin und Transferrinsättigung zur Differenzierung bestimmen",
+          "CRP prüfen, um Entzündung als Ursache auszuschließen",
+          "Leberwerte kontrollieren (GOT, GPT, Albumin)",
+          "Bei Verdacht auf Hämochromatose: HFE-Gentest veranlassen",
+          "Eiweißzufuhr und Ernährungsstatus evaluieren"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Eisenmangel (häufigste Ursache! Körper produziert mehr Transportprotein)",
+          "Schwangerschaft (physiologisch erhöht durch gesteigerten Eisenbedarf)",
+          "Östrogentherapie / hormonelle Verhütung",
+          "Akute Hepatitis (vermehrte Freisetzung aus Leberzellen)",
+          "Kompensatorische Erhöhung bei chronischem Blutverlust",
+          "Polycythaemia vera"
+        ],
+        "symptoms": [
+          "Symptome des zugrunde liegenden Eisenmangels (Müdigkeit, Haarausfall)",
+          "Konzentrationsstörungen",
+          "Blasse Haut und Schleimhäute",
+          "Brüchige Nägel"
+        ],
+        "relatedValues": [
+          "ferritin",
+          "transferrinsaettigung"
+        ],
+        "actions": [
+          "Ferritin bestimmen zur Bestätigung des Eisenmangels",
+          "Ursache des Eisenmangels abklären (Blutungsquelle? Resorptionsstörung?)",
+          "Bei Frauen: Menstruationsstärke evaluieren",
+          "Eisenreiche Ernährung oder Supplementierung einleiten",
+          "Kontrolle nach 3 Monaten Eisentherapie"
+        ]
+      },
+      "optimal": {
+        "meaning": "Transferrin liegt im optimalen Bereich, was auf einen ausgewogenen Eisenstoffwechsel hinweist. Der Körper hat weder einen erhöhten Bedarf an Eisentransport noch eine Überladung."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Transferrin erhöht + Ferritin erniedrigt",
+        "interpretation": "Klassische Konstellation eines Eisenmangels: Der Körper produziert mehr Transportprotein, weil die Eisenspeicher leer sind.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Transferrin erniedrigt + CRP erhöht",
+        "interpretation": "Transferrin als negatives Akute-Phase-Protein bei Entzündung erniedrigt. Kein Rückschluss auf den Eisenstatus möglich.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Transferrin erniedrigt + Ferritin erhöht + Transferrinsättigung >45%",
+        "interpretation": "Hinweis auf mögliche Eisenüberladung (Hämochromatose). Genetische Abklärung empfohlen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausgewogene Ernährung mit ausreichend Protein (Transferrin wird in der Leber synthetisiert)",
+        "Eisenreiche Lebensmittel in den Speiseplan integrieren",
+        "Lebergesundheit fördern: Alkohol reduzieren, ausreichend Schlaf",
+        "Regelmäßige Kontrolle des Eisenstatus bei Risikogruppen (Frauen, Vegetarier, Sportler)"
+      ],
+      "supplements": [
+        {
+          "name": "Eisenbisglycinat",
+          "dosage": "20-40 mg elementares Eisen bei nachgewiesenem Eisenmangel",
+          "timing": "Nüchtern oder 2h nach Mahlzeit, mit Vitamin C",
+          "notes": "Transferrin normalisiert sich nach Auffüllung der Eisenspeicher. Supplementierung nur bei bestätigtem Mangel."
+        }
+      ],
+      "redFlags": [
+        "Transferrin stark erniedrigt (<150 mg/dl): Schwere Lebererkrankung oder Eisenüberladung – Arztbesuch erforderlich",
+        "Transferrin stark erhöht (>400 mg/dl) mit Symptomen: Ausgeprägter Eisenmangel – ärztliche Abklärung"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "transferrinsaettigung",
+    "name": "Transferrinsättigung",
+    "category": "eisen",
+    "categoryLabel": "Eisen-Panel",
+    "description": "Die Transferrinsättigung gibt an, wie viel Prozent des verfügbaren Transferrins tatsächlich mit Eisen beladen ist. Sie wird aus Serumeisen und Transferrin berechnet und ist ein wichtiger Marker zur Unterscheidung zwischen Eisenmangel und Eisenüberladung. Im Gegensatz zu Ferritin wird die Transferrinsättigung nicht durch Entzündungen verfälscht und ist daher bei erhöhtem CRP der zuverlässigere Eisenmarker.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "Berechnet",
+    "reference": {
+      "male": { "min": 16, "max": 45 },
+      "female": { "min": 16, "max": 45 }
+    },
+    "optimal": {
+      "male": { "min": 25, "max": 35 },
+      "female": { "min": 25, "max": 35 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Eisenmangelanämie (häufigste Ursache)",
+          "Chronische Entzündungen (Anemia of Chronic Disease – Eisen wird im RES sequestriert)",
+          "Unzureichende Eisenzufuhr über die Ernährung",
+          "Chronischer Blutverlust (Menstruation, GI-Blutungen)",
+          "Verminderte Eisenresorption (Zöliakie, Morbus Crohn, PPI-Einnahme)",
+          "Erhöhter Eisenbedarf (Schwangerschaft, Leistungssport)"
+        ],
+        "symptoms": [
+          "Müdigkeit und verminderte Leistungsfähigkeit",
+          "Blässe der Haut und Schleimhäute",
+          "Kurzatmigkeit bei Belastung",
+          "Haarausfall und brüchige Nägel",
+          "Kopfschmerzen und Schwindel"
+        ],
+        "relatedValues": [
+          "ferritin",
+          "transferrin"
+        ],
+        "actions": [
+          "Ferritin und Transferrin zur vollständigen Eisendiagnostik bestimmen",
+          "CRP messen, um Entzündung als Ursache abzugrenzen",
+          "Blutungsquellen ausschließen (v.a. gastrointestinal)",
+          "Eisenreiche Ernährung oder Supplementierung einleiten",
+          "Kontrolle nach 6-8 Wochen Eisentherapie"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Hereditäre Hämochromatose (häufigste genetische Erkrankung in Europa!)",
+          "Sekundäre Eisenüberladung (wiederholte Transfusionen)",
+          "Übermäßige Eisensupplementation",
+          "Akute Hepatitis (Eisenfreisetzung aus geschädigten Leberzellen)",
+          "Ineffektive Erythropoese (Thalassämie, sideroblastische Anämie)",
+          "Alkoholbedingte Leberschädigung"
+        ],
+        "symptoms": [
+          "Gelenkschmerzen (v.a. Fingergrundgelenke)",
+          "Chronische Müdigkeit",
+          "Erhöhte Leberwerte",
+          "Dunkle Hautverfärbung",
+          "Herzrhythmusstörungen bei schwerer Überladung",
+          "Diabetes mellitus (Bronzediabetes)"
+        ],
+        "relatedValues": [
+          "ferritin",
+          "transferrin"
+        ],
+        "actions": [
+          "Ferritin bestimmen – bei gleichzeitiger Erhöhung: Hämochromatose abklären",
+          "HFE-Gentest (C282Y, H63D Mutationen) veranlassen",
+          "Leberwerte kontrollieren (GOT, GPT, GGT)",
+          "Eisensupplemente sofort absetzen",
+          "Bei bestätigter Hämochromatose: regelmäßiger Aderlass als Therapie"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Transferrinsättigung liegt im idealen Bereich. Der Eisentransport zu den Zellen ist effizient, und es besteht weder ein Mangel noch eine Überladung. Der Körper kann ausreichend Eisen für Blutbildung und Energieproduktion bereitstellen."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Transferrinsättigung <16% + Ferritin <30 ng/ml",
+        "interpretation": "Eindeutiger Eisenmangel. Sowohl die Speicher als auch der verfügbare Eisenpool sind erschöpft. Supplementierung dringend empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Transferrinsättigung >45% + Ferritin >300 ng/ml",
+        "interpretation": "Dringender Verdacht auf Eisenüberladung/Hämochromatose. HFE-Gentest und Leberwerte sofort veranlassen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Transferrinsättigung normal + Ferritin erhöht + CRP erhöht",
+        "interpretation": "Ferritin-Erhöhung wahrscheinlich entzündungsbedingt. Die Transferrinsättigung ist hier der verlässlichere Marker für den tatsächlichen Eisenstatus.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Bei niedrigem Wert: Eisenreiche Ernährung mit Vitamin C kombinieren",
+        "Eisenhemmer vermeiden: Kaffee, Tee, Milchprodukte getrennt von eisenreichen Mahlzeiten",
+        "Bei hohem Wert: Schwarztee zu den Mahlzeiten kann die Eisenaufnahme reduzieren",
+        "Regelmäßige Kontrolle des kompletten Eisen-Panels (nicht nur Einzelwerte)"
+      ],
+      "supplements": [
+        {
+          "name": "Eisenbisglycinat",
+          "dosage": "20-40 mg elementares Eisen bei niedriger Transferrinsättigung",
+          "timing": "Nüchtern morgens, mit Vitamin C (z.B. Orangensaft)",
+          "notes": "Nur bei niedriger Transferrinsättigung UND niedrigem Ferritin supplementieren. Kontrolle nach 8-12 Wochen."
+        }
+      ],
+      "redFlags": [
+        "Transferrinsättigung >50%: Hämochromatose-Screening obligat – Arztbesuch erforderlich",
+        "Transferrinsättigung <10% mit Symptomen: Schwerer Eisenmangel – sofortige ärztliche Abklärung"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "vitamin-d",
+    "name": "25-OH-Vitamin D (Calcidiol)",
+    "category": "vitamine",
+    "categoryLabel": "Vitamine",
+    "description": "25-OH-Vitamin D (Calcidiol) ist die Speicherform von Vitamin D und der beste Marker für den Vitamin-D-Status. Vitamin D ist streng genommen ein Hormon und beeinflusst über 2.000 Gene im Körper. Es spielt eine zentrale Rolle für Immunsystem, Knochen, Muskulatur, Stimmung und Krebsprävention. Der Referenzwert von 30 ng/ml stellt lediglich die Mangel-Grenze dar, NICHT den optimalen Bereich! In Deutschland haben ca. 80% der Bevölkerung im Winter einen Wert unter 30 ng/ml. Supplementierung ist fast immer nötig, da die Eigenproduktion über die Haut in unseren Breitengraden nur von April bis September ausreicht.",
+    "unit": "ng/ml",
+    "alternativeUnits": [
+      { "unit": "nmol/l", "factor": 2.496 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 30, "max": 100 },
+      "female": { "min": 30, "max": 100 }
+    },
+    "optimal": {
+      "male": { "min": 50, "max": 70, "target": 60 },
+      "female": { "min": 50, "max": 70, "target": 60 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Mangelnde Sonnenexposition (Büroarbeit, Breitengrad >40°, Sonnenschutz)",
+          "Dunkle Hautpigmentierung (benötigt mehr UVB für gleiche Produktion)",
+          "Höheres Alter (Hautsynthese nimmt ab 60 Jahren deutlich ab)",
+          "Übergewicht/Adipositas (Vitamin D wird im Fettgewebe sequestriert)",
+          "Malabsorption (Morbus Crohn, Zöliakie, nach bariatrischer OP)",
+          "Leber- oder Nierenerkrankungen (gestörte Aktivierung)",
+          "Medikamente (Antiepileptika, Glukokortikoide, Rifampicin)",
+          "Fehlende Supplementierung in den Wintermonaten"
+        ],
+        "symptoms": [
+          "Chronische Müdigkeit und Antriebslosigkeit",
+          "Häufige Infekte (Vitamin D ist essentiell für das Immunsystem)",
+          "Knochen- und Muskelschmerzen, Muskelschwäche",
+          "Depressive Verstimmungen (v.a. Winterdepression/SAD)",
+          "Haarausfall",
+          "Langsame Wundheilung"
+        ],
+        "relatedValues": [
+          "magnesium",
+          "ferritin"
+        ],
+        "actions": [
+          "Vitamin-D3-Supplementierung einleiten (Dosierung abhängig vom Ausgangswert)",
+          "IMMER mit Vitamin K2 (MK7) kombinieren für optimale Calciumverwertung",
+          "Magnesium-Status prüfen (wird für Vitamin-D-Aktivierung benötigt)",
+          "Sonnenexposition: 15-30 Min. Mittagssonne auf Unterarme/Gesicht (April-September)",
+          "Kontrolle des Vitamin-D-Spiegels nach 3 Monaten Supplementierung"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Überdosierung von Vitamin-D-Supplementen (>10.000 IE/Tag über längere Zeit)",
+          "Granulomatöse Erkrankungen (Sarkoidose, Tuberkulose)",
+          "Bestimmte Lymphome",
+          "Williams-Beuren-Syndrom (genetische Störung des Vitamin-D-Stoffwechsels)",
+          "Übermäßige Calcium-Supplementierung zusammen mit Vitamin D",
+          "Fehlende Kontrolle bei Hochdosis-Therapie"
+        ],
+        "symptoms": [
+          "Übelkeit, Erbrechen, Appetitlosigkeit",
+          "Verstopfung",
+          "Verwirrtheit und Konzentrationsstörungen",
+          "Nierensteine (durch Hyperkalzämie)",
+          "Herzrhythmusstörungen (bei schwerer Hyperkalzämie)",
+          "Polyurie (vermehrtes Wasserlassen)"
+        ],
+        "relatedValues": [
+          "magnesium"
+        ],
+        "actions": [
+          "Vitamin-D-Supplemente sofort absetzen oder reduzieren",
+          "Calcium im Blut kontrollieren (Hyperkalzämie?)",
+          "Nierenfunktion überprüfen (Kreatinin, GFR)",
+          "Ausreichend trinken (2-3 Liter täglich)",
+          "Ärztliche Kontrolle bei Werten >100 ng/ml"
+        ]
+      },
+      "optimal": {
+        "meaning": "Dein Vitamin-D-Spiegel liegt im funktionell optimalen Bereich von 50-70 ng/ml. In diesem Bereich zeigen Studien die besten Effekte auf Immunfunktion, Knochengesundheit, Stimmung und Krebsprävention. Weiter supplementieren, um diesen Wert zu halten!"
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Vitamin D <20 ng/ml",
+        "interpretation": "Schwerer Vitamin-D-Mangel. Hochdosierte Auffülltherapie empfohlen (z.B. 10.000 IE/Tag für 8-12 Wochen), anschließend Erhaltungsdosis. Ärztliche Begleitung sinnvoll.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Supplementierung ohne Vitamin K2",
+        "interpretation": "Vitamin K2 (MK7) zur korrekten Calcium-Verwertung dringend empfohlen. Ohne K2 kann Calcium in Gefäßen statt in Knochen eingelagert werden.",
+        "severity": "info"
+      },
+      {
+        "condition": "Vitamin D <30 ng/ml im Winter",
+        "interpretation": "In Mitteleuropa ist ein Mangel im Winter sehr häufig (80% der Bevölkerung). Tägliche Supplementierung von mindestens 2.000-4.000 IE Vitamin D3 empfohlen.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Sonnenexposition: 15-30 Minuten Mittagssonne (11-15 Uhr) auf möglichst viel Haut, ohne Sonnenschutz (April-September)",
+        "Vitamin-D-reiche Lebensmittel: fetter Fisch (Lachs, Hering, Makrele), Eigelb, Pilze (UV-bestrahlt)",
+        "Regelmäßige Bewegung im Freien, idealerweise Outdoor-Sport",
+        "Übergewicht reduzieren (Vitamin D wird im Fettgewebe gespeichert und steht nicht zur Verfügung)",
+        "Magnesium sicherstellen – ohne Magnesium kann Vitamin D nicht aktiviert werden"
+      ],
+      "supplements": [
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": "2.000-5.000 IE/Tag als Erhaltungsdosis, bei Mangel: 5.000-10.000 IE/Tag für 8-12 Wochen",
+          "timing": "Zu einer fetthaltigen Mahlzeit (fettlösliches Vitamin!)",
+          "notes": "Tropfen oder Öl-Kapseln besser bioverfügbar als Tabletten. Zielwert 50-70 ng/ml. Immer mit K2 kombinieren."
+        },
+        {
+          "name": "Vitamin K2 (MK7, all-trans)",
+          "dosage": "200 µg/Tag",
+          "timing": "Zusammen mit Vitamin D3 zu einer fetthaltigen Mahlzeit",
+          "notes": "Sorgt dafür, dass Calcium in die Knochen eingebaut wird und nicht in Gefäßen abgelagert wird. All-trans Form bevorzugen."
+        }
+      ],
+      "redFlags": [
+        "Vitamin D >150 ng/ml: Toxisch – Supplemente sofort absetzen, Calcium kontrollieren",
+        "Vitamin D <10 ng/ml: Schwerer Mangel – ärztliche Auffülltherapie erforderlich",
+        "Calciumspiegel erhöht bei hohem Vitamin D: Hyperkalzämie – sofortige ärztliche Abklärung"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "vitamin-b12",
+    "name": "Vitamin B12 (Cobalamin)",
+    "category": "vitamine",
+    "categoryLabel": "Vitamine",
+    "description": "Vitamin B12 (Cobalamin) ist essentiell für die Blutbildung, Nervenfunktion und DNA-Synthese. Der Serum-B12-Wert ist jedoch ein relativ unzuverlässiger Marker, da er auch inaktives B12 misst und erst bei deutlich entleerten Speichern abfällt. Holotranscobalamin (HoloTC) ist der deutlich bessere und empfindlichere Marker für den funktionellen B12-Status. Ein 'normaler' Serum-B12-Wert schließt einen funktionellen Mangel NICHT aus!",
+    "unit": "pg/ml",
+    "alternativeUnits": [
+      { "unit": "pmol/l", "factor": 0.738 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 200, "max": 900 },
+      "female": { "min": 200, "max": 900 }
+    },
+    "optimal": {
+      "male": { "min": 500, "max": 800, "target": 600 },
+      "female": { "min": 500, "max": 800, "target": 600 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Vegane oder streng vegetarische Ernährung (B12 kommt fast nur in tierischen Produkten vor)",
+          "Perniziöse Anämie (Autoimmunerkrankung gegen Intrinsic Factor)",
+          "Atrophische Gastritis / Magensäuremangel (v.a. im Alter)",
+          "Langzeiteinnahme von Metformin (reduziert B12-Resorption)",
+          "Langzeiteinnahme von Protonenpumpeninhibitoren (PPI)",
+          "Morbus Crohn oder Zöliakie (Resorptionsstörung im Ileum)",
+          "Chronischer Alkoholkonsum",
+          "Zustand nach Magenresektion oder bariatrischer Operation"
+        ],
+        "symptoms": [
+          "Neurologische Symptome: Kribbeln/Taubheit in Händen und Füßen (Polyneuropathie)",
+          "Chronische Müdigkeit und Schwäche",
+          "Konzentrationsstörungen, Vergesslichkeit, Brain Fog",
+          "Depressive Verstimmungen und Reizbarkeit",
+          "Glossitis (entzündete, glatte rote Zunge – Hunter-Glossitis)",
+          "Gangunsicherheit bei schwerem Mangel (funikuläre Myelose)"
+        ],
+        "relatedValues": [
+          "holotranscobalamin",
+          "folsaeure"
+        ],
+        "actions": [
+          "Holotranscobalamin (HoloTC) bestimmen – der zuverlässigere B12-Marker",
+          "Bei bestätigtem Mangel: B12-Supplementierung einleiten",
+          "Ursache des Mangels abklären (Ernährung? Resorption? Medikamente?)",
+          "Folsäure gleichzeitig prüfen (Methylierungszyklus)",
+          "Bei neurologischen Symptomen: sofortige Hochdosis-Therapie, ggf. Injektionen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Supplementierung mit hochdosierten B12-Präparaten (häufigste Ursache – harmlos)",
+          "Lebererkrankungen (B12 wird in der Leber gespeichert und bei Schädigung freigesetzt)",
+          "Myeloproliferative Erkrankungen (z.B. Polycythaemia vera, CML)",
+          "Niereninsuffizienz (verminderte Ausscheidung)",
+          "Bestimmte Autoimmunerkrankungen",
+          "Akute Hepatitis"
+        ],
+        "symptoms": [
+          "Bei Supplementierung: in der Regel keine Symptome (wasserlöslich, Überschuss wird ausgeschieden)",
+          "Symptome der Grunderkrankung bei pathologischer Erhöhung",
+          "Hautveränderungen (selten, bei extremer Überdosierung)",
+          "Akne-ähnliche Ausschläge (bei manchen Menschen unter hochdosierter Supplementierung)"
+        ],
+        "relatedValues": [
+          "holotranscobalamin",
+          "folsaeure"
+        ],
+        "actions": [
+          "Bei Supplementierung ohne Symptome: kein Handlungsbedarf, Dosis ggf. anpassen",
+          "Ohne Supplementierung: Leberwerte kontrollieren (GOT, GPT, GGT)",
+          "Blutbild prüfen (myeloproliferative Erkrankung ausschließen)",
+          "Nierenfunktion kontrollieren (Kreatinin, GFR)",
+          "Bei unerklärlich hohem B12 ohne Supplementierung: ärztliche Abklärung empfohlen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Dein Serum-B12 liegt im optimalen Bereich. Für eine noch präzisere Aussage zum B12-Status empfiehlt sich die Bestimmung von Holotranscobalamin (HoloTC), das nur das aktive, verwertbare B12 misst."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Serum-B12 im Referenzbereich (200-400 pg/ml) aber Symptome vorhanden",
+        "interpretation": "Ein 'normaler' Serum-B12 schließt einen funktionellen Mangel nicht aus! Serum-B12 misst auch inaktives B12. Holotranscobalamin (HoloTC) als besseren Marker bestimmen lassen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Vegane/vegetarische Ernährung ohne Supplementierung",
+        "interpretation": "Bei rein pflanzlicher Ernährung ist ein B12-Mangel ohne Supplementierung nahezu unvermeidlich. Regelmäßige Kontrolle und dauerhafte Supplementierung erforderlich.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Metformin-Einnahme seit >6 Monaten",
+        "interpretation": "Metformin hemmt die B12-Resorption. B12-Status (idealerweise HoloTC) sollte regelmäßig kontrolliert und bei Bedarf supplementiert werden.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Tierische Lebensmittel als B12-Quelle: Leber, Rindfleisch, Eier, Milchprodukte, Fisch",
+        "Bei pflanzlicher Ernährung: B12-Supplementierung ist Pflicht (keine zuverlässigen pflanzlichen Quellen)",
+        "Magensäure-Produktion unterstützen: nicht zu viel Wasser zu den Mahlzeiten, Bitterstoffe",
+        "PPI-Einnahme wenn möglich reduzieren oder zeitlich begrenzen (Rücksprache mit Arzt)"
+      ],
+      "supplements": [
+        {
+          "name": "Methylcobalamin oder Hydroxocobalamin",
+          "dosage": "500-1.000 µg/Tag sublingual, bei schwerem Mangel: 5.000 µg/Tag oder Injektionen",
+          "timing": "Morgens sublingual (unter die Zunge), unabhängig von Mahlzeiten",
+          "notes": "Methylcobalamin ist die bioaktive Form. Cyanocobalamin ist günstiger, muss aber umgewandelt werden. Bei Resorptionsstörung: intramuskuläre Injektionen (Hydroxocobalamin bevorzugt)."
+        },
+        {
+          "name": "Vitamin B-Komplex",
+          "dosage": "1x täglich mit allen B-Vitaminen",
+          "timing": "Morgens zum Frühstück",
+          "notes": "B-Vitamine wirken synergistisch. Ein B-Komplex kann sinnvoller sein als isoliertes B12, besonders wenn Folsäure ebenfalls niedrig ist."
+        }
+      ],
+      "redFlags": [
+        "B12 <150 pg/ml mit neurologischen Symptomen: Sofortige Therapie erforderlich – Nervenschäden können irreversibel werden",
+        "Unerklärlich hohes B12 ohne Supplementierung: Leber- oder hämatologische Erkrankung ausschließen",
+        "Perniziöse Anämie diagnostiziert: Lebenslange B12-Injektionen erforderlich"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "holotranscobalamin",
+    "name": "Holotranscobalamin (HoloTC / Aktives B12)",
+    "category": "vitamine",
+    "categoryLabel": "Vitamine",
+    "description": "Holotranscobalamin (HoloTC) ist die biologisch aktive Form von Vitamin B12 im Blut – das sogenannte 'Aktive B12'. Nur HoloTC kann von den Zellen aufgenommen und verwertet werden. Es macht zwar nur 10-30% des gesamten Serum-B12 aus, ist aber der deutlich bessere und empfindlichere Marker für den tatsächlichen B12-Versorgungsstatus. Ein Abfall des HoloTC zeigt einen B12-Mangel FRÜHER an als das Serum-B12 und ist daher der bevorzugte Laborparameter zur B12-Diagnostik.",
+    "unit": "pmol/l",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 50, "max": 300 },
+      "female": { "min": 50, "max": 300 }
+    },
+    "optimal": {
+      "male": { "min": 80, "max": 125, "target": 100 },
+      "female": { "min": 80, "max": 125, "target": 100 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Unzureichende B12-Zufuhr (vegane/vegetarische Ernährung)",
+          "Perniziöse Anämie (Autoimmun-Gastritis mit Intrinsic-Factor-Mangel)",
+          "Atrophische Gastritis mit Magensäuremangel (häufig im Alter)",
+          "Langzeiteinnahme von Protonenpumpeninhibitoren (PPI)",
+          "Langzeiteinnahme von Metformin bei Diabetes mellitus Typ 2",
+          "Chronisch-entzündliche Darmerkrankungen (Morbus Crohn im Ileum)",
+          "Zustand nach Magenresektion oder bariatrischer Operation",
+          "Chronischer Alkoholkonsum"
+        ],
+        "symptoms": [
+          "Kribbeln und Taubheitsgefühle in Händen und Füßen (Polyneuropathie)",
+          "Chronische Müdigkeit trotz ausreichend Schlaf",
+          "Konzentrations- und Gedächtnisstörungen",
+          "Depressive Verstimmungen, Reizbarkeit",
+          "Glossitis (glatte, rote, schmerzhafte Zunge)",
+          "Gangunsicherheit und Koordinationsstörungen bei schwerem Mangel"
+        ],
+        "relatedValues": [
+          "vitamin-b12",
+          "folsaeure"
+        ],
+        "actions": [
+          "B12-Supplementierung sofort einleiten (Methylcobalamin oder Hydroxocobalamin)",
+          "Bei HoloTC <35 pmol/l: Hochdosis-Therapie oder B12-Injektionen erwägen",
+          "Ursache des Mangels abklären (Ernährung, Resorption, Medikamente)",
+          "Folsäure-Status prüfen (Methylierungszyklus)",
+          "Kontrolle nach 3-6 Monaten unter Supplementierung"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Hochdosierte B12-Supplementierung (häufigste Ursache – in der Regel harmlos)",
+          "Lebererkrankungen (Freisetzung aus geschädigten Leberzellen)",
+          "Myeloproliferative Erkrankungen (CML, Polycythaemia vera)",
+          "Niereninsuffizienz (verminderte Clearance)",
+          "Bestimmte Autoimmunerkrankungen mit erhöhtem Haptocorrin"
+        ],
+        "symptoms": [
+          "Bei Supplementierung: in der Regel keine Symptome",
+          "Symptome der zugrunde liegenden Erkrankung",
+          "Selten: Hautreaktionen bei sehr hoher Supplementierung"
+        ],
+        "relatedValues": [
+          "vitamin-b12",
+          "folsaeure"
+        ],
+        "actions": [
+          "Bei Supplementierung: Dosis anpassen, kein dringender Handlungsbedarf",
+          "Ohne Supplementierung: Leber- und Nierenwerte kontrollieren",
+          "Blutbild auf myeloproliferative Erkrankungen prüfen",
+          "Ärztliche Abklärung bei unerklärlich hohem HoloTC"
+        ]
+      },
+      "optimal": {
+        "meaning": "Dein Holotranscobalamin liegt im optimalen Bereich. Das bedeutet, dass deine Zellen ausreichend aktives, verwertbares Vitamin B12 zur Verfügung haben. Die Nervenfunktion, Blutbildung und Methylierungsprozesse können optimal ablaufen."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "HoloTC <35 pmol/l",
+        "interpretation": "Manifester B12-Mangel auf zellulärer Ebene. Sofortige Supplementierung erforderlich. Bei neurologischen Symptomen: B12-Injektionen erwägen, da Nervenschäden irreversibel werden können.",
+        "severity": "warning"
+      },
+      {
+        "condition": "HoloTC 35-50 pmol/l (Grauzone)",
+        "interpretation": "Graubereich – subklinischer Mangel möglich. Methylmalonsäure (MMA) als weiteren Marker bestimmen, um funktionellen Mangel zu bestätigen oder auszuschließen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Serum-B12 normal, aber HoloTC erniedrigt",
+        "interpretation": "Funktioneller B12-Mangel trotz 'normalem' Serum-B12! Das Serum-B12 misst auch inaktives B12. HoloTC bestätigt den tatsächlichen Versorgungsstatus.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Tierische B12-Quellen: Leber, Rindfleisch, Lachs, Eier, Milchprodukte",
+        "Bei veganer Ernährung: B12-Supplementierung ist nicht optional, sondern Pflicht",
+        "Magensäure-Produktion fördern: Bitterstoffe, gründliches Kauen, nicht zu viel trinken beim Essen",
+        "Stress reduzieren (chronischer Stress erhöht den B12-Verbrauch)"
+      ],
+      "supplements": [
+        {
+          "name": "Methylcobalamin (sublingual)",
+          "dosage": "500-1.000 µg/Tag als Erhaltungsdosis, bei Mangel: 5.000 µg/Tag",
+          "timing": "Morgens sublingual (unter die Zunge zergehen lassen)",
+          "notes": "Sublingual umgeht mögliche Resorptionsprobleme im Magen-Darm-Trakt. Methylcobalamin ist die bioaktive Form und muss nicht umgewandelt werden."
+        },
+        {
+          "name": "Hydroxocobalamin (Injektionen)",
+          "dosage": "1.000 µg i.m. initial 1x/Woche für 6 Wochen, dann 1x/Monat",
+          "timing": "Intramuskulär durch Arzt oder Selbstinjektion",
+          "notes": "Bei perniziöser Anämie oder schwerer Resorptionsstörung bevorzugte Therapieform. Höhere Gewebspeicherung als Cyanocobalamin."
+        }
+      ],
+      "redFlags": [
+        "HoloTC <35 pmol/l mit neurologischen Symptomen: Sofortige Therapie – Nervenschäden drohen irreversibel zu werden",
+        "Perniziöse Anämie: Lebenslange Substitution erforderlich, orale Hochdosis oder Injektionen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "folsaeure",
+    "name": "Folsäure (Folat)",
+    "category": "vitamine",
+    "categoryLabel": "Vitamine",
+    "description": "Folsäure (Vitamin B9) ist essentiell für die Zellteilung, DNA-Synthese und den Methylierungszyklus. Gemeinsam mit Vitamin B12 spielt Folat eine zentrale Rolle im Homocystein-Stoffwechsel – ein Mangel an einem der beiden Vitamine führt zu erhöhtem Homocystein, einem Risikofaktor für Herz-Kreislauf-Erkrankungen. Besonders wichtig ist Folsäure in der Schwangerschaft (Neuralrohrdefekte). Etwa 40% der Bevölkerung haben eine MTHFR-Mutation und können synthetische Folsäure schlecht in die aktive Form (5-MTHF) umwandeln.",
+    "unit": "ng/ml",
+    "alternativeUnits": [
+      { "unit": "nmol/l", "factor": 2.266 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 3.0, "max": 20.0 },
+      "female": { "min": 3.0, "max": 20.0 }
+    },
+    "optimal": {
+      "male": { "min": 10.0, "max": 20.0, "target": 15.0 },
+      "female": { "min": 10.0, "max": 20.0, "target": 15.0 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Unzureichende Zufuhr über die Ernährung (zu wenig Blattgemüse, Hülsenfrüchte)",
+          "Chronischer Alkoholkonsum (hemmt Folat-Resorption und erhöht den Verbrauch)",
+          "MTHFR-Genmutation (ca. 40% der Bevölkerung – gestörte Folat-Aktivierung)",
+          "Medikamente (Methotrexat, Antiepileptika, Sulfasalazin, Trimethoprim)",
+          "Malabsorption (Zöliakie, Morbus Crohn, chronische Diarrhoe)",
+          "Erhöhter Bedarf (Schwangerschaft, Stillzeit, Hämolyse, chronische Entzündungen)",
+          "Dialyse (Folat wird durch Dialyse entfernt)",
+          "Vitamin-B12-Mangel (stört den Folat-Stoffwechsel – Methyl-Trap)"
+        ],
+        "symptoms": [
+          "Makrozytäre (megaloblastäre) Anämie – große, unreife rote Blutkörperchen",
+          "Müdigkeit, Schwäche, Kurzatmigkeit",
+          "Glossitis (entzündete, schmerzhafte Zunge)",
+          "Depressive Verstimmungen und Reizbarkeit",
+          "Durchfall und Gewichtsverlust",
+          "Erhöhtes Homocystein (kardiovaskulärer Risikofaktor)"
+        ],
+        "relatedValues": [
+          "vitamin-b12",
+          "holotranscobalamin"
+        ],
+        "actions": [
+          "Folat-reiche Ernährung: dunkelgrünes Blattgemüse, Hülsenfrüchte, Spargel, Avocado",
+          "Supplementierung mit 5-MTHF (aktive Form) statt synthetischer Folsäure empfohlen",
+          "Vitamin B12 gleichzeitig prüfen und ggf. supplementieren (Methylierungszyklus!)",
+          "MTHFR-Gentest erwägen bei wiederkehrendem Folat-Mangel",
+          "Homocystein bestimmen lassen (funktioneller Marker für B12/Folat-Mangel)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Übermäßige Supplementierung (häufigste Ursache)",
+          "Angereicherte Lebensmittel (in manchen Ländern wird Mehl mit Folsäure angereichert)",
+          "Vitamin-B12-Mangel (Folat kann nicht verwertet werden und staut sich an)",
+          "Unmetabolisierte Folsäure bei MTHFR-Mutation und synthetischer Supplementierung",
+          "Vegetarische/vegane Ernährung mit viel grünem Blattgemüse (selten klinisch relevant)"
+        ],
+        "symptoms": [
+          "Hohe Folsäure-Spiegel sind meist asymptomatisch",
+          "Kann einen B12-Mangel maskieren (Anämie verbessert sich, aber Nervenschäden schreiten fort!)",
+          "Schlafstörungen bei sehr hoher Supplementierung",
+          "Verdauungsbeschwerden bei Überdosierung"
+        ],
+        "relatedValues": [
+          "vitamin-b12",
+          "holotranscobalamin"
+        ],
+        "actions": [
+          "B12-Status überprüfen – hohes Folat kann B12-Mangel maskieren!",
+          "Supplementierung anpassen oder reduzieren",
+          "Bei MTHFR-Mutation: auf aktive Form (5-MTHF) umstellen",
+          "Homocystein kontrollieren (bei funktionellem Mangel trotz hohem Folat erhöht)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Dein Folat-Spiegel liegt im optimalen Bereich. Die Zellteilung, DNA-Reparatur und Methylierungsprozesse können effizient ablaufen. In Kombination mit ausreichend Vitamin B12 sollte dein Homocystein im Normbereich liegen."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Folsäure niedrig + Vitamin B12 niedrig",
+        "interpretation": "Kombinierter Mangel – häufig bei Malabsorption oder Alkoholkonsum. Beide Vitamine supplementieren. Homocystein ist wahrscheinlich deutlich erhöht.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Folsäure hoch + Vitamin B12 niedrig",
+        "interpretation": "ACHTUNG: Hohe Folsäure kann den B12-Mangel im Blutbild maskieren, während neurologische Schäden fortschreiten! B12-Mangel hat hier absolute Priorität.",
+        "severity": "warning"
+      },
+      {
+        "condition": "MTHFR-Mutation bekannt",
+        "interpretation": "Bei MTHFR-Mutation kann synthetische Folsäure nicht effizient in die aktive Form umgewandelt werden. Unbedingt 5-MTHF (Methylfolat) als Supplementform verwenden.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Folatreiche Lebensmittel: Spinat, Grünkohl, Brokkoli, Spargel, Hülsenfrüchte, Avocado",
+        "Schonende Zubereitung: Folat ist hitze- und lichtempfindlich – Gemüse nicht zu lange kochen",
+        "Alkoholkonsum reduzieren (Alkohol ist der häufigste Folat-Räuber)",
+        "Rohkost und Salate regelmäßig in den Speiseplan einbauen"
+      ],
+      "supplements": [
+        {
+          "name": "5-MTHF (Methylfolat / aktive Folsäure)",
+          "dosage": "400-800 µg/Tag, bei Mangel: 1.000-5.000 µg/Tag",
+          "timing": "Morgens, unabhängig von Mahlzeiten",
+          "notes": "5-MTHF ist die aktive Form und umgeht die MTHFR-Problematik. Deutlich besser als synthetische Folsäure. In Kinderwunsch und Schwangerschaft: mindestens 800 µg/Tag."
+        }
+      ],
+      "redFlags": [
+        "Folat <2 ng/ml: Schwerer Mangel – megaloblastäre Anämie droht, ärztliche Behandlung erforderlich",
+        "Schwangerschaft mit niedrigem Folat: Erhöhtes Risiko für Neuralrohrdefekte – sofortige Supplementierung"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "coenzym-q10",
+    "name": "Coenzym Q10 (Ubichinol)",
+    "category": "vitamine",
+    "categoryLabel": "Vitamine",
+    "description": "Coenzym Q10 (Ubichinon/Ubichinol) ist eine vitaminähnliche Substanz, die in jeder Zelle des Körpers vorkommt und essentiell für die mitochondriale Energieproduktion (ATP-Synthese) ist. Gleichzeitig ist es eines der stärksten fettlöslichen Antioxidantien. Organe mit hohem Energiebedarf (Herz, Leber, Niere, Muskulatur) haben den höchsten Q10-Gehalt. Ab dem 40. Lebensjahr sinkt die körpereigene Produktion. Besonders relevant: Statine (Cholesterinsenker) hemmen die Q10-Synthese massiv und können einen Mangel verursachen.",
+    "unit": "mg/l",
+    "alternativeUnits": [
+      { "unit": "µmol/l", "factor": 1.158 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0.5, "max": 2.0 },
+      "female": { "min": 0.5, "max": 2.0 }
+    },
+    "optimal": {
+      "male": { "min": 1.5, "max": 3.0, "target": 2.5 },
+      "female": { "min": 1.5, "max": 3.0, "target": 2.5 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Statin-Therapie (Cholesterinsenker hemmen die Q10-Synthese im gleichen Stoffwechselweg!)",
+          "Altersbedingte Abnahme der körpereigenen Produktion (ab 40 Jahren)",
+          "Erhöhter oxidativer Stress (chronische Erkrankungen, intensive sportliche Belastung)",
+          "Mitochondriale Dysfunktion",
+          "Chronische Herzinsuffizienz (erhöhter Verbrauch im Herzmuskel)",
+          "Fibrate und Beta-Blocker (können Q10-Spiegel senken)",
+          "Unzureichende Zufuhr über die Ernährung (v.a. bei wenig Fleisch, Fisch, Nüssen)"
+        ],
+        "symptoms": [
+          "Muskelschmerzen und -schwäche (v.a. unter Statin-Therapie – Myopathie)",
+          "Chronische Müdigkeit und verminderte Belastbarkeit",
+          "Herzschwäche und Kurzatmigkeit bei Belastung",
+          "Kopfschmerzen und Migräne",
+          "Erhöhte Infektanfälligkeit (oxidativer Stress)"
+        ],
+        "relatedValues": [
+          "magnesium",
+          "vitamin-d"
+        ],
+        "actions": [
+          "Q10-Supplementierung einleiten (Ubichinol bevorzugt – bessere Bioverfügbarkeit als Ubichinon)",
+          "Bei Statin-Einnahme: Q10-Supplementierung besonders wichtig",
+          "Mitochondriale Gesundheit unterstützen (Magnesium, B-Vitamine, Alpha-Liponsäure)",
+          "Ursache des erhöhten oxidativen Stresses identifizieren",
+          "Kontrolle nach 3 Monaten Supplementierung"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Hochdosierte Supplementierung (häufigste Ursache – in der Regel unbedenklich)",
+          "Sehr fettreiche Ernährung (erhöhte Aufnahme und Transport)",
+          "Akute Leberschädigung (Freisetzung aus Hepatozyten – selten)",
+          "Erhöhte Lipidspiegel (Q10 wird an Lipoproteine gebunden transportiert)"
+        ],
+        "symptoms": [
+          "Q10-Toxizität ist extrem selten, da überschüssiges Q10 ausgeschieden wird",
+          "Milde Verdauungsbeschwerden bei sehr hoher Dosierung (>600 mg/Tag)",
+          "Schlafstörungen bei abendlicher Einnahme hoher Dosen"
+        ],
+        "relatedValues": [
+          "magnesium",
+          "vitamin-d"
+        ],
+        "actions": [
+          "Dosierung anpassen – in der Regel kein dringender Handlungsbedarf",
+          "Bei Verdauungsbeschwerden: Dosis reduzieren oder auf mehrere Einnahmen verteilen",
+          "Einnahme morgens oder mittags (kann bei abendlicher Einnahme den Schlaf stören)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Dein Coenzym-Q10-Spiegel liegt im optimalen Bereich. Die mitochondriale Energieproduktion kann effizient ablaufen, und der antioxidative Schutz deiner Zellen ist gut. Dies unterstützt besonders die Herzfunktion, Muskelgesundheit und allgemeine Vitalität."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Statin-Einnahme (HMG-CoA-Reduktase-Hemmer)",
+        "interpretation": "Statine hemmen die körpereigene Q10-Synthese im gleichen Stoffwechselweg wie die Cholesterinsynthese. Q10-Supplementierung (100-200 mg Ubichinol/Tag) dringend empfohlen, um Statin-bedingte Muskelschmerzen zu reduzieren.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Alter >50 Jahre",
+        "interpretation": "Die körpereigene Q10-Produktion nimmt ab dem 40. Lebensjahr deutlich ab. Ab 50 Jahren ist eine Supplementierung zur Unterstützung der Energieproduktion und Herzgesundheit empfehlenswert.",
+        "severity": "info"
+      },
+      {
+        "condition": "Chronische Herzinsuffizienz",
+        "interpretation": "Studien zeigen, dass Q10-Supplementierung bei Herzinsuffizienz die Herzfunktion verbessern und die Mortalität senken kann (Q-SYMBIO-Studie). 200-300 mg Ubichinol/Tag empfohlen.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Q10-reiche Lebensmittel: Rindfleisch, Geflügelherzen, Makrele, Sardinen, Erdnüsse, Brokkoli, Spinat",
+        "Regelmäßige moderate Bewegung fördert die mitochondriale Biogenese",
+        "Intermittierendes Fasten kann die mitochondriale Effizienz steigern",
+        "Ausreichend Schlaf (7-8 Stunden) für mitochondriale Regeneration",
+        "Oxidativen Stress reduzieren: Rauchen aufgeben, Alkohol reduzieren, Umweltgifte meiden"
+      ],
+      "supplements": [
+        {
+          "name": "Ubichinol (reduzierte Form von Q10)",
+          "dosage": "100-200 mg/Tag als Erhaltungsdosis, bei Statin-Therapie oder Herzinsuffizienz: 200-300 mg/Tag",
+          "timing": "Zu einer fetthaltigen Mahlzeit (fettlösliche Substanz!)",
+          "notes": "Ubichinol (reduzierte Form) hat eine 3-8x höhere Bioverfügbarkeit als Ubichinon (oxidierte Form). Bei Kauf auf 'Kaneka QH' (Qualitätsmarke) achten."
+        }
+      ],
+      "redFlags": [
+        "Statin-bedingte Muskelschmerzen (Myopathie) ohne Q10-Supplementierung: Arzt ansprechen",
+        "Q10 <0.4 mg/l mit Herzinsuffizienz-Symptomen: Kardiologische Abklärung erforderlich"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "magnesium",
+    "name": "Magnesium (Vollblut!)",
+    "category": "mineralstoffe",
+    "categoryLabel": "Mineralstoffe (Vollblut)",
+    "description": "Magnesium ist an über 600 enzymatischen Reaktionen im Körper beteiligt und essentiell für Energieproduktion, Muskel- und Nervenfunktion, Blutzuckerregulation und Knochenstoffwechsel. KRITISCH WICHTIG: Magnesium MUSS im Vollblut gemessen werden, NICHT im Serum! Nur 1% des Körper-Magnesiums befindet sich im Serum – der Serum-Wert ist daher praktisch wertlos und zeigt einen Mangel erst an, wenn die intrazellulären Speicher bereits massiv erschöpft sind. Vollblut-Magnesium ist der einzige aussagekräftige Laborparameter.",
+    "unit": "mg/l",
+    "alternativeUnits": [
+      { "unit": "mmol/l", "factor": 0.04113 }
+    ],
+    "measurementType": "Vollblut",
+    "reference": {
+      "male": { "min": 30, "max": 42 },
+      "female": { "min": 30, "max": 42 }
+    },
+    "optimal": {
+      "male": { "min": 35, "max": 39, "target": 37 },
+      "female": { "min": 35, "max": 39, "target": 37 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Unzureichende Magnesium-Zufuhr (ausgelaugte Böden, verarbeitete Lebensmittel)",
+          "Chronischer Stress (Stresshormone erhöhen die renale Magnesiumausscheidung)",
+          "Intensiver Sport (Magnesiummangel durch Schwitzen und erhöhten Verbrauch)",
+          "Medikamente: PPI, Diuretika, Antibiotika (Aminoglykoside), Cisplatin",
+          "Chronischer Alkoholkonsum (erhöhte renale Ausscheidung)",
+          "Diabetes mellitus / Insulinresistenz (osmotische Diurese)",
+          "Chronische Darmerkrankungen (Malabsorption)",
+          "Hoher Koffeinkonsum (>3 Tassen Kaffee/Tag)"
+        ],
+        "symptoms": [
+          "Muskelkrämpfe und -zuckungen (besonders Waden, nachts)",
+          "Schlafstörungen, Einschlafprobleme",
+          "Innere Unruhe, Nervosität, Angstzustände",
+          "Kopfschmerzen und Migräne",
+          "Herzrhythmusstörungen (Palpitationen, Extrasystolen)",
+          "Chronische Müdigkeit trotz ausreichend Schlaf"
+        ],
+        "relatedValues": [
+          "vitamin-d",
+          "zink",
+          "selen"
+        ],
+        "actions": [
+          "Magnesiumreiche Ernährung: Kürbiskerne, dunkle Schokolade (>70%), Mandeln, Spinat, schwarze Bohnen",
+          "Magnesium-Supplementierung mit gut bioverfügbarer Form einleiten",
+          "Stressmanagement: Meditation, Yoga, Atemübungen (Stress = Magnesiummangel!)",
+          "Koffein und Alkohol reduzieren",
+          "Vitamin D nur bei ausreichendem Magnesium supplementieren (Mg wird für Vitamin-D-Aktivierung benötigt)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Überdosierung von Magnesium-Supplementen",
+          "Niereninsuffizienz (verminderte Ausscheidung)",
+          "Hypothyreose (verlangsamter Stoffwechsel)",
+          "Morbus Addison (Nebenniereninsuffizienz)",
+          "Lithium-Therapie",
+          "Übermäßige Anwendung von magnesiumhaltigen Antazida"
+        ],
+        "symptoms": [
+          "Durchfall (erste Anzeichen einer Überdosierung)",
+          "Muskelschwäche und Hyporeflexie",
+          "Übelkeit und Erbrechen",
+          "Blutdruckabfall (Hypotonie)",
+          "Herzrhythmusstörungen bei schwerer Hypermagnesiämie"
+        ],
+        "relatedValues": [
+          "vitamin-d",
+          "zink",
+          "selen"
+        ],
+        "actions": [
+          "Magnesium-Supplementierung reduzieren oder pausieren",
+          "Nierenfunktion kontrollieren (Kreatinin, GFR)",
+          "Schilddrüsenwerte überprüfen (TSH, fT3, fT4)",
+          "Hydrierung sicherstellen (Ausscheidung über die Nieren fördern)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Dein Vollblut-Magnesium liegt im optimalen Bereich. Die Muskel- und Nervenfunktion, Energieproduktion und Vitamin-D-Aktivierung können effizient ablaufen. Guter Magnesiumstatus korreliert mit besserem Schlaf, weniger Stresssymptomen und stabilem Herzrhythmus."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Messung im Serum statt Vollblut",
+        "interpretation": "Serum-Magnesium ist diagnostisch nicht aussagekräftig! Nur 1% des Körper-Magnesiums ist im Serum. Ein normaler Serum-Wert schließt einen Mangel NICHT aus. Unbedingt Vollblut-Messung anfordern.",
+        "severity": "warning"
+      },
+      {
+        "condition": "PPI-Einnahme (Protonenpumpeninhibitoren) seit >3 Monaten",
+        "interpretation": "PPI reduzieren die Magnesiumresorption erheblich. Magnesiummangel unter PPI-Therapie ist häufig und kann schwere Symptome verursachen. Regelmäßige Kontrolle im Vollblut empfohlen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Vitamin-D-Supplementierung geplant oder aktiv",
+        "interpretation": "Magnesium wird für die Aktivierung von Vitamin D benötigt. Bei Magnesiummangel kann supplementiertes Vitamin D nicht optimal wirken. Immer erst Magnesium auffüllen, dann Vitamin D supplementieren.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Magnesiumreiche Lebensmittel: Kürbiskerne (535 mg/100g), dunkle Schokolade (>70%), Cashews, Mandeln, Spinat, schwarze Bohnen",
+        "Mineralwasser mit hohem Mg-Gehalt (>100 mg/l) als tägliche Basis",
+        "Epsom-Salz-Bäder (Magnesiumsulfat) oder Magnesium-Fußbäder zur transdermalen Aufnahme",
+        "Stressreduktion hat höchste Priorität – chronischer Stress ist der größte Magnesium-Räuber",
+        "Ausreichend Schlaf (7-8 Stunden) – Magnesium wird nachts für Regenerationsprozesse benötigt"
+      ],
+      "supplements": [
+        {
+          "name": "Magnesiumglycinat",
+          "dosage": "300-400 mg elementares Magnesium/Tag, aufgeteilt auf 2 Einnahmen",
+          "timing": "Abends vor dem Schlafengehen (schlaffördernd) und/oder morgens",
+          "notes": "Magnesiumglycinat hat die beste Bioverfügbarkeit und Verträglichkeit. Glycinat wirkt zusätzlich beruhigend. Alternative: Magnesiumtaurat (besonders für Herzgesundheit) oder Magnesiumcitrat (bei Verstopfung)."
+        },
+        {
+          "name": "Magnesium-L-Threonat",
+          "dosage": "1.000-2.000 mg Magnesium-L-Threonat (ca. 144 mg elementares Mg)",
+          "timing": "Abends vor dem Schlafengehen",
+          "notes": "Einzige Magnesiumform, die nachweislich die Blut-Hirn-Schranke überwindet. Besonders geeignet bei kognitiven Beschwerden, Schlafstörungen und Angst."
+        }
+      ],
+      "redFlags": [
+        "Schwere Muskelkrämpfe + Herzrhythmusstörungen: Kardiologische Abklärung erforderlich",
+        "Vollblut-Magnesium <28 mg/l: Schwerer Mangel – Infusionstherapie erwägen",
+        "Magnesium supplementieren und Durchfall: Dosis reduzieren oder Form wechseln (Oxid/Citrat → Glycinat)"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "zink",
+    "name": "Zink (Vollblut!)",
+    "category": "mineralstoffe",
+    "categoryLabel": "Mineralstoffe (Vollblut)",
+    "description": "Zink ist ein essentielles Spurenelement, das an über 300 enzymatischen Reaktionen beteiligt ist und eine Schlüsselrolle für Immunsystem, Wundheilung, Testosteronproduktion, Haut, Haare und Nägel spielt. Wie bei Magnesium sollte Zink im Vollblut gemessen werden, da der Serum-Wert durch viele Faktoren verfälscht werden kann (Tageszeit, Mahlzeiten, Entzündungen). Vegetarier und Veganer sind besonders häufig von Zinkmangel betroffen, da Phytinsäure aus Getreide und Hülsenfrüchten die Zinkaufnahme hemmt.",
+    "unit": "mg/l",
+    "alternativeUnits": [
+      { "unit": "µmol/l", "factor": 15.3 }
+    ],
+    "measurementType": "Vollblut",
+    "reference": {
+      "male": { "min": 4.0, "max": 7.5 },
+      "female": { "min": 4.0, "max": 7.5 }
+    },
+    "optimal": {
+      "male": { "min": 6.0, "max": 7.0, "target": 6.5 },
+      "female": { "min": 6.0, "max": 7.0, "target": 6.5 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Unzureichende Zufuhr (v.a. vegetarische/vegane Ernährung – Phytinsäure hemmt Aufnahme)",
+          "Chronische Entzündungen (Zink wird als Akute-Phase-Reaktion umverteilt)",
+          "Chronische Darmerkrankungen (Morbus Crohn, Zöliakie, Leaky Gut)",
+          "Hoher Alkoholkonsum (erhöhte renale Ausscheidung)",
+          "Erhöhter Bedarf (Schwangerschaft, Stillzeit, intensiver Sport, Pubertät)",
+          "Medikamente (ACE-Hemmer, Diuretika, Kortikosteroide, orale Kontrazeptiva)",
+          "Hohe Eisen- oder Kupfer-Supplementierung (kompetitive Absorption)",
+          "Diabetes mellitus (erhöhte renale Zinkverluste)"
+        ],
+        "symptoms": [
+          "Häufige Infekte, verlängerte Erkältungsdauer (Zink ist zentral für T-Zell-Funktion)",
+          "Haarausfall und dünnes, brüchiges Haar",
+          "Hautprobleme: Akne, trockene Haut, schlechte Wundheilung",
+          "Geschmacks- und Geruchsverlust (Hypogeusie/Hyposmie)",
+          "Nagelveränderungen (weiße Flecken, brüchige Nägel)",
+          "Verminderte Libido und Testosteronmangel bei Männern"
+        ],
+        "relatedValues": [
+          "magnesium",
+          "selen",
+          "ferritin"
+        ],
+        "actions": [
+          "Zinkreiche Ernährung: Austern (höchster Zinkgehalt!), Rindfleisch, Kürbiskerne, Cashews, Linsen",
+          "Phytinsäure-Aufnahme reduzieren: Hülsenfrüchte und Getreide einweichen, keimen oder fermentieren",
+          "Zink-Supplementierung bei nachgewiesenem Mangel einleiten",
+          "Kupfer-Spiegel kontrollieren (chronische Zink-Supplementierung kann Kupfermangel verursachen)",
+          "Ursache des Mangels identifizieren (Ernährung? Resorption? Medikamente?)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Überdosierung von Zink-Supplementen (häufigste Ursache)",
+          "Kontamination der Blutprobe (Zink-haltige Materialien im Labor)",
+          "Hämolyse in der Probe (Zink aus Erythrozyten freigesetzt)",
+          "Berufliche Exposition (Galvanisierung, Metallverarbeitung)",
+          "Übermäßiger Konsum zinkangereicherter Lebensmittel"
+        ],
+        "symptoms": [
+          "Übelkeit, Erbrechen, Durchfall (akute Zinkintoxikation)",
+          "Kupfermangel bei chronischer Überdosierung (Zink hemmt Kupfer-Resorption!)",
+          "Anämie (sekundär durch Kupfermangel)",
+          "Immunsuppression (paradoxerweise bei zu hohem Zink)",
+          "Metallischer Geschmack im Mund"
+        ],
+        "relatedValues": [
+          "magnesium",
+          "selen",
+          "ferritin"
+        ],
+        "actions": [
+          "Zink-Supplementierung reduzieren oder pausieren",
+          "Kupfer-Spiegel kontrollieren (Kupfermangel durch Zink-Überdosierung?)",
+          "Bei beruflicher Exposition: arbeitsmedizinische Untersuchung",
+          "Nierenfunktion kontrollieren"
+        ]
+      },
+      "optimal": {
+        "meaning": "Dein Vollblut-Zink liegt im optimalen Bereich. Das Immunsystem, die Hautgesundheit, die Hormonproduktion und die Wundheilung können effizient funktionieren. Ein guter Zinkstatus unterstützt auch die Testosteronproduktion und kognitive Leistungsfähigkeit."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Vegetarische oder vegane Ernährung",
+        "interpretation": "Bei pflanzlicher Ernährung ist die Zink-Bioverfügbarkeit durch Phytinsäure deutlich reduziert. Der Zinkbedarf ist ca. 50% höher als bei Mischkost. Regelmäßige Kontrolle und ggf. Supplementierung empfohlen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Langfristige Zink-Supplementierung >25 mg/Tag",
+        "interpretation": "Bei chronischer Zink-Supplementierung >25 mg/Tag kann ein Kupfermangel entstehen. Kupfer-Spiegel kontrollieren oder Zink-Kupfer-Kombinationspräparat verwenden (Verhältnis 10:1).",
+        "severity": "attention"
+      },
+      {
+        "condition": "Häufige Infekte oder schlechte Wundheilung",
+        "interpretation": "Zinkmangel ist eine der häufigsten Ursachen für Immunschwäche. Bei wiederkehrenden Infekten sollte der Zinkstatus im Vollblut kontrolliert werden.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Zinkreiche Lebensmittel: Austern (78 mg/100g!), Rindfleisch, Lammfleisch, Kürbiskerne, Cashews, Sesam",
+        "Phytinsäure reduzieren: Hülsenfrüchte über Nacht einweichen, Sauerteigbrot statt Hefebrot",
+        "Zink und Eisen nicht gleichzeitig supplementieren (kompetitive Absorption)",
+        "Protein zu den Mahlzeiten fördert die Zinkaufnahme",
+        "Kaffee und Tee getrennt von zinkreichen Mahlzeiten konsumieren"
+      ],
+      "supplements": [
+        {
+          "name": "Zinkbisglycinat (oder Zinkpicolinat)",
+          "dosage": "15-25 mg elementares Zink/Tag bei Mangel, 10-15 mg/Tag als Erhaltungsdosis",
+          "timing": "Abends zum Abendessen oder vor dem Schlafengehen, getrennt von Eisen und Calcium",
+          "notes": "Zinkbisglycinat und Zinkpicolinat haben die beste Bioverfügbarkeit. Bei Supplementierung >25 mg/Tag: Kupfer ergänzen (2-3 mg/Tag). Nicht nüchtern einnehmen (Übelkeit möglich)."
+        }
+      ],
+      "redFlags": [
+        "Zink <3.5 mg/l im Vollblut: Schwerer Mangel – ärztliche Supplementierung und Ursachensuche erforderlich",
+        "Langfristige Zink-Supplementierung ohne Kupfer-Kontrolle: Kupfermangel mit Anämie möglich",
+        "Akuter Geschmacks-/Geruchsverlust: Zinkmangel als mögliche Ursache abklären (DD: auch COVID-19)"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "selen",
+    "name": "Selen (Vollblut!)",
+    "category": "mineralstoffe",
+    "categoryLabel": "Mineralstoffe (Vollblut)",
+    "description": "Selen ist ein essentielles Spurenelement mit zentraler Bedeutung für die Schilddrüsenfunktion, das Immunsystem und den antioxidativen Schutz. Es ist Bestandteil der Selenoproteine, darunter die Glutathionperoxidasen (Antioxidation) und Dejodasen (T4→T3-Konversion in der Schilddrüse). Deutschland, Österreich und die Schweiz gelten als Selenmangelgebiete – die Böden enthalten wenig Selen, weshalb auch pflanzliche Lebensmittel wenig Selen liefern. Messung im Vollblut ist aussagekräftiger als im Serum.",
+    "unit": "µg/l",
+    "alternativeUnits": [
+      { "unit": "µmol/l", "factor": 0.01266 }
+    ],
+    "measurementType": "Vollblut",
+    "reference": {
+      "male": { "min": 80, "max": 200 },
+      "female": { "min": 80, "max": 200 }
+    },
+    "optimal": {
+      "male": { "min": 150, "max": 170, "target": 160 },
+      "female": { "min": 150, "max": 170, "target": 160 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Selenarme Böden in Mitteleuropa (Hauptursache in DACH-Region)",
+          "Unzureichende Zufuhr über die Ernährung (wenig Fisch, Fleisch, Paranüsse)",
+          "Vegane/vegetarische Ernährung (pflanzliche Selenquellen abhängig vom Bodengehalt)",
+          "Chronisch-entzündliche Darmerkrankungen (gestörte Resorption)",
+          "Dialysepatienten (Selenverlust über Dialyse)",
+          "Rauchen (erhöhter oxidativer Stress und Selenverbrauch)",
+          "Schwere Lebererkrankungen (gestörte Selenoprotein-Synthese)",
+          "Erhöhter Bedarf bei chronischen Entzündungen oder Autoimmunerkrankungen"
+        ],
+        "symptoms": [
+          "Schilddrüsenunterfunktion (T4 kann nicht effizient in aktives T3 umgewandelt werden)",
+          "Geschwächtes Immunsystem, häufige Infekte",
+          "Haarausfall und brüchige Nägel",
+          "Muskelschwäche und Muskelschmerzen",
+          "Kognitive Beeinträchtigung, Stimmungsschwankungen",
+          "Unfruchtbarkeit (Selen wichtig für Spermienqualität)"
+        ],
+        "relatedValues": [
+          "zink",
+          "magnesium",
+          "vitamin-d"
+        ],
+        "actions": [
+          "Selenreiche Lebensmittel: Paranüsse (1-2 Stück/Tag decken den Bedarf!), Fisch, Fleisch, Eier",
+          "Selen-Supplementierung einleiten (Form abhängig vom Einnahmezeitpunkt)",
+          "Schilddrüsenwerte kontrollieren (TSH, fT3, fT4, TPO-AK)",
+          "Bei Autoimmunthyreoiditis (Hashimoto): Selen kann TPO-Antikörper senken",
+          "Kontrolle des Selenstatus nach 3-6 Monaten"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Überdosierung von Selen-Supplementen (>400 µg/Tag über längere Zeit)",
+          "Übermäßiger Verzehr von Paranüssen (können bis zu 90 µg Selen pro Nuss enthalten)",
+          "Berufliche Exposition (Glas-, Elektronik-, Metallindustrie)",
+          "Kontaminiertes Trinkwasser (in bestimmten Regionen)",
+          "Versehentliche Mehrfach-Supplementierung (Selen in verschiedenen Produkten enthalten)"
+        ],
+        "symptoms": [
+          "Haarausfall (paradox – sowohl bei Mangel als auch Überschuss!)",
+          "Knoblauchartiger Mundgeruch (Selenose – charakteristisches Zeichen)",
+          "Brüchige, verformte Nägel mit weißen Flecken",
+          "Übelkeit, Durchfall, Erbrechen",
+          "Periphere Neuropathie (Kribbeln, Taubheit in Extremitäten)"
+        ],
+        "relatedValues": [
+          "zink",
+          "magnesium",
+          "vitamin-d"
+        ],
+        "actions": [
+          "Selen-Supplementierung sofort reduzieren oder absetzen",
+          "Paranuss-Konsum einschränken (max. 1-2 Stück/Tag)",
+          "Alle Supplemente auf verstecktes Selen prüfen (Multivitamine!)",
+          "Schilddrüsenwerte kontrollieren (TSH, fT3, fT4)",
+          "Bei Werten >400 µg/l: ärztliche Überwachung erforderlich"
+        ]
+      },
+      "optimal": {
+        "meaning": "Dein Selen-Spiegel liegt im optimalen Bereich für maximale Schilddrüsenfunktion und antioxidativen Schutz. Die T4-zu-T3-Konversion kann effizient ablaufen, und die Selenoproteine (Glutathionperoxidasen) bieten optimalen Zellschutz."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Hashimoto-Thyreoiditis (Autoimmunthyreoiditis) diagnostiziert",
+        "interpretation": "Studien zeigen, dass 200 µg Selen/Tag die TPO-Antikörper bei Hashimoto signifikant senken kann. Selen-Supplementierung wird bei Hashimoto von vielen Endokrinologen empfohlen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "TSH erhöht bei niedrigem Selen",
+        "interpretation": "Selenmangel kann die Schilddrüsenfunktion beeinträchtigen, da die Dejodasen (T4→T3-Konversion) selenabhängig sind. Selen auffüllen und Schilddrüsenwerte nach 3 Monaten kontrollieren.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Selen >200 µg/l",
+        "interpretation": "Selen-Spiegel im oberen Bereich. Keine weitere Supplementierung nötig, auf ausreichend Paranüsse achten reicht. Überdosierung vermeiden – die therapeutische Breite ist schmal.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Paranüsse: 1-2 Stück/Tag sind die beste natürliche Selenquelle (je nach Herkunft 10-90 µg pro Nuss)",
+        "Selenreiche Lebensmittel: Fisch (Thunfisch, Hering), Fleisch, Eier, Pilze, Knoblauch",
+        "Regelmäßig Seefisch essen (2-3x/Woche) für Selen und Omega-3-Fettsäuren",
+        "Nicht rauchen – Rauchen erhöht den oxidativen Stress und den Selenverbrauch"
+      ],
+      "supplements": [
+        {
+          "name": "Natriumselenit (anorganisch)",
+          "dosage": "100-200 µg/Tag",
+          "timing": "Nüchtern einnehmen (mind. 30 Min. vor dem Essen)",
+          "notes": "Anorganisches Selen, das nicht in Proteine eingebaut wird. Wirkt direkt antioxidativ. Bei Schilddrüsenerkrankungen bevorzugt. NICHT zusammen mit Vitamin C einnehmen (reduziert Natriumselenit)."
+        },
+        {
+          "name": "Selenomethionin (organisch)",
+          "dosage": "100-200 µg/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Organische Selenform, wird in Proteine eingebaut und bildet einen Selenspeicher im Körper. Langfristig für den Aufbau eines Selenpools geeignet. Kann mit Mahlzeiten eingenommen werden."
+        }
+      ],
+      "redFlags": [
+        "Selen >300 µg/l: Überdosierung möglich – Supplementierung reduzieren, ärztliche Kontrolle",
+        "Selen <60 µg/l mit Schilddrüsenproblemen: Dringend auffüllen, endokrinologische Beurteilung",
+        "Knoblauchartiger Mundgeruch bei Supplementierung: Zeichen einer Selenose – Supplementierung sofort stoppen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  }
+]
