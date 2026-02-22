@@ -32,7 +32,6 @@ export interface PdfParseResult {
 
 // ---------------------------------------------------------------------------
 // Mapping: German lab names → blood value IDs
-// Each entry: [regex pattern, blood value ID, unit in our DB, conversion?]
 // ---------------------------------------------------------------------------
 
 interface LabMapping {
@@ -44,29 +43,29 @@ interface LabMapping {
 }
 
 const UNIT_CONVERSIONS = {
-  // ApoB: g/l → mg/dl (×100)
   apoB_g_to_mg: (v: number) => Math.round(v * 100 * 10) / 10,
-  // Testosteron: ng/ml → ng/dl (×100)
   testo_ng_ml_to_ng_dl: (v: number) => Math.round(v * 100 * 10) / 10,
-  // Selen: µmol/l → µg/l (×78.96)
   selen_umol_to_ug: (v: number) => Math.round(v * 78.96 * 10) / 10,
-  // Zink: µmol/l → mg/l (×0.06538)
   zink_umol_to_mg: (v: number) => Math.round(v * 0.06538 * 1000) / 1000,
-  // Magnesium: mmol/l → mg/l (×24.305)
   mg_mmol_to_mg: (v: number) => Math.round(v * 24.305 * 10) / 10,
 };
+
+// Normalize µ variants: PDF may use U+00B5 (micro sign) or U+03BC (mu)
+function normalizeText(s: string): string {
+  return s.replace(/\u00B5/g, '\u03BC').replace(/μ/g, 'µ');
+}
 
 const LAB_MAPPINGS: LabMapping[] = [
   // Klinische Chemie
   { pattern: /gamma[- ]?gt/i, id: 'ggt', dbUnit: 'U/l' },
-  { pattern: /got\/?ast/i, id: 'got', dbUnit: 'U/l' },
-  { pattern: /gpt\/?alt/i, id: 'gpt', dbUnit: 'U/l' },
+  { pattern: /got\s*\/?\s*ast/i, id: 'got', dbUnit: 'U/l' },
+  { pattern: /gpt\s*\/?\s*alt/i, id: 'gpt', dbUnit: 'U/l' },
   { pattern: /harns[äa]ure/i, id: 'harnsaeure', dbUnit: 'mg/dl' },
-  { pattern: /kreatinin(?!\s*-?\s*cystatin)/i, id: 'kreatinin', dbUnit: 'mg/dl' },
-  { pattern: /glom\.?\s*filtrations.*ckd[- ]?epi\)?/i, id: 'gfr', dbUnit: 'ml/min/1.73m²' },
-  { pattern: /cystatin\s*c(?!\s*\))/i, id: 'cystatin-c', dbUnit: 'mg/l' },
+  { pattern: /kreatinin\b(?!.*cystatin)/i, id: 'kreatinin', dbUnit: 'mg/dl' },
+  { pattern: /(?:kombinierte\s*gfr|glom.*filtrations.*ckd)/i, id: 'gfr', dbUnit: 'ml/min/1.73m²' },
+  { pattern: /cystatin\s*c\b/i, id: 'cystatin-c', dbUnit: 'mg/l' },
   { pattern: /crp\s*(quantitativ|sensitiv|hs)/i, id: 'hs-crp', dbUnit: 'mg/l' },
-  { pattern: /bilirubin\s*gesamt/i, id: 'bilirubin', dbUnit: 'mg/dl' },
+  { pattern: /bilirubin\s*(gesamt)?/i, id: 'bilirubin', dbUnit: 'mg/dl' },
   { pattern: /\bck\b(?!\s*-?\s*mb)/i, id: 'ck', dbUnit: 'U/l' },
   { pattern: /\bldh\b/i, id: 'ldh', dbUnit: 'U/l' },
 
@@ -76,41 +75,35 @@ const LAB_MAPPINGS: LabMapping[] = [
     pattern: /\bmagnesium\b/i,
     id: 'magnesium',
     dbUnit: 'mg/l',
-    convert: (v, fromUnit) =>
-      fromUnit.includes('mmol') ? UNIT_CONVERSIONS.mg_mmol_to_mg(v) : v,
+    convert: (v, u) => u.includes('mmol') ? UNIT_CONVERSIONS.mg_mmol_to_mg(v) : v,
     note: 'Serum-Wert (nicht Vollblut)',
   },
 
   // Schilddrüse
-  { pattern: /ft3|freies?\s*trijod/i, id: 'ft3', dbUnit: 'pg/ml' },
-  { pattern: /ft4|freies?\s*thyroxin/i, id: 'ft4', dbUnit: 'ng/dl' },
-  { pattern: /tsh\s*(basal)?/i, id: 'tsh', dbUnit: 'mU/l' },
+  { pattern: /ft\s*3\b|freies?\s*trijod/i, id: 'ft3', dbUnit: 'pg/ml' },
+  { pattern: /ft\s*4\b|freies?\s*thyroxin/i, id: 'ft4', dbUnit: 'ng/dl' },
+  { pattern: /\btsh\b/i, id: 'tsh', dbUnit: 'mU/l' },
   { pattern: /tpo[- ]?ak|anti[- ]?tpo/i, id: 'tpo-ak', dbUnit: 'IU/ml' },
 
   // Kohlenhydratstoffwechsel
-  {
-    pattern: /glukose\s*n[üu]chtern|n[üu]chtern.*glukose|gluco\s*exact/i,
-    id: 'nuechtern-glukose',
-    dbUnit: 'mg/dl',
-  },
-  { pattern: /hba1c(?!\s*\(ifcc)/i, id: 'hba1c', dbUnit: '%' },
-  { pattern: /\binsulin\b(?!.*resist)/i, id: 'nuechtern-insulin', dbUnit: 'µU/ml' },
+  { pattern: /glukose\s*n[üu]chtern|n[üu]chtern.*glukose|gluco\s*exact/i, id: 'nuechtern-glukose', dbUnit: 'mg/dl' },
+  { pattern: /\bhba1c\b(?!\s*\(ifcc)/i, id: 'hba1c', dbUnit: '%' },
+  { pattern: /\binsulin\b/i, id: 'nuechtern-insulin', dbUnit: 'µU/ml' },
   { pattern: /homa[- ]?(index|ir)/i, id: 'homa-ir', dbUnit: '(dimensionslos)' },
 
   // Lipide
   { pattern: /cholesterin\s*gesamt/i, id: 'gesamtcholesterin', dbUnit: 'mg/dl' },
-  { pattern: /triglyceride/i, id: 'triglyceride', dbUnit: 'mg/dl' },
+  { pattern: /\btriglyceride\b/i, id: 'triglyceride', dbUnit: 'mg/dl' },
   { pattern: /hdl[- ]?cholesterin/i, id: 'hdl', dbUnit: 'mg/dl' },
   { pattern: /ldl[- ]?cholesterin/i, id: 'ldl', dbUnit: 'mg/dl' },
   {
     pattern: /apolipoprotein\s*b|apo\s*b\b/i,
     id: 'apob',
     dbUnit: 'mg/dl',
-    convert: (v, fromUnit) =>
-      fromUnit.includes('g/l') ? UNIT_CONVERSIONS.apoB_g_to_mg(v) : v,
+    convert: (v, u) => u.includes('g/l') && !u.includes('mg') ? UNIT_CONVERSIONS.apoB_g_to_mg(v) : v,
   },
-  { pattern: /lipoprotein\s*\(?a\)?/i, id: 'lpa', dbUnit: 'nmol/l' },
-  { pattern: /homocystein/i, id: 'homocystein', dbUnit: 'umol/l' },
+  { pattern: /lipoprotein\s*\(?\s*a\s*\)?/i, id: 'lpa', dbUnit: 'nmol/l' },
+  { pattern: /\bhomocystein\b/i, id: 'homocystein', dbUnit: 'umol/l' },
 
   // Eisen
   { pattern: /\bferritin\b/i, id: 'ferritin', dbUnit: 'ng/ml' },
@@ -121,11 +114,11 @@ const LAB_MAPPINGS: LabMapping[] = [
   // Blutbild
   { pattern: /\bleukozyten\b/i, id: 'leukozyten', dbUnit: 'Tsd/µl' },
   { pattern: /\berythrozyten\b/i, id: 'erythrozyten', dbUnit: 'Mio/µl' },
-  { pattern: /rdw|evb/i, id: 'rdw', dbUnit: '%' },
+  { pattern: /\brdw\b|\bevb\b/i, id: 'rdw', dbUnit: '%' },
   { pattern: /h[äa]moglobin\b/i, id: 'haemoglobin', dbUnit: 'g/dl' },
-  { pattern: /h[äa]matokrit/i, id: 'haematokrit', dbUnit: '%' },
+  { pattern: /h[äa]matokrit\b/i, id: 'haematokrit', dbUnit: '%' },
   { pattern: /\bmcv\b/i, id: 'mcv', dbUnit: 'fl' },
-  { pattern: /\bmch\b|mch\/hbe/i, id: 'mch', dbUnit: 'pg' },
+  { pattern: /\bmch\b|mch\s*\/\s*hbe/i, id: 'mch', dbUnit: 'pg' },
   { pattern: /\bmchc\b/i, id: 'mchc', dbUnit: 'g/dl' },
   { pattern: /\bthrombozyten\b/i, id: 'thrombozyten', dbUnit: 'Tsd/µl' },
 
@@ -134,24 +127,19 @@ const LAB_MAPPINGS: LabMapping[] = [
     pattern: /\btestosteron\b(?!\s*(frei|free|index))/i,
     id: 'testosteron-gesamt',
     dbUnit: 'ng/dl',
-    convert: (v, fromUnit) =>
-      fromUnit.includes('ng/ml') ? UNIT_CONVERSIONS.testo_ng_ml_to_ng_dl(v) : v,
+    convert: (v, u) => u.includes('ng/ml') ? UNIT_CONVERSIONS.testo_ng_ml_to_ng_dl(v) : v,
   },
   { pattern: /\bshbg\b/i, id: 'shbg', dbUnit: 'nmol/l' },
-  { pattern: /dhea[- ]?s/i, id: 'dhea-s', dbUnit: 'ug/dl' },
+  { pattern: /\bdhea[- ]?s\b/i, id: 'dhea-s', dbUnit: 'ug/dl' },
   { pattern: /[öo]stradiol|17[- ]?beta/i, id: 'estradiol', dbUnit: 'pg/ml' },
   { pattern: /\bcortisol\b/i, id: 'cortisol', dbUnit: 'ug/dl' },
   { pattern: /\bprogesteron\b/i, id: 'progesteron', dbUnit: 'ng/ml' },
 
   // Vitamine
-  { pattern: /vitamin\s*b12|cobalamin/i, id: 'vitamin-b12', dbUnit: 'pg/ml' },
+  { pattern: /vitamin\s*b\s*12|cobalamin/i, id: 'vitamin-b12', dbUnit: 'pg/ml' },
   { pattern: /holotranscobalamin|holo[- ]?tc/i, id: 'holotranscobalamin', dbUnit: 'pmol/l' },
-  { pattern: /fols[äa]ure|folat/i, id: 'folsaeure', dbUnit: 'ng/ml' },
-  {
-    pattern: /25[- ]?hydroxy[- ]?vitamin\s*d|vitamin\s*d3?\s*\(?(25|clia)/i,
-    id: 'vitamin-d',
-    dbUnit: 'ng/ml',
-  },
+  { pattern: /fols[äa]ure|folat\b/i, id: 'folsaeure', dbUnit: 'ng/ml' },
+  { pattern: /25[- ]?hydroxy[- ]?vitamin\s*d|vitamin\s*d\b/i, id: 'vitamin-d', dbUnit: 'ng/ml' },
   { pattern: /coenzym\s*q10|ubiquinol|ubiquinon/i, id: 'coenzym-q10', dbUnit: 'mg/l' },
 
   // Mineralstoffe
@@ -159,19 +147,13 @@ const LAB_MAPPINGS: LabMapping[] = [
     pattern: /\bselen\b/i,
     id: 'selen',
     dbUnit: 'µg/l',
-    convert: (v, fromUnit) =>
-      fromUnit.includes('µmol') || fromUnit.includes('umol')
-        ? UNIT_CONVERSIONS.selen_umol_to_ug(v)
-        : v,
+    convert: (v, u) => (u.includes('mol') ? UNIT_CONVERSIONS.selen_umol_to_ug(v) : v),
   },
   {
     pattern: /\bzink\b/i,
     id: 'zink',
     dbUnit: 'mg/l',
-    convert: (v, fromUnit) =>
-      fromUnit.includes('µmol') || fromUnit.includes('umol')
-        ? UNIT_CONVERSIONS.zink_umol_to_mg(v)
-        : v,
+    convert: (v, u) => (u.includes('mol') ? UNIT_CONVERSIONS.zink_umol_to_mg(v) : v),
   },
 
   // Spezial
@@ -179,68 +161,104 @@ const LAB_MAPPINGS: LabMapping[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// PDF Text extraction
+// PDF Text extraction — POSITION-BASED LINE RECONSTRUCTION
 // ---------------------------------------------------------------------------
 
-async function extractTextFromPdf(file: File): Promise<string> {
+interface TextItem {
+  str: string;
+  x: number;
+  y: number;
+}
+
+async function extractLinesFromPdf(file: File): Promise<{ lines: string[]; fullText: string }> {
   const arrayBuffer = await file.arrayBuffer();
   const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
 
-  const pages: string[] = [];
+  const allLines: string[] = [];
+
   for (let i = 1; i <= pdf.numPages; i++) {
     const page = await pdf.getPage(i);
     const content = await page.getTextContent();
-    const text = content.items
-      .map((item: { str?: string }) => ('str' in item ? item.str : ''))
-      .join(' ');
-    pages.push(text);
+
+    // Extract items with positions
+    const items: TextItem[] = [];
+    for (const item of content.items) {
+      if (!('str' in item) || !('transform' in item)) continue;
+      const raw = item as { str: string; transform: number[] };
+      if (!raw.str.trim()) continue;
+      items.push({
+        str: raw.str,
+        x: raw.transform[4],
+        y: Math.round(raw.transform[5] * 10) / 10, // round Y to group items on same line
+      });
+    }
+
+    // Group by Y coordinate (tolerance of 2 units = same line)
+    const lineMap = new Map<number, TextItem[]>();
+    for (const item of items) {
+      // Find existing line within tolerance
+      let foundY: number | null = null;
+      for (const [y] of lineMap) {
+        if (Math.abs(y - item.y) < 2) {
+          foundY = y;
+          break;
+        }
+      }
+      const key = foundY ?? item.y;
+      if (!lineMap.has(key)) lineMap.set(key, []);
+      lineMap.get(key)!.push(item);
+    }
+
+    // Sort lines by Y (descending = top to bottom in PDF coordinate system)
+    const sortedYs = [...lineMap.keys()].sort((a, b) => b - a);
+
+    for (const y of sortedYs) {
+      const lineItems = lineMap.get(y)!;
+      // Sort items within line by X (left to right)
+      lineItems.sort((a, b) => a.x - b.x);
+      const lineText = lineItems.map((item) => item.str).join(' ');
+      allLines.push(normalizeText(lineText));
+    }
   }
-  return pages.join('\n');
+
+  return { lines: allLines, fullText: allLines.join('\n') };
 }
 
 // ---------------------------------------------------------------------------
-// Value parsing from text
+// Value parsing
 // ---------------------------------------------------------------------------
 
 function parseNumericValue(raw: string): number | null {
-  // Handle "<0.60" style values
-  const cleaned = raw.replace(/^[<>]\s*/, '').replace(',', '.').trim();
+  const cleaned = raw.replace(/^[<>≤≥]\s*/, '').replace(',', '.').trim();
   const num = parseFloat(cleaned);
   return isNaN(num) ? null : num;
 }
 
 function extractUnit(text: string): string {
-  // Common unit patterns
+  const normalized = normalizeText(text);
   const unitPatterns = [
     /(?:mg\/dl|g\/dl|ng\/dl|µg\/dl|ug\/dl)/i,
     /(?:mg\/l|g\/l|ng\/ml|pg\/ml|µg\/l|ug\/l)/i,
     /(?:µmol\/l|umol\/l|nmol\/l|mmol\/l|pmol\/l)/i,
     /(?:µU\/ml|mU\/l|mIU\/l|IU\/ml|IU\/l)/i,
     /(?:U\/l|G\/l|T\/l|Tsd\/µl|Mio\/µl)/i,
-    /(?:ml\/min(?:\/1[.,]73\s*m2)?)/i,
+    /(?:ml\/min(?:\/1[.,]73\s*m2\s*KOF?)?)/i,
     /(?:fl|pg|%)/,
   ];
-
   for (const pattern of unitPatterns) {
-    const match = text.match(pattern);
+    const match = normalized.match(pattern);
     if (match) return match[0];
   }
   return '';
 }
 
 function detectDate(text: string): string | null {
-  // Match German date formats: DD.MM.YYYY
   const dateMatch = text.match(
     /(?:Abnahme(?:datum|zeit)?|Eingang|Entnahme)[:\s]*(\d{2})[.](\d{2})[.](\d{4})/i,
   );
-  if (dateMatch) {
-    return `${dateMatch[3]}-${dateMatch[2]}-${dateMatch[1]}`;
-  }
-  // Fallback: any date in the header area
+  if (dateMatch) return `${dateMatch[3]}-${dateMatch[2]}-${dateMatch[1]}`;
   const fallback = text.match(/(\d{2})\.(\d{2})\.(\d{4})/);
-  if (fallback) {
-    return `${fallback[3]}-${fallback[2]}-${fallback[1]}`;
-  }
+  if (fallback) return `${fallback[3]}-${fallback[2]}-${fallback[1]}`;
   return null;
 }
 
@@ -253,76 +271,62 @@ function detectGender(text: string): 'male' | 'female' | null {
 }
 
 function detectLab(text: string): string | null {
-  const labs = [
-    'Bioscientia',
-    'Synlab',
-    'Sonic',
-    'Labor Berlin',
-    'IMD',
-    'Medizinisches Labor',
-    'Mein Direktlabor',
-    'Cerascreen',
-    'Lykon',
-  ];
+  const labs = ['Bioscientia', 'Synlab', 'Sonic', 'Labor Berlin', 'IMD',
+    'Medizinisches Labor', 'Mein Direktlabor', 'Cerascreen', 'Lykon'];
   for (const lab of labs) {
     if (text.toLowerCase().includes(lab.toLowerCase())) return lab;
   }
   return null;
 }
 
-function detectPatientName(text: string): string | null {
-  const match = text.match(/Patient[:\s]*([A-ZÄÖÜa-zäöüß]+\s+[A-ZÄÖÜa-zäöüß]+)/);
-  return match ? match[1].trim() : null;
-}
-
 // ---------------------------------------------------------------------------
-// Main parse function
+// LINE-BASED MATCHING: Much more reliable than full-text search
 // ---------------------------------------------------------------------------
 
-export async function parsePdf(file: File): Promise<PdfParseResult> {
-  const text = await extractTextFromPdf(file);
-  const warnings: string[] = [];
-  const foundValues: ParsedLabValue[] = [];
-  const foundIds = new Set<string>();
-
-  // Detect metadata
-  const date = detectDate(text);
-  const gender = detectGender(text);
-  const lab = detectLab(text);
-  const patientName = detectPatientName(text);
-
-  // Split text into segments and try to find lab values
-  // Strategy: for each mapping, search the full text for the pattern,
-  // then look for a number nearby
-  for (const mapping of LAB_MAPPINGS) {
+/**
+ * For each line, check if it matches a lab name pattern.
+ * If so, extract the numeric value from THE SAME LINE.
+ * This prevents mixing up numbers from adjacent lines.
+ */
+function matchLineToValue(
+  line: string,
+  nextLine: string | undefined,
+  mappings: LabMapping[],
+  foundIds: Set<string>,
+): ParsedLabValue | null {
+  for (const mapping of mappings) {
     if (foundIds.has(mapping.id)) continue;
 
-    // Find all occurrences of this lab name in the text
-    const nameMatch = text.match(mapping.pattern);
-    if (!nameMatch || nameMatch.index === undefined) continue;
+    const nameMatch = line.match(mapping.pattern);
+    if (!nameMatch) continue;
 
-    // Get text after the match (next ~100 chars should contain the value)
-    const afterMatch = text.slice(nameMatch.index + nameMatch[0].length, nameMatch.index + nameMatch[0].length + 150);
+    // Extract the part AFTER the matched name on this line
+    const afterName = line.slice(nameMatch.index! + nameMatch[0].length);
 
-    // Look for a number pattern (possibly with < or > prefix)
-    const valueMatch = afterMatch.match(/[<>]?\s*(\d+[.,]?\d*)/);
+    // Look for a number on THIS line (after the name)
+    let valueMatch = afterName.match(/[<>≤≥]?\s*(\d+[.,]?\d*)/);
+    let unitContext = afterName;
+
+    // If no number on this line, check the next line (sometimes value wraps)
+    if (!valueMatch && nextLine) {
+      valueMatch = nextLine.match(/^\s*[<>≤≥]?\s*(\d+[.,]?\d*)/);
+      unitContext = nextLine;
+    }
+
     if (!valueMatch) continue;
 
     const rawValue = parseNumericValue(valueMatch[0]);
     if (rawValue === null) continue;
 
-    // Extract the unit from the text near the value
-    const unitContext = afterMatch.slice(0, 80);
     const unit = extractUnit(unitContext);
 
-    // Apply conversion if needed
     let convertedValue = rawValue;
     let converted = false;
     let note = mapping.note;
 
     if (mapping.convert) {
       convertedValue = mapping.convert(rawValue, unit);
-      if (convertedValue !== rawValue) {
+      if (Math.abs(convertedValue - rawValue) > 0.001) {
         converted = true;
         note = note
           ? `${note}; Umgerechnet: ${rawValue} ${unit} → ${convertedValue} ${mapping.dbUnit}`
@@ -330,7 +334,7 @@ export async function parsePdf(file: File): Promise<PdfParseResult> {
       }
     }
 
-    foundValues.push({
+    return {
       id: mapping.id,
       name: nameMatch[0].trim(),
       value: convertedValue,
@@ -339,11 +343,39 @@ export async function parsePdf(file: File): Promise<PdfParseResult> {
       originalUnit: unit,
       converted,
       note,
-    });
-    foundIds.add(mapping.id);
+    };
+  }
+  return null;
+}
+
+// ---------------------------------------------------------------------------
+// Main parse function
+// ---------------------------------------------------------------------------
+
+export async function parsePdf(file: File): Promise<PdfParseResult> {
+  const { lines, fullText } = await extractLinesFromPdf(file);
+  const warnings: string[] = [];
+  const foundValues: ParsedLabValue[] = [];
+  const foundIds = new Set<string>();
+
+  // Detect metadata from full text
+  const date = detectDate(fullText);
+  const gender = detectGender(fullText);
+  const lab = detectLab(fullText);
+
+  // LINE-BY-LINE matching — the core improvement
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const nextLine = i + 1 < lines.length ? lines[i + 1] : undefined;
+
+    const result = matchLineToValue(line, nextLine, LAB_MAPPINGS, foundIds);
+    if (result) {
+      foundValues.push(result);
+      foundIds.add(result.id);
+    }
   }
 
-  // Calculate derived values if we have the components
+  // Calculate derived values
   const valMap = new Map(foundValues.map((v) => [v.id, v.value]));
 
   // Trig/HDL Ratio
@@ -354,12 +386,8 @@ export async function parsePdf(file: File): Promise<PdfParseResult> {
     foundValues.push({
       id: 'trig-hdl-ratio',
       name: 'Trig/HDL-Ratio (berechnet)',
-      value: ratio,
-      unit: '',
-      originalValue: ratio,
-      originalUnit: '',
-      converted: false,
-      note: `Berechnet: ${trig}/${hdlVal} = ${ratio}`,
+      value: ratio, unit: '', originalValue: ratio, originalUnit: '',
+      converted: false, note: `Berechnet: ${trig}/${hdlVal} = ${ratio}`,
     });
   }
 
@@ -371,12 +399,8 @@ export async function parsePdf(file: File): Promise<PdfParseResult> {
     foundValues.push({
       id: 'de-ritis-quotient',
       name: 'De-Ritis-Quotient (berechnet)',
-      value: ratio,
-      unit: '(Quotient)',
-      originalValue: ratio,
-      originalUnit: '',
-      converted: false,
-      note: `Berechnet: GOT/GPT = ${gotVal}/${gptVal} = ${ratio}`,
+      value: ratio, unit: '(Quotient)', originalValue: ratio, originalUnit: '',
+      converted: false, note: `Berechnet: GOT/GPT = ${gotVal}/${gptVal} = ${ratio}`,
     });
   }
 
@@ -384,5 +408,5 @@ export async function parsePdf(file: File): Promise<PdfParseResult> {
     warnings.push('Keine Blutwerte in der PDF erkannt. Ist dies ein Laborbefund?');
   }
 
-  return { values: foundValues, date, gender, lab, patientName, warnings };
+  return { values: foundValues, date, gender, lab, patientName: null, warnings };
 }
