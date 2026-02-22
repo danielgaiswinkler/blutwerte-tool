@@ -9,13 +9,21 @@
   "fixedCosts": {
     "blutentnahme": {
       "goaeZiffer": "250",
+      "cost_1_0x": 2.33,
       "cost_2_3x": 4.20,
-      "description": "Blutentnahme venös"
+      "cost_max": 5.36,
+      "description": "Blutentnahme venös (1.0x bis 2.3x-Satz)"
     },
     "beratung": {
       "goaeZiffer": "3",
       "cost_2_3x": 10.05,
       "description": "Ärztliche Beratung"
+    },
+    "probenversand": {
+      "goaeZiffer": "10",
+      "cost_range": "2.50–5.50",
+      "cost_typical": 4.80,
+      "description": "Versand-/Portokosten für Probenmaterial zum Labor (Transport, Verpackung, temperaturkontrollierter Versand)"
     }
   },
   "values": [
@@ -320,7 +328,7 @@
     {
       "bloodValueId": "cystatin-c",
       "name": "Cystatin C",
-      "goaeZiffer": "3763",
+      "goaeZiffer": "3754",
       "cost_1_0x": 11.66,
       "cost_1_15x": 13.41,
       "cost_1_3x": 15.16,
@@ -546,10 +554,10 @@
     {
       "bloodValueId": "holotranscobalamin",
       "name": "Holotranscobalamin (HoloTC)",
-      "goaeZiffer": "4062",
-      "cost_1_0x": 18.65,
-      "cost_1_15x": 21.45,
-      "cost_1_3x": 24.25,
+      "goaeZiffer": "4062 (analog)",
+      "cost_1_0x": 27.98,
+      "cost_1_15x": 32.18,
+      "cost_1_3x": 36.37,
       "kassenleistung": false,
       "kassenDetails": "Nein (praktisch nie Kassenleistung)",
       "igel": true,
@@ -573,7 +581,7 @@
       "h1Hoechstwert": false,
       "einmalig": false,
       "retestIntervall": "1x jährlich",
-      "retestHinweis": ""
+      "retestHinweis": "Bei Schwangerschaftswunsch und B-Komplex-Supplementierung; alternativ Homocystein als funktioneller Marker nutzen"
     },
     {
       "bloodValueId": "coenzym-q10",
@@ -594,10 +602,11 @@
     {
       "bloodValueId": "magnesium",
       "name": "Magnesium (Vollblut)",
-      "goaeZiffer": "4131",
-      "cost_1_0x": 5.25,
-      "cost_1_15x": 6.04,
-      "cost_1_3x": 6.83,
+      "goaeZiffer": "4198 (ICP-MS)",
+      "cost_1_0x": 23.90,
+      "cost_1_15x": 27.49,
+      "cost_1_3x": 31.07,
+      "note": "Vollblut-Analyse via ICP-MS (GOÄ 4198). Serum-Magnesium wäre günstiger (GOÄ 3621, 2.33 EUR), bildet aber nur den extrazellulären Raum ab und maskiert intrazelluläre Mängel.",
       "kassenleistung": false,
       "kassenDetails": "Nein (Vollblut-Mineralstoffe praktisch immer IGeL)",
       "igel": true,
@@ -853,9 +862,9 @@
       "bloodValueId": "testosteron-gesamt",
       "name": "Gesamt-Testosteron",
       "goaeZiffer": "4042",
-      "cost_1_0x": 13.60,
-      "cost_1_15x": 15.64,
-      "cost_1_3x": 17.68,
+      "cost_1_0x": 20.40,
+      "cost_1_15x": 23.46,
+      "cost_1_3x": 26.52,
       "kassenleistung": "bei Indikation",
       "kassenDetails": "Nur bei Indikation (endokrinologische Fragestellung)",
       "igel": true,
@@ -885,9 +894,9 @@
       "bloodValueId": "shbg",
       "name": "SHBG",
       "goaeZiffer": "3765",
-      "cost_1_0x": 17.49,
-      "cost_1_15x": 20.11,
-      "cost_1_3x": 22.74,
+      "cost_1_0x": 26.23,
+      "cost_1_15x": 30.16,
+      "cost_1_3x": 34.10,
       "kassenleistung": false,
       "kassenDetails": "Nein (als Screening immer IGeL)",
       "igel": true,
@@ -901,9 +910,9 @@
       "bloodValueId": "dhea-s",
       "name": "DHEA-S",
       "goaeZiffer": "4038",
-      "cost_1_0x": 13.60,
-      "cost_1_15x": 15.64,
-      "cost_1_3x": 17.68,
+      "cost_1_0x": 20.40,
+      "cost_1_15x": 23.46,
+      "cost_1_3x": 26.52,
       "kassenleistung": false,
       "kassenDetails": "Nein (als Screening immer IGeL)",
       "igel": true,
@@ -917,9 +926,9 @@
       "bloodValueId": "estradiol",
       "name": "Estradiol (E2)",
       "goaeZiffer": "4039",
-      "cost_1_0x": 13.60,
-      "cost_1_15x": 15.64,
-      "cost_1_3x": 17.68,
+      "cost_1_0x": 20.40,
+      "cost_1_15x": 23.46,
+      "cost_1_3x": 26.52,
       "kassenleistung": "bei Indikation",
       "kassenDetails": "Nur bei Indikation (endokrinologische Fragestellung)",
       "igel": true,
@@ -933,9 +942,9 @@
       "bloodValueId": "progesteron",
       "name": "Progesteron",
       "goaeZiffer": "4040",
-      "cost_1_0x": 13.60,
-      "cost_1_15x": 15.64,
-      "cost_1_3x": 17.68,
+      "cost_1_0x": 20.40,
+      "cost_1_15x": 23.46,
+      "cost_1_3x": 26.52,
       "kassenleistung": "bei Indikation",
       "kassenDetails": "Nur bei Indikation (endokrinologische Fragestellung)",
       "igel": true,
@@ -964,10 +973,10 @@
     {
       "bloodValueId": "omega-3-index",
       "name": "Omega-3-Index",
-      "goaeZiffer": "3726 (analog)",
-      "cost_1_0x": 54.96,
-      "cost_1_15x": 63.20,
-      "cost_1_3x": 71.45,
+      "goaeZiffer": "4210 (analog)",
+      "cost_1_0x": 52.46,
+      "cost_1_15x": 60.33,
+      "cost_1_3x": 68.20,
       "kassenleistung": false,
       "kassenDetails": "Nein (immer IGeL/Selbstzahler)",
       "igel": true,
@@ -997,10 +1006,10 @@
     {
       "bloodValueId": "homocystein",
       "name": "Homocystein",
-      "goaeZiffer": "4062",
-      "cost_1_0x": 14.57,
-      "cost_1_15x": 16.76,
-      "cost_1_3x": 18.94,
+      "goaeZiffer": "3737",
+      "cost_1_0x": 33.22,
+      "cost_1_15x": 38.20,
+      "cost_1_3x": 43.19,
       "kassenleistung": false,
       "kassenDetails": "Nein (praktisch immer IGeL/Selbstzahler)",
       "igel": true,
@@ -1049,10 +1058,10 @@
       "id": "basis",
       "name": "Paket 1: Basis-Check",
       "frequency": "jährlich empfohlen",
-      "laborkosten_1_15x": 56.31,
+      "laborkosten_1_15x": 61.00,
       "arztkosten": 14.25,
-      "gesamtkosten": 70,
-      "description": "Grundlegende Gesundheitsüberwachung: Blutbild, Entzündung, Leber, Niere, Zucker, Lipide",
+      "gesamtkosten": 75,
+      "description": "Grundlegende Gesundheitsüberwachung: Blutbild, Entzündung, Leber, Niere, Zucker, Lipide, Elektrolyte",
       "parameters": [
         "erythrozyten",
         "haemoglobin",
@@ -1067,8 +1076,11 @@
         "got",
         "gpt",
         "ggt",
+        "bilirubin",
         "kreatinin",
         "gfr",
+        "harnsaeure",
+        "kalium",
         "nuechtern-glukose",
         "hba1c",
         "gesamtcholesterin",
@@ -1083,9 +1095,9 @@
       "id": "erweitert",
       "name": "Paket 2: Erweiterter Check",
       "frequency": "halbjährlich für Gesundheitsoptimierer",
-      "laborkosten_1_15x": 242.03,
+      "laborkosten_1_15x": 289.61,
       "arztkosten": 14.25,
-      "gesamtkosten": 256,
+      "gesamtkosten": 304,
       "description": "Basis-Check plus Eisen, Vitamine, Schilddrüse, Insulin, erweiterte Lipide, Mikronährstoffe",
       "parameters": [
         "erythrozyten",
@@ -1101,8 +1113,11 @@
         "got",
         "gpt",
         "ggt",
+        "bilirubin",
         "kreatinin",
         "gfr",
+        "harnsaeure",
+        "kalium",
         "nuechtern-glukose",
         "hba1c",
         "gesamtcholesterin",
@@ -1129,9 +1144,9 @@
       "id": "komplett",
       "name": "Paket 3: Komplett-Panel",
       "frequency": "einmalig oder jährlich für Deep Health",
-      "laborkosten_1_15x": 552.57,
+      "laborkosten_1_15x": 703.18,
       "arztkosten": 14.25,
-      "gesamtkosten": 567,
+      "gesamtkosten": 717,
       "description": "Erweiterter Check plus alle Spezialwerte: HoloTC, Folsäure, CoQ10, Lp(a), Omega-3, Hormone, Autoimmun-Marker",
       "parameters": [
         "erythrozyten",
@@ -1147,8 +1162,11 @@
         "got",
         "gpt",
         "ggt",
+        "bilirubin",
         "kreatinin",
         "gfr",
+        "harnsaeure",
+        "kalium",
         "nuechtern-glukose",
         "hba1c",
         "gesamtcholesterin",
@@ -1176,6 +1194,7 @@
         "omega-3-index",
         "omega6-omega3-ratio",
         "shbg",
+        "testosteron-gesamt",
         "testosteron-frei",
         "dhea-s",
         "estradiol",
@@ -1267,9 +1286,9 @@
       "id": "hormone-mann",
       "name": "Hormonstatus Mann",
       "frequency": "1x jährlich, alle 3-6 Monate bei TRT",
-      "laborkosten_1_15x": 74.85,
+      "laborkosten_1_15x": 124.00,
       "arztkosten": 14.25,
-      "gesamtkosten": 89,
+      "gesamtkosten": 138,
       "description": "Gesamt-Testosteron, Freies Testosteron, SHBG, DHEA-S, Estradiol",
       "parameters": [
         "testosteron-gesamt",
@@ -1283,18 +1302,23 @@
   "sparTipps": [
     "Basiswerte über den Hausarzt: Großes Blutbild, Leber, Niere, Lipide und Glukose werden bei Indikation (z.B. Check-up 35) von der Kasse übernommen.",
     "IGeL-Werte beim Arzt mit Direktlabor: Vitamin D, Ferritin, TSH, Hormone etc. über ein Labor bestellen, das zum 1.0x-Satz abrechnet (z.B. IMD Berlin, Labor Gärtner) – ca. 13% günstiger als 1.15x.",
-    "Home-Tests nur für Einzelwerte: Vitamin D (Cerascreen 29,90 EUR) oder Omega-3-Index als Zwischenkontrolle.",
-    "Sammeltermin machen: Alle Parameter auf einmal bestimmen lassen spart Blutentnahme- und Beratungskosten (nur 1x 14,25 EUR statt mehrfach).",
+    "Home-Tests nur für Einzelwerte: Vitamin D (Cerascreen 29,90 EUR) oder Omega-3-Index als Zwischenkontrolle. Für umfangreiche Panels ist venöse Blutentnahme beim Arzt/Direktlabor pro Parameter günstiger.",
+    "Sammeltermin machen: Alle Parameter auf einmal bestimmen lassen spart Blutentnahme- und Beratungskosten (nur 1x 14,25 EUR statt mehrfach). Aus 4–5 Vakuumröhrchen können über 40 Parameter bestimmt werden.",
     "H1-Höchstwert nutzen: Bei vielen Basiswerten gleichzeitig greift der Höchstwert von 32,17 EUR für alle H1-Leistungen zusammen – erheblicher Kostenvorteil bei umfangreichen Panels.",
-    "Lp(a) nur einmal messen: Genetisch fixiert, ändert sich nicht – spart bei Folgetests.",
-    "TPO-AK einmalig testen: Bei negativem Befund keine Wiederholung nötig.",
-    "Check-up 35 alle 3 Jahre nutzen: Kassenleistung mit Blutbild, Cholesterin, Glukose inklusive."
+    "Lp(a) nur einmal messen: Genetisch fixiert, ändert sich nicht – spart bei Folgetests. Ausnahme: künftige RNA-Interferenz-Therapeutika.",
+    "TPO-AK einmalig testen: Bei negativem Befund keine Wiederholung nötig. Antikörper-Titer korreliert nicht mit Krankheitsschwere.",
+    "Check-up 35 alle 3 Jahre nutzen: Kassenleistung mit Lipidprofil (Cholesterin, LDL, HDL, Triglyceride) und Nüchternglukose. Unter 35 nur bei Risikoprofil.",
+    "Kaskaden-Diagnostik bei Schilddrüse: Erst nur TSH bestimmen. Liegt TSH im Optimalbereich (1.0–2.0 mU/l) und keine Symptome, kann auf teure fT3/fT4-Bestimmung verzichtet werden. Bei Auffälligkeit: aus derselben Probe fT3/fT4 nachfordern (Reflex-Testung).",
+    "HoloTC + Homocystein statt B12 + Folsäure: Bei B-Vitamin-Verdacht direkt HoloTC (aktives B12) und Homocystein (funktioneller Methylierungsmarker) messen. Ist Homocystein niedrig und HoloTC hoch, spart man sich die klassischen, oft ungenauen Serum-Tests.",
+    "Substitution statt Überdiagnostik: Bei günstigen, sicheren Mikronährstoffen (z.B. Selen, Zink) kann eine moderate Supplementierung oft günstiger sein als die teure ICP-MS-Vollblutanalyse. Klinische Besserung beobachten.",
+    "Genetische Tests einmalig: ApoE-Genotyp (Alzheimer/Herz-Risiko) und MTHFR-Mutation (Folsäure/Homocystein) ändern sich nie – nur 1x im Leben messen.",
+    "Re-Test-Timing beachten: Omega-3-Index und Vollblut-Mineralien frühestens nach 3–4 Monaten (Erythrozyten-Lebensdauer 120 Tage). Vitamin D nach 2–3 Monaten. Ferritin bei oraler Therapie nach 3 Monaten, bei IV-Therapie nach 6–8 Wochen."
   ],
   "labore": [
     {
       "name": "IMD Berlin",
       "preisbasis": "GOÄ 1.0x (Selbstzahler), 1.15x (Privatpatienten)",
-      "besonderheiten": "Sehr breites Spezialspektrum, Preisliste online, ca. 13% günstiger als 1.15x"
+      "besonderheiten": "Sehr breites Spezialspektrum, Preisliste online, ca. 13% günstiger als 1.15x. Blutentnahme-Ambulanz für Selbstzahler."
     },
     {
       "name": "MVZ Labor Ravensburg (Gärtner)",
@@ -1304,37 +1328,83 @@
     {
       "name": "Labor Stein (Aachen/Limburg)",
       "preisbasis": "GOÄ 1.0x für IGeL",
-      "besonderheiten": "Komplette IGeL-Liste online"
+      "besonderheiten": "Komplette IGeL-Liste online (Stand 2025)"
     },
     {
-      "name": "Labor Berlin",
+      "name": "Labor Berlin (Labor 28)",
       "preisbasis": "GOÄ 1.15x",
-      "besonderheiten": "Kardiovaskuläre Pakete ab ca. 100 EUR"
+      "besonderheiten": "Kardiovaskuläre Pakete ab ca. 100 EUR, Blutentnahme-Ambulanz"
     },
     {
       "name": "Zentralklinik Bad Berka",
       "preisbasis": "GOÄ 1.15x",
       "besonderheiten": "Laborambulanz für Selbstzahler"
+    },
+    {
+      "name": "IMD Greifswald",
+      "preisbasis": "GOÄ 1.0x–1.15x",
+      "besonderheiten": "Umfangreiche IGeL-Preisliste online mit Einzelpreisen"
+    },
+    {
+      "name": "Bioscientia",
+      "preisbasis": "GOÄ 1.15x",
+      "besonderheiten": "Große Laborkette, bundesweit, Blutentnahme-Ambulanzen, Diagnostik-App"
+    },
+    {
+      "name": "Labor Krone",
+      "preisbasis": "GOÄ 1.15x",
+      "besonderheiten": "Regionale Laborkette, Selbstzahler-Ambulanz"
+    },
+    {
+      "name": "MVZ Labor Leipzig",
+      "preisbasis": "GOÄ 1.15x",
+      "besonderheiten": "IGeL-Preisliste für Praxen online verfügbar"
+    },
+    {
+      "name": "MedLab Bochum",
+      "preisbasis": "GOÄ 1.15x",
+      "besonderheiten": "Aktuelle IGeL-Preisliste (Stand 01/2026) online"
+    },
+    {
+      "name": "Labor Düsseldorf",
+      "preisbasis": "GOÄ 1.15x",
+      "besonderheiten": "Preisübersicht Einzelparameter online (GOÄ 1.15x)"
+    },
+    {
+      "name": "Mein Direktlabor",
+      "preisbasis": "GOÄ 1.0x–1.15x",
+      "besonderheiten": "Online-Preisliste für Selbstzahler, Direktabrechnung ohne Arzt-Aufschlag"
     }
   ],
   "homeTestAnbieter": [
     {
       "name": "Cerascreen",
       "preisbereich": "29–149 EUR/Test",
-      "vorteile": "Einfach per Fingerstich, schnelle Ergebnisse, gute App",
-      "nachteile": "Eingeschränktes Panel, teurer pro Einzelwert"
+      "vorteile": "Einfach per Fingerstich, schnelle Ergebnisse, gute App, bei dm erhältlich",
+      "nachteile": "Eingeschränktes Panel, teurer pro Einzelwert, Kapillarblut (DBS) weniger präzise als venös",
+      "geeignetFuer": "Vitamin D, Omega-3-Index, HbA1c als Zwischenkontrolle"
     },
     {
       "name": "Lykon",
       "preisbereich": "29–200 EUR/Test",
-      "vorteile": "DNA-Tests möglich, Ernährungscoaching inklusive",
-      "nachteile": "Kapillarblut weniger genau als venöse Probe"
+      "vorteile": "DNA-Tests möglich, Ernährungscoaching inklusive, auch über Apotheken erhältlich",
+      "nachteile": "Kapillarblut weniger genau als venöse Probe, hohe Margen bei kombinierten Panels",
+      "geeignetFuer": "Vitamin D, einzelne Nährstoff-Checks"
     },
     {
       "name": "medivere",
       "preisbereich": "13–200 EUR/Test",
-      "vorteile": "Sehr breites Testangebot, auch Stuhl/Speichel",
-      "nachteile": "Umständlicher als Arztbesuch bei großen Panels"
+      "vorteile": "Sehr breites Testangebot, auch Stuhl/Speichel, günstige Einzeltests",
+      "nachteile": "Umständlicher als Arztbesuch bei großen Panels",
+      "geeignetFuer": "Vitamin D, B12, einzelne Verlaufskontrollen"
+    },
+    {
+      "name": "For You eHealth",
+      "preisbereich": "30–200 EUR/Test",
+      "vorteile": "Breites Angebot, thematische Health-Panels, Online-Shop",
+      "nachteile": "Kapillarblut (DBS), hohe Pauschalpreise bei Multipanel-Tests",
+      "geeignetFuer": "Aminosäure-Profile, Nährstoff-Panels, Verlaufskontrollen"
     }
-  ]
+  ],
+  "homeTestHinweis": "DTC-Heimtests nutzen Kapillarblut (Dried Blood Spot). Vorteile: kein Arzttermin nötig, transparente Pauschalpreise. Nachteile: Hämolyse durch 'Milking', Verdünnung durch Gewebsflüssigkeit, eingeschränktes Spektrum (kein Homocystein, keine Kühlketten-Parameter). Für 1–3 Marker (Vitamin D, Omega-3) sinnvoll; für umfangreiche Panels ist venöse Blutentnahme beim Direktlabor pro Biomarker deutlich günstiger und präziser."
 }

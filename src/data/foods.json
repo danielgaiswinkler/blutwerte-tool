@@ -82,6 +82,46 @@
         "portion": "120–150 g",
         "bioavailability": "hoch",
         "notes": "Regelmäßige Quelle in Mischkost"
+      },
+      {
+        "name": "Pinienkerne",
+        "nutrient": "Nicht-Häm-Eisen",
+        "per100g": "9,2 mg",
+        "portion": "30 g",
+        "bioavailability": "mittel",
+        "notes": "Liefern zudem wertvolle Fettsäuren; gut über Salat streuen"
+      },
+      {
+        "name": "Quinoa",
+        "nutrient": "Nicht-Häm-Eisen",
+        "per100g": "8,0 mg",
+        "portion": "60 g (trocken)",
+        "bioavailability": "mittel",
+        "notes": "Vor dem Garen waschen (Saponine); glutenfrei"
+      },
+      {
+        "name": "Weizenkleie",
+        "nutrient": "Nicht-Häm-Eisen",
+        "per100g": "16,0 mg",
+        "portion": "30 g",
+        "bioavailability": "niedrig",
+        "notes": "Höchster Absolutgehalt, aber Phytinsäure – mit Vitamin C kombinieren"
+      },
+      {
+        "name": "Pfifferlinge",
+        "nutrient": "Nicht-Häm-Eisen",
+        "per100g": "6,5 mg",
+        "portion": "150 g",
+        "bioavailability": "niedrig-mittel",
+        "notes": "Saisonale pflanzliche Quelle (Sommer/Herbst), mit Vitamin-C-Gemüse kombinieren"
+      },
+      {
+        "name": "Tempeh (fermentierte Sojabohnen)",
+        "nutrient": "Nicht-Häm-Eisen",
+        "per100g": "2,5–3,0 mg",
+        "portion": "150 g",
+        "bioavailability": "mittel",
+        "notes": "Fermentation steigert Bioverfügbarkeit erheblich im Vergleich zu Tofu"
       }
     ],
     "avoidFoods": [
@@ -104,6 +144,16 @@
         "name": "Rotwein",
         "reason": "Tannine + Polyphenole",
         "mechanism": "Ähnlicher Hemmeffekt wie Tee"
+      },
+      {
+        "name": "Roher Spinat / Mangold (große Mengen)",
+        "reason": "Oxalsäure",
+        "mechanism": "Oxalsäure fällt Eisen als unlösliches Eisenoxalat aus – Kochen und Kochwasser wegschütten reduziert Oxalatgehalt erheblich"
+      },
+      {
+        "name": "Unfermentiertes Vollkorn (ohne Einweichen)",
+        "reason": "Phytinsäure-Chelatbildung",
+        "mechanism": "Phytinsäure bildet im Darmlumen unlösliche Komplexe mit Eisen – Einweichen, Keimen oder Sauerteig aktiviert Phytase"
       }
     ],
     "tips": [
@@ -111,7 +161,9 @@
       "Häm-Eisen (tierisch) wird 2–3x besser aufgenommen als Nicht-Häm-Eisen (pflanzlich)",
       "Tee und Kaffee mindestens 30–60 Minuten Abstand zu eisenreichen Mahlzeiten",
       "Hülsenfrüchte 12–24 h einweichen, Einweichwasser wegschütten – reduziert Phytinsäure um 30–50%",
-      "Calcium-reiche Lebensmittel nicht gleichzeitig mit eisenreichen Mahlzeiten essen"
+      "Calcium-reiche Lebensmittel nicht gleichzeitig mit eisenreichen Mahlzeiten essen",
+      "Oxalsäure in rohem Spinat/Mangold hemmt Eisen – kurz blanchieren und Kochwasser wegschütten",
+      "Fermentation (Sauerteig, Tempeh) und Keimen reduzieren Phytinsäure und verbessern die Eisenaufnahme deutlich"
     ]
   },
   {
@@ -197,25 +249,61 @@
         "portion": "100 g",
         "bioavailability": "hoch",
         "notes": "Multi-Nährstoff-Quelle"
+      },
+      {
+        "name": "Forelle (gekocht)",
+        "nutrient": "Vitamin D3",
+        "per100g": "19 µg",
+        "portion": "150 g",
+        "bioavailability": "hoch",
+        "notes": "Regionaler Süßwasserfisch, Top-Quelle nach Hering"
+      },
+      {
+        "name": "Avocado",
+        "nutrient": "Vitamin D",
+        "per100g": "3,4 µg",
+        "portion": "100 g",
+        "bioavailability": "mittel",
+        "notes": "Seltene pflanzliche Quelle mit eingebauter Fettmatrix"
+      },
+      {
+        "name": "UV-behandelte Champignons",
+        "nutrient": "Vitamin D2",
+        "per100g": "~26 µg (variabel)",
+        "portion": "100–200 g",
+        "bioavailability": "mittel",
+        "notes": "UV-Pilze können relevant sein; normale Champignons enthalten kaum Vitamin D"
       }
     ],
     "avoidFoods": [
       {
-        "name": "Keines direkt",
-        "reason": "Kein Lebensmittel senkt Vitamin D aktiv",
-        "mechanism": "Kein direkter Hemmmechanismus bekannt"
+        "name": "Alkohol (chronischer Konsum)",
+        "reason": "Hepatische Dysfunktion",
+        "mechanism": "Die 25-Hydroxylierung findet in der Leber statt – chronischer Alkohol schädigt die Leber und mindert die Vitamin-D-Aktivierung"
+      },
+      {
+        "name": "Extrem fettarme Diäten",
+        "reason": "Gestörte Absorption",
+        "mechanism": "Vitamin D ist fettlöslich – ohne Fett im Darm drastisch reduzierte Aufnahme (Mizellenbildung nötig)"
       },
       {
         "name": "Hochverarbeitete Kost / Fast Food",
         "reason": "Verdrängt nährstoffreiche Lebensmittel",
         "mechanism": "Geringere Zufuhr durch mangelnde Fisch-/Ei-Aufnahme"
+      },
+      {
+        "name": "Übermäßiger Zucker / Fruktose",
+        "reason": "Leber- und Nierenüberlastung",
+        "mechanism": "Fördert Fettleber (NAFLD) und stört die hepatische und renale Hydroxylierung zur aktiven 1,25-DiOH-Form"
       }
     ],
     "tips": [
       "Nur ca. 10% des Vitamin-D-Bedarfs kann über die Nahrung gedeckt werden – 90% stammen aus Sonnenlicht",
       "Supplementierung (1.000–4.000 IE/Tag) für die meisten Menschen in Deutschland sinnvoll, besonders Oktober–März",
       "Vitamin D ist fettlöslich – immer mit Fett aufnehmen (z.B. Öl zum Fisch)",
-      "Selbst mit täglichem Fischverzehr lässt sich der Bedarf (20 µg/Tag DGE-Empfehlung) kaum allein über Nahrung decken"
+      "Selbst mit täglichem Fischverzehr lässt sich der Bedarf (20 µg/Tag DGE-Empfehlung) kaum allein über Nahrung decken",
+      "UV-bestrahlte Pilze aus dem Supermarkt können eine pflanzliche Ergänzung sein – auf Kennzeichnung achten",
+      "Forelle ist ein oft unterschätzter regionaler Vitamin-D-Lieferant (19 µg/100g) – gleichwertig mit Lachs"
     ]
   },
   {
@@ -301,6 +389,30 @@
         "portion": "2 Eier",
         "bioavailability": "hoch",
         "notes": "Tägliche Basisversorgung"
+      },
+      {
+        "name": "Miesmuscheln",
+        "nutrient": "B12",
+        "per100g": "18 µg",
+        "portion": "100 g",
+        "bioavailability": "hoch",
+        "notes": "Potente maritime Quelle, liefert auch Jod und Eisen"
+      },
+      {
+        "name": "Leberwurst",
+        "nutrient": "B12",
+        "per100g": "7,4 µg",
+        "portion": "30 g",
+        "bioavailability": "hoch",
+        "notes": "Praktische Alltagsquelle als Brotbelag"
+      },
+      {
+        "name": "Milchprodukte (Joghurt, Milch, Käse)",
+        "nutrient": "B12",
+        "per100g": "0,5–4,0 µg (je Produkt)",
+        "portion": "200–250 g",
+        "bioavailability": "hoch",
+        "notes": "B12 aus Milchprodukten oft besser bioverfügbar als aus Fleisch/Fisch"
       }
     ],
     "avoidFoods": [
@@ -318,13 +430,21 @@
         "name": "Antazida / PPI (Medikamente)",
         "reason": "Weniger Magensäure",
         "mechanism": "B12-Freisetzung aus Nahrung gehemmt"
+      },
+      {
+        "name": "Pseudo-B12-Quellen (Spirulina, Chlorella, Nori)",
+        "reason": "Scheinsicherheit",
+        "mechanism": "Enthalten inaktive B12-Analoga (Pseudocobalamine), die den B12-Rezeptor blockieren und den Mangel verschlimmern können"
       }
     ],
     "tips": [
       "Vitamin B12 kommt praktisch nur in tierischen Lebensmitteln vor",
       "Bei veganer Ernährung ist eine Supplementierung zwingend erforderlich (mind. 250 µg/Tag Cyanocobalamin)",
       "Leber ist der B12-Spitzenreiter mit Abstand – 1x pro Woche reicht",
-      "PPI (Magensäurehemmer) können langfristig zu B12-Mangel führen"
+      "PPI (Magensäurehemmer) können langfristig zu B12-Mangel führen",
+      "B12 aus Milchprodukten ist oft besser bioverfügbar als aus Fleisch oder Fisch",
+      "Miesmuscheln und Austern sind unterschätzte B12-Bomben (neben Leber die stärksten Quellen)",
+      "Spirulina und Chlorella liefern KEIN verwertbares B12 – Pseudocobalamine können den Mangel sogar verschleiern"
     ]
   },
   {
@@ -410,25 +530,72 @@
         "portion": "150 g",
         "bioavailability": "mittel",
         "notes": "Kurz blanchieren, nicht kochen"
+      },
+      {
+        "name": "Spargel (gekocht)",
+        "nutrient": "Folat",
+        "per100g": "110–148 µg",
+        "portion": "200 g",
+        "bioavailability": "mittel",
+        "notes": "Saisonaler Folat-Hebel (April–Juni); schonend garen"
+      },
+      {
+        "name": "Avocado",
+        "nutrient": "Folat",
+        "per100g": "79 µg",
+        "portion": "1/2 Avocado",
+        "bioavailability": "hoch",
+        "notes": "Gute Bioverfügbarkeit durch eingebaute gesunde Fette"
+      },
+      {
+        "name": "Erbsen",
+        "nutrient": "Folat",
+        "per100g": "151 µg",
+        "portion": "150 g",
+        "bioavailability": "mittel",
+        "notes": "Schonend dämpfen; auch tiefgekühlt guter Folatgehalt"
+      },
+      {
+        "name": "Weizenkeime",
+        "nutrient": "Folat",
+        "per100g": "~200 µg",
+        "portion": "10–20 g",
+        "bioavailability": "mittel",
+        "notes": "Als Booster-Topping über Müsli oder Salat streuen"
+      },
+      {
+        "name": "Römersalat",
+        "nutrient": "Folat",
+        "per100g": "136 µg",
+        "portion": "große Schüssel",
+        "bioavailability": "mittel",
+        "notes": "Einfache Salat-Basis mit hohem Folatgehalt"
       }
     ],
     "avoidFoods": [
       {
         "name": "Alkohol",
         "reason": "Hemmt Folataufnahme",
-        "mechanism": "Stört Folatstoffwechsel und fördert Ausscheidung"
+        "mechanism": "Hemmt Folattransporter im Darm, blockiert Methionin-Synthase und erhöht renale Folatausscheidung"
       },
       {
         "name": "Stark erhitzte / lange gelagerte Speisen",
         "reason": "Folatzerstörung",
-        "mechanism": "Folat ist hitze- und lichtempfindlich"
+        "mechanism": "Folat ist hitze- und lichtempfindlich – langes Kochen zerstört über 70% der Folate"
+      },
+      {
+        "name": "Weißmehlprodukte (Auszugsmehle)",
+        "reason": "Nährstoffverlust durch Verarbeitung",
+        "mechanism": "Keimling und Randschichten werden beim Mahlen entfernt – nahezu gesamter Folatgehalt geht verloren"
       }
     ],
     "tips": [
       "Empfohlene Tageszufuhr: 300 µg Folat-Äquivalente für Erwachsene (550 µg für Schwangere)",
       "Folsäure ist hitze- und lichtempfindlich – frische, schonende Zubereitung ist entscheidend",
       "Gemüse nur kurz dünsten oder blanchieren, nicht lange kochen",
-      "Rohkost (Salat, Feldsalat) liefert am meisten Folat"
+      "Rohkost (Salat, Feldsalat) liefert am meisten Folat",
+      "Spargel ist ein saisonaler Folat-Hebel (April–Juni) – frisch und schonend zubereiten",
+      "Vitamin C schützt die empfindlichen Folat-Strukturen im Darm vor Oxidation"
     ]
   },
   {
@@ -514,6 +681,62 @@
         "portion": "150 g",
         "bioavailability": "mittel",
         "notes": "Auch reich an Zink"
+      },
+      {
+        "name": "Chiasamen",
+        "nutrient": "Magnesium",
+        "per100g": "392 mg",
+        "portion": "15–25 g",
+        "bioavailability": "mittel",
+        "notes": "Ballaststoffreich – langsam steigern; auch Omega-3 (ALA)"
+      },
+      {
+        "name": "Mandeln",
+        "nutrient": "Magnesium",
+        "per100g": "270–282 mg",
+        "portion": "30 g (= ~84 mg)",
+        "bioavailability": "mittel",
+        "notes": "Einweichen über Nacht reduziert Phytinsäure und verbessert Aufnahme"
+      },
+      {
+        "name": "Cashews",
+        "nutrient": "Magnesium",
+        "per100g": "261 mg",
+        "portion": "30 g",
+        "bioavailability": "mittel",
+        "notes": "Gute Alltagsquelle, Kalorien im Blick behalten"
+      },
+      {
+        "name": "Erdnüsse / Erdnussmus",
+        "nutrient": "Magnesium",
+        "per100g": "175 mg",
+        "portion": "30 g / 1–2 EL",
+        "bioavailability": "mittel",
+        "notes": "Preis-Leistungs-Sieger unter Nüssen"
+      },
+      {
+        "name": "Sonnenblumenkerne",
+        "nutrient": "Magnesium",
+        "per100g": "378 mg",
+        "portion": "30 g (= 113 mg)",
+        "bioavailability": "mittel",
+        "notes": "Ungesalzen und ungeröstet verzehren für maximalen Gehalt"
+      },
+      {
+        "name": "Dunkle Schokolade (>70% Kakao)",
+        "nutrient": "Magnesium",
+        "per100g": "100 mg",
+        "portion": "20–30 g",
+        "bioavailability": "mittel",
+        "notes": "Liefert auch Polyphenole zur Gefäßrelaxation"
+      },
+      {
+        "name": "Pistazien",
+        "nutrient": "Magnesium",
+        "per100g": "122 mg",
+        "portion": "30 g",
+        "bioavailability": "mittel",
+        "notes": "Enthalten zudem Kalium und präbiotische Ballaststoffe"
       }
     ],
     "avoidFoods": [
@@ -525,19 +748,31 @@
       {
         "name": "Softdrinks (Phosphorsäure)",
         "reason": "Bindet Magnesium",
-        "mechanism": "Phosphorsäure in Cola stört Mineralstoffbalance"
+        "mechanism": "Phosphorsäure bindet Magnesium im Darm zu unlöslichem Magnesiumphosphat; Zucker fördert zusätzlich renale Ausscheidung"
       },
       {
         "name": "Stark verarbeitete Lebensmittel",
         "reason": "Magnesiumarm",
         "mechanism": "Verarbeitung entfernt Magnesium aus Getreide"
+      },
+      {
+        "name": "Hochdosierte Calcium-Supplements",
+        "reason": "Kompetitiver Antagonismus",
+        "mechanism": "Calcium und Magnesium konkurrieren um dieselben Transporter (TRPM6/7) – hohe isolierte Calciumgaben unterdrücken Magnesiumresorption"
+      },
+      {
+        "name": "Raffinierter Zucker / isolierte Fruktose",
+        "reason": "Renale Verluststeigerung",
+        "mechanism": "Pathologische Insulinspitzen regen die Nieren an, vermehrt Magnesium auszuscheiden"
       }
     ],
     "tips": [
       "Täglicher Bedarf: 300–400 mg (Männer etwas mehr als Frauen)",
       "Magnesiummangel ist weit verbreitet und kann Muskelkrämpfe, Müdigkeit und Herzrhythmusstörungen verursachen",
       "Vollkornprodukte statt Weißmehl wählen – Verarbeitung entfernt Magnesium",
-      "Hülsenfrüchte einweichen verbessert die Magnesiumaufnahme"
+      "Hülsenfrüchte einweichen verbessert die Magnesiumaufnahme",
+      "Serumwerte können normal sein trotz intrazellulärem Mangel – der Körper löst Magnesium aus Knochen, um den Blutspiegel stabil zu halten",
+      "Nüsse und Samen über Nacht einweichen aktiviert die Phytase und macht das Magnesium besser verfügbar"
     ]
   },
   {
@@ -623,13 +858,29 @@
         "portion": "30 g (= 1,2 mg)",
         "bioavailability": "hoch",
         "notes": "Tägliche Ergänzung"
+      },
+      {
+        "name": "Walnüsse",
+        "nutrient": "Zink",
+        "per100g": "3,0 mg",
+        "portion": "30 g",
+        "bioavailability": "mittel",
+        "notes": "Synergistisch mit entzündungshemmenden Omega-3-Fetten"
+      },
+      {
+        "name": "Quinoa",
+        "nutrient": "Zink",
+        "per100g": "2,5–3,5 mg",
+        "portion": "60 g (trocken)",
+        "bioavailability": "mittel",
+        "notes": "Vor dem Garen waschen (Saponine); gutes Aminosäureprofil"
       }
     ],
     "avoidFoods": [
       {
         "name": "Getreide / Hülsenfrüchte (unbehandelt)",
         "reason": "Phytinsäure",
-        "mechanism": "Bindet Zink im Darm, reduziert Aufnahme um bis zu 50%"
+        "mechanism": "Phytinsäure chelatiert Zink irreversibel – Einweichen, Keimen oder Fermentieren (Sauerteig, Tempeh) aktiviert Phytase"
       },
       {
         "name": "Calcium-reiche Mahlzeiten (parallel)",
@@ -639,14 +890,21 @@
       {
         "name": "Alkohol",
         "reason": "Fördert Zinkverlust",
-        "mechanism": "Erhöhte renale Ausscheidung"
+        "mechanism": "Stört systemische Zinkhomöostase, massiv erhöhte Ausscheidung über Urin"
+      },
+      {
+        "name": "Isolierte Eisen- oder Kupfer-Präparate",
+        "reason": "Kompetitiver Antagonismus",
+        "mechanism": "Zweiwertige Metallionen konkurrieren um dieselben Transporter (DMT1, ZIP4) – Zink wird bei Überdosierung verdrängt"
       }
     ],
     "tips": [
       "Austern sind die unangefochtenen Zink-Spitzenreiter",
       "Bei vegetarischer/veganer Ernährung ist der Zinkbedarf um 30–50% erhöht (Phytinsäure hemmt Aufnahme)",
       "Einweichen, Keimen und Fermentieren von Hülsenfrüchten und Getreide verbessert die Zinkaufnahme",
-      "Tierische Zinkquellen haben eine deutlich bessere Bioverfügbarkeit als pflanzliche"
+      "Tierische Zinkquellen haben eine deutlich bessere Bioverfügbarkeit als pflanzliche",
+      "Der Körper hat keinen Zinkspeicher – tägliche Zufuhr ist zwingend erforderlich",
+      "Isolierte Eisensupplements können die Zinkaufnahme hemmen – zeitlich trennen oder Kombipräparat verwenden"
     ]
   },
   {
@@ -732,25 +990,57 @@
         "portion": "2 Eier (120 g = 24 µg)",
         "bioavailability": "hoch",
         "notes": "Tägliche Grundversorgung"
+      },
+      {
+        "name": "Kabeljau",
+        "nutrient": "Selen",
+        "per100g": "28 µg",
+        "portion": "150 g",
+        "bioavailability": "hoch",
+        "notes": "Auch wichtige Jodquelle für die Schilddrüse"
+      },
+      {
+        "name": "Naturreis",
+        "nutrient": "Selen",
+        "per100g": "10 µg",
+        "portion": "60 g (trocken)",
+        "bioavailability": "mittel",
+        "notes": "Selen in den Randschichten – Vollkornreis statt poliertem Weißreis wählen"
+      },
+      {
+        "name": "Buchweizen",
+        "nutrient": "Selen",
+        "per100g": "8,3 µg",
+        "portion": "60 g (trocken)",
+        "bioavailability": "mittel",
+        "notes": "Glutenfreies Pseudogetreide, auch für empfindliche Därme geeignet"
       }
     ],
     "avoidFoods": [
       {
-        "name": "Keine direkte Verschlechterung",
-        "reason": "Kein Hemmmechanismus bekannt",
-        "mechanism": "Selengehalt hängt primär vom Boden ab, nicht von Hemmern"
+        "name": "Raffiniertes Weißmehl",
+        "reason": "Selenextraktion bei Verarbeitung",
+        "mechanism": "Selenreiche Keime und Randschichten werden entfernt – nur leere Stärke bleibt"
       },
       {
         "name": "Einseitige Ernährung ohne Fisch/Nüsse",
         "reason": "Mangelnde Zufuhr",
         "mechanism": "Europäische Böden sind selenarm – pflanzliche Quellen reichen oft nicht"
+      },
+      {
+        "name": "Massiver Alkoholkonsum",
+        "reason": "Hepatische Depletion",
+        "mechanism": "Die Leber ist Hauptproduktionsort für Selenoproteine – Alkohol stört die Synthese der Transportproteine"
       }
     ],
     "tips": [
       "Der Selengehalt in Lebensmitteln schwankt stark je nach Bodengehalt der Anbauregion",
       "In Europa sind Böden oft selenarm – besonders pflanzliche Quellen sind unzuverlässig",
       "Paranüsse sind die stärkste natürliche Selenquelle, aber max. 1–2 pro Tag (Gehalt variiert enorm)",
-      "Fisch und Meeresfrüchte sind die zuverlässigsten Selenquellen"
+      "Fisch und Meeresfrüchte sind die zuverlässigsten Selenquellen",
+      "Tierische Produkte haben in Europa oft konstantere Selenwerte als pflanzliche, da dem Tierfutter routinemäßig Selen zugesetzt wird",
+      "Paranüsse können radioaktives Radium aus Regenwaldboden akkumulieren – DGE empfiehlt max. 2 Nüsse pro Tag",
+      "Bei rein pflanzlicher, lokal bezogener Ernährung in Deutschland ist ein Selenmangel ohne Supplementierung oder Paranüsse sehr wahrscheinlich"
     ]
   },
   {
@@ -836,23 +1126,44 @@
         "portion": "30 g",
         "bioavailability": "niedrig",
         "notes": "Gutes Omega-6:3-Verhältnis"
+      },
+      {
+        "name": "Forelle",
+        "nutrient": "EPA + DHA",
+        "per100g": "~990 mg",
+        "portion": "150 g",
+        "bioavailability": "hoch",
+        "notes": "Gute regionale Einsteiger-Fischoption"
+      },
+      {
+        "name": "Hanföl",
+        "nutrient": "ALA + GLA",
+        "per100g": "15.000–20.000 mg ALA",
+        "portion": "1 EL",
+        "bioavailability": "niedrig",
+        "notes": "Perfektes Omega-3:6-Verhältnis; entzündungshemmend, nicht erhitzen"
       }
     ],
     "avoidFoods": [
       {
         "name": "Sonnenblumenöl / Distelöl",
         "reason": "Hoher Omega-6-Gehalt",
-        "mechanism": "Verschlechtert Omega-6:3-Verhältnis, fördert Entzündungen"
+        "mechanism": "Omega-6 und Omega-3 konkurrieren um das gleiche Enzym (Delta-6-Desaturase) – Omega-6-Überschuss blockiert Omega-3-Konversion"
       },
       {
         "name": "Transfette (Frittiertes)",
         "reason": "Blockieren Omega-3",
-        "mechanism": "Hemmen Einbau von EPA/DHA in Zellmembranen"
+        "mechanism": "Hitze führt zur Lipidperoxidation und Transfettbildung – starre Moleküle werden in Zellmembranen eingebaut und machen diese dysfunktional"
       },
       {
         "name": "Verarbeitete Wurst",
         "reason": "Arachidonsäure (Omega-6)",
         "mechanism": "Fördert Entzündungskaskade"
+      },
+      {
+        "name": "Fleisch aus konventioneller Massentierhaltung",
+        "reason": "Arachidonsäure-Überschuss",
+        "mechanism": "Getreide-/Sojabasierte Mastfütterung (statt Gras) führt zu Omega-6-Überhang im Gewebe, der im Körper pro-inflammatorische Pfade anfeuert"
       }
     ],
     "tips": [
@@ -860,7 +1171,10 @@
       "ALA aus Pflanzlichem (Leinöl, Walnüsse) wird nur zu 5–12% in EPA und zu 0,5–2% in DHA umgewandelt",
       "2–3 Portionen fetten Fisch pro Woche für optimale EPA/DHA-Versorgung",
       "Vegane Alternative: Algenöl supplementieren (mind. 250 mg EPA+DHA/Tag)",
-      "Omega-6-reiche Öle (Sonnenblume, Distel) durch Olivenöl oder Rapsöl ersetzen"
+      "Omega-6-reiche Öle (Sonnenblume, Distel) durch Olivenöl oder Rapsöl ersetzen",
+      "Der Omega-3-Index (EPA+DHA in Erythrozytenmembran) sollte für optimalen kardiovaskulären Schutz bei 8–11% liegen",
+      "Versteckte Pflanzenöle in Fertigprodukten sind oft die Hauptquelle für überschüssiges Omega-6",
+      "Leinöl NIE erhitzen – die Doppelbindungen oxidieren bei Hitze und werden schädlich; immer kalt verwenden"
     ]
   },
   {
@@ -946,6 +1260,30 @@
         "portion": "Täglich",
         "bioavailability": "mittel",
         "notes": "Statt Weißmehl"
+      },
+      {
+        "name": "Gerste",
+        "nutrient": "Beta-Glucan",
+        "per100g": "5–11 g Beta-Glucan",
+        "portion": "60–90 g (trocken)",
+        "bioavailability": "mittel",
+        "notes": "Meta-Analysen: Beta-Glucan aus Gerste senkt LDL und Triglyceride"
+      },
+      {
+        "name": "Chiasamen",
+        "nutrient": "Lösliche Ballaststoffe + ALA",
+        "per100g": "34 g Ballaststoffe",
+        "portion": "1 EL (15 g)",
+        "bioavailability": "mittel",
+        "notes": "Regulieren Blutzucker und Blutfette simultan; verzögern Magenentleerung"
+      },
+      {
+        "name": "Arganöl / Macadamiaöl",
+        "nutrient": "Einfach ungesättigte Fettsäuren (MUFA)",
+        "per100g": "Hoher MUFA-Anteil",
+        "portion": "1–2 EL",
+        "bioavailability": "hoch",
+        "notes": "Ersetzen gesättigter Fette hebt HDL-Cholesterin signifikant an"
       }
     ],
     "avoidFoods": [
@@ -974,7 +1312,9 @@
       "Omega-3-Fettsäuren (EPA + DHA) können die Triglyceride um ca. 15% senken",
       "Mediterrane Ernährung mit viel Gemüse, guten Ölen und Fisch zeigt konsistent niedrigere Triglyceridwerte",
       "Zucker und Fruktose sind oft schlimmer für Triglyceride als Fett",
-      "Regelmäßiger Alkoholkonsum ist einer der stärksten Triglycerid-Treiber"
+      "Regelmäßiger Alkoholkonsum ist einer der stärksten Triglycerid-Treiber",
+      "Eine Reduktion von Fruktose und Alkohol ist weitaus effektiver zur TG-Senkung als eine fettarme Diät",
+      "Gerste ist neben Hafer eine exzellente Beta-Glucan-Quelle – in Suppen, Eintöpfen oder als Beilage verwenden"
     ]
   },
   {
@@ -1060,6 +1400,38 @@
         "portion": "Als Supplement",
         "bioavailability": "mittel",
         "notes": "Als natürlicher Statinersatz erforscht"
+      },
+      {
+        "name": "Flohsamenschalen (Psyllium)",
+        "nutrient": "Lösliche Ballaststoffe",
+        "per100g": "~88 g Ballaststoffe",
+        "portion": "5–10 g/Tag (in Wasser)",
+        "bioavailability": "hoch",
+        "notes": "Sehr effektiv für LDL-Senkung via Gelfaser – eines der am stärksten validierten Mittel"
+      },
+      {
+        "name": "Gerste",
+        "nutrient": "Beta-Glucan",
+        "per100g": "5–11 g Beta-Glucan",
+        "portion": "60–90 g (trocken)",
+        "bioavailability": "mittel",
+        "notes": "Meta-Analysen zeigen signifikante LDL/ApoB-Senkung"
+      },
+      {
+        "name": "Blaubeeren / Rote Beeren",
+        "nutrient": "Polyphenole / Anthocyane",
+        "per100g": "Starke Antioxidantien",
+        "portion": "150 g",
+        "bioavailability": "hoch",
+        "notes": "Verhindern die Oxidation von LDL im Plasma"
+      },
+      {
+        "name": "Knoblauch",
+        "nutrient": "Allicin / Schwefelverbindungen",
+        "per100g": "Hemmt HMG-CoA-Reduktase leicht",
+        "portion": "1–2 Zehen/Tag",
+        "bioavailability": "hoch",
+        "notes": "Wirkt analog (aber schwächer) wie Statine auf die Cholesterinsynthese"
       }
     ],
     "avoidFoods": [
@@ -1071,19 +1443,27 @@
       {
         "name": "Gesättigte Fette (exzessiv)",
         "reason": "Erhöhen LDL-Produktion",
-        "mechanism": "Steigern hepatische Cholesterinproduktion"
+        "mechanism": "Langkettige gesättigte Fettsäuren (Myristin-/Palmitinsäure) drosseln LDL-Rezeptor-Expression auf Leberzellen"
       },
       {
         "name": "Zucker / hochverarbeitete Kohlenhydrate",
         "reason": "Erhöhen kleine, dichte LDL",
         "mechanism": "Insulinresistenz fördert atherogenes Lipidprofil"
+      },
+      {
+        "name": "Ungefilterter Kaffee (French Press / Espresso)",
+        "reason": "Cafestol und Kahweol",
+        "mechanism": "Diese Diterpene (in Filterkaffee durch Papier abgefangen) stimulieren die hepatische Cholesterinsynthese und erhöhen ApoB/LDL"
       }
     ],
     "tips": [
       "2 g Pflanzensterine pro Tag senken die Cholesterinresorption um 30–40% und LDL um ca. 9%",
       "Lösliche Ballaststoffe binden Cholesterin und Gallensäuren im Darm",
       "Haferkleie ist das am besten erforschte cholesterinsenkende Lebensmittel",
-      "Nüsse (1 Handvoll täglich) können Cholesterin um 10–20% senken"
+      "Nüsse (1 Handvoll täglich) können Cholesterin um 10–20% senken",
+      "Flohsamenschalen (Psyllium) sind einer der am stärksten klinisch validierten Ballaststoffe zur LDL-Senkung",
+      "Filterkaffee bevorzugen – French Press und Espresso enthalten Cafestol, das die Cholesterinsynthese stimuliert",
+      "Knoblauch hemmt die HMG-CoA-Reduktase leicht (analog zu Statinen) – regelmäßig 1–2 Zehen täglich"
     ]
   },
   {
@@ -1169,6 +1549,38 @@
         "portion": "1 Handvoll/Tag",
         "bioavailability": "hoch",
         "notes": "Bestes Obst bei Diabetes"
+      },
+      {
+        "name": "Süßkartoffeln",
+        "nutrient": "Komplexe Stärke + Beta-Carotin",
+        "per100g": "GI: 50 (vs. Kartoffel GI 80–90)",
+        "portion": "150 g",
+        "bioavailability": "hoch",
+        "notes": "Wesentlich blutzuckerschonender als Kartoffeln; liefert zusätzlich Beta-Carotin"
+      },
+      {
+        "name": "Kürbis",
+        "nutrient": "Ballaststoffe + Stärke",
+        "per100g": "GI: 64, aber sehr niedrige GL",
+        "portion": "150 g",
+        "bioavailability": "hoch",
+        "notes": "Trotz moderatem GI hat Kürbis wegen hohem Wassergehalt eine extrem niedrige Glykämische Last"
+      },
+      {
+        "name": "Grüner Tee",
+        "nutrient": "EGCG (Epigallocatechingallat)",
+        "per100g": "Steigert Insulinsensitivität",
+        "portion": "2–3 Tassen/Tag",
+        "bioavailability": "hoch",
+        "notes": "EGCG senkt Nüchternblutzucker in Interventionsstudien signifikant"
+      },
+      {
+        "name": "Joghurt / Skyr (natur)",
+        "nutrient": "Protein",
+        "per100g": "Dämpft Glukoseanstieg",
+        "portion": "200–300 g",
+        "bioavailability": "hoch",
+        "notes": "Besser als süße Desserts – Protein stimuliert GLP-1"
       }
     ],
     "avoidFoods": [
@@ -1191,13 +1603,31 @@
         "name": "Kartoffeln (geschält, gekocht)",
         "reason": "Hoher GI (~80)",
         "mechanism": "Schnelle Stärkefreisetzung"
+      },
+      {
+        "name": "Bier",
+        "reason": "Extremer GI (110)",
+        "mechanism": "Maltose im Bier flutet schneller ins Blut als reine Glukose; Alkohol provoziert zudem Hypoglykämie mit anschließender überschießender Hyperglykämie"
+      },
+      {
+        "name": "Kartoffelpüree (Instant)",
+        "reason": "Zerstörte Nahrungsmatrix (GI 87–90)",
+        "mechanism": "Industrielle Vorverarbeitung bricht alle Zellstrukturen auf – Amylase zerlegt sie sofort in Zucker"
+      },
+      {
+        "name": "Pommes Frites",
+        "reason": "Fett + raffinierte Kohlenhydrate (GI 95)",
+        "mechanism": "Massive Blutzucker- und Insulinspitzen plus entzündungsfördernde AGEs aus dem Frittiervorgang"
       }
     ],
     "tips": [
       "Der Essig-Trick: 1–2 EL Apfelessig in einem Glas Wasser vor der Mahlzeit trinken – hemmt Darmenzyme und verlangsamt Magenentleerung",
       "Die Reihenfolge beim Essen: Zuerst Gemüse, dann Protein/Fett, zuletzt Kohlenhydrate – reduziert Blutzuckerspitzen signifikant",
       "Ceylon-Zimt bevorzugen (weniger Cumarin als Cassia-Zimt)",
-      "Niedrig-glykämische Ernährung ist die wichtigste Strategie"
+      "Niedrig-glykämische Ernährung ist die wichtigste Strategie",
+      "Protein-Vorspeise (Fisch, Ei, Quark) stimuliert das Inkretin-Hormon GLP-1 und optimiert den Insulinhaushalt, BEVOR Kohlenhydrate anfluten",
+      "Abgekühlte gekochte Kartoffeln oder Nudeln bilden resistente Stärke, die den Blutzucker weniger belastet als frisch gekocht",
+      "Süßkartoffeln (GI 50) sind eine wesentlich bessere Alternative zu Kartoffeln (GI 80–90)"
     ]
   },
   {
@@ -1277,36 +1707,76 @@
         "notes": "Basis der Ernährung"
       },
       {
-        "name": "Eier",
-        "nutrient": "B12 + Cholin (Betain)",
+        "name": "Eier (Eigelb)",
+        "nutrient": "B12 + Cholin (~250 mg/100g)",
         "per100g": "2,5 µg B12",
         "portion": "2/Tag",
         "bioavailability": "hoch",
-        "notes": "Cholin unterstützt B-Vitamine"
+        "notes": "Cholin ist biochemische Vorstufe von Betain – treibt den alternativen Remethylierungsweg an (Ziel: 200–300 mg Cholin/Tag)"
+      },
+      {
+        "name": "Avocado",
+        "nutrient": "Folat",
+        "per100g": "79 µg Folat",
+        "portion": "1/2 Avocado",
+        "bioavailability": "hoch",
+        "notes": "Einfache Ergänzung mit guter Bioverfügbarkeit"
+      },
+      {
+        "name": "Heilbutt",
+        "nutrient": "B6",
+        "per100g": "0,42 mg B6",
+        "portion": "150 g",
+        "bioavailability": "hoch",
+        "notes": "Proteinreicher Fisch, fördert den Methylierungszyklus"
+      },
+      {
+        "name": "Spinat / Mangold (gedünstet)",
+        "nutrient": "Betain + Folat",
+        "per100g": "Hoch an Betain",
+        "portion": "150 g",
+        "bioavailability": "hoch",
+        "notes": "Betain agiert als alternativer Methylgruppen-Donator (Betain-Homocystein-Methyltransferase)"
+      },
+      {
+        "name": "Miesmuscheln",
+        "nutrient": "B12",
+        "per100g": "18 µg B12",
+        "portion": "100 g",
+        "bioavailability": "hoch",
+        "notes": "Ohne B12 kann die Methionin-Synthase Folsäure nicht verarbeiten (Folat-Falle)"
       }
     ],
     "avoidFoods": [
       {
         "name": "Exzessiver Kaffeekonsum (>6 Tassen)",
         "reason": "Erhöht Homocystein leicht",
-        "mechanism": "Hemmt Folataufnahme"
+        "mechanism": "Stört B-Vitamin-Speicherung in der Leber und erhöht lokalen oxidativen Stress"
       },
       {
         "name": "Alkohol",
         "reason": "Stört B-Vitamin-Stoffwechsel",
-        "mechanism": "Senkt Folat, B6 und B12-Spiegel"
+        "mechanism": "Hemmt Absorption, hepatische Speicherung und zelluläre Nutzung von Folsäure direkt"
       },
       {
         "name": "Methionin-reiche Kost (exzessiv)",
         "reason": "Erhöht Homocystein-Produktion",
         "mechanism": "Methionin ist Abbauprodukt zu Homocystein"
+      },
+      {
+        "name": "Viel Fleisch ohne Gemüse",
+        "reason": "Methionin-Überschuss ohne Abbau-Kofaktoren",
+        "mechanism": "Fleisch liefert reichlich Methionin – ohne gleichzeitig Folsäure und B6 aus Gemüse akkumuliert das Abbauprodukt Homocystein unweigerlich"
       }
     ],
     "tips": [
       "Homocystein wird durch drei B-Vitamine abgebaut: Folsäure (B9), Vitamin B6 und Vitamin B12",
       "Ein erhöhter Homocystein-Spiegel ist ein unabhängiger Risikofaktor für Herz-Kreislauf-Erkrankungen, Schlaganfall und Demenz",
       "Rinderleber hat eine Dreifach-Wirkung (B12 + B6 + Folat) und ist das effektivste Lebensmittel gegen hohe Homocysteinwerte",
-      "Rohes Blattgemüse (Feldsalat, Spinat) liefert am meisten Folat"
+      "Rohes Blattgemüse (Feldsalat, Spinat) liefert am meisten Folat",
+      "Betain (aus Spinat, Rote Bete, Quinoa) ist ein alternativer Methylgruppen-Donator, der den Abbau auch ohne Folsäure unterstützt",
+      "Cholin aus Eigelb (Vorstufe von Betain) ist ein oft übersehener Homocystein-Senker – 2 Eier/Tag liefern ca. 300 mg",
+      "Ein isolierter Mangel an nur einem B-Vitamin (B12 ODER Folsäure ODER B6) reicht, um die gesamte Abbaukaskade zu blockieren"
     ]
   },
   {
@@ -1392,18 +1862,42 @@
         "portion": "2–3 Zehen/Tag",
         "bioavailability": "mittel",
         "notes": "Cortisol-Reduktion gibt T-Produktion frei"
+      },
+      {
+        "name": "Ingwer",
+        "nutrient": "Antioxidantien",
+        "per100g": "Fördert LH-Ausschüttung",
+        "portion": "10 g frisch / 1–2 g Pulver",
+        "bioavailability": "hoch",
+        "notes": "Stimuliert Luteinisierendes Hormon (LH) der Hypophyse und mindert oxidativen Stress im Hodengewebe"
+      },
+      {
+        "name": "Avocado",
+        "nutrient": "Einfach ungesättigte Fette + Sterine",
+        "per100g": "~15 g gesunde Fette",
+        "portion": "1/2 Avocado",
+        "bioavailability": "hoch",
+        "notes": "Liefert gesunde Fette für die Hormonsynthese ohne die Arterien zu belasten"
+      },
+      {
+        "name": "Haferflocken",
+        "nutrient": "Komplexe Kohlenhydrate + Fasern",
+        "per100g": "Stabilisiert Blutzucker",
+        "portion": "50 g",
+        "bioavailability": "mittel",
+        "notes": "Chronische Insulinspitzen stören die hypophysär-gonadale Testosteron-Achse"
       }
     ],
     "avoidFoods": [
       {
         "name": "Alkohol (insb. Bier)",
         "reason": "Phytoöstrogene in Hopfen",
-        "mechanism": "Erhöht Östrogen, senkt Testosteron"
+        "mechanism": "Hopfen liefert potente Phytoöstrogene; chronischer Alkohol toxifiziert die Leydig-Zellen direkt und erhöht den hepatischen Testosteronabbau"
       },
       {
         "name": "Soja (exzessiver Konsum)",
         "reason": "Isoflavone",
-        "mechanism": "Phytoöstrogene können T leicht senken (umstritten)"
+        "mechanism": "Phytoöstrogene binden an Östrogenrezeptoren und signalisieren der Hypophyse hormonelle Sättigung – LH-Ausschüttung sinkt"
       },
       {
         "name": "Zucker / hochverarbeitete Kohlenhydrate",
@@ -1414,13 +1908,31 @@
         "name": "Lakritz",
         "reason": "Glycyrrhizin",
         "mechanism": "Hemmt 11beta-HSD2, senkt Testosteron direkt"
+      },
+      {
+        "name": "Pfefferminze / Spearmint",
+        "reason": "Anti-androgene Wirkung",
+        "mechanism": "Klinische Studien zeigen, dass signifikante Mengen Minze den Testosteronspiegel durch enzymatische Pfade herabsetzen können"
+      },
+      {
+        "name": "Konventionelle Kuhmilch (in großen Mengen)",
+        "reason": "Tierische Östrogene",
+        "mechanism": "Milch von trächtigen Kühen enthält hohe Östrogen- und Progesteronspiegel, die die menschliche Androgen-Achse stören können"
+      },
+      {
+        "name": "Transfette (Frittiertes, Margarine)",
+        "reason": "Mikrovaskulärer Gefäßverschluss",
+        "mechanism": "Verursachen endotheliale Entzündungen, verschlechtern die kapilläre Durchblutung in den Hoden und senken die Steroidgenese"
       }
     ],
     "tips": [
       "Drei Mikronährstoffe sind direkt an der Testosteronproduktion beteiligt: Zink, Vitamin D und Magnesium",
       "Kreuzblütler-Gemüse enthält DIM (Diindolylmethan), das die Umwandlung von Testosteron in Östrogen hemmt",
       "Low-Fat-Diäten senken nachweislich Testosteron – ausreichend gesunde Fette essen",
-      "Ausreichend Schlaf und Krafttraining sind neben Ernährung die wichtigsten Faktoren"
+      "Ausreichend Schlaf und Krafttraining sind neben Ernährung die wichtigsten Faktoren",
+      "Ingwer fördert die LH-Ausschüttung der Hypophyse und mindert oxidativen Stress im Hodengewebe",
+      "Pfefferminztee in großen Mengen meiden – anti-androgene Wirkung klinisch nachgewiesen",
+      "Cholesterin im Eigelb ist die biochemische Vorstufe zur Steroidhormonsynthese (Testosteron) – Eier nicht meiden"
     ]
   },
   {
@@ -1501,11 +2013,43 @@
       },
       {
         "name": "Knoblauch",
-        "nutrient": "Allicin",
+        "nutrient": "Allicin + Quercetin",
         "per100g": "Senkt CRP und IL-6",
         "portion": "2–3 Zehen/Tag",
         "bioavailability": "mittel",
-        "notes": "Roh oder kurz erhitzt"
+        "notes": "Roh oder kurz erhitzt; auch anti-mikrobielle Wirkung gegen Mikrobiom-induzierte Entzündungen"
+      },
+      {
+        "name": "Tomatenprodukte (gekocht)",
+        "nutrient": "Lycopin",
+        "per100g": "Starkes Carotinoid-Antioxidans",
+        "portion": "150–300 g (z.B. Tomatensauce)",
+        "bioavailability": "mittel",
+        "notes": "Kochen + Öl erhöht Lycopin-Bioverfügbarkeit um das 3–4-Fache"
+      },
+      {
+        "name": "Fermentierte Lebensmittel (Joghurt, Kefir, Sauerkraut)",
+        "nutrient": "Probiotika / Mikrobiom-Support",
+        "per100g": "Indirekter Anti-Entzündungshebel",
+        "portion": "Täglich",
+        "bioavailability": "mittel",
+        "notes": "Unterstützt das Darmmikrobiom und produziert kurzkettige Fettsäuren (SCFA), die Entzündungen hemmen"
+      },
+      {
+        "name": "Avocado",
+        "nutrient": "Ungesättigte Fette + Avocatin B",
+        "per100g": "Entzündungshemmende Alkohole",
+        "portion": "1/2 Avocado",
+        "bioavailability": "hoch",
+        "notes": "Enthält entzündungshemmende Alkohole (Avocatin B) und viel zellschützendes Vitamin E"
+      },
+      {
+        "name": "Brokkoli / Blumenkohl",
+        "nutrient": "Sulforaphan",
+        "per100g": "Aktiviert Nrf2-Entgiftungssystem",
+        "portion": "150 g",
+        "bioavailability": "mittel",
+        "notes": "Senfölglykoside aus Kreuzblütlern aktivieren das körpereigene antioxidative Nrf2-System"
       }
     ],
     "avoidFoods": [
@@ -1539,7 +2083,10 @@
       "Chronische Entzündungen werden durch Omega-3, Polyphenole und Antioxidantien gesenkt",
       "Kurkuma immer mit schwarzem Pfeffer und Fett kombinieren (Piperin erhöht Curcumin-Aufnahme um das 20-Fache)",
       "Mediterrane Ernährung ist das am besten erforschte entzündungshemmende Ernährungsmuster",
-      "Omega-6-reiche Öle (Sonnenblume, Distel) durch Olivenöl ersetzen"
+      "Omega-6-reiche Öle (Sonnenblume, Distel) durch Olivenöl ersetzen",
+      "Fermentierte Lebensmittel (Joghurt, Kefir, Sauerkraut) fördern die Produktion entzündungshemmender kurzkettiger Fettsäuren (SCFA) im Darm",
+      "Tomatenprodukte immer mit Öl kochen – Lycopin wird erst durch Hitze und Fett wirklich bioverfügbar",
+      "Silent Inflammation (stille Entzündung) wird durch eine Kombination aus Omega-6-Überschuss, Zucker und Bewegungsmangel angetrieben"
     ]
   },
   {
@@ -1625,13 +2172,53 @@
         "portion": "150 g",
         "bioavailability": "hoch",
         "notes": "Multi-Wirkung für Schilddrüse"
+      },
+      {
+        "name": "Seelachs",
+        "nutrient": "Jod",
+        "per100g": "200 µg",
+        "portion": "150 g",
+        "bioavailability": "hoch",
+        "notes": "Deckt den Tagesbedarf (150–250 µg) perfekt in einer Portion"
+      },
+      {
+        "name": "Scholle",
+        "nutrient": "Jod",
+        "per100g": "190 µg",
+        "portion": "150 g",
+        "bioavailability": "hoch",
+        "notes": "Exzellenter maritimer Jodlieferant"
+      },
+      {
+        "name": "Schafskäse",
+        "nutrient": "Jod + Protein",
+        "per100g": "93 µg Jod",
+        "portion": "50 g",
+        "bioavailability": "mittel",
+        "notes": "Gute Alternative, wenn Fisch geschmacklich nicht vertragen wird"
+      },
+      {
+        "name": "Feldsalat",
+        "nutrient": "Jod",
+        "per100g": "60 µg",
+        "portion": "100 g",
+        "bioavailability": "mittel",
+        "notes": "Eine der wenigen nennenswerten pflanzlichen Jodquellen in unseren Breitengraden"
+      },
+      {
+        "name": "Geflügel (Huhn, Pute)",
+        "nutrient": "Selen + Zink",
+        "per100g": "Moderate Mengen",
+        "portion": "150 g",
+        "bioavailability": "hoch",
+        "notes": "Magere Proteinquelle, unterstützt enzymatischen Schilddrüsenstoffwechsel"
       }
     ],
     "avoidFoods": [
       {
         "name": "Kreuzblütler roh (Brokkoli, Grünkohl, Rosenkohl)",
         "reason": "Goitrine + Thiocyanate",
-        "mechanism": "Hemmen Jodaufnahme in die Schilddrüse – Kochen inaktiviert diese Stoffe"
+        "mechanism": "Glukosinolate blockieren den Natrium-Iodid-Symporter (NIS) kompetitiv – Schilddrüse kann kein Jod aufnehmen. Kochen deaktiviert Goitrogene vollständig!"
       },
       {
         "name": "Soja / Tofu (exzessiv)",
@@ -1652,6 +2239,16 @@
         "name": "Erdnüsse / Süßkartoffeln",
         "reason": "Leichte goitrogene Wirkung",
         "mechanism": "Nur bei sehr einseitigem, exzessivem Konsum relevant"
+      },
+      {
+        "name": "Kaffee / Milch / Eisen zur L-Thyroxin-Einnahme",
+        "reason": "Medikamenten-Blockade",
+        "mechanism": "Schilddrüsenhormone müssen streng nüchtern eingenommen werden – Kaffee, Calcium und Eisen binden den Wirkstoff als Chelat und verringern die Absorption um über 40%"
+      },
+      {
+        "name": "Massive Jodzufuhr bei Hashimoto",
+        "reason": "Autoimmun-Schub",
+        "mechanism": "Bei Hashimoto-Thyreoiditis können unkontrollierte Jodexzesse (>300 µg) das Immunsystem anfachen und die Zerstörung des Schilddrüsengewebes beschleunigen"
       }
     ],
     "tips": [
@@ -1659,7 +2256,10 @@
       "Die meisten goitrogenen Stoffe werden beim Kochen, Dünsten oder Blanchieren weitgehend inaktiviert",
       "Bei gesunder Schilddrüse überwiegen die gesundheitlichen Vorteile von Kreuzblütlern deutlich",
       "Jodsalz ist die einfachste tägliche Maßnahme zur Jodversorgung",
-      "Vorsicht mit Kombu-Algen: extrem hoher Jodgehalt kann zu Überdosierung führen"
+      "Vorsicht mit Kombu-Algen: extrem hoher Jodgehalt kann zu Überdosierung führen",
+      "Bei L-Thyroxin-Einnahme: mindestens 30–60 Minuten Abstand zu Kaffee und Frühstück einhalten",
+      "Seelachs und Scholle sind exzellente Jodquellen (190–200 µg/100g) – eine Portion deckt den Tagesbedarf",
+      "Feldsalat ist eine der wenigen pflanzlichen terrestrischen Jodquellen in Deutschland (60 µg/100g)"
     ]
   },
   {
@@ -1755,10 +2355,49 @@
         "bioavailability": "hoch",
         "notes": "Eine Nuss deckt den Selentagesbedarf",
         "affectedValues": ["selen", "zink", "magnesium", "tsh"]
+      },
+      {
+        "name": "Avocado",
+        "nutrient": "Folat, Vitamin D, MUFA, Kalium, Vitamin E",
+        "per100g": "79 µg Folat, 3,4 µg Vit D, 15 g gesunde Fette",
+        "portion": "1/2 Avocado",
+        "bioavailability": "hoch",
+        "notes": "Seltene Kombination aus Folat + Vitamin D + gesunden Fetten + Entzündungshemmung in einem pflanzlichen Lebensmittel",
+        "affectedValues": ["folsaeure", "vitamin-d", "homocystein", "hs-crp", "triglyceride", "hdl", "testosteron-gesamt"]
+      },
+      {
+        "name": "Austern",
+        "nutrient": "Zink, B12, Eisen, Jod, Selen",
+        "per100g": "22–78 mg Zink, 14,8 µg B12, 9,4 mg Eisen, 109 µg Jod",
+        "portion": "6 Stück (ca. 80 g)",
+        "bioavailability": "hoch",
+        "notes": "Unangefochtene Zink-Spitzenreiter plus B12, Eisen, Jod und Selen in einem Lebensmittel",
+        "affectedValues": ["zink", "vitamin-b12", "ferritin", "tsh", "selen", "testosteron-gesamt", "homocystein"]
+      },
+      {
+        "name": "Kurkuma (mit Pfeffer + Fett)",
+        "nutrient": "Curcumin",
+        "per100g": "Hemmt NF-kB, COX-2, LOX",
+        "portion": "1 TL + Prise Pfeffer + Fett",
+        "bioavailability": "niedrig (ohne Pfeffer), hoch (mit Piperin)",
+        "notes": "Potenter natürlicher Entzündungshemmer – Piperin erhöht Aufnahme um 2000%. Wirkt blutzuckerstabilisierend und lipidsenkend",
+        "affectedValues": ["hs-crp", "nuechtern-glukose", "hba1c", "ldl"]
+      },
+      {
+        "name": "Linsen / Hülsenfrüchte",
+        "nutrient": "Folat, Eisen, Magnesium, Ballaststoffe",
+        "per100g": "168 µg Folat, 6,9 mg Eisen, 129 mg Mg, 17 g Ballaststoffe",
+        "portion": "150 g (gekocht)",
+        "bioavailability": "mittel",
+        "notes": "Multi-Effekt: stabilisieren Blutzucker (GI 37), senken Triglyceride und LDL, liefern Folat und Eisen",
+        "affectedValues": ["folsaeure", "ferritin", "magnesium", "homocystein", "nuechtern-glukose", "hba1c", "triglyceride", "ldl", "apob"]
       }
     ],
     "avoidFoods": [],
-    "tips": []
+    "tips": [
+      "Diese Lebensmittel bedienen gleichzeitig mehrere Blutwerte und sollten regelmäßig in den Speiseplan integriert werden",
+      "Leber 1x/Woche + 2–3x Fettfisch + tägliche Basis aus Eiern, Hülsenfrüchten und Nüssen deckt den Großteil der kritischen Mikronährstoffe ab"
+    ]
   },
   {
     "bloodValueIds": [],
@@ -1775,7 +2414,12 @@
       "Kreuzblütler kurz dünsten: 3–5 Min. dünsten statt lange kochen – inaktiviert Goitrogene, erhält Sulforaphan und DIM",
       "Tee/Kaffee zwischen Mahlzeiten: Min. 30–60 Min. Abstand zu eisenreichen Mahlzeiten – Tannine hemmen Eisenaufnahme um bis zu 90%",
       "Essig vor dem Essen: 1–2 EL Apfelessig in Wasser vor kohlenhydratreichen Mahlzeiten – hemmt Alpha-Amylase, verlangsamt Magenentleerung",
-      "Ess-Reihenfolge: Gemüse zuerst, dann Protein, zuletzt Kohlenhydrate – senkt postprandialen Blutzucker signifikant"
+      "Ess-Reihenfolge: Gemüse zuerst, dann Protein, zuletzt Kohlenhydrate – senkt postprandialen Blutzucker signifikant",
+      "Oxalsäure eliminieren: Spinat, Mangold und Süßkartoffeln kurz blanchieren und Kochwasser wegschütten – macht Magnesium, Eisen und Calcium verfügbar und senkt Nierensteinrisiko",
+      "Resistente Stärke nutzen: Abgekühlte Kartoffeln, Nudeln oder Reis (z.B. Kartoffelsalat) bilden resistente Stärke, die den Blutzucker deutlich weniger belastet als frisch gekocht",
+      "Fermentation und Sauerteig: Sauerteigbrot und fermentierte Lebensmittel (Tempeh, Kimchi, Sauerkraut) bauen Phytinsäure ab und verbessern die Mineralstoffaufnahme erheblich",
+      "Quinoa richtig vorbereiten: Vor dem Garen unter heißem Wasser waschen, um die bitteren Saponine zu entfernen – verbessert Geschmack und Verdaulichkeit",
+      "Betain als Methylgruppen-Hack: Rote Bete, Spinat und Quinoa liefern Betain – einen alternativen Methylgruppen-Donator, der Homocystein auch ohne Folsäure abbauen kann"
     ]
   }
 ]
