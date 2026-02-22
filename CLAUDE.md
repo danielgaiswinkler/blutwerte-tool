@@ -11,8 +11,8 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 
 ## Status (2026-02-22)
 - [x] **Schritt 1: Wissensdatenbank** - 53 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
-- [ ] Schritt 2: Eingabeformular + CSV/JSON Import
-- [ ] Schritt 3: Dashboard mit Ampelsystem
+- [x] **Schritt 2: Eingabeformular + CSV/JSON Import** - BloodworkEntry mit manuellem Input, CSV-Upload, localStorage
+- [x] **Schritt 3: Dashboard mit Ampelsystem** - Vollstaendiges Analyse-Dashboard mit Ampel-Uebersicht, Kategorie-Cards, kritische Werte Alert, Erfassungsgrad
 - [ ] Schritt 4: Einzelwert-Detailansicht mit Gauge
 - [ ] Schritt 5: Cross-Value-Analyse
 - [ ] Schritt 6: Trendansicht (Zeitverlauf)
@@ -43,7 +43,17 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 
 ## Referenz-Quellen
 - "Der Blutwerte-Code" - Thiemo Osterhaus (Primärquelle)
-- Weitere Quellen folgen
+- Perplexity Blutwerte-Wissensdatenbank (2026)
+- ChatGPT Deep Research Report (2026)
+- Gemini Blutwerte-Analyse (2026)
+- European Atherosclerosis Society (EAS) Consensus (Lp(a))
+- American Thyroid Association (ATA) Guidelines (Biotin-Interferenz)
+- WHO Iron Assessment Guidelines (Ferritin/CRP-Ratio)
+
+## Research-Updates (2026-02-22)
+- `src/data/updates-from-research.json` - 34 Update-Objekte aus 3 Research-Quellen
+- Noch NICHT in Hauptdatenbank gemerged (Patch-Datei als Referenz)
+- Aenderungen: Optimale Bereiche (Homocystein, GPT, GGT), neue ContextRules (Biotin, Lp(a)-Umrechnung, Ferritin/CRP-Ratio, Q10-Lipidkorrektur), Supplement-Updates (Mg-Formen, B12/MTHFR, Folsaeure), Omega-3-Methodik
 
 ## Design
 - Dark-Mode (gradient #0f172a → #1e293b)
@@ -52,4 +62,4 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - Ampel: 🔴 Kritisch / 🟡 Suboptimal / 🟢 Optimal
 
 ## Nächster Schritt
-Schritt 2: React-App initialisieren, Eingabeformular mit manuellem Input + CSV-Upload bauen.
+Schritt 4: Einzelwert-Detailansicht mit Gauge-Diagramm (Recharts) bauen.
