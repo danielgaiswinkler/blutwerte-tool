@@ -1,0 +1,1602 @@
+[
+  {
+    "id": "erythrozyten",
+    "name": "Erythrozyten (Rote Blutkörperchen)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Erythrozyten sind die roten Blutkörperchen und mit Abstand die häufigsten Zellen im Blut. Sie transportieren Sauerstoff von der Lunge zu den Organen und Kohlendioxid zurück zur Lunge. Ihre Anzahl gibt Aufschluss über die Sauerstofftransportkapazität des Blutes und ist ein zentraler Marker für Anämien und Polyglobulien.",
+    "unit": "Mio/µl",
+    "alternativeUnits": [
+      { "unit": "T/l", "factor": 1 }
+    ],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": { "min": 4.5, "max": 5.9 },
+      "female": { "min": 4.0, "max": 5.2 }
+    },
+    "optimal": {
+      "male": { "min": 4.8, "max": 5.5, "target": 5.1 },
+      "female": { "min": 4.2, "max": 4.8, "target": 4.5 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Eisenmangelanämie (häufigste Ursache weltweit)",
+          "Vitamin-B12- oder Folsäuremangel (megaloblastäre Anämie)",
+          "Chronische Erkrankungen (Niereninsuffizienz, chronische Entzündungen)",
+          "Blutverlust (Menstruation, gastrointestinale Blutungen, Operationen)",
+          "Knochenmarkstörungen (aplastische Anämie, Leukämie)",
+          "Hämolyse (vorzeitiger Abbau der Erythrozyten)",
+          "Überhydration (Verdünnungseffekt)",
+          "Erythropoetin-Mangel (z. B. bei Niereninsuffizienz)"
+        ],
+        "symptoms": [
+          "Müdigkeit und Leistungsabfall",
+          "Blässe (Haut, Schleimhäute, Nagelbett)",
+          "Kurzatmigkeit bei Belastung",
+          "Schwindel und Kopfschmerzen",
+          "Herzrasen (Tachykardie)",
+          "Konzentrationsstörungen"
+        ],
+        "relatedValues": [
+          "haemoglobin",
+          "haematokrit",
+          "mcv",
+          "mch",
+          "mchc",
+          "ferritin",
+          "transferrin",
+          "vitamin_b12",
+          "folsaeure",
+          "retikulozyten"
+        ],
+        "actions": [
+          "Differentialdiagnose der Anämie anhand MCV/MCH (mikro-/makrozytär) einleiten",
+          "Eisenstatus überprüfen (Ferritin, Transferrin, Transferrinsättigung)",
+          "Vitamin B12 und Folsäure bestimmen lassen",
+          "Bei unklarer Ursache Retikulozyten und Haptoglobin bestimmen",
+          "Gastrointestinale Blutungsquellen ausschließen (Stuhltest auf okkultes Blut)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Polycythaemia vera (myeloproliferative Erkrankung)",
+          "Chronische Hypoxie (Lungenerkrankungen, Höhenaufenthalt, Rauchen)",
+          "Dehydration (relative Polyglobulie durch Flüssigkeitsmangel)",
+          "Erythropoetin-produzierende Tumoren (Nierenzellkarzinom)",
+          "Leistungssport mit hohem Ausdaueranteil",
+          "Angeborene Hämoglobinopathien mit erhöhter Sauerstoffaffinität",
+          "Doping mit Erythropoetin (EPO)",
+          "Obstruktive Schlafapnoe"
+        ],
+        "symptoms": [
+          "Kopfschmerzen und Schwindel",
+          "Rötung der Haut (Plethora), besonders im Gesicht",
+          "Sehstörungen",
+          "Juckreiz (besonders nach warmem Duschen)",
+          "Thromboseneigung",
+          "Bluthochdruck"
+        ],
+        "relatedValues": [
+          "haemoglobin",
+          "haematokrit",
+          "erythropoetin",
+          "leukozyten",
+          "thrombozyten",
+          "ferritin"
+        ],
+        "actions": [
+          "Hydrationsstatus überprüfen und ausreichend trinken",
+          "Raucherstatus evaluieren und Rauchstopp empfehlen",
+          "Erythropoetin-Spiegel bestimmen lassen",
+          "Bei Verdacht auf Polycythaemia vera: JAK2-Mutation testen lassen",
+          "Schlafapnoe-Screening in Betracht ziehen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Erythrozytenzahl liegt im funktionell optimalen Bereich. Der Sauerstofftransport ist effizient, und das Blut hat eine gute Fließeigenschaft ohne erhöhtes Thromboserisiko."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Erythrozyten erhöht + Hämatokrit >52% (M) / >48% (F)",
+        "interpretation": "Erhöhtes Thromboserisiko durch erhöhte Blutviskosität. Ursache abklären und Hydration sicherstellen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Erythrozyten erniedrigt + MCV <80 fl",
+        "interpretation": "Hinweis auf mikrozytäre Anämie – häufigste Ursache ist Eisenmangel. Ferritin und Transferrinsättigung kontrollieren.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Erythrozyten erniedrigt + MCV >100 fl",
+        "interpretation": "Hinweis auf makrozytäre Anämie – Vitamin B12 und Folsäure überprüfen.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Eisenreiche Ernährung: rotes Fleisch, Leber, Hülsenfrüchte, dunkelgrünes Blattgemüse",
+        "Vitamin-C-reiche Lebensmittel zur Eisenaufnahme kombinieren",
+        "Ausreichende Flüssigkeitszufuhr (2-3 Liter täglich)",
+        "Regelmäßige moderate Bewegung fördert die Erythropoese",
+        "Kaffee und Tee nicht direkt zu eisenreichen Mahlzeiten trinken (hemmt Aufnahme)"
+      ],
+      "supplements": [
+        {
+          "name": "Eisen (als Eisenbisglycinat)",
+          "dosage": "20-40 mg elementares Eisen",
+          "timing": "Nüchtern oder mit Vitamin C, nicht mit Milchprodukten",
+          "notes": "Nur bei nachgewiesenem Eisenmangel supplementieren. Eisenbisglycinat ist magenfreundlicher als Eisensulfat."
+        },
+        {
+          "name": "Vitamin B12 (Methylcobalamin)",
+          "dosage": "500-1000 µg",
+          "timing": "Morgens, unabhängig von Mahlzeiten",
+          "notes": "Besonders relevant bei vegetarischer/veganer Ernährung oder Metformin-Einnahme."
+        },
+        {
+          "name": "Folsäure (5-MTHF)",
+          "dosage": "400-800 µg",
+          "timing": "Morgens",
+          "notes": "Aktive Form (5-MTHF) bevorzugen, da ca. 40% der Bevölkerung eine MTHFR-Mutation haben."
+        }
+      ],
+      "redFlags": [
+        "Hb <8 g/dl: Schwere Anämie – sofortige ärztliche Abklärung, ggf. Transfusion erforderlich",
+        "Plötzlicher Erythrozyten-Abfall mit Blässe und Tachykardie: akute Blutung ausschließen",
+        "Erythrozyten >6.5 Mio/µl mit Symptomen: Polycythaemia vera ausschließen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "haemoglobin",
+    "name": "Hämoglobin (Hb)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Hämoglobin ist der rote Blutfarbstoff in den Erythrozyten und das zentrale Sauerstoff-Transportmolekül des Körpers. Jedes Hämoglobin-Molekül kann vier Sauerstoffmoleküle binden. Der Hb-Wert ist der wichtigste Parameter zur Diagnose einer Anämie und wird auch zur Beurteilung des Eisenstatus herangezogen.",
+    "unit": "g/dl",
+    "alternativeUnits": [
+      { "unit": "mmol/l", "factor": 0.6206 },
+      { "unit": "g/l", "factor": 10 }
+    ],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": { "min": 13.5, "max": 17.5 },
+      "female": { "min": 12.0, "max": 16.0 }
+    },
+    "optimal": {
+      "male": { "min": 14.5, "max": 16.0, "target": 15.2 },
+      "female": { "min": 13.0, "max": 14.5, "target": 13.8 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Eisenmangel (häufigste Ursache, besonders bei Frauen im gebärfähigen Alter)",
+          "Chronische Blutungen (gastrointestinal, Menstruation)",
+          "Vitamin-B12- oder Folsäuremangel",
+          "Chronische Niereninsuffizienz (verminderte EPO-Produktion)",
+          "Chronische Entzündungen und Infektionen (Anämie der chronischen Erkrankung)",
+          "Knochenmarkerkrankungen (Myelodysplasie, Leukämie)",
+          "Hämolytische Anämien (Autoimmun, mechanisch, hereditär)",
+          "Schwangerschaft (physiologische Hämodilution)"
+        ],
+        "symptoms": [
+          "Ausgeprägte Müdigkeit und Erschöpfung",
+          "Belastungsdyspnoe (Atemnot bei Anstrengung)",
+          "Blässe der Haut und Schleimhäute",
+          "Tachykardie und Herzklopfen",
+          "Konzentrations- und Gedächtnisstörungen",
+          "Brüchige Nägel und Haarausfall (bei Eisenmangel)"
+        ],
+        "relatedValues": [
+          "erythrozyten",
+          "haematokrit",
+          "mcv",
+          "mch",
+          "mchc",
+          "ferritin",
+          "transferrin",
+          "retikulozyten",
+          "vitamin_b12",
+          "folsaeure",
+          "kreatinin"
+        ],
+        "actions": [
+          "Eisen-, Vitamin-B12- und Folsäurestatus bestimmen",
+          "Retikulozytenzahl zur Beurteilung der Knochenmarkaktivität bestimmen",
+          "Bei Eisenmangel: Ursachensuche (GI-Blutung, Ernährung, Menstruation)",
+          "Nierenfunktion überprüfen (Kreatinin, GFR) bei unklarer Anämie",
+          "Bei Hb <8 g/dl: zügige ärztliche Vorstellung"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Dehydration (häufigste Ursache einer scheinbaren Erhöhung)",
+          "Polycythaemia vera",
+          "Chronische Lungenerkrankungen (COPD, Lungenfibrose)",
+          "Aufenthalt in großer Höhe",
+          "Rauchen (CO-Hb verdrängt O2, kompensatorische Erythropoese)",
+          "EPO-Doping oder EPO-produzierende Tumoren",
+          "Angeborene Herzfehler mit Rechts-Links-Shunt",
+          "Schlafapnoe-Syndrom"
+        ],
+        "symptoms": [
+          "Kopfschmerzen und Schwindel",
+          "Gesichtsrötung (Plethora)",
+          "Sehstörungen und Ohrensausen",
+          "Juckreiz, besonders nach Wasserkontakt",
+          "Erhöhte Thromboseneigung"
+        ],
+        "relatedValues": [
+          "erythrozyten",
+          "haematokrit",
+          "erythropoetin",
+          "leukozyten",
+          "thrombozyten"
+        ],
+        "actions": [
+          "Hydrationsstatus prüfen und ggf. korrigieren",
+          "Raucherstatus erfragen und dokumentieren",
+          "Pulsoxymetrie und Blutgasanalyse bei Verdacht auf Hypoxie",
+          "Erythropoetin-Spiegel bestimmen zur Differenzierung",
+          "Bei Hkt >55%: Thromboserisiko evaluieren"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Hämoglobinwert liegt im funktionell optimalen Bereich. Die Sauerstoffversorgung der Gewebe ist sichergestellt, und es besteht kein erhöhtes Risiko durch zu hohe Blutviskosität."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Hb erniedrigt + Ferritin <30 ng/ml",
+        "interpretation": "Klarer Hinweis auf Eisenmangelanämie. Eisenspeicher erschöpft – Supplementation und Ursachensuche einleiten.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Hb erniedrigt + MCV >100 fl + Vitamin B12 niedrig",
+        "interpretation": "Typisches Bild einer megaloblastären Anämie durch Vitamin-B12-Mangel. B12-Substitution notwendig.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Hb >18 g/dl (M) / >16.5 g/dl (F)",
+        "interpretation": "Deutliche Polyglobulie – Differenzierung zwischen primärer (Polycythaemia vera) und sekundärer Ursache erforderlich.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Eisenreiche Ernährung: rotes Fleisch, Leber, Muscheln, Hülsenfrüchte",
+        "Vitamin C zu eisenreichen Mahlzeiten (verbessert Aufnahme um das 3-4fache)",
+        "Kupferreiche Lebensmittel (Nüsse, Kakao) unterstützen die Hämoglobinsynthese",
+        "Kaffee/Tee-Konsum mindestens 1 Stunde von eisenreichen Mahlzeiten trennen",
+        "Bei Sportlern: auf Laufsport-induzierte Hämolyse achten (Foot-Strike-Hämolyse)"
+      ],
+      "supplements": [
+        {
+          "name": "Eisen (als Eisenbisglycinat)",
+          "dosage": "20-40 mg elementares Eisen",
+          "timing": "Morgens nüchtern mit Vitamin C, 2h Abstand zu Kaffee/Tee",
+          "notes": "Nur bei nachgewiesenem Eisenmangel (Ferritin <30 ng/ml). Kontrolle nach 8-12 Wochen."
+        },
+        {
+          "name": "Vitamin B6 (Pyridoxal-5-Phosphat)",
+          "dosage": "25-50 mg",
+          "timing": "Morgens zum Frühstück",
+          "notes": "Co-Faktor der Häm-Synthese. Besonders relevant bei Einnahme von oralen Kontrazeptiva."
+        },
+        {
+          "name": "Kupfer",
+          "dosage": "1-2 mg",
+          "timing": "Zum Essen",
+          "notes": "Essentiell für die Eisenverwertung (Ceruloplasmin). Nicht gleichzeitig mit Zink einnehmen."
+        }
+      ],
+      "redFlags": [
+        "Hb <7 g/dl: Lebensbedrohliche Anämie – sofortige Notfallversorgung und Transfusion erwägen",
+        "Schneller Hb-Abfall (>2 g/dl in wenigen Tagen): Akute Blutung oder Hämolyse – Notfall",
+        "Hb >20 g/dl: Extreme Polyglobulie mit hohem Schlaganfall-/Herzinfarkt-Risiko"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "haematokrit",
+    "name": "Hämatokrit (Hkt)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Der Hämatokrit gibt den prozentualen Anteil der zellulären Bestandteile (vor allem Erythrozyten) am Gesamtblutvolumen an. Er ist ein Maß für die Blutviskosität und den Hydrationsstatus. Ein erhöhter Hämatokrit bedeutet dickflüssigeres Blut mit erhöhtem Thromboserisiko.",
+    "unit": "%",
+    "alternativeUnits": [
+      { "unit": "l/l", "factor": 0.01 }
+    ],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": { "min": 40, "max": 52 },
+      "female": { "min": 36, "max": 48 }
+    },
+    "optimal": {
+      "male": { "min": 42, "max": 48, "target": 45 },
+      "female": { "min": 38, "max": 44, "target": 41 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Anämie jeder Genese (Eisenmangel, B12-Mangel, chronische Erkrankung)",
+          "Überhydration (intravenöse Flüssigkeitszufuhr, übermäßiges Trinken)",
+          "Akuter oder chronischer Blutverlust",
+          "Schwangerschaft (physiologische Hämodilution, besonders im 2./3. Trimester)",
+          "Hämolytische Erkrankungen",
+          "Knochenmarkinsuffizienz",
+          "Leberzirrhose mit portaler Hypertension",
+          "Chronische Niereninsuffizienz"
+        ],
+        "symptoms": [
+          "Müdigkeit und Schwäche",
+          "Blässe",
+          "Tachykardie und Belastungsdyspnoe",
+          "Schwindel bei schnellem Aufstehen",
+          "Kältegefühl in den Extremitäten"
+        ],
+        "relatedValues": [
+          "erythrozyten",
+          "haemoglobin",
+          "mcv",
+          "retikulozyten",
+          "ferritin"
+        ],
+        "actions": [
+          "Anämie-Diagnostik einleiten (Eisenstatus, B12, Folsäure)",
+          "Flüssigkeitsbilanz überprüfen",
+          "Bei unklarer Ursache: Retikulozyten und LDH bestimmen",
+          "Gastrointestinale Blutungsquellen ausschließen",
+          "Bei Schwangeren: regelmäßige Kontrolle, Eisensupplementation prüfen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Dehydration (Durchfall, Erbrechen, unzureichende Trinkmenge, Diuretika)",
+          "Polycythaemia vera",
+          "Sekundäre Polyglobulie (Höhe, Lungenerkrankungen, Schlafapnoe)",
+          "Rauchen (chronische CO-Exposition)",
+          "Intensiver Ausdauersport",
+          "Verbrennungen (Plasmavolumenverlust)",
+          "Morbus Cushing",
+          "Stresspolyglobulie (Gaisböck-Syndrom)"
+        ],
+        "symptoms": [
+          "Kopfschmerzen und Benommenheit",
+          "Rötliche Gesichtsfarbe",
+          "Sehstörungen",
+          "Juckreiz (aquagener Pruritus)",
+          "Thrombosen (tiefe Beinvenenthrombose, Lungenembolie)",
+          "Nasenbluten"
+        ],
+        "relatedValues": [
+          "erythrozyten",
+          "haemoglobin",
+          "erythropoetin",
+          "leukozyten",
+          "thrombozyten"
+        ],
+        "actions": [
+          "Ausreichende Flüssigkeitszufuhr sicherstellen (mindestens 2-3 L/Tag)",
+          "Rauchverzicht dringend empfehlen",
+          "Erythropoetin-Spiegel zur Differenzierung bestimmen",
+          "Bei Hkt >55%: hämatologische Vorstellung empfehlen",
+          "Blutviskosität und Thromboserisiko einschätzen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Hämatokrit liegt im optimalen Bereich. Das Blut hat eine gute Fließeigenschaft bei gleichzeitig ausreichender Sauerstofftransportkapazität. Die Mikrozirkulation ist nicht beeinträchtigt."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Hämatokrit >54% (M) / >49% (F)",
+        "interpretation": "Deutlich erhöhte Blutviskosität mit signifikantem Thromboserisiko. Sofortige Hydration und hämatologische Abklärung erforderlich.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Hämatokrit erniedrigt + Erythrozyten/Hb normal",
+        "interpretation": "Möglicherweise Überhydration oder Pseudoanämie. Hydrationsstatus überprüfen.",
+        "severity": "info"
+      },
+      {
+        "condition": "Hämatokrit erhöht + Hb erhöht + normale Leukozyten/Thrombozyten",
+        "interpretation": "Sekundäre Polyglobulie wahrscheinlicher als Polycythaemia vera. Hypoxie-Ursachen prüfen.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausreichende Hydration: 30-35 ml/kg Körpergewicht pro Tag",
+        "Bei hohem Hämatokrit: Elektrolytgetränke statt reines Wasser bei Sport",
+        "Regelmäßige moderate Bewegung verbessert die Mikrozirkulation",
+        "Rauchen aufgeben – einer der häufigsten Gründe für erhöhten Hämatokrit",
+        "Alkohol in Maßen – dehydriert und kann Hämatokrit akut erhöhen"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-3 g täglich",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Verbessern die Fließeigenschaften des Blutes und die Mikrozirkulation."
+        },
+        {
+          "name": "Eisen (als Eisenbisglycinat)",
+          "dosage": "20-40 mg elementares Eisen",
+          "timing": "Nüchtern mit Vitamin C",
+          "notes": "Nur bei erniedrigtem Hämatokrit UND nachgewiesenem Eisenmangel."
+        }
+      ],
+      "redFlags": [
+        "Hämatokrit >60%: Akute Thrombosegefahr – sofortige Notfallversorgung (Aderlass/Erythrozytapherese)",
+        "Hämatokrit <25%: Schwere Anämie mit Gefahr der Herzdekompensation – stationäre Aufnahme"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "mcv",
+    "name": "MCV (Mittleres Zellvolumen)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Das mittlere korpuskuläre Volumen (MCV) beschreibt die durchschnittliche Größe eines einzelnen Erythrozyten. Es ist der wichtigste Parameter zur Einteilung von Anämien in mikrozytär (klein), normozytär (normal) und makrozytär (groß). In Kombination mit MCH und MCHC ermöglicht es eine gezielte Ursachensuche bei Blutbildveränderungen.",
+    "unit": "fl",
+    "alternativeUnits": [],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": { "min": 80, "max": 100 },
+      "female": { "min": 80, "max": 100 }
+    },
+    "optimal": {
+      "male": { "min": 85, "max": 95, "target": 90 },
+      "female": { "min": 85, "max": 95, "target": 90 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Eisenmangel (häufigste Ursache für mikrozytäre Erythrozyten)",
+          "Thalassämie (genetische Hämoglobinstörung, besonders bei mediterraner Herkunft)",
+          "Chronische Entzündungen (Anämie der chronischen Erkrankung)",
+          "Sideroachrestische Anämie (gestörte Eisenverwertung)",
+          "Bleivergiftung",
+          "Kupfermangel",
+          "Langfristiger Alkoholmissbrauch (paradox, da Alkohol meist MCV erhöht)"
+        ],
+        "symptoms": [
+          "Müdigkeit und verminderte Leistungsfähigkeit",
+          "Blässe und fahle Hautfarbe",
+          "Brüchige Nägel (Koilonychie/Löffelnägel)",
+          "Mundwinkelrhagaden",
+          "Restless-Legs-Syndrom",
+          "Haarausfall"
+        ],
+        "relatedValues": [
+          "mch",
+          "mchc",
+          "ferritin",
+          "transferrin",
+          "transferrinsaettigung",
+          "erythrozyten",
+          "haemoglobin",
+          "hs-crp"
+        ],
+        "actions": [
+          "Eisenstatus vollständig bestimmen (Ferritin, Transferrin, Transferrinsättigung, löslicher Transferrinrezeptor)",
+          "Bei normalen Eisenwerten: Thalassämie-Diagnostik erwägen (Hb-Elektrophorese)",
+          "CRP bestimmen, um Entzündung als Ursache auszuschließen",
+          "Bleiexposition erfragen (Beruf, alte Wasserleitungen)",
+          "Ernährungsanamnese bezüglich Eisenzufuhr erheben"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Vitamin-B12-Mangel (perniziöse Anämie, vegane Ernährung, Malabsorption)",
+          "Folsäuremangel",
+          "Alkoholmissbrauch (direkt toxischer Effekt auf Erythropoese)",
+          "Medikamente (Methotrexat, Antikonvulsiva, Hydroxyurea)",
+          "Hypothyreose",
+          "Myelodysplastisches Syndrom (MDS)",
+          "Lebererkrankungen",
+          "Retikulozytose (Retikulozyten sind größer als reife Erythrozyten)"
+        ],
+        "symptoms": [
+          "Müdigkeit und Schwäche",
+          "Neurologische Symptome (Kribbeln, Taubheit – besonders bei B12-Mangel)",
+          "Glossitis (glatte, rote Zunge – Hunter-Glossitis)",
+          "Gedächtnisstörungen und Verwirrtheit",
+          "Gangstörungen (funikuläre Myelose bei B12-Mangel)"
+        ],
+        "relatedValues": [
+          "mch",
+          "vitamin_b12",
+          "folsaeure",
+          "homocystein",
+          "methylmalonsaeure",
+          "retikulozyten",
+          "tsh",
+          "ggt"
+        ],
+        "actions": [
+          "Vitamin B12 und Folsäure bestimmen lassen",
+          "Homocystein als funktionellen Marker für B12/Folsäure messen",
+          "Alkoholkonsum erfragen und dokumentieren",
+          "Schilddrüsenfunktion überprüfen (TSH)",
+          "Medikamentenanamnese erheben (Methotrexat, Antiepileptika)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Das MCV liegt im optimalen Bereich. Die Erythrozyten haben eine normale Größe, was auf eine ausreichende Versorgung mit Eisen, Vitamin B12 und Folsäure hindeutet."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "MCV <70 fl + Ferritin <15 ng/ml",
+        "interpretation": "Schwerer Eisenmangel als Ursache der mikrozytären Anämie gesichert. Orale oder parenterale Eisensubstitution einleiten.",
+        "severity": "warning"
+      },
+      {
+        "condition": "MCV >110 fl + Vitamin B12 <200 pg/ml",
+        "interpretation": "Ausgeprägte megaloblastäre Anämie durch B12-Mangel. Neurologische Schäden möglich – sofortige B12-Substitution.",
+        "severity": "warning"
+      },
+      {
+        "condition": "MCV niedrig + Ferritin normal/erhöht + CRP erhöht",
+        "interpretation": "Anämie der chronischen Erkrankung wahrscheinlich. Ferritin ist als Akute-Phase-Protein bei Entzündung nicht aussagekräftig.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Bei niedrigem MCV: eisenreiche Ernährung mit Vitamin C kombinieren",
+        "Bei hohem MCV: Alkoholkonsum reduzieren oder eliminieren",
+        "Vielseitige Ernährung mit Fleisch, Fisch, Eiern, Hülsenfrüchten und Blattgemüse",
+        "Vegetarier/Veganer: regelmäßige B12-Kontrolle und Supplementation",
+        "Ausreichend grünes Gemüse für Folsäure (Spinat, Brokkoli, Spargel)"
+      ],
+      "supplements": [
+        {
+          "name": "Vitamin B12 (Methylcobalamin/Adenosylcobalamin)",
+          "dosage": "1000 µg bei nachgewiesenem Mangel",
+          "timing": "Morgens sublingual oder als Kapsel",
+          "notes": "Bei schwerem Mangel initial Injektionen erwägen. Methylcobalamin ist die bioaktive Form."
+        },
+        {
+          "name": "Folsäure (5-MTHF)",
+          "dosage": "400-800 µg",
+          "timing": "Morgens",
+          "notes": "WICHTIG: Nie isoliert Folsäure bei unklarem B12-Status geben – kann B12-Mangel maskieren!"
+        },
+        {
+          "name": "Eisen (als Eisenbisglycinat)",
+          "dosage": "20-40 mg",
+          "timing": "Nüchtern mit Vitamin C",
+          "notes": "Bei mikrozytärer Anämie und nachgewiesenem Eisenmangel."
+        }
+      ],
+      "redFlags": [
+        "MCV >120 fl: Schwere megaloblastäre Anämie – sofortige B12/Folsäure-Diagnostik und Substitution",
+        "MCV <65 fl mit Anämie: Schwerer Eisenmangel oder Thalassämie – hämatologische Abklärung"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "mch",
+    "name": "MCH (Mittlerer Hämoglobingehalt)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "MCH (Mean Corpuscular Hemoglobin) gibt den durchschnittlichen Hämoglobingehalt eines einzelnen Erythrozyten an. Es ist ein wichtiger Parameter zur Klassifizierung von Anämien: hypochrom (zu wenig Hb pro Zelle), normochrom oder hyperchrom (zu viel Hb pro Zelle). MCH korreliert eng mit dem MCV.",
+    "unit": "pg",
+    "alternativeUnits": [
+      { "unit": "fmol", "factor": 0.06206 }
+    ],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": { "min": 27, "max": 34 },
+      "female": { "min": 27, "max": 34 }
+    },
+    "optimal": {
+      "male": { "min": 28, "max": 32, "target": 30 },
+      "female": { "min": 28, "max": 32, "target": 30 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Eisenmangel (zu wenig Eisen für die Hämoglobinsynthese)",
+          "Thalassämie (genetisch bedingte Hämoglobin-Synthesestörung)",
+          "Chronische Erkrankungen mit gestörter Eisenverwertung",
+          "Bleivergiftung (Hemmung der Häm-Synthese)",
+          "Kupfermangel (Ceruloplasmin-Mangel stört Eisenmetabolismus)",
+          "Sideroachrestische Anämie"
+        ],
+        "symptoms": [
+          "Müdigkeit und Abgeschlagenheit",
+          "Blässe (besonders Bindehaut und Nagelbett)",
+          "Brüchige Nägel und Rillenbildung",
+          "Mundwinkelrhagaden (Cheilitis angularis)",
+          "Haarausfall"
+        ],
+        "relatedValues": [
+          "mcv",
+          "mchc",
+          "ferritin",
+          "transferrin",
+          "transferrinsaettigung",
+          "erythrozyten",
+          "haemoglobin"
+        ],
+        "actions": [
+          "Eisenstatus bestimmen (Ferritin, Transferrin, Transferrinsättigung)",
+          "CRP mitbestimmen, da Ferritin bei Entzündung falsch hoch sein kann",
+          "Bei Verdacht auf Thalassämie: Hb-Elektrophorese durchführen",
+          "Ernährungsanamnese erheben",
+          "Bei nachgewiesenem Eisenmangel: Supplementation einleiten"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Vitamin-B12-Mangel (gestörte DNA-Synthese, größere Erythrozyten)",
+          "Folsäuremangel",
+          "Alkoholmissbrauch",
+          "Hypothyreose (verlangsamter Stoffwechsel)",
+          "Medikamentennebenwirkung (z. B. Methotrexat, Antikonvulsiva)",
+          "Myelodysplastisches Syndrom",
+          "Lebererkrankungen",
+          "Hereditäre Sphärozytose (Kugelzellanämie)"
+        ],
+        "symptoms": [
+          "Müdigkeit und Konzentrationsschwäche",
+          "Kribbeln und Taubheit in Händen und Füßen (Polyneuropathie)",
+          "Glatte, gerötete Zunge (Hunter-Glossitis)",
+          "Gangunsicherheit",
+          "Stimmungsschwankungen und Depression"
+        ],
+        "relatedValues": [
+          "mcv",
+          "mchc",
+          "vitamin_b12",
+          "folsaeure",
+          "homocystein",
+          "retikulozyten",
+          "tsh"
+        ],
+        "actions": [
+          "Vitamin B12 und Folsäure bestimmen",
+          "Homocystein und ggf. Methylmalonsäure als funktionelle Marker messen",
+          "Schilddrüsenwerte überprüfen (TSH, fT3, fT4)",
+          "Alkoholkonsum evaluieren",
+          "Medikamentenliste auf mögliche Auslöser prüfen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der MCH-Wert liegt im optimalen Bereich. Jeder Erythrozyt enthält die richtige Menge an Hämoglobin für einen effizienten Sauerstofftransport."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "MCH <26 pg + MCV <80 fl",
+        "interpretation": "Mikrozytäre, hypochrome Anämie – typisch für Eisenmangel oder Thalassämie. Eisenstatus als nächsten Schritt bestimmen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "MCH >35 pg + MCV >100 fl",
+        "interpretation": "Makrozytäre, hyperchrome Anämie – an Vitamin-B12-/Folsäuremangel oder Alkohol denken.",
+        "severity": "attention"
+      },
+      {
+        "condition": "MCH erniedrigt + Erythrozyten erhöht + Hb normal/leicht erniedrigt",
+        "interpretation": "Typische Konstellation für Thalassaemia minor. Hb-Elektrophorese zur Bestätigung empfehlen.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Bei niedrigem MCH: eisenreiche Lebensmittel mit Vitamin C kombinieren",
+        "Häm-Eisen (tierisch) wird besser aufgenommen als Non-Häm-Eisen (pflanzlich)",
+        "Calciumreiche Lebensmittel nicht gleichzeitig mit Eisenquellen verzehren",
+        "Vollwertige Ernährung mit ausreichend B-Vitaminen",
+        "Regelmäßige Kontrolle bei vegetarischer/veganer Ernährung"
+      ],
+      "supplements": [
+        {
+          "name": "Eisen (als Eisenbisglycinat)",
+          "dosage": "20-40 mg",
+          "timing": "Nüchtern morgens mit Vitamin C",
+          "notes": "Bei hypochromem MCH und nachgewiesenem Eisenmangel. Kontrolle nach 8-12 Wochen."
+        },
+        {
+          "name": "Vitamin B12 (Methylcobalamin)",
+          "dosage": "500-1000 µg",
+          "timing": "Morgens sublingual",
+          "notes": "Bei hyperchromem MCH und B12-Mangel. Sublingual bei Resorptionsstörungen."
+        },
+        {
+          "name": "Folsäure (5-MTHF)",
+          "dosage": "400-800 µg",
+          "timing": "Morgens",
+          "notes": "Nie ohne gleichzeitige B12-Bestimmung – Folsäure kann B12-Mangel-Symptome maskieren."
+        }
+      ],
+      "redFlags": [
+        "MCH <24 pg mit Hb <10 g/dl: Klinisch relevante hypochrome Anämie – zügige Abklärung",
+        "MCH >38 pg mit neurologischen Symptomen: Dringend B12 bestimmen – Gefahr irreversibler Nervenschäden"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "mchc",
+    "name": "MCHC (Mittlere Hämoglobinkonzentration)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "MCHC (Mean Corpuscular Hemoglobin Concentration) gibt die durchschnittliche Hämoglobinkonzentration pro Erythrozyt an – also wie dicht der rote Blutfarbstoff in der Zelle gepackt ist. Ein erniedrigter MCHC zeigt an, dass die Erythrozyten relativ zu ihrem Volumen zu wenig Hämoglobin enthalten. Der MCHC ist der stabilste der drei Erythrozytenindizes.",
+    "unit": "g/dl",
+    "alternativeUnits": [
+      { "unit": "mmol/l", "factor": 0.6206 }
+    ],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": { "min": 32, "max": 36 },
+      "female": { "min": 32, "max": 36 }
+    },
+    "optimal": {
+      "male": { "min": 33, "max": 35, "target": 34 },
+      "female": { "min": 33, "max": 35, "target": 34 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Eisenmangelanämie (häufigste Ursache)",
+          "Thalassämie",
+          "Chronische Entzündungen mit gestörtem Eisenstoffwechsel",
+          "Sideroachrestische Anämie",
+          "Bleivergiftung",
+          "Kupfermangel"
+        ],
+        "symptoms": [
+          "Müdigkeit und Leistungsminderung",
+          "Blässe der Haut und Schleimhäute",
+          "Belastungsdyspnoe",
+          "Brüchige Nägel und Haare",
+          "Konzentrationsstörungen"
+        ],
+        "relatedValues": [
+          "mcv",
+          "mch",
+          "ferritin",
+          "transferrin",
+          "transferrinsaettigung",
+          "erythrozyten",
+          "haemoglobin"
+        ],
+        "actions": [
+          "Vollständigen Eisenstatus bestimmen",
+          "CRP mitbestimmen, um Entzündung als Ursache auszuschließen",
+          "Bei isoliert erniedrigtem MCHC ohne Anämie: Kontrolle in 4-6 Wochen",
+          "Ernährung auf Eisenzufuhr prüfen",
+          "Bei Frauen: Menstruationsblutung als Ursache evaluieren"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Hereditäre Sphärozytose (Kugelzellanämie – häufigste Ursache für echten MCHC-Anstieg)",
+          "Hämolytische Anämie",
+          "Kälteagglutinine (Laborartefakt bei Raumtemperatur-Messung)",
+          "Schwere Dehydration",
+          "Laborartefakt (Lipämie, hohe Leukozytose)",
+          "Sichelzellanämie"
+        ],
+        "symptoms": [
+          "Ikterus (Gelbfärbung der Haut und Skleren bei Hämolyse)",
+          "Splenomegalie (tastbare Milzvergrößerung)",
+          "Dunkler Urin (Hämoglobinurie bei Hämolyse)",
+          "Gallensteine in jungem Alter (Pigmentsteine bei chronischer Hämolyse)"
+        ],
+        "relatedValues": [
+          "mcv",
+          "mch",
+          "ldh",
+          "haptoglobin",
+          "bilirubin",
+          "retikulozyten"
+        ],
+        "actions": [
+          "Blutausstrich anfordern (Sphärozyten? Sichelzellen?)",
+          "Hämolyse-Parameter bestimmen (LDH, Haptoglobin, Bilirubin, Retikulozyten)",
+          "Laborartefakte ausschließen (Lipämie, Kälteagglutinine)",
+          "Bei V.a. Sphärozytose: osmotische Resistenz oder EMA-Test durchführen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der MCHC liegt im optimalen Bereich. Die Hämoglobinkonzentration in den Erythrozyten ist ideal – weder zu verdünnt noch zu konzentriert."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "MCHC >36 g/dl + LDH erhöht + Haptoglobin erniedrigt",
+        "interpretation": "Starker Hinweis auf hämolytische Anämie, möglicherweise Sphärozytose. Hämatologische Abklärung empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "MCHC erniedrigt + MCH erniedrigt + MCV erniedrigt",
+        "interpretation": "Klassische mikrozytäre, hypochrome Anämie. Eisenstatus als ersten Schritt bestimmen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "MCHC >37 g/dl ohne Hämolysezeichen",
+        "interpretation": "Möglicherweise Laborartefakt (Lipämie, Kälteagglutinine). Probe erneut analysieren lassen.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausgewogene Ernährung mit ausreichend Eisen und B-Vitaminen",
+        "Eisenreiche Lebensmittel regelmäßig einplanen",
+        "Vitamin C zu den Mahlzeiten fördert die Eisenaufnahme",
+        "Regelmäßige Blutbildkontrollen bei bekannter Anämie",
+        "Ausreichende Flüssigkeitszufuhr für optimale Blutviskosität"
+      ],
+      "supplements": [
+        {
+          "name": "Eisen (als Eisenbisglycinat)",
+          "dosage": "20-40 mg",
+          "timing": "Nüchtern mit Vitamin C",
+          "notes": "Bei hypochromem MCHC und Eisenmangel. Kontrolle nach 8-12 Wochen."
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": "200-500 mg",
+          "timing": "Zusammen mit Eisenpräparat",
+          "notes": "Steigert die Eisenresorption im Darm erheblich."
+        }
+      ],
+      "redFlags": [
+        "MCHC >38 g/dl: Hereditäre Sphärozytose oder schwere Hämolyse – hämatologische Vorstellung",
+        "MCHC erniedrigt + Hb <8 g/dl: Schwere hypochrome Anämie – stationäre Abklärung erwägen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "leukozyten",
+    "name": "Leukozyten (Weiße Blutkörperchen)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Leukozyten sind die weißen Blutkörperchen und das Herzstück des Immunsystems. Sie umfassen verschiedene Zelltypen (Neutrophile, Lymphozyten, Monozyten, Eosinophile, Basophile), die jeweils unterschiedliche Aufgaben in der Immunabwehr übernehmen. Die Gesamtleukozytenzahl gibt einen ersten Überblick über die Immunaktivität und mögliche Infektionen.",
+    "unit": "Tsd/µl",
+    "alternativeUnits": [
+      { "unit": "G/l", "factor": 1 },
+      { "unit": "/µl", "factor": 1000 }
+    ],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": { "min": 4.0, "max": 10.0 },
+      "female": { "min": 4.0, "max": 10.0 }
+    },
+    "optimal": {
+      "male": { "min": 5.0, "max": 7.5, "target": 6.0 },
+      "female": { "min": 5.0, "max": 7.5, "target": 6.0 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Virusinfektionen (HIV, Hepatitis, EBV, CMV – häufigste vorübergehende Ursache)",
+          "Medikamente (Zytostatika, Immunsuppressiva, Metamizol, Thyreostatika, einige Antibiotika)",
+          "Autoimmunerkrankungen (systemischer Lupus erythematodes)",
+          "Knochenmarkschädigung (Strahlung, Chemotherapie, Toxine)",
+          "Hypersplenismus (gesteigerte Milzfunktion mit vermehrtem Abbau)",
+          "Schwere bakterielle Infektionen (paradox: Sepsis kann Leukozyten verbrauchen)",
+          "Vitamin-B12- oder Folsäuremangel (beeinträchtigt Zellproduktion)",
+          "Aplastische Anämie"
+        ],
+        "symptoms": [
+          "Erhöhte Infektanfälligkeit",
+          "Rezidivierende Infektionen (Harnwege, Atemwege, Haut)",
+          "Fieber ohne klare Ursache",
+          "Abgeschlagenheit und Schwäche",
+          "Mundschleimhautentzündungen (Stomatitis)"
+        ],
+        "relatedValues": [
+          "differentialblutbild",
+          "neutrophile",
+          "lymphozyten",
+          "hs-crp",
+          "erythrozyten",
+          "thrombozyten",
+          "vitamin_b12"
+        ],
+        "actions": [
+          "Differentialblutbild anfordern (welche Leukozytenfraktion ist betroffen?)",
+          "Medikamentenanamnese erheben (häufigste iatrogene Ursache)",
+          "Virusserologie erwägen (HIV, Hepatitis B/C, EBV)",
+          "Bei Neutrophilen <1.0 Tsd/µl: Infektionsprophylaxe besprechen",
+          "Vitamin B12 und Folsäure bestimmen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Bakterielle Infektionen (häufigste Ursache, besonders Neutrophilie)",
+          "Akute Entzündungsreaktionen (Appendizitis, Cholezystitis, Pneumonie)",
+          "Stress (körperlich und psychisch – Cortisol mobilisiert Leukozyten)",
+          "Rauchen (chronische Leukozytose durch Schleimhautreizung)",
+          "Medikamente (Kortikosteroide, Lithium, Adrenalin)",
+          "Leukämie und myeloproliferative Erkrankungen",
+          "Allergische Reaktionen (besonders Eosinophilie)",
+          "Gewebsnekrose (Herzinfarkt, Verbrennungen)"
+        ],
+        "symptoms": [
+          "Fieber und Schüttelfrost (bei Infektion)",
+          "Lokale Entzündungszeichen (Rötung, Schwellung, Schmerz, Überwärmung)",
+          "Nachtschweiß (bei hämatologischen Erkrankungen)",
+          "Ungewollter Gewichtsverlust",
+          "Lymphknotenschwellung"
+        ],
+        "relatedValues": [
+          "differentialblutbild",
+          "neutrophile",
+          "hs-crp",
+          "procalcitonin",
+          "bsg",
+          "ldh"
+        ],
+        "actions": [
+          "Differentialblutbild anfordern zur Einordnung (Linksverschiebung? Lymphozytose? Eosinophilie?)",
+          "Infektfokus suchen (Anamnese, körperliche Untersuchung, ggf. Bildgebung)",
+          "CRP bestimmen zur Einschätzung der Entzündungsaktivität",
+          "Bei Leukozytose >30 Tsd/µl ohne Infekt: Leukämie ausschließen",
+          "Rauchen als Ursache einer chronischen milden Leukozytose bedenken"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Leukozytenzahl liegt im funktionell optimalen Bereich. Das Immunsystem ist weder über- noch unteraktiviert. Keine Hinweise auf akute Infektion oder Immunsuppression."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Leukozyten >15 Tsd/µl + CRP >50 mg/l + Fieber",
+        "interpretation": "Starker Hinweis auf schwere bakterielle Infektion oder Sepsis. Sofortige ärztliche Abklärung und ggf. Antibiotikatherapie.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Leukozyten <2 Tsd/µl",
+        "interpretation": "Schwere Leukopenie mit hohem Infektionsrisiko. Differentialblutbild und hämatologische Abklärung dringend erforderlich.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Leukozyten leicht erhöht (10-12 Tsd/µl) ohne Symptome",
+        "interpretation": "Kann durch Stress, körperliche Anstrengung oder Rauchen bedingt sein. Kontrolle in 2-4 Wochen empfohlen.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausreichend Schlaf (7-9 Stunden) – Schlafmangel schwächt das Immunsystem messbar",
+        "Regelmäßige moderate Bewegung stärkt die Immunfunktion",
+        "Stressmanagement (chronischer Stress erhöht Leukozyten über Cortisol)",
+        "Rauchen aufgeben – senkt die chronische Entzündung und Leukozytenzahl",
+        "Ausgewogene Ernährung reich an Antioxidantien (Obst, Gemüse, Beeren)"
+      ],
+      "supplements": [
+        {
+          "name": "Vitamin D3",
+          "dosage": "1000-4000 IE täglich (abhängig vom Spiegel)",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Vitamin D moduliert das Immunsystem. Spiegel sollte 40-60 ng/ml betragen. Vorher messen!"
+        },
+        {
+          "name": "Zink",
+          "dosage": "15-25 mg",
+          "timing": "Abends, nicht zusammen mit Eisen oder Kupfer",
+          "notes": "Essentiell für die Leukozytenfunktion. Besonders bei Infektanfälligkeit sinnvoll."
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": "500-1000 mg",
+          "timing": "Über den Tag verteilt",
+          "notes": "Unterstützt die Funktion der Neutrophilen und Lymphozyten."
+        }
+      ],
+      "redFlags": [
+        "Leukozyten <1 Tsd/µl (Agranulozytose): Lebensbedrohlich – sofortige stationäre Aufnahme, Umkehrisolation",
+        "Leukozyten >50 Tsd/µl: Verdacht auf Leukämie – sofortige hämatologische Diagnostik",
+        "Leukozyten <3 Tsd/µl mit Fieber >38.5°C: Neutropenes Fieber – Notfall, sofort Antibiotika"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "thrombozyten",
+    "name": "Thrombozyten (Blutplättchen)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Thrombozyten sind die kleinsten zellulären Bestandteile des Blutes und spielen die zentrale Rolle bei der Blutgerinnung (Hämostase). Sie bilden bei Gefäßverletzungen einen Pfropf (Thrombus), der die Blutung stillt. Die Thrombozytenzahl ist wichtig zur Beurteilung von Blutungsneigung und Thromboserisiko.",
+    "unit": "Tsd/µl",
+    "alternativeUnits": [
+      { "unit": "G/l", "factor": 1 },
+      { "unit": "/µl", "factor": 1000 }
+    ],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": { "min": 150, "max": 400 },
+      "female": { "min": 150, "max": 400 }
+    },
+    "optimal": {
+      "male": { "min": 200, "max": 300, "target": 250 },
+      "female": { "min": 200, "max": 300, "target": 250 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Immunthrombozytopenie (ITP – Autoantikörper gegen Thrombozyten)",
+          "Medikamente (Heparin [HIT], Chemotherapie, viele Antibiotika, NSAR)",
+          "Virusinfektionen (HIV, Hepatitis C, EBV, CMV)",
+          "Leberzirrhose (verminderte Thrombopoetin-Produktion + Hypersplenismus)",
+          "Knochenmarkerkrankungen (Myelodysplasie, Leukämie, Metastasen)",
+          "Pseudothrombozytopenie (EDTA-bedingte Aggregation – Laborartefakt!)",
+          "Verbrauchskoagulopathie (DIC – disseminierte intravasale Koagulopathie)",
+          "Schwangerschaftsassoziiert (HELLP-Syndrom, Gestationsthrombozytopenie)"
+        ],
+        "symptoms": [
+          "Petechien (punktförmige Hautblutungen, v.a. an den Beinen)",
+          "Nasenbluten und Zahnfleischbluten",
+          "Hämatome bei geringen Traumata",
+          "Verlängerte Blutungszeit nach Schnittverletzungen",
+          "Bei schwerer Thrombopenie: gastrointestinale Blutungen, Hirnblutung"
+        ],
+        "relatedValues": [
+          "mpv",
+          "gerinnungsstatus",
+          "leukozyten",
+          "erythrozyten",
+          "ldh",
+          "leberwerte",
+          "hs-crp"
+        ],
+        "actions": [
+          "Pseudothrombozytopenie ausschließen: Citrat-Blut-Kontrolle anfordern",
+          "Medikamentenanamnese erheben (Heparin, NSAR, Antibiotika)",
+          "Leberfunktion prüfen (GPT, GOT, GGT, Albumin)",
+          "Bei Thrombozyten <50 Tsd/µl: hämatologische Vorstellung",
+          "Blutausstrich zur morphologischen Beurteilung"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Reaktive Thrombozytose (Infektion, Entzündung, Eisenmangel – häufigste Ursache)",
+          "Eisenmangelanämie (stimuliert Thrombopoese)",
+          "Zustand nach Splenektomie (fehlender Abbauort)",
+          "Essentielle Thrombozythämie (myeloproliferative Neoplasie)",
+          "Chronisch-entzündliche Erkrankungen (Morbus Crohn, rheumatoide Arthritis)",
+          "Zustand nach akutem Blutverlust oder Operation",
+          "Maligne Tumoren (paraneoplastisch)"
+        ],
+        "symptoms": [
+          "Meist asymptomatisch bei reaktiver Thrombozytose",
+          "Kopfschmerzen und Schwindel (bei stark erhöhten Werten)",
+          "Sehstörungen (Mikrozirkulationsstörungen)",
+          "Paradox: Sowohl Thrombosen als auch Blutungen möglich bei >1000 Tsd/µl",
+          "Erythromelalgie (brennende Schmerzen und Rötung der Extremitäten)"
+        ],
+        "relatedValues": [
+          "ferritin",
+          "hs-crp",
+          "leukozyten",
+          "erythrozyten",
+          "ldh"
+        ],
+        "actions": [
+          "CRP und Ferritin bestimmen (reaktive Ursache vs. myeloproliferativ)",
+          "Eisenstatus prüfen – Eisenmangel ist häufige Ursache für Thrombozytose",
+          "Bei Thrombozyten >600 Tsd/µl ohne reaktive Ursache: JAK2-Mutation testen",
+          "Kontrolle in 4-6 Wochen nach Behandlung der Grunderkrankung",
+          "Bei Werten >1000 Tsd/µl: Thrombose- und Blutungsprophylaxe besprechen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Thrombozytenzahl liegt im funktionell optimalen Bereich. Die Blutgerinnung funktioniert normal, und es besteht weder ein erhöhtes Blutungs- noch Thromboserisiko."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Thrombozyten <100 Tsd/µl + Petechien",
+        "interpretation": "Klinisch relevante Thrombozytopenie mit Blutungszeichen. Hämatologische Abklärung und engmaschige Kontrolle erforderlich.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Thrombozyten >500 Tsd/µl + CRP erhöht",
+        "interpretation": "Wahrscheinlich reaktive Thrombozytose bei Entzündung oder Infektion. Normalisiert sich nach Behandlung der Grunderkrankung.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Thrombozyten <150 Tsd/µl als Einzelbefund ohne Symptome",
+        "interpretation": "Pseudothrombozytopenie (EDTA-Artefakt) ausschließen durch Citrat-Kontrolle. Häufiger Laborbefund ohne klinische Relevanz.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausgewogene Ernährung mit ausreichend Eisen, B12 und Folsäure",
+        "Alkoholkonsum reduzieren – Alkohol hemmt die Thrombopoese",
+        "Bei niedrigen Thrombozyten: Kontaktsportarten und Verletzungsrisiken minimieren",
+        "Omega-3-Fettsäuren haben einen leicht thrombozytenaggregationshemmenden Effekt",
+        "Regelmäßige Bewegung fördert die Knochenmarkfunktion"
+      ],
+      "supplements": [
+        {
+          "name": "Eisen (als Eisenbisglycinat)",
+          "dosage": "20-40 mg",
+          "timing": "Nüchtern mit Vitamin C",
+          "notes": "Bei Thrombozytose durch Eisenmangel: Eisensubstitution senkt die Thrombozytenzahl."
+        },
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-3 g täglich",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Leicht antithrombotisch. Bei sehr niedrigen Thrombozyten (<100 Tsd/µl) mit Arzt besprechen."
+        },
+        {
+          "name": "Vitamin B12",
+          "dosage": "500-1000 µg",
+          "timing": "Morgens",
+          "notes": "B12-Mangel kann Thrombozytopenie verursachen."
+        }
+      ],
+      "redFlags": [
+        "Thrombozyten <20 Tsd/µl: Hohes Spontanblutungsrisiko – sofortige stationäre Aufnahme, ggf. Thrombozytentransfusion",
+        "Thrombozyten >1000 Tsd/µl: Risiko für Thrombosen UND paradoxe Blutungen – hämatologischer Notfall",
+        "Plötzlicher Thrombozytenabfall unter Heparin: HIT (Heparin-induzierte Thrombozytopenie) – Heparin sofort stoppen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "hs-crp",
+    "name": "hs-CRP (Hochsensitives C-reaktives Protein)",
+    "category": "entzuendung",
+    "categoryLabel": "Entzündungsmarker",
+    "description": "Das hochsensitive CRP (hs-CRP) ist ein Akute-Phase-Protein, das in der Leber gebildet wird und als sensibler Marker für Entzündungen im Körper dient. Im Gegensatz zum konventionellen CRP kann das hs-CRP auch niedriggradige, chronische Entzündungen erfassen – ein wichtiger Risikofaktor für Herz-Kreislauf-Erkrankungen. Laut Thiemo Osterhaus ist der Referenzbereich <5 mg/l viel zu hoch angesetzt; der optimale Wert liegt unter 1 mg/l. WICHTIG: CRP ist wie Ferritin ein Akute-Phase-Protein – bei erhöhtem CRP ist der Ferritin-Wert nicht aussagekräftig für den Eisenstatus.",
+    "unit": "mg/l",
+    "alternativeUnits": [
+      { "unit": "mg/dl", "factor": 0.1 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0, "max": 5.0 },
+      "female": { "min": 0, "max": 5.0 }
+    },
+    "optimal": {
+      "male": { "min": 0, "max": 1.0, "target": 0.5 },
+      "female": { "min": 0, "max": 1.0, "target": 0.5 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [],
+        "symptoms": [],
+        "relatedValues": [],
+        "actions": []
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Akute bakterielle Infektionen (CRP steigt innerhalb von 6-12 Stunden stark an)",
+          "Chronische niedriggradige Entzündung (Silent Inflammation – z. B. durch Übergewicht, Insulinresistenz)",
+          "Autoimmunerkrankungen (rheumatoide Arthritis, Morbus Crohn, Lupus)",
+          "Parodontitis und Zahnfleischentzündungen (oft übersehen!)",
+          "Kardiovaskuläres Risiko (CRP >1 mg/l korreliert mit erhöhtem Herzinfarkt-/Schlaganfallrisiko)",
+          "Viszerales Fettgewebe (Adipozyten produzieren proinflammatorische Zytokine)",
+          "Rauchen (chronische Entzündung der Atemwege)",
+          "Schlafmangel und chronischer Stress"
+        ],
+        "symptoms": [
+          "Oft asymptomatisch bei chronisch niedriggradiger Entzündung",
+          "Unspezifische Müdigkeit und Abgeschlagenheit",
+          "Gelenk- und Muskelschmerzen",
+          "Fieber und Krankheitsgefühl (bei akuter Entzündung)",
+          "Allgemeine Infektanfälligkeit"
+        ],
+        "relatedValues": [
+          "ferritin",
+          "leukozyten",
+          "bsg",
+          "interleukin_6",
+          "bilirubin",
+          "hba1c",
+          "triglyceride"
+        ],
+        "actions": [
+          "Bei CRP >5 mg/l: akute Entzündungsursache suchen (Infekt, Verletzung, OP)",
+          "Bei CRP 1-5 mg/l ohne akuten Infekt: chronische Entzündungsquellen evaluieren (Zahngesundheit, Darm, Übergewicht)",
+          "Ferritin-Wert bei erhöhtem CRP NICHT als Eisenstatus-Marker verwenden",
+          "Körperfettanteil reduzieren bei Übergewicht (viszerales Fett ist inflammatorisch)",
+          "Zahnärztliche Kontrolle empfehlen (Parodontitis ist häufige versteckte Entzündungsquelle)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Das hs-CRP liegt unter 1 mg/l – dem laut Osterhaus wirklich optimalen Bereich. Keine Hinweise auf systemische Entzündung. Das kardiovaskuläre Risiko durch Entzündung ist minimal. Ferritin-Werte sind in diesem Fall aussagekräftig."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "CRP >5 mg/l",
+        "interpretation": "Akute Entzündung vorhanden. Andere Werte wie Ferritin sind als Akute-Phase-Proteine nicht aussagekräftig für den Eisenstatus. Ferritin kann falsch hoch erscheinen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "CRP 1-3 mg/l ohne akuten Infekt",
+        "interpretation": "Chronische niedriggradige Entzündung (Silent Inflammation). Erhöhtes kardiovaskuläres Risiko. Lebensstil-Optimierung und Entzündungsquellen suchen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "CRP >100 mg/l",
+        "interpretation": "Schwere akute Entzündung – bakterielle Infektion, Sepsis, Gewebsnekrose oder Autoimmunschub wahrscheinlich. Sofortige ärztliche Abklärung.",
+        "severity": "warning"
+      },
+      {
+        "condition": "CRP erhöht + Ferritin erhöht",
+        "interpretation": "Ferritin ist ebenfalls ein Akute-Phase-Protein und steigt bei Entzündung an. Der erhöhte Ferritin-Wert spiegelt NICHT den wahren Eisenspeicher wider. Transferrinsättigung oder löslicher Transferrinrezeptor für Eisenstatus verwenden.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Entzündungshemmende Ernährung: viel Gemüse, Obst, Fisch, Olivenöl, Nüsse (mediterrane Kost)",
+        "Zucker und hochverarbeitete Lebensmittel reduzieren (fördern Entzündung)",
+        "Regelmäßige moderate Bewegung (150 min/Woche) senkt CRP nachweislich",
+        "Übergewicht reduzieren – besonders viszerales Fett ist proinflammatorisch",
+        "Ausreichend Schlaf (7-8 Stunden) – Schlafmangel erhöht CRP",
+        "Stressreduktion (Cortisol fördert chronische Entzündung)",
+        "Rauchen aufgeben",
+        "Zahngesundheit pflegen (professionelle Zahnreinigung, Parodontitis behandeln)"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-4 g täglich (EPA-betont)",
+          "timing": "Zu fetthaltiger Mahlzeit, aufgeteilt auf 2 Einnahmen",
+          "notes": "Stärkster evidenzbasierter Supplement-Effekt auf CRP-Senkung. EPA wirkt stärker antiinflammatorisch als DHA."
+        },
+        {
+          "name": "Curcumin (mit Piperin oder als Mizell-Curcumin)",
+          "dosage": "500-1000 mg",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Starke antiinflammatorische Wirkung. Bioverfügbarkeit beachten – Piperin oder mizellare Form nötig."
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": "1000-4000 IE (abhängig vom Spiegel)",
+          "timing": "Zu fetthaltiger Mahlzeit",
+          "notes": "Vitamin-D-Mangel korreliert mit erhöhtem CRP. Spiegel vorher bestimmen (Ziel: 40-60 ng/ml)."
+        },
+        {
+          "name": "Magnesium (als Glycinat oder Citrat)",
+          "dosage": "300-400 mg elementares Magnesium",
+          "timing": "Abends",
+          "notes": "Magnesiummangel ist mit erhöhtem CRP assoziiert. Abends wegen entspannender Wirkung."
+        }
+      ],
+      "redFlags": [
+        "CRP >100 mg/l: Schwere Infektion oder Sepsis – sofortige Notfalldiagnostik und -therapie",
+        "CRP-Anstieg nach OP oder Trauma, der nach 3-5 Tagen nicht abfällt: Komplikation (Abszess, Sekundärinfektion) ausschließen",
+        "CRP persistierend >10 mg/l ohne erklärbare Ursache: Malignomsuche erwägen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "ck",
+    "name": "CK (Creatinkinase)",
+    "category": "entzuendung",
+    "categoryLabel": "Entzündungsmarker",
+    "description": "Die Creatinkinase (CK) ist ein Enzym, das vor allem in der Skelettmuskulatur, im Herzmuskel und im Gehirn vorkommt. Sie katalysiert die Übertragung von Phosphatgruppen und ist essentiell für den Energiestoffwechsel der Muskelzellen. Ein erhöhter CK-Wert zeigt eine Muskelzellschädigung an. WICHTIG: Die CK ist kein Leberwert, obwohl sie häufig fälschlicherweise so eingeordnet wird. Nach intensivem Training kann der CK-Wert um das 10-fache ansteigen – daher 48-72 Stunden Trainingspause vor der Blutabnahme einhalten.",
+    "unit": "U/l",
+    "alternativeUnits": [
+      { "unit": "µkat/l", "factor": 0.0167 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0, "max": 190 },
+      "female": { "min": 0, "max": 170 }
+    },
+    "optimal": {
+      "male": { "min": 30, "max": 150, "target": 90 },
+      "female": { "min": 25, "max": 120, "target": 70 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Geringe Muskelmasse (Sarkopenie, Immobilität)",
+          "Schilddrüsenüberfunktion (Hyperthyreose – beschleunigter Muskelabbau)",
+          "Langfristige Kortikosteroidtherapie (katabole Wirkung auf Muskulatur)",
+          "Schwere Lebererkrankung (verminderte CK-Synthese)",
+          "Mangelernährung und Kachexie",
+          "Chronische Bettlägerigkeit"
+        ],
+        "symptoms": [
+          "Muskelschwäche",
+          "Verminderte körperliche Leistungsfähigkeit",
+          "Schnelle Ermüdbarkeit",
+          "Muskelatrophie sichtbar"
+        ],
+        "relatedValues": [
+          "ldh",
+          "tsh",
+          "albumin",
+          "kreatinin"
+        ],
+        "actions": [
+          "Schilddrüsenfunktion überprüfen (TSH, fT3, fT4)",
+          "Muskelmasse und Ernährungsstatus evaluieren",
+          "Medikamentenanamnese (Kortikosteroide, Statine in Kombination)",
+          "Bei Verdacht auf Sarkopenie: Krafttraining empfehlen",
+          "Proteinzufuhr sicherstellen (1.2-1.6 g/kg Körpergewicht)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Intensive körperliche Belastung (häufigste Ursache – bis 10-fache Erhöhung möglich)",
+          "Muskeltrauma und Verletzungen (Quetschung, Prellung, Sturz)",
+          "Rhabdomyolyse (massiver Muskelzerfall – Notfall!)",
+          "Myokardinfarkt (CK-MB-Fraktion erhöht)",
+          "Myopathien und Muskeldystrophien (Duchenne, Becker)",
+          "Medikamente (Statine – Cholesterinsenker, Fibrate)",
+          "Hypothyreose (verminderte Muskelenzymclearance)",
+          "Intramuskuläre Injektionen"
+        ],
+        "symptoms": [
+          "Muskelschmerzen und -steifheit (Myalgie)",
+          "Muskelschwellung und -druckschmerz",
+          "Dunkler Urin (Cola-farbig bei Rhabdomyolyse – Myoglobinurie)",
+          "Muskelschwäche",
+          "Bei Herzinfarkt: Brustschmerz, Ausstrahlung, Atemnot"
+        ],
+        "relatedValues": [
+          "ldh",
+          "myoglobin",
+          "ck_mb",
+          "troponin",
+          "kreatinin",
+          "kalium",
+          "got_ast",
+          "tsh"
+        ],
+        "actions": [
+          "Trainingsanamnese erheben – CK 48-72h nach Belastung messen",
+          "Medikamentenanamnese (Statine! Fibrate! Kombination besonders riskant)",
+          "Bei CK >5x Norm ohne Trainingsbezug: Myopathie-Diagnostik einleiten",
+          "Bei V.a. Herzinfarkt: Troponin bestimmen (spezifischer als CK-MB)",
+          "Nierenfunktion überwachen (Kreatinin) – Rhabdomyolyse kann akutes Nierenversagen verursachen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der CK-Wert liegt im optimalen Bereich. Keine Hinweise auf relevante Muskelzellschädigung. Die Muskelmasse und der Muskelstoffwechsel sind in einem gesunden Gleichgewicht."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "CK erhöht + Messung innerhalb von 48h nach intensivem Training",
+        "interpretation": "Trainingsbedingte CK-Erhöhung – kein pathologischer Befund. Wert normalisiert sich innerhalb von 3-7 Tagen. Für aussagekräftige Messung 48-72h Trainingspause einhalten.",
+        "severity": "info"
+      },
+      {
+        "condition": "CK >1000 U/l + dunkler Urin",
+        "interpretation": "Verdacht auf Rhabdomyolyse – massiver Muskelzerfall mit Gefahr des akuten Nierenversagens. Sofortige Notfallbehandlung mit Volumentherapie erforderlich.",
+        "severity": "warning"
+      },
+      {
+        "condition": "CK erhöht + Statin-Einnahme",
+        "interpretation": "Statin-induzierte Myopathie möglich. CK-Anstieg unter Statinen ernst nehmen. Bei CK >5x Norm: Statin pausieren und Arzt konsultieren.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Trainingsintensität stufenweise steigern (DOMS/Muskelkater reduzieren)",
+        "Ausreichende Regenerationszeiten zwischen intensiven Trainingseinheiten",
+        "Adäquate Proteinzufuhr zur Muskelreparatur (1.2-2.0 g/kg bei Sportlern)",
+        "Ausreichende Hydration während und nach dem Training",
+        "Vor Blutabnahme: 48-72 Stunden kein intensives Training"
+      ],
+      "supplements": [
+        {
+          "name": "Magnesium (als Glycinat oder Citrat)",
+          "dosage": "300-400 mg",
+          "timing": "Abends nach dem Training",
+          "notes": "Unterstützt Muskelentspannung und -regeneration. Reduziert Muskelkrämpfe."
+        },
+        {
+          "name": "Coenzym Q10 (Ubiquinol)",
+          "dosage": "100-200 mg",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Besonders wichtig bei Statin-Einnahme – Statine hemmen die körpereigene Q10-Synthese und können so Muskelprobleme verstärken."
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": "1000-4000 IE",
+          "timing": "Zu fetthaltiger Mahlzeit",
+          "notes": "Vitamin-D-Mangel ist mit Myopathie und erhöhtem CK assoziiert."
+        }
+      ],
+      "redFlags": [
+        "CK >10.000 U/l: Rhabdomyolyse – sofortige Notaufnahme, Gefahr des akuten Nierenversagens",
+        "CK erhöht + Brustschmerz + Atemnot: Herzinfarkt ausschließen – sofort Notarzt",
+        "Persistierend erhöhte CK ohne erklärbare Ursache: Muskeldystrophie oder Myositis ausschließen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  },
+  {
+    "id": "ldh",
+    "name": "LDH (Lactatdehydrogenase)",
+    "category": "entzuendung",
+    "categoryLabel": "Entzündungsmarker",
+    "description": "Die Lactatdehydrogenase (LDH) ist ein Enzym, das in nahezu allen Körperzellen vorkommt und bei der Umwandlung von Laktat zu Pyruvat und umgekehrt eine Rolle spielt. Da es ubiquitär verbreitet ist, ist LDH ein unspezifischer Marker für Zellschädigung und Gewebezerfall. Es hat verschiedene Isoenzyme (LDH-1 bis LDH-5), die eine gewisse Organzuordnung ermöglichen. LDH steigt auch nach körperlicher Belastung an.",
+    "unit": "U/l",
+    "alternativeUnits": [
+      { "unit": "µkat/l", "factor": 0.0167 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 120, "max": 250 },
+      "female": { "min": 120, "max": 250 }
+    },
+    "optimal": {
+      "male": { "min": 140, "max": 220, "target": 180 },
+      "female": { "min": 140, "max": 220, "target": 180 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Genetisch bedingte LDH-Defizienz (selten)",
+          "Reaktive Hypoglykämie",
+          "Übermäßiger Vitamin-C-Konsum (kann die Messung stören)",
+          "Laborfehler oder Probenverwechslung",
+          "Oxalat-Hemmung im Reagenz (Laborartefakt)"
+        ],
+        "symptoms": [
+          "Meist keine klinischen Symptome",
+          "Bei LDH-Mangel: eingeschränkte Muskelleistung unter extremer Belastung",
+          "Myoglobinurie nach intensiver Belastung (selten)"
+        ],
+        "relatedValues": [
+          "ck",
+          "got_ast",
+          "glucose"
+        ],
+        "actions": [
+          "Klinische Relevanz abwägen – isoliert erniedrigte LDH ist selten bedeutsam",
+          "Vitamin-C-Einnahme erfragen (kann Messwert verfälschen)",
+          "Messung wiederholen lassen zur Bestätigung",
+          "Bei persistierend niedrigen Werten: genetische LDH-Variante erwägen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Hämolyse (intravaskulär oder artifiziell durch Probenentnahme – LDH-1/2 erhöht)",
+          "Myokardinfarkt (LDH-1 erhöht, steigt verzögert nach 24-48h)",
+          "Lebererkrankungen (Hepatitis, Leberstauung – LDH-5 erhöht)",
+          "Intensive körperliche Belastung (LDH-4/5 erhöht)",
+          "Maligne Tumoren (besonders Lymphome, Keimzelltumore, Metastasen)",
+          "Lungenembolie",
+          "Megaloblastäre Anämie (ineffektive Erythropoese)",
+          "Gewebeischämie und Infarkte jeder Art"
+        ],
+        "symptoms": [
+          "Abhängig von der Grunderkrankung – LDH selbst verursacht keine Symptome",
+          "Gelbsucht/Ikterus (bei Hämolyse oder Lebererkrankung)",
+          "Brustschmerz und Atemnot (bei Herzinfarkt oder Lungenembolie)",
+          "Müdigkeit und Schwäche (bei Anämie)",
+          "Fieber und Nachtschweiß (bei malignen Erkrankungen)"
+        ],
+        "relatedValues": [
+          "ck",
+          "got_ast",
+          "gpt_alt",
+          "ggt",
+          "bilirubin",
+          "haptoglobin",
+          "retikulozyten",
+          "troponin",
+          "hs-crp"
+        ],
+        "actions": [
+          "Laborartefakt ausschließen (Hämolyse der Blutprobe? → Probe erneut abnehmen)",
+          "LDH-Isoenzyme bestimmen lassen zur Organzuordnung",
+          "Hämolyse-Parameter prüfen (Haptoglobin, indirektes Bilirubin, Retikulozyten)",
+          "Trainingsanamnese erheben (LDH steigt nach Sport an)",
+          "Bei persistierender Erhöhung ohne erklärbare Ursache: Tumormarker und Bildgebung erwägen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der LDH-Wert liegt im optimalen Bereich. Keine Hinweise auf relevante Zellschädigung oder Gewebezerfall. Die zelluläre Integrität der Organe ist intakt."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "LDH erhöht + Haptoglobin erniedrigt + Bilirubin erhöht",
+        "interpretation": "Klassische Hämolyse-Trias. Intravaskuläre Zerstörung von Erythrozyten. Ursache abklären (Autoimmun, mechanisch, infektiös).",
+        "severity": "warning"
+      },
+      {
+        "condition": "LDH erhöht + Messung innerhalb von 48h nach intensivem Training",
+        "interpretation": "Trainingsbedingte LDH-Erhöhung wahrscheinlich. Kein pathologischer Befund. Kontrolle nach 3-5 Tagen Trainingspause.",
+        "severity": "info"
+      },
+      {
+        "condition": "LDH stark erhöht (>500 U/l) + Nachtschweiß + Gewichtsverlust",
+        "interpretation": "B-Symptomatik mit hoher LDH: Malignom ausschließen, insbesondere Lymphom. Bildgebung und hämatologische Vorstellung empfohlen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Trainingsintensität angemessen dosieren und Regeneration einplanen",
+        "Vor Blutabnahme: 48-72 Stunden kein intensives Training",
+        "Antioxidantienreiche Ernährung zum Schutz der Zellmembranen",
+        "Ausreichende Flüssigkeitszufuhr (Hämolyse-Risiko bei Dehydration erhöht)",
+        "Alkoholkonsum reduzieren (schützt Leberzellen)"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-3 g täglich",
+          "timing": "Zu fetthaltiger Mahlzeit",
+          "notes": "Stabilisieren Zellmembranen und haben antiinflammatorische Wirkung."
+        },
+        {
+          "name": "Vitamin E (als gemischte Tocopherole)",
+          "dosage": "100-200 IE",
+          "timing": "Zu fetthaltiger Mahlzeit",
+          "notes": "Schützt Zellmembranen als lipophiles Antioxidans vor oxidativem Stress."
+        },
+        {
+          "name": "Coenzym Q10 (Ubiquinol)",
+          "dosage": "100-200 mg",
+          "timing": "Zu fetthaltiger Mahlzeit",
+          "notes": "Unterstützt den mitochondrialen Energiestoffwechsel und schützt vor oxidativem Zellschaden."
+        }
+      ],
+      "redFlags": [
+        "LDH >1000 U/l: Schwere Gewebeschädigung – sofortige Abklärung (Hämolyse, Tumor, Organinfarkt)",
+        "LDH-Anstieg + akuter Brustschmerz: Herzinfarkt oder Lungenembolie ausschließen – Notfall",
+        "Persistierend erhöhte LDH über Wochen ohne erklärbare Ursache: Lymphom oder andere Malignome ausschließen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code - Thiemo Osterhaus",
+      "Labormedizin - Lothar Thomas"
+    ]
+  }
+]
