@@ -15,7 +15,10 @@ import {
   Trash2,
   FileText,
   ChevronDown,
+  FileUp,
 } from 'lucide-react';
+import { parsePdf } from '../../utils/pdf-parser';
+import type { ParsedLabValue } from '../../utils/pdf-parser';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -253,8 +256,11 @@ export default function BloodworkEntry() {
   const [csvFeedback, setCsvFeedback] = useState<string | null>(null);
   const [showEntryList, setShowEntryList] = useState(false);
   const [saveFlash, setSaveFlash] = useState(false);
+  const [pdfPreview, setPdfPreview] = useState<ParsedLabValue[] | null>(null);
+  const [pdfParsing, setPdfParsing] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const pdfInputRef = useRef<HTMLInputElement>(null);
 
   // ---- Load entries on mount ----
   useEffect(() => {
@@ -458,6 +464,56 @@ export default function BloodworkEntry() {
     [values],
   );
 
+  // ---- PDF Upload handler ----
+  const handlePdfUpload = useCallback(
+    async (file: File) => {
+      setCsvFeedback(null);
+      setPdfParsing(true);
+      setPdfPreview(null);
+      try {
+        const result = await parsePdf(file);
+        if (result.warnings.length > 0) {
+          setCsvFeedback(result.warnings.join(' '));
+        }
+        if (result.date) setDate(result.date);
+        if (result.gender) setGender(result.gender);
+
+        if (result.values.length > 0) {
+          setPdfPreview(result.values);
+          const labInfo = result.lab ? ` (${result.lab})` : '';
+          const dateInfo = result.date
+            ? ` vom ${result.date.split('-').reverse().join('.')}`
+            : '';
+          setCsvFeedback(
+            `PDF erkannt${labInfo}${dateInfo}: ${result.values.length} Blutwerte gefunden. Bitte prüfen und übernehmen.`,
+          );
+        } else {
+          setCsvFeedback(
+            'Keine Blutwerte in der PDF erkannt. Ist dies ein Laborbefund?',
+          );
+        }
+      } catch (err) {
+        setCsvFeedback(
+          `Fehler beim Lesen der PDF: ${err instanceof Error ? err.message : 'Unbekannter Fehler'}`,
+        );
+      } finally {
+        setPdfParsing(false);
+      }
+    },
+    [],
+  );
+
+  const applyPdfValues = useCallback(() => {
+    if (!pdfPreview) return;
+    const newValues: Record<string, number> = { ...values };
+    for (const pv of pdfPreview) {
+      newValues[pv.id] = pv.value;
+    }
+    setValues(newValues);
+    setCsvFeedback(`${pdfPreview.length} Werte erfolgreich übernommen!`);
+    setPdfPreview(null);
+  }, [pdfPreview, values]);
+
   // ---- Derived ----
   const categoryValues = getValuesByCategory(activeCategory);
   const filledCount = Object.keys(values).length;
@@ -625,31 +681,54 @@ export default function BloodworkEntry() {
             </div>
           </div>
 
-          {/* CSV Upload */}
+          {/* Import Buttons */}
           <div className="flex flex-col gap-1">
             <span className="text-xs font-medium text-text-secondary">
-              CSV Import
+              Import
             </span>
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept=".csv,text/csv"
-              className="hidden"
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                if (file) handleCsvUpload(file);
-                e.target.value = '';
-              }}
-            />
-            <button
-              onClick={() => fileInputRef.current?.click()}
-              className="flex items-center gap-1.5 rounded-lg border border-border bg-bg-input px-4 py-2
-                         text-sm text-text-secondary hover:text-text-primary hover:border-accent/50
-                         transition-colors"
-            >
-              <Upload size={16} />
-              CSV hochladen
-            </button>
+            <div className="flex gap-2">
+              <input
+                ref={pdfInputRef}
+                type="file"
+                accept=".pdf,application/pdf"
+                className="hidden"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) handlePdfUpload(file);
+                  e.target.value = '';
+                }}
+              />
+              <button
+                onClick={() => pdfInputRef.current?.click()}
+                disabled={pdfParsing}
+                className="flex items-center gap-1.5 rounded-lg border border-accent/40 bg-accent/10 px-4 py-2
+                           text-sm text-accent hover:bg-accent/20 hover:border-accent/60
+                           transition-colors disabled:opacity-50"
+              >
+                <FileUp size={16} />
+                {pdfParsing ? 'Lese PDF...' : 'PDF Import'}
+              </button>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept=".csv,text/csv"
+                className="hidden"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) handleCsvUpload(file);
+                  e.target.value = '';
+                }}
+              />
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                className="flex items-center gap-1.5 rounded-lg border border-border bg-bg-input px-4 py-2
+                           text-sm text-text-secondary hover:text-text-primary hover:border-accent/50
+                           transition-colors"
+              >
+                <Upload size={16} />
+                CSV
+              </button>
+            </div>
           </div>
 
           {/* Save button */}
@@ -665,10 +744,78 @@ export default function BloodworkEntry() {
           </button>
         </div>
 
-        {/* CSV Feedback message */}
+        {/* Import Feedback message */}
         {csvFeedback && (
           <div className="rounded-lg border border-accent/30 bg-accent/5 px-4 py-2 text-sm text-text-secondary mb-4">
             {csvFeedback}
+          </div>
+        )}
+
+        {/* PDF Preview & Confirm */}
+        {pdfPreview && (
+          <div className="rounded-xl border border-accent/30 bg-bg-card p-4 mb-4">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-sm font-semibold text-text-primary">
+                {pdfPreview.length} Werte aus PDF erkannt
+              </h4>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setPdfPreview(null)}
+                  className="rounded-lg border border-border px-3 py-1.5 text-xs text-text-secondary
+                             hover:text-text-primary transition-colors"
+                >
+                  Abbrechen
+                </button>
+                <button
+                  onClick={applyPdfValues}
+                  className="rounded-lg bg-accent hover:bg-accent-hover px-4 py-1.5 text-xs font-medium
+                             text-white transition-colors"
+                >
+                  Alle übernehmen
+                </button>
+              </div>
+            </div>
+            <div className="max-h-64 overflow-y-auto space-y-1">
+              {pdfPreview.map((pv) => {
+                const bv = bloodValues.find((b) => b.id === pv.id);
+                return (
+                  <div
+                    key={pv.id}
+                    className="flex items-center justify-between gap-2 rounded-lg px-3 py-1.5
+                               hover:bg-bg-input/40 text-sm"
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="text-text-primary truncate">
+                        {bv?.name ?? pv.name}
+                      </span>
+                      {pv.converted && (
+                        <span className="shrink-0 rounded bg-warning/10 border border-warning/30 px-1.5 py-0.5 text-[10px] text-warning">
+                          umgerechnet
+                        </span>
+                      )}
+                      {pv.note && (
+                        <span className="shrink-0 text-[10px] text-text-muted" title={pv.note}>
+                          *
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <span className="font-mono font-medium text-text-primary">
+                        {pv.value}
+                      </span>
+                      <span className="text-xs text-text-muted">{pv.unit}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {pdfPreview.some((pv) => pv.note) && (
+              <div className="mt-3 pt-2 border-t border-border/50">
+                <p className="text-[10px] text-text-muted">
+                  * Hinweise: {pdfPreview.filter((pv) => pv.note).map((pv) => pv.note).join(' | ')}
+                </p>
+              </div>
+            )}
           </div>
         )}
 
