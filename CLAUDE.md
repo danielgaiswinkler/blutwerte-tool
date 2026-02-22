@@ -20,6 +20,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - [ ] Schritt 7: Empfehlungen & Optimierung (foods.json + supplements.json Daten vorhanden!)
 - [ ] Schritt 8: PDF-Export / Berichte
 - [ ] Profile/Personen (mehrere Nutzer mit eigenen Werten)
+- [ ] Laien-Info: "Was bedeutet dieser Wert?" — verständliche Erklärung pro Blutwert (Daten in description-Feld vorhanden, z.B. als Info-Icon/Tooltip im Dashboard, Eingabe und Detailansicht)
 - [ ] updates-from-research.json (34 Patches) in Hauptdatenbank mergen
 - [ ] BloodworkEntry refactoren (inline Helpers → shared utils)
 
