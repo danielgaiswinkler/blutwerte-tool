@@ -2,6 +2,7 @@ import { Routes, Route, NavLink } from 'react-router-dom'
 import { Activity, Upload, BarChart3, TrendingUp, Settings, FileText } from 'lucide-react'
 import Dashboard from './components/Dashboard/Dashboard'
 import BloodworkEntry from './components/BloodworkEntry/BloodworkEntry'
+import BloodValueDetail from './components/BloodValueDetail/BloodValueDetail'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       <main className="flex-1 p-8 overflow-auto">
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/wert/:id" element={<BloodValueDetail />} />
           <Route path="/eingabe" element={<BloodworkEntry />} />
           <Route path="/trend" element={<PlaceholderPage title="Verlauf" />} />
           <Route path="/bericht" element={<PlaceholderPage title="Bericht" />} />

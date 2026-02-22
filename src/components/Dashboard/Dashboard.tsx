@@ -372,16 +372,17 @@ function CategoryCard({
         <div className="border-t border-(--color-border)/50 px-5 py-3">
           <div className="space-y-2">
             {sorted.map((av) => (
-              <div
+              <Link
                 key={av.bv.id}
-                className="flex items-center justify-between gap-3 py-1.5"
+                to={`/wert/${av.bv.id}`}
+                className="flex items-center justify-between gap-3 py-1.5 rounded-lg px-2 -mx-2 hover:bg-(--color-bg-input)/40 transition-colors cursor-pointer group"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div
                     className="w-2.5 h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: statusColor(av.status) }}
                   />
-                  <span className="text-sm text-(--color-text-primary) truncate">
+                  <span className="text-sm text-(--color-text-primary) truncate group-hover:text-(--color-accent) transition-colors">
                     {av.bv.name}
                   </span>
                 </div>
@@ -392,8 +393,9 @@ function CategoryCard({
                   <span className="text-xs text-(--color-text-muted)">
                     {av.bv.unit}
                   </span>
+                  <ArrowRight size={14} className="text-(--color-text-muted) opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-              </div>
+              </Link>
             ))}
             {/* Show unfilled values grayed out */}
             {allCategoryValues
@@ -445,9 +447,10 @@ function CriticalAlert({
           const deviation = deviationText(av.value, av.bv, gender);
 
           return (
-            <div
+            <Link
               key={av.bv.id}
-              className="flex flex-wrap items-start justify-between gap-2 bg-(--color-bg-card)/60 rounded-lg px-4 py-3 border border-[var(--color-danger)]/20"
+              to={`/wert/${av.bv.id}`}
+              className="flex flex-wrap items-start justify-between gap-2 bg-(--color-bg-card)/60 rounded-lg px-4 py-3 border border-[var(--color-danger)]/20 hover:bg-(--color-bg-input)/40 transition-colors group"
             >
               <div className="min-w-0">
                 <div className="flex items-center gap-2 mb-1">
@@ -455,7 +458,7 @@ function CriticalAlert({
                     className="w-2.5 h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: 'var(--color-danger)' }}
                   />
-                  <span className="text-sm font-medium text-(--color-text-primary)">
+                  <span className="text-sm font-medium text-(--color-text-primary) group-hover:text-(--color-accent) transition-colors">
                     {av.bv.name}
                   </span>
                   <span className="text-xs text-(--color-text-muted)">
@@ -471,15 +474,18 @@ function CriticalAlert({
                   )}
                 </div>
               </div>
-              <div className="text-right shrink-0">
-                <span className="text-lg font-mono font-bold text-(--color-danger)">
-                  {av.value}
-                </span>
-                <span className="text-xs text-(--color-text-muted) ml-1">
-                  {av.bv.unit}
-                </span>
+              <div className="flex items-center gap-2 text-right shrink-0">
+                <div>
+                  <span className="text-lg font-mono font-bold text-(--color-danger)">
+                    {av.value}
+                  </span>
+                  <span className="text-xs text-(--color-text-muted) ml-1">
+                    {av.bv.unit}
+                  </span>
+                </div>
+                <ArrowRight size={16} className="text-(--color-text-muted) opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
