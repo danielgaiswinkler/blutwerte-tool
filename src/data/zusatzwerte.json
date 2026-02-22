@@ -1,0 +1,1261 @@
+[
+  {
+    "id": "rt3",
+    "name": "Reverse T3 (rT3)",
+    "category": "schilddruese",
+    "categoryLabel": "Schilddrüse",
+    "description": "Inaktive Form des Schilddrüsenhormons. Blockiert fT3-Rezeptoren bei Stress, Entzündung oder Kaloriendefizit. Von Leitlinien NICHT standardmäßig empfohlen, in funktioneller Medizin jedoch als Konversionsstörungs-Marker genutzt.",
+    "unit": "pg/ml",
+    "alternativeUnits": [
+      { "unit": "pmol/l", "factor": 1.54 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 9.2, "max": 24.1 },
+      "female": { "min": 9.2, "max": 24.1 }
+    },
+    "optimal": {
+      "male": { "min": 9, "max": 18, "target": 13 },
+      "female": { "min": 9, "max": 18, "target": 13 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Überdosierung von T3-Präparaten (Liothyronin)",
+          "Hyperthyreose (beschleunigte Clearance)",
+          "Sehr gute T4-zu-T3-Konversion (positiv)",
+          "Seltene genetische Dejodinase-Varianten",
+          "Analytische Schwankungen (niedriger Bereich schwer messbar)"
+        ],
+        "symptoms": [
+          "In der Regel keine spezifischen Symptome bei niedrigem rT3",
+          "Bei gleichzeitig hohem fT3: Hyperthyreose-Symptome möglich",
+          "Herzrasen, innere Unruhe (wenn T3-Überschuss vorliegt)"
+        ],
+        "relatedValues": ["ft3", "ft4", "tsh", "cortisol"],
+        "actions": [
+          "fT3 und fT4 mitbestimmen, um Gesamtbild zu beurteilen",
+          "TSH kontrollieren – niedriges rT3 bei niedrigem TSH kann auf Hyperthyreose hindeuten",
+          "Medikamentenanamnese prüfen (T3-Präparate?)",
+          "Kein isolierter Handlungsbedarf bei normalen fT3/TSH-Werten"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Chronischer Stress (Cortisol fördert rT3-Bildung)",
+          "Kaloriendefizit oder Fasten (Sparstoffwechsel)",
+          "Schwere Krankheit (Non-thyroidal illness syndrome / Euthyroid-Sick-Syndrom)",
+          "Selenmangel (Dejodinase-Enzyme sind selenabhängig)",
+          "Chronische Entzündungen (Zytokine hemmen T4-zu-T3-Konversion)",
+          "Eisenmangel (beeinträchtigt Schilddrüsenstoffwechsel)",
+          "Medikamente (Betablocker, Amiodaron, Propylthiouracil)",
+          "Lebererkrankungen (gestörte periphere Konversion)"
+        ],
+        "symptoms": [
+          "Müdigkeit trotz normalem TSH (‚versteckte Hypothyreose')",
+          "Kälteempfindlichkeit",
+          "Brain Fog und Konzentrationsstörungen",
+          "Gewichtszunahme oder Schwierigkeiten beim Abnehmen",
+          "Haarausfall und trockene Haut",
+          "Depressive Verstimmung"
+        ],
+        "relatedValues": ["ft3", "ft4", "tsh", "cortisol", "selen", "ferritin", "hs-crp"],
+        "actions": [
+          "fT3/rT3-Ratio berechnen (sollte >0.2 sein, optimal 0.2-0.5)",
+          "Selenstatus prüfen und ggf. supplementieren (200 µg/Tag)",
+          "Stressmanagement: Cortisol senken (Schlaf, Meditation, Adaptogene)",
+          "Kaloriendefizit ausgleichen – keine extreme Diät bei erhöhtem rT3",
+          "Entzündungsmarker (hs-CRP) bestimmen und Ursache behandeln"
+        ]
+      },
+      "optimal": {
+        "meaning": "rT3 im optimalen Bereich deutet auf eine gute T4-zu-T3-Konversion hin. Der Körper bildet nicht übermäßig viel inaktives rT3, was bedeutet, dass kein ausgeprägter metabolischer Stress oder Konversionsstörung vorliegt. Dennoch immer zusammen mit fT3, fT4 und TSH bewerten."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Experimenteller Marker",
+        "interpretation": "rT3 ist von Leitlinien NICHT standardmäßig empfohlen. Als experimenteller/optionaler Marker verwenden, nicht als primärer Entscheidungstreiber.",
+        "severity": "info"
+      },
+      {
+        "condition": "fT3/rT3-Ratio <0.2",
+        "interpretation": "Hinweis auf Low-T3-Syndrom / Konversionsstörung. T4 wird vermehrt zu inaktivem rT3 statt aktivem T3 konvertiert. Selen, Stress und Entzündungen prüfen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "rT3 erhöht + fT3 niedrig-normal + TSH normal",
+        "interpretation": "Typisches Muster einer Konversionsstörung: TSH erscheint normal, aber die aktive Hormonspiegel sind insuffizient. Häufig bei chronischem Stress oder Kaloriendefizit.",
+        "severity": "attention"
+      },
+      {
+        "condition": "fT3/rT3-Ratio 0.2-0.5 (in pg/ml berechnet)",
+        "interpretation": "Optimale Konversionsbalance. Alternativ kann die Ratio auch als fT3*100/rT3 berechnet werden, dann ist 10-28 optimal.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Stressreduktion: Chronischer Stress ist der Haupttreiber für erhöhtes rT3 – Schlafhygiene, Meditation, moderate Bewegung",
+        "Keine extremen Diäten: Kaloriendefizit >500 kcal/Tag fördert rT3-Bildung als Schutzreaktion",
+        "Entzündungsquellen minimieren: Zucker, Transfette, Alkohol reduzieren",
+        "Regelmäßige moderate Bewegung (kein Übertraining – fördert ebenfalls rT3)"
+      ],
+      "supplements": [
+        {
+          "name": "Selen (Selenomethionin)",
+          "dosage": "200 µg/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Dejodinase-Enzyme sind selenabhängig. Selen unterstützt die T4-zu-T3-Konversion und senkt rT3."
+        },
+        {
+          "name": "Zink",
+          "dosage": "15-25 mg/Tag",
+          "timing": "Zu einer Mahlzeit, nicht zusammen mit Eisen",
+          "notes": "Zink ist Cofaktor für Dejodinase und unterstützt die Schilddrüsenfunktion."
+        },
+        {
+          "name": "Ashwagandha",
+          "dosage": "300-600 mg/Tag (KSM-66 Extrakt)",
+          "timing": "Abends oder aufgeteilt morgens/abends",
+          "notes": "Adaptogen zur Cortisol-Senkung. Kann rT3 indirekt über Stressreduktion senken."
+        }
+      ],
+      "redFlags": [
+        "rT3 >30 pg/ml bei gleichzeitig niedrigem fT3 – schwere Konversionsstörung, ärztliche Abklärung nötig",
+        "rT3 stark erhöht bei schwerer Erkrankung (Intensivstation) – Non-thyroidal illness, keine Schilddrüsenmedikation ohne Endokrinologen"
+      ]
+    },
+    "sources": [
+      "Perplexity Blutwerte-Wissensdatenbank",
+      "Gemini Blutwerte-Analyse",
+      "ChatGPT Deep Research Report"
+    ]
+  },
+  {
+    "id": "tpo-ak",
+    "name": "TPO-Antikörper (Thyreoperoxidase-AK)",
+    "category": "schilddruese",
+    "categoryLabel": "Schilddrüse",
+    "description": "Autoantikörper gegen Thyreoperoxidase. Erhöht bei Hashimoto-Thyreoiditis. Einmalige Bestimmung zum Autoimmun-Screening.",
+    "unit": "IU/ml",
+    "alternativeUnits": [
+      { "unit": "kU/l", "factor": 1 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 0, "max": 35 },
+      "female": { "min": 0, "max": 35 }
+    },
+    "optimal": {
+      "male": { "min": 0, "max": 35, "target": 0 },
+      "female": { "min": 0, "max": 35, "target": 0 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Normalbefund – negative Antikörper sind der Idealzustand",
+          "Kein Hinweis auf Autoimmunthyreoiditis"
+        ],
+        "symptoms": [],
+        "relatedValues": ["tsh", "ft3", "ft4"],
+        "actions": [
+          "Kein Handlungsbedarf bei negativen TPO-AK",
+          "Bei persistierenden Schilddrüsenbeschwerden trotz negativer TPO-AK: TRAK und Thyreoglobulin-AK (Tg-AK) bestimmen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Hashimoto-Thyreoiditis (häufigste Ursache, bis zu 90% der Fälle positiv)",
+          "Morbus Basedow (ca. 70% der Fälle auch TPO-AK positiv)",
+          "Postpartum-Thyreoiditis (nach Schwangerschaft)",
+          "Subklinische Autoimmunthyreoiditis (noch euthyreot)",
+          "Typ-1-Diabetes und andere Autoimmunerkrankungen (polyendokrines Syndrom)",
+          "Familiäre Prädisposition (genetische Autoimmunneigung)",
+          "Selenmangel (fördert Autoimmunprozesse der Schilddrüse)",
+          "Vitamin-D-Mangel (assoziiert mit erhöhter Autoimmunaktivität)"
+        ],
+        "symptoms": [
+          "Müdigkeit und Erschöpfung (wenn Hypothyreose eintritt)",
+          "Schwankende Schilddrüsenfunktion (Hashitoxikose-Phasen möglich)",
+          "Gewichtsschwankungen",
+          "Stimmungsschwankungen und depressive Verstimmung",
+          "Halsdruckgefühl oder Schluckbeschwerden",
+          "Haarausfall"
+        ],
+        "relatedValues": ["tsh", "ft3", "ft4", "selen", "vitamin-d", "hs-crp"],
+        "actions": [
+          "Schilddrüsen-Ultraschall durchführen lassen (typisches echoarmes Muster bei Hashimoto)",
+          "TSH, fT3 und fT4 bestimmen – Schilddrüsenfunktion engmaschig überwachen",
+          "Selen 200 µg/Tag supplementieren (senkt TPO-AK nachweislich bei Hashimoto)",
+          "Vitamin-D-Spiegel optimieren (Ziel: 40-60 ng/ml)",
+          "Endokrinologen aufsuchen zur Diagnosebestätigung und Therapieplanung"
+        ]
+      },
+      "optimal": {
+        "meaning": "Negative TPO-Antikörper (<35 IU/ml) sprechen gegen eine autoimmune Schilddrüsenerkrankung. Kein Hinweis auf Hashimoto-Thyreoiditis. Bei einmalig negativem Ergebnis ist in der Regel keine Wiederholungsbestimmung nötig."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "TPO-AK positiv (>35 IU/ml)",
+        "interpretation": "Hashimoto-Thyreoiditis wahrscheinlich. Selen 200 µg/Tag supplementieren und Vitamin D optimieren. Engmaschige TSH-Kontrolle alle 6-12 Monate.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Antikörper sind Diagnose-Marker, nicht Dosissteuerung",
+        "interpretation": "TPO-AK-Titer korrelieren nicht linear mit der Erkrankungsschwere. Verlaufskontrollen der Antikörper-Höhe sind zur Therapiesteuerung NICHT sinnvoll – Schilddrüsenfunktion (TSH/fT3/fT4) entscheidet.",
+        "severity": "info"
+      },
+      {
+        "condition": "TPO-AK positiv + TSH normal",
+        "interpretation": "Subklinische Autoimmunthyreoiditis – Schilddrüse funktioniert noch kompensiert. Jährliche TSH-Kontrolle empfohlen, da bis zu 5% pro Jahr in manifeste Hypothyreose übergehen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "TPO-AK-Titer sehr hoch (>500 IU/ml)",
+        "interpretation": "Hochaktive Autoimmunreaktion. Schilddrüsen-Ultraschall dringend empfohlen. Erhöhtes Risiko für rasche Progression zur Hypothyreose.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Glutenreduktion erwägen: Bei Hashimoto besteht häufig eine Assoziation mit Glutensensitivität (Eliminationsdiät über 3 Monate testen)",
+        "Stressreduktion: Chronischer Stress verstärkt Autoimmunprozesse",
+        "Ausreichend Schlaf (7-9 Stunden): Immunregulation ist schlafabhängig",
+        "Entzündungsfördernde Lebensmittel reduzieren (Zucker, stark verarbeitete Lebensmittel, Transfette)"
+      ],
+      "supplements": [
+        {
+          "name": "Selen (Selenomethionin)",
+          "dosage": "200 µg/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Evidenzbasiert: Senkt TPO-AK signifikant bei Hashimoto-Patienten. Wirkung nach 3-6 Monaten messbar."
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": "2000-4000 IE/Tag (nach Spiegel anpassen)",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Vitamin-D-Mangel ist stark mit Autoimmunthyreoiditis assoziiert. Ziel: 40-60 ng/ml."
+        },
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-3 g/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Antiinflammatorisch, kann Autoimmunaktivität modulieren."
+        }
+      ],
+      "redFlags": [
+        "TPO-AK positiv + rasch steigendes TSH – manifeste Hypothyreose droht, L-Thyroxin-Substitution besprechen",
+        "TPO-AK positiv + Schwangerschaftswunsch – erhöhtes Fehlgeburtrisiko, Endokrinologe konsultieren",
+        "TPO-AK positiv bei Kindern/Jugendlichen – pädiatrisch-endokrinologische Abklärung empfohlen"
+      ]
+    },
+    "sources": [
+      "Perplexity Blutwerte-Wissensdatenbank",
+      "ChatGPT Deep Research Report",
+      "IMD Berlin"
+    ]
+  },
+  {
+    "id": "serum-eisen",
+    "name": "Eisen (Serum)",
+    "category": "eisen",
+    "categoryLabel": "Eisen-Panel",
+    "description": "Aktueller Eisenspiegel im Blut. Stark tageszeitabhängig (morgens höher). Muss immer zusammen mit Ferritin und Transferrinsättigung beurteilt werden.",
+    "unit": "µg/dl",
+    "alternativeUnits": [
+      { "unit": "µmol/l", "factor": 0.179 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 60, "max": 170 },
+      "female": { "min": 50, "max": 170 }
+    },
+    "optimal": {
+      "male": { "min": 80, "max": 130, "target": 100 },
+      "female": { "min": 70, "max": 120, "target": 100 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Eisenmangelanämie (häufigste Ursache weltweit)",
+          "Chronische Blutverluste (Menstruation, gastrointestinale Blutungen)",
+          "Mangelnde Eisenaufnahme durch die Nahrung (vegetarische/vegane Ernährung)",
+          "Resorptionsstörungen (Zöliakie, Morbus Crohn, Magensäuremangel)",
+          "Erhöhter Eisenbedarf (Schwangerschaft, Wachstum, Leistungssport)",
+          "Chronische Entzündungen (Eisen wird in Speicher eingeschlossen – funktioneller Mangel)",
+          "Medikamente (Protonenpumpenhemmer reduzieren Eisenresorption)",
+          "Helicobacter-pylori-Infektion"
+        ],
+        "symptoms": [
+          "Müdigkeit und Leistungsabfall",
+          "Blässe (Haut, Schleimhäute, Nagelbett)",
+          "Haarausfall und brüchige Nägel",
+          "Restless-Legs-Syndrom",
+          "Kurzatmigkeit bei Belastung",
+          "Kopfschmerzen und Schwindel"
+        ],
+        "relatedValues": ["ferritin", "transferrin", "transferrinsaettigung", "hs-crp", "haemoglobin", "mcv"],
+        "actions": [
+          "Ferritin und Transferrinsättigung mitbestimmen (Serum-Eisen allein nicht aussagekräftig!)",
+          "Blutungsquelle suchen: Bei Männern und postmenopausalen Frauen immer gastrointestinale Ursachen ausschließen",
+          "Resorption optimieren: Vitamin C zu eisenreichen Mahlzeiten, Kaffee/Tee zeitlich trennen",
+          "Bei nachgewiesenem Mangel: Eisenpräparat (z. B. Eisenbisglycinat 20-40 mg/Tag)",
+          "Magensäure-Status prüfen: PPI-Einnahme hinterfragen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Hämochromatose (hereditäre Eisenspeicherkrankheit)",
+          "Übermäßige Eisensupplementierung",
+          "Häufige Bluttransfusionen",
+          "Hämolytische Anämie (Eisen aus zerstörten Erythrozyten freigesetzt)",
+          "Lebererkrankungen (gestörte Eisenregulation)",
+          "Alkoholische Lebererkrankung",
+          "Tageszeitliche Schwankung (morgens physiologisch höher)"
+        ],
+        "symptoms": [
+          "Gelenkschmerzen (insbesondere Finger, Handgelenke)",
+          "Müdigkeit und Abgeschlagenheit",
+          "Bauchschmerzen (Leberbeteiligung)",
+          "Dunkle Hautpigmentierung (Bronzediabetes)",
+          "Libidoverlust und Erektionsstörungen",
+          "Herzrhythmusstörungen (bei schwerer Eisenüberladung)"
+        ],
+        "relatedValues": ["ferritin", "transferrin", "transferrinsaettigung", "got", "gpt", "ggt"],
+        "actions": [
+          "Ferritin und Transferrinsättigung kontrollieren – bestätigen Eisenüberladung?",
+          "Genetische Testung auf HFE-Mutation (Hämochromatose) bei Transferrinsättigung >45%",
+          "Leberwerte kontrollieren (GOT, GPT, GGT) – Organschäden ausschließen",
+          "Eisensupplemente sofort absetzen falls eingenommen",
+          "Blutabnahme morgens nüchtern wiederholen (tageszeitliche Schwankung ausschließen)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Serum-Eisen im optimalen Bereich spricht für eine ausreichende Eisenversorgung zum Zeitpunkt der Blutabnahme. Wichtig: Serum-Eisen schwankt stark im Tagesverlauf und bei akuten Entzündungen. Immer zusammen mit Ferritin und Transferrinsättigung bewerten für eine zuverlässige Aussage."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Starke Tagesschwankungen",
+        "interpretation": "Serum-Eisen schwankt im Tagesverlauf um bis zu 30%. Nur morgens nüchtern bestimmen, um vergleichbare Werte zu erhalten.",
+        "severity": "info"
+      },
+      {
+        "condition": "Serum-Eisen isoliert betrachtet",
+        "interpretation": "Serum-Eisen allein ist NICHT aussagekräftig! Immer zusammen mit Ferritin und Transferrinsättigung bewerten. Serum-Eisen kann bei Entzündung normal sein, obwohl ein funktioneller Eisenmangel vorliegt.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Serum-Eisen niedrig + Ferritin erhöht + CRP erhöht",
+        "interpretation": "Funktioneller Eisenmangel bei Entzündung (Anemia of Chronic Disease). Eisen wird in Speichern festgehalten, obwohl Bedarf besteht.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Eisenreiche Lebensmittel: Rotes Fleisch, Leber, Hülsenfrüchte, dunkelgrünes Blattgemüse",
+        "Vitamin C zu eisenreichen Mahlzeiten (z. B. Paprika, Zitronensaft) – verbessert die Resorption um das 2-3-fache",
+        "Kaffee und Tee mindestens 30-60 Minuten von eisenreichen Mahlzeiten trennen (Tannine hemmen Eisenaufnahme)",
+        "Kalziumreiche Lebensmittel nicht gleichzeitig mit Eisenquellen kombinieren"
+      ],
+      "supplements": [
+        {
+          "name": "Eisenbisglycinat",
+          "dosage": "20-40 mg/Tag (elementares Eisen)",
+          "timing": "Nüchtern oder mit Vitamin C, nicht mit Kaffee/Milch",
+          "notes": "Besser verträglich als Eisensulfat. Alternate-Day-Dosing (jeden 2. Tag) kann die Resorption verbessern."
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": "200-500 mg zur Eiseneinnahme",
+          "timing": "Zusammen mit Eisen einnehmen",
+          "notes": "Erhöht die Eisenresorption um das 2-3-fache. Auch über Nahrung möglich (Paprika, Kiwi, Zitrusfrüchte)."
+        }
+      ],
+      "redFlags": [
+        "Serum-Eisen <30 µg/dl + Hämoglobin <12 g/dl (Frauen) bzw. <13 g/dl (Männer) – manifeste Eisenmangelanämie, ärztliche Behandlung nötig",
+        "Transferrinsättigung >45% – Hämochromatose ausschließen (HFE-Gentest)",
+        "Unerklärter Eisenmangel bei Männern oder postmenopausalen Frauen – immer gastrointestinale Blutungsquelle suchen (Koloskopie/Gastroskopie)"
+      ]
+    },
+    "sources": [
+      "Perplexity Blutwerte-Wissensdatenbank",
+      "Gemini Blutwerte-Analyse"
+    ]
+  },
+  {
+    "id": "kalium",
+    "name": "Kalium",
+    "category": "mineralstoffe",
+    "categoryLabel": "Mineralstoffe (Vollblut)",
+    "description": "Elektrolyt mit extrem schmalem Überlebenskorridor. Lebenswichtig für Herzrhythmus und Nervenfunktion. Werte unter 2.5 oder über 6.0 mmol/l sind akute Notfälle (Kammerflimmern).",
+    "unit": "mmol/l",
+    "alternativeUnits": [
+      { "unit": "mEq/l", "factor": 1 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 3.5, "max": 5.1 },
+      "female": { "min": 3.5, "max": 5.1 }
+    },
+    "optimal": {
+      "male": { "min": 4.0, "max": 4.5, "target": 4.2 },
+      "female": { "min": 4.0, "max": 4.5, "target": 4.2 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Diuretika-Einnahme (häufigste medikamentöse Ursache)",
+          "Starkes Erbrechen oder Durchfall (Kaliumverlust über den Magen-Darm-Trakt)",
+          "Übermäßiges Schwitzen (Leistungssport, Hitze)",
+          "Magnesiummangel (Magnesium stabilisiert Kalium in der Zelle)",
+          "Aldosteronismus (Conn-Syndrom – erhöhte renale Kaliumausscheidung)",
+          "Alkalose (Kalium verschiebt sich in die Zellen)",
+          "Insulinüberschuss (verschiebt Kalium intrazellulär)",
+          "Lakritz-Konsum in großen Mengen (Glycyrrhizin hat Aldosteron-ähnliche Wirkung)"
+        ],
+        "symptoms": [
+          "Muskelschwäche und Muskelkrämpfe",
+          "Herzrhythmusstörungen (Extrasystolen, Vorhofflimmern)",
+          "Müdigkeit und Abgeschlagenheit",
+          "Obstipation (Darmträgheit)",
+          "Parästhesien (Kribbeln, Taubheitsgefühl)",
+          "Polyurie (vermehrtes Wasserlassen)"
+        ],
+        "relatedValues": ["magnesium", "nuechtern-glukose"],
+        "actions": [
+          "EKG durchführen bei Kalium <3.0 mmol/l (Herzrhythmusstörungen ausschließen)",
+          "Magnesium mitbestimmen – Magnesiummangel muss zuerst behoben werden, sonst bleibt Kalium niedrig",
+          "Medikamentenanamnese: Diuretika, Laxantien, Steroide?",
+          "Kaliumreiche Ernährung: Bananen, Kartoffeln, Avocado, Spinat, Hülsenfrüchte",
+          "Bei medikamentösem Kaliummangel: Kaliumsubstitution mit Arzt besprechen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Niereninsuffizienz (verminderte Kaliumausscheidung – häufigste Ursache)",
+          "Hämolyse bei Blutabnahme (Pseudohyperkaliämie – häufigster Laborfehler!)",
+          "ACE-Hemmer / AT1-Blocker / Kaliumsparende Diuretika (Spironolacton)",
+          "Morbus Addison (Nebenniereninsuffizienz – Aldosteronmangel)",
+          "Azidose (metabolisch) – Kalium verschiebt sich aus den Zellen",
+          "Übermäßige Kaliumsupplementierung",
+          "Rhabdomyolyse (Zellzerfall setzt Kalium frei)",
+          "Massive Zellzerstörung (Tumorlyse, Verbrennungen)"
+        ],
+        "symptoms": [
+          "Herzrhythmusstörungen (bradykarde Arrhythmien, Kammerflimmern)",
+          "Muskelschwäche bis Lähmung",
+          "Parästhesien (Kribbeln, Taubheit)",
+          "Übelkeit und Erbrechen",
+          "Durchfall"
+        ],
+        "relatedValues": ["magnesium", "kreatinin", "gfr"],
+        "actions": [
+          "SOFORT bei Kalium >5.5 mmol/l: EKG und ärztliche Abklärung!",
+          "Hämolyse ausschließen: Blutabnahme wiederholen (sanfte Venenpunktion, kein Faust-Pumpen)",
+          "Nierenfunktion prüfen (Kreatinin, GFR) – renale Ursache?",
+          "Medikamente prüfen: ACE-Hemmer, Sartane, Spironolacton, NSAR?",
+          "Kaliumreiche Nahrung vorübergehend reduzieren bis Ursache geklärt"
+        ]
+      },
+      "optimal": {
+        "meaning": "Kalium im optimalen Bereich (4.0-4.5 mmol/l) gewährleistet eine stabile Herzfunktion und Nervenerregbarkeit. Das Kalium-Natrium-Gleichgewicht ist ausbalanciert. Regelmäßige Kontrolle empfohlen bei Medikamenteneinnahme (Diuretika, ACE-Hemmer)."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Kalium <3.0 oder >5.5 mmol/l",
+        "interpretation": "SOFORT ärztliche Abklärung! Herzrhythmusstörungen möglich. EKG-Kontrolle erforderlich.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Hämolyse bei Blutabnahme",
+        "interpretation": "Kalium bei Hämolyse falsch erhöht (Pseudohyperkaliämie). Blutabnahme unter optimalen Bedingungen wiederholen: kein Faust-Pumpen, kurze Stauung, sanfte Punktion.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Kalium niedrig + Magnesium nicht bestimmt",
+        "interpretation": "Bei Hypokaliämie IMMER Magnesium mitbestimmen. Magnesiummangel verhindert die Kalium-Korrektur – Magnesium stabilisiert die Na/K-ATPase.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Kalium grenzwertig + Diuretika-Einnahme",
+        "interpretation": "Diuretika sind die häufigste medikamentöse Ursache für Kaliummangel. Regelmäßige Kaliumkontrollen nötig.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Kaliumreiche Ernährung: Bananen, Kartoffeln, Avocado, Spinat, Hülsenfrüchte, Nüsse, Trockenfrüchte",
+        "Ausreichend Magnesium zuführen – Magnesium und Kalium arbeiten synergistisch",
+        "Bei starkem Schwitzen (Sport, Hitze): Elektrolytgetränke mit Kalium und Natrium",
+        "Natriumzufuhr nicht übermäßig erhöhen – hoher Natriumkonsum steigert Kaliumverlust über die Niere"
+      ],
+      "supplements": [
+        {
+          "name": "Kaliumcitrat",
+          "dosage": "Nur auf ärztliche Anweisung dosieren",
+          "timing": "Zu den Mahlzeiten, aufgeteilt über den Tag",
+          "notes": "ACHTUNG: Kaliumsupplementierung nur unter ärztlicher Kontrolle! Überdosierung ist lebensbedrohlich. Zuerst Magnesium optimieren."
+        },
+        {
+          "name": "Magnesium (Glycinat/Citrat)",
+          "dosage": "300-400 mg/Tag",
+          "timing": "Abends oder aufgeteilt morgens/abends",
+          "notes": "Magnesiummangel behebt oft gleichzeitig den Kaliummangel. Immer zuerst Magnesium optimieren."
+        }
+      ],
+      "redFlags": [
+        "Kalium <2.5 mmol/l – Kammerflimmern-Risiko, NOTFALL!",
+        "Kalium >6.0 mmol/l – Asystolie-Risiko, NOTFALL!",
+        "Kalium <3.0 oder >5.5 mmol/l – sofort kardiologische Abklärung",
+        "Kalium-Schwankungen bei Niereninsuffizienz – engmaschige nephrologische Kontrolle"
+      ]
+    },
+    "sources": [
+      "ChatGPT Deep Research Report",
+      "Gemini Blutwerte-Analyse",
+      "IMD Berlin"
+    ]
+  },
+  {
+    "id": "omega6-omega3-ratio",
+    "name": "Omega-6/Omega-3-Verhältnis",
+    "category": "spezial",
+    "categoryLabel": "Spezialwerte",
+    "description": "Verhältnis von Omega-6 zu Omega-3-Fettsäuren. Westliche Ernährung oft 15:1-20:1, Ziel <3:1. Proinflammatorische Balance bei hoher Ratio.",
+    "unit": "(Ratio)",
+    "alternativeUnits": [],
+    "measurementType": "Berechnet",
+    "reference": {
+      "male": { "min": 1, "max": 5 },
+      "female": { "min": 1, "max": 5 }
+    },
+    "optimal": {
+      "male": { "min": 1, "max": 3, "target": 2.0 },
+      "female": { "min": 1, "max": 3, "target": 2.0 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Sehr hohe Omega-3-Supplementierung",
+          "Extrem fischreiche Ernährung",
+          "Omega-6-arme Ernährung",
+          "Genetisch bedingt effiziente Omega-3-Verwertung"
+        ],
+        "symptoms": [
+          "In der Regel keine negativen Symptome bei niedriger Ratio",
+          "Theoretisch: leicht erhöhte Blutungsneigung bei extrem niedrigem Verhältnis (<1:1)",
+          "Kann bei sehr hoher Omega-3-Zufuhr zu verlängerter Blutungszeit führen"
+        ],
+        "relatedValues": ["omega-3-index"],
+        "actions": [
+          "Omega-3-Index überprüfen – sollte 8-11% betragen",
+          "Bei Ratio <1:1 und Blutungsneigung: Omega-3-Supplementierung reduzieren",
+          "Kein Handlungsbedarf bei Ratio 1:1-3:1 – das ist optimal"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Westliche Standardernährung (reich an Sonnenblumenöl, Sojaöl, Maisöl)",
+          "Zu wenig fetter Fisch in der Ernährung (Lachs, Makrele, Sardinen)",
+          "Übermäßiger Konsum von verarbeiteten Lebensmitteln (enthalten viel Omega-6)",
+          "Keine Omega-3-Supplementierung trotz fischloser Ernährung",
+          "Verwendung von Sonnenblumen- oder Distelöl als Hauptöl",
+          "Hoher Konsum von Fleisch aus konventioneller Haltung (Omega-6-lastig)"
+        ],
+        "symptoms": [
+          "Chronische subklinische Entzündungen",
+          "Gelenkschmerzen und Steifheit",
+          "Hautprobleme (Akne, Ekzeme, trockene Haut)",
+          "Stimmungsschwankungen und depressive Tendenzen",
+          "Erhöhtes kardiovaskuläres Risiko",
+          "Schlechte Wundheilung"
+        ],
+        "relatedValues": ["omega-3-index", "hs-crp"],
+        "actions": [
+          "Omega-3-Index bestimmen lassen (Ziel: 8-11%)",
+          "Omega-3-Supplementierung starten: 2-3 g EPA/DHA täglich",
+          "Pflanzenöle wechseln: Sonnenblumenöl durch Olivenöl/Leinöl ersetzen",
+          "2-3x pro Woche fetten Seefisch essen (Lachs, Makrele, Sardinen)",
+          "Verarbeitete Lebensmittel reduzieren (versteckte Omega-6-Quellen)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Omega-6/Omega-3-Verhältnis <3:1 zeigt eine ausgewogene, antiinflammatorische Fettsäurebalance. Das Entzündungsrisiko durch Fettsäure-Dysbalance ist gering. Dieses Verhältnis entspricht der evolutionären Ernährung und unterstützt kardiovaskuläre Gesundheit."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Ratio >10:1",
+        "interpretation": "Stark proinflammatorisches Profil. Omega-3-Supplementierung dringend empfohlen (2-3 g EPA/DHA täglich). Gleichzeitig Omega-6-Quellen in der Ernährung reduzieren.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Ratio 5:1-10:1",
+        "interpretation": "Moderat proinflammatorisch. Ernährungsumstellung (mehr Fisch, weniger Pflanzenöle) und/oder Omega-3-Supplementierung empfohlen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Messmethode beachten",
+        "interpretation": "Die Omega-6/3-Ratio wird idealerweise aus der Erythrozytenmembran bestimmt (z. B. Omegametrix-Test), nicht aus dem Serum. Erythrozytenmembran-Werte spiegeln die Langzeitversorgung der letzten 8-12 Wochen wider.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "2-3x pro Woche fetten Seefisch essen: Lachs, Makrele, Sardinen, Hering",
+        "Omega-6-reiche Öle ersetzen: Sonnenblumenöl/Maisöl → Olivenöl, Leinöl, Walnussöl",
+        "Verarbeitete Lebensmittel reduzieren (enthalten viel verstecktes Omega-6)",
+        "Fleisch aus Weidehaltung bevorzugen (besseres Omega-6/3-Verhältnis als konventionelles Fleisch)",
+        "Nüsse: Walnüsse bevorzugen (gutes Omega-3/6-Verhältnis) statt Erdnüsse/Cashews"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-3 g EPA+DHA/Tag (bei Ratio >5 initial höher dosieren)",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Fischöl oder Algenöl (vegane Alternative). Auf Reinheit achten (IFOS-Zertifizierung). Triglycerid-Form bevorzugen."
+        },
+        {
+          "name": "Algenöl (DHA/EPA)",
+          "dosage": "2-3 g/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Vegane Alternative zu Fischöl. Enthält primär DHA, manche Produkte auch EPA."
+        }
+      ],
+      "redFlags": [
+        "Ratio >15:1 – stark proinflammatorisches Profil, assoziiert mit erhöhtem Risiko für Herz-Kreislauf-Erkrankungen, Autoimmunerkrankungen und Depression",
+        "Omega-3-Supplementierung bei gleichzeitiger Blutverdünner-Einnahme (Marcumar, DOAKs) – Blutungsrisiko besprechen"
+      ]
+    },
+    "sources": [
+      "Perplexity Blutwerte-Wissensdatenbank",
+      "Gemini Blutwerte-Analyse"
+    ]
+  },
+  {
+    "id": "ferritin-index",
+    "name": "Ferritin-Index (sTfR/log Ferritin)",
+    "category": "eisen",
+    "categoryLabel": "Eisen-Panel",
+    "description": "Quotient aus löslichem Transferrinrezeptor (sTfR) und logarithmiertem Ferritin. Trennt absoluten von funktionellem Eisenmangel, besonders wertvoll bei gleichzeitiger Entzündung.",
+    "unit": "(Index)",
+    "alternativeUnits": [],
+    "measurementType": "Berechnet",
+    "reference": {
+      "male": { "min": 0, "max": 3.2 },
+      "female": { "min": 0, "max": 3.2 }
+    },
+    "optimal": {
+      "male": { "min": 0, "max": 3.2, "target": 1.5 },
+      "female": { "min": 0, "max": 3.2, "target": 1.5 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Normalbefund – niedriger Ferritin-Index spricht gegen Eisenmangel",
+          "Hohe Ferritinwerte (Entzündung, Überladung) drücken den Quotienten",
+          "Selten: niedrige sTfR-Werte bei Knochenmark-Suppression"
+        ],
+        "symptoms": [],
+        "relatedValues": ["ferritin", "transferrin", "transferrinsaettigung", "hs-crp"],
+        "actions": [
+          "Bei niedrigem Ferritin-Index und hohem Ferritin: CRP prüfen, um Entzündung vs. echte Eisenüberladung zu unterscheiden",
+          "Kein Handlungsbedarf wenn Eisenstatus insgesamt normal"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Absoluter Eisenmangel (häufigste Ursache – niedrige Ferritinspeicher)",
+          "Funktioneller Eisenmangel bei Entzündung (sTfR steigt, weil Gewebe Eisen braucht)",
+          "Eisenmangel trotz normalem/erhöhtem Ferritin bei chronischer Erkrankung",
+          "Kombination aus Blutungsanämie und Entzündung",
+          "Früher Eisenmangel noch vor Anämie-Stadium",
+          "Erhöhter Eisenbedarf (Schwangerschaft, Wachstum, Leistungssport)"
+        ],
+        "symptoms": [
+          "Müdigkeit und Leistungsabfall",
+          "Blässe und Kurzatmigkeit",
+          "Haarausfall und brüchige Nägel",
+          "Restless-Legs-Syndrom",
+          "Kopfschmerzen"
+        ],
+        "relatedValues": ["ferritin", "transferrin", "transferrinsaettigung", "hs-crp", "serum-eisen", "haemoglobin"],
+        "actions": [
+          "Eisenmangel bestätigt – Ferritin-Index >3.2 bei CRP <5 mg/l spricht klar für Eisenmangel",
+          "Eisensupplementierung einleiten (Eisenbisglycinat 20-40 mg/Tag)",
+          "Blutungsquelle suchen bei Männern und postmenopausalen Frauen",
+          "CRP prüfen: Bei CRP >5 mg/l gilt bereits ein Index >2.0 als Eisenmangel-Hinweis",
+          "Kontrolle nach 8-12 Wochen Supplementierung"
+        ]
+      },
+      "optimal": {
+        "meaning": "Ferritin-Index im Normalbereich (<3.2 bei CRP <5 mg/l) spricht gegen einen relevanten Eisenmangel. Die Eisenversorgung der Gewebe ist ausreichend. Besonders aussagekräftig bei gleichzeitiger Entzündung, wo Ferritin allein nicht zuverlässig ist."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "CRP >5 mg/l",
+        "interpretation": "Bei Entzündung Ferritin-Index <2.0 als Eisenmangel-Grenze verwenden (statt <3.2). Ferritin ist als Akut-Phase-Protein bei Entzündung falsch erhöht.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Ferritin-Index ersetzt Ferritin bei Entzündung",
+        "interpretation": "Der Ferritin-Index ist der zuverlässigste einzelne Laborparameter zur Diagnose von Eisenmangel bei gleichzeitiger Entzündung (Anemia of Chronic Disease vs. echter Eisenmangel).",
+        "severity": "info"
+      },
+      {
+        "condition": "Formel: sTfR (mg/l) / log₁₀(Ferritin µg/l)",
+        "interpretation": "Zur Berechnung wird der lösliche Transferrinrezeptor (sTfR) durch den dekadischen Logarithmus des Ferritins geteilt. sTfR muss mitbestimmt werden.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Eisenreiche Ernährung: Rotes Fleisch, Innereien, Hülsenfrüchte, dunkelgrünes Blattgemüse",
+        "Vitamin C zu eisenreichen Mahlzeiten kombinieren",
+        "Entzündungsquellen reduzieren, um Ferritin als Marker wieder aussagekräftig zu machen"
+      ],
+      "supplements": [
+        {
+          "name": "Eisenbisglycinat",
+          "dosage": "20-40 mg elementares Eisen/Tag",
+          "timing": "Nüchtern oder mit Vitamin C, alternate-day dosing empfohlen",
+          "notes": "Nur bei bestätigtem Eisenmangel (Ferritin-Index >3.2 oder >2.0 bei Entzündung). Kontrolle nach 8-12 Wochen."
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": "200 mg zur Eiseneinnahme",
+          "timing": "Zusammen mit Eisenpräparat",
+          "notes": "Steigert die Eisenresorption erheblich."
+        }
+      ],
+      "redFlags": [
+        "Ferritin-Index >3.2 bei CRP <5 mg/l – klarer Eisenmangel, Supplementierung einleiten",
+        "Ferritin-Index >2.0 bei CRP >5 mg/l – Eisenmangel trotz Entzündung, parenterale Eisengabe mit Arzt besprechen"
+      ]
+    },
+    "sources": [
+      "CSV Datentabelle",
+      "Bioscientia"
+    ]
+  },
+  {
+    "id": "ft3-rt3-ratio",
+    "name": "fT3/rT3-Ratio",
+    "category": "schilddruese",
+    "categoryLabel": "Schilddrüse",
+    "description": "Verhältnis von aktivem fT3 zu inaktivem rT3. Hilft bei Erkennung von Konversionsstörungen und Low-T3-Syndrom. Experimenteller Marker, nicht leitlinien-standardisiert.",
+    "unit": "(Ratio)",
+    "alternativeUnits": [],
+    "measurementType": "Berechnet",
+    "reference": {
+      "male": { "min": 0.2 },
+      "female": { "min": 0.2 }
+    },
+    "optimal": {
+      "male": { "min": 0.2, "max": 0.5, "target": 0.3 },
+      "female": { "min": 0.2, "max": 0.5, "target": 0.3 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Konversionsstörung: T4 wird bevorzugt zu rT3 statt zu T3 konvertiert",
+          "Chronischer Stress (Cortisol hemmt Typ-1-Dejodinase und fördert rT3-Bildung)",
+          "Non-thyroidal illness syndrome (schwere systemische Erkrankung)",
+          "Kaloriendefizit / extremes Fasten (Körper schaltet in Sparstoffwechsel)",
+          "Selenmangel (Dejodinase-Enzyme benötigen Selen als Cofaktor)",
+          "Chronische Entzündungen (Zytokine stören die Konversion)",
+          "Eisenmangel (beeinträchtigt Schilddrüsenmetabolismus)",
+          "Lebererkrankungen (Hauptort der T4-zu-T3-Konversion)"
+        ],
+        "symptoms": [
+          "Hypothyreose-Symptome trotz normalem TSH und fT4",
+          "Müdigkeit und Erschöpfung, die nicht zum Laborbild passen",
+          "Kälteempfindlichkeit",
+          "Brain Fog und kognitive Einschränkungen",
+          "Gewichtszunahme trotz moderater Kalorienzufuhr",
+          "Depression und Antriebslosigkeit"
+        ],
+        "relatedValues": ["ft3", "rt3", "ft4", "tsh", "selen", "cortisol", "ferritin", "hs-crp"],
+        "actions": [
+          "Selenstatus prüfen und ggf. 200 µg/Tag supplementieren",
+          "Cortisol bestimmen – chronischer Stress als Haupttreiber ausschließen",
+          "Kaloriendefizit ausgleichen (keine Crash-Diäten)",
+          "Entzündungsmarker (hs-CRP) bestimmen",
+          "Eisenstatus überprüfen (Ferritin, Transferrinsättigung)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Sehr gute T4-zu-T3-Konversion (in der Regel positiv)",
+          "T3-Supplementierung (Liothyronin)",
+          "Hyperthyreose (hohes fT3 bei niedrigem rT3)",
+          "Ausgezeichneter Selen- und Nährstoffstatus"
+        ],
+        "symptoms": [
+          "Bei sehr hoher Ratio: Hyperthyreose-Symptome möglich (Herzrasen, Nervosität)",
+          "In der Regel keine negativen Symptome – zeigt gute Konversion an"
+        ],
+        "relatedValues": ["ft3", "rt3", "tsh"],
+        "actions": [
+          "Bei Ratio >0.5 und klinischen Hyperthyreose-Zeichen: TSH und fT3 kontrollieren",
+          "In der Regel kein Handlungsbedarf – zeigt gesunde Schilddrüsenfunktion"
+        ]
+      },
+      "optimal": {
+        "meaning": "fT3/rT3-Ratio im optimalen Bereich (0.2-0.5) spricht für eine gesunde Konversion von T4 zu aktivem T3. Der Körper bildet nicht übermäßig viel inaktives rT3. Die Schilddrüsenachse arbeitet effizient. Dennoch immer als experimenteller Marker betrachten und nicht als alleinigen Entscheidungstreiber nutzen."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "fT3/rT3-Ratio <0.2",
+        "interpretation": "Hinweis auf metabolischen Stress und Konversionsstörung (T4 wird zu rT3 statt T3 konvertiert). Selen, Cortisol, Entzündung und Kaloriendefizit als Ursachen prüfen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Experimenteller Marker",
+        "interpretation": "Von Leitlinien nicht empfohlen, nur als ergänzender Hinweis verwenden. Keine Therapieentscheidungen allein auf dieser Ratio basieren.",
+        "severity": "info"
+      },
+      {
+        "condition": "Formel: fT3 (pg/ml) / rT3 (pg/ml)",
+        "interpretation": "Beide Werte müssen in pg/ml gemessen sein. Alternativ wird die Ratio manchmal als fT3 × 100 / rT3 berechnet – dann ist 10-28 optimal. Einheiten immer prüfen!",
+        "severity": "info"
+      },
+      {
+        "condition": "fT3/rT3-Ratio niedrig + TSH normal",
+        "interpretation": "Typisches Bild bei Konversionsstörung: TSH und fT4 erscheinen normal, aber die aktive T3-Versorgung ist insuffizient. TSH allein erkennt dieses Problem nicht.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Stressmanagement: Chronischer Stress ist der Hauptfaktor für niedrige fT3/rT3-Ratio",
+        "Ausreichende Kalorienzufuhr: Keine extremen Diäten oder Fastenperioden",
+        "Regelmäßige moderate Bewegung (Übertraining vermeiden)",
+        "7-9 Stunden Schlaf pro Nacht – Schlafmangel stört die T4-zu-T3-Konversion"
+      ],
+      "supplements": [
+        {
+          "name": "Selen (Selenomethionin)",
+          "dosage": "200 µg/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Wichtigster Cofaktor für Dejodinase-Enzyme. Verbessert T4-zu-T3-Konversion und senkt rT3."
+        },
+        {
+          "name": "Zink",
+          "dosage": "15-25 mg/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Cofaktor für Dejodinase, unterstützt die Schilddrüsenhormon-Konversion."
+        },
+        {
+          "name": "Ashwagandha (KSM-66)",
+          "dosage": "300-600 mg/Tag",
+          "timing": "Abends",
+          "notes": "Adaptogen, senkt Cortisol und kann so indirekt die fT3/rT3-Ratio verbessern."
+        }
+      ],
+      "redFlags": [
+        "fT3/rT3-Ratio <0.1 bei gleichzeitigen Hypothyreose-Symptomen – schwere Konversionsstörung, endokrinologische Abklärung empfohlen",
+        "Niedrige Ratio bei schwerer Erkrankung (Non-thyroidal illness) – keine eigenmächtige T3-Supplementierung, endokrinologische Beurteilung nötig"
+      ]
+    },
+    "sources": [
+      "ChatGPT Deep Research Report",
+      "Perplexity Blutwerte-Wissensdatenbank"
+    ]
+  },
+  {
+    "id": "rdw",
+    "name": "RDW (Erythrozyten-Verteilungsbreite)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Red Cell Distribution Width - misst die Variabilität der Erythrozyten-Größe. Erhöht bei Eisenmangel, B12-Mangel oder gemischten Anämien. Auch als unabhängiger kardiovaskulärer Risikomarker diskutiert.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": { "min": 11.5, "max": 15.0 },
+      "female": { "min": 11.5, "max": 15.0 }
+    },
+    "optimal": {
+      "male": { "min": 11.5, "max": 13.5, "target": 12.5 },
+      "female": { "min": 11.5, "max": 13.5, "target": 12.5 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Normalbefund – homogene Erythrozytenpopulation ist physiologisch",
+          "Analytische Schwankung im unteren Messbereich",
+          "Seltene Thalassämie-Formen (können niedrigen RDW zeigen)",
+          "Chronische Erkrankungen mit gleichmäßig kleinen Erythrozyten"
+        ],
+        "symptoms": [
+          "Keine spezifischen Symptome bei niedrigem RDW",
+          "Symptome hängen von der Grunderkrankung ab (z. B. Thalassämie)"
+        ],
+        "relatedValues": ["mcv", "mch", "haemoglobin"],
+        "actions": [
+          "Kein isolierter Handlungsbedarf bei niedrigem RDW",
+          "Bei Verdacht auf Thalassämie: Hämoglobin-Elektrophorese durchführen",
+          "MCV und MCH mitbewerten für Gesamtbeurteilung"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Eisenmangel (häufigste Ursache – mikrozytäre Anämie in Entstehung)",
+          "Vitamin-B12-Mangel (megaloblastäre Anämie – große Erythrozyten)",
+          "Folsäuremangel (megaloblastäre Anämie)",
+          "Gemischte Anämie (z. B. gleichzeitig Eisen- und B12-Mangel)",
+          "Chronische Entzündungen (Anemia of Chronic Disease)",
+          "Zustand nach Bluttransfusion (Mischpopulation)",
+          "Myelodysplastisches Syndrom (gestörte Blutbildung)",
+          "Hämolyse (kompensatorische Retikulozytenfreisetzung)"
+        ],
+        "symptoms": [
+          "Müdigkeit und Leistungsminderung",
+          "Blässe und Kurzatmigkeit",
+          "Schwindel und Kopfschmerzen",
+          "Konzentrationsstörungen",
+          "Herzrasen bei Belastung"
+        ],
+        "relatedValues": ["mcv", "mch", "ferritin", "vitamin-b12", "folsaeure", "haemoglobin", "retikulozyten"],
+        "actions": [
+          "MCV-Wert heranziehen: RDW↑ + MCV↓ = Eisenmangel, RDW↑ + MCV↑ = B12/Folsäure-Mangel",
+          "Eisenstatus komplett bestimmen (Ferritin, Transferrin, Transferrinsättigung)",
+          "Vitamin B12 (Holotranscobalamin) und Folsäure bestimmen",
+          "Bei normalem MCV + erhöhtem RDW: An gemischten Mangel denken (Eisen + B12 gleichzeitig)",
+          "Retikulozyten bestimmen (Hämolyse vs. Produktionsstörung)"
+        ]
+      },
+      "optimal": {
+        "meaning": "RDW im optimalen Bereich (11.5-13.5%) zeigt eine homogene Erythrozytenpopulation. Die Blutneubildung verläuft gleichmäßig, es gibt keine Hinweise auf Nährstoffmängel oder gestörte Blutbildung. Auch das kardiovaskuläre Risiko ist bei niedrigem RDW geringer."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "RDW erhöht + MCV niedrig",
+        "interpretation": "Eisenmangel-Anämie wahrscheinlich. Neue, eisenmangel-bedingt kleinere Erythrozyten mischen sich mit älteren normalen – das erhöht die Größenvariabilität.",
+        "severity": "attention"
+      },
+      {
+        "condition": "RDW erhöht + MCV hoch",
+        "interpretation": "B12- oder Folsäure-Mangel wahrscheinlich. Megaloblastäre Erythropoese produziert übergroße Erythrozyten neben normalen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "RDW erhöht + MCV normal",
+        "interpretation": "Hinweis auf gemischten Mangel (z. B. Eisen + B12 gleichzeitig) oder frühe Anämie. Auch an chronische Entzündung oder Hämolyse denken.",
+        "severity": "attention"
+      },
+      {
+        "condition": "RDW als kardiovaskulärer Risikomarker",
+        "interpretation": "Erhöhter RDW ist in Studien als unabhängiger Risikomarker für kardiovaskuläre Mortalität identifiziert – auch ohne Anämie. Mechanismus noch nicht vollständig geklärt.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausgewogene Ernährung mit ausreichend Eisen, Vitamin B12 und Folsäure",
+        "Regelmäßig rotes Fleisch oder Leber (Eisen + B12) oder pflanzliche Alternativen mit Supplementierung",
+        "Dunkelgrünes Blattgemüse für Folsäure (Spinat, Brokkoli, Grünkohl)",
+        "Alkoholkonsum reduzieren (Alkohol stört die Folsäure-Resorption und das Blutbild)"
+      ],
+      "supplements": [
+        {
+          "name": "Eisenbisglycinat",
+          "dosage": "20-40 mg/Tag (bei bestätigtem Eisenmangel)",
+          "timing": "Nüchtern oder mit Vitamin C",
+          "notes": "Nur bei nachgewiesenem Eisenmangel (Ferritin/Transferrinsättigung prüfen)."
+        },
+        {
+          "name": "Vitamin B12 (Methylcobalamin)",
+          "dosage": "500-1000 µg/Tag (bei B12-Mangel)",
+          "timing": "Sublingual oder zu einer Mahlzeit",
+          "notes": "Bei B12-Mangel + erhöhtem RDW. Holotranscobalamin als sensitivster B12-Marker."
+        },
+        {
+          "name": "Folsäure (5-MTHF)",
+          "dosage": "400-800 µg/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Aktivierte Form (5-MTHF) bevorzugen, besonders bei MTHFR-Polymorphismus."
+        }
+      ],
+      "redFlags": [
+        "RDW >18% – ausgeprägte Anisozytose, dringend hämatologische Abklärung empfohlen",
+        "RDW steigend bei bekannter Herzinsuffizienz – unabhängiger Prognose-Marker, kardiologische Kontrolle"
+      ]
+    },
+    "sources": [
+      "ChatGPT Deep Research Report",
+      "IMD Berlin"
+    ]
+  },
+  {
+    "id": "vitamin-d-1-25",
+    "name": "1,25-OH Vitamin D (Calcitriol)",
+    "category": "vitamine",
+    "categoryLabel": "Vitamine",
+    "description": "Aktive Form des Vitamin D, gebildet in der Niere. NICHT der primäre Statusmarker (das ist 25-OH)! Kann bei Vitamin-D-Mangel paradox normal/erhöht sein (sekundärer Hyperparathyreoidismus). Nur bei Spezialindikationen messen.",
+    "unit": "pg/ml",
+    "alternativeUnits": [
+      { "unit": "pmol/l", "factor": 2.4 }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": { "min": 20, "max": 80 },
+      "female": { "min": 20, "max": 80 }
+    },
+    "optimal": {
+      "male": { "min": 30, "max": 60, "target": 45 },
+      "female": { "min": 30, "max": 60, "target": 45 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Chronische Niereninsuffizienz (Hauptursache – Niere kann 25-OH-D nicht mehr in 1,25-OH-D umwandeln)",
+          "Hypoparathyreoidismus (PTH fehlt als Stimulator der 1α-Hydroxylase)",
+          "Schwerer 25-OH-Vitamin-D-Mangel (Substratmangel für die Umwandlung)",
+          "Phosphatüberschuss (hemmt 1α-Hydroxylase)",
+          "Bestimmte Medikamente (Ketoconazol hemmt CYP27B1)",
+          "Pseudohypoparathyreoidismus (PTH-Resistenz)"
+        ],
+        "symptoms": [
+          "Muskel- und Knochenschmerzen",
+          "Muskelschwäche (proximal)",
+          "Knochendemineralisation (Osteomalazie bei Erwachsenen)",
+          "Hypokalzämie-Symptome: Parästhesien, Muskelkrämpfe, Tetanie",
+          "Rachitis bei Kindern"
+        ],
+        "relatedValues": ["vitamin-d", "kreatinin", "gfr"],
+        "actions": [
+          "25-OH-Vitamin-D bestimmen (der eigentliche Statusmarker!)",
+          "Nierenfunktion prüfen (Kreatinin, GFR) – renale Ursache ausschließen",
+          "Calcium und Phosphat im Serum bestimmen",
+          "Parathormon (PTH) bestimmen lassen",
+          "Bei Niereninsuffizienz: Aktives Vitamin D (Calcitriol/Alfacalcidol) über Nephrologen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Primärer Hyperparathyreoidismus (PTH stimuliert 1α-Hydroxylase übermäßig)",
+          "Sarkoidose und Granulomatosen (extrarenale 1,25-OH-D-Produktion durch Makrophagen)",
+          "Lymphome (ektope 1α-Hydroxylase-Aktivität)",
+          "Vitamin-D-Intoxikation (sehr selten, da Regulation physiologisch eng)",
+          "Tuberkulose (granulomatöse Erkrankung)",
+          "Schwangerschaft (physiologisch leicht erhöht)"
+        ],
+        "symptoms": [
+          "Hyperkalzämie-Symptome: Übelkeit, Erbrechen, Appetitlosigkeit",
+          "Polyurie und Polydipsie (vermehrtes Trinken und Wasserlassen)",
+          "Nierenkoliken / Nierensteine",
+          "Verwirrtheit und kognitive Einschränkungen",
+          "Knochenschmerzen und Muskelschwäche",
+          "Herzrhythmusstörungen (bei schwerer Hyperkalzämie)"
+        ],
+        "relatedValues": ["vitamin-d", "hs-crp"],
+        "actions": [
+          "Serumkalzium dringend bestimmen – Hyperkalzämie ausschließen!",
+          "Parathormon (PTH) bestimmen – primärer Hyperparathyreoidismus?",
+          "Bei erhöhtem 1,25-OH-D und erhöhtem Calcium: An Sarkoidose/Granulomatose denken",
+          "Röntgen-Thorax bei V.a. Sarkoidose oder Tuberkulose",
+          "25-OH-Vitamin-D-Spiegel parallel bestimmen"
+        ]
+      },
+      "optimal": {
+        "meaning": "1,25-OH Vitamin D im Normalbereich zeigt eine funktionierende renale Umwandlung und intakte Calcium-Homöostase. Dennoch: Dieser Wert sagt NICHTS über den Vitamin-D-Status aus! 25-OH-Vitamin-D ist der entscheidende Marker für die Vitamin-D-Versorgung."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "1,25-OH-D ist NICHT der Statusmarker",
+        "interpretation": "25-OH-D ist der primäre Vitamin-D-Statusmarker. 1,25-OH-D nur bei Spezialindikationen messen (Niereninsuffizienz, Sarkoidose, Hyperkalzämie-Abklärung). 1,25-OH-D kann bei Vitamin-D-Mangel paradox normal oder sogar erhöht sein!",
+        "severity": "warning"
+      },
+      {
+        "condition": "1,25-OH-D erhöht bei Sarkoidose/Granulomatosen",
+        "interpretation": "Extrarenale Produktion von 1,25-OH-D durch aktivierte Makrophagen möglich. An granulomatöse Erkrankungen denken (Sarkoidose, Tuberkulose, Lymphome).",
+        "severity": "attention"
+      },
+      {
+        "condition": "1,25-OH-D niedrig + GFR <30 ml/min",
+        "interpretation": "Typisch bei fortgeschrittener Niereninsuffizienz. Die Niere kann nicht mehr ausreichend aktives Vitamin D bilden. Substitution mit Calcitriol/Alfacalcidol über Nephrologen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "1,25-OH-D normal/erhöht bei niedrigem 25-OH-D",
+        "interpretation": "Paradoxe Konstellation bei Vitamin-D-Mangel: PTH steigt kompensatorisch und stimuliert die 1α-Hydroxylase. 1,25-OH-D kann so noch normal sein, obwohl ein Mangel vorliegt. Immer 25-OH-D als Referenz nehmen!",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Primär den 25-OH-Vitamin-D-Spiegel optimieren (Sonnenlicht, Supplementierung)",
+        "Nierenfunktion schützen: ausreichend Trinken, Blutdruck kontrollieren, NSAR-Missbrauch vermeiden",
+        "Bei Sarkoidose: Sonnenvermeidung kann nötig sein (paradoxe Vitamin-D-Überproduktion)"
+      ],
+      "supplements": [
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": "2000-4000 IE/Tag (nach 25-OH-D-Spiegel anpassen)",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Optimiert den 25-OH-D-Spiegel (Ziel: 40-60 ng/ml). 1,25-OH-D wird NICHT direkt supplementiert (nur bei Niereninsuffizienz über Arzt)."
+        },
+        {
+          "name": "Calcitriol (aktives Vitamin D)",
+          "dosage": "Nur auf ärztliche Verschreibung",
+          "timing": "Nach ärztlicher Anweisung",
+          "notes": "NUR bei Niereninsuffizienz oder Hypoparathyreoidismus. Engmaschige Calcium-Kontrolle nötig (Hyperkalzämie-Gefahr)."
+        }
+      ],
+      "redFlags": [
+        "1,25-OH-D stark erhöht + Hyperkalzämie – dringende Abklärung: Sarkoidose, Hyperparathyreoidismus oder Lymphom",
+        "1,25-OH-D niedrig + GFR <15 ml/min – dialysepflichtige Niereninsuffizienz möglich, nephrologische Betreuung",
+        "1,25-OH-D >100 pg/ml – pathologisch, immer Calcium und PTH mitbestimmen"
+      ]
+    },
+    "sources": [
+      "ChatGPT Deep Research Report",
+      "Gemini Blutwerte-Analyse"
+    ]
+  },
+  {
+    "id": "de-ritis-quotient",
+    "name": "De-Ritis-Quotient (GOT/GPT)",
+    "category": "leber",
+    "categoryLabel": "Leberwerte",
+    "description": "Quotient aus GOT und GPT. Hilft bei der Differenzierung von Leberschäden: <1 = eher milder/diätetischer Schaden (Fettleber), >1 bei gleichzeitig erhöhten Absolutwerten = eher schwerer nekrotischer oder alkoholischer Schaden.",
+    "unit": "(Quotient)",
+    "alternativeUnits": [],
+    "measurementType": "Berechnet",
+    "reference": {
+      "male": { "min": 0.6, "max": 1.3 },
+      "female": { "min": 0.6, "max": 1.3 }
+    },
+    "optimal": {
+      "male": { "min": 0.7, "max": 1.0, "target": 0.85 },
+      "female": { "min": 0.7, "max": 1.0, "target": 0.85 }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Nichtalkoholische Fettleber (NAFLD/NASH – häufigste Ursache)",
+          "Metabolisches Syndrom (Übergewicht, Insulinresistenz, Dyslipidämie)",
+          "Medikamentös-toxische Leberschädigung (leicht bis moderat)",
+          "Akute virale Hepatitis (im Frühstadium – GPT steigt zuerst)",
+          "Adipositas mit hepatischer Steatose",
+          "Steatohepatitis (entzündliche Fettleber)"
+        ],
+        "symptoms": [
+          "Oft asymptomatisch (Zufallsbefund im Labor)",
+          "Müdigkeit und Abgeschlagenheit",
+          "Druckgefühl im rechten Oberbauch",
+          "Leichte Übelkeit nach fettreichen Mahlzeiten",
+          "Gewichtszunahme und viszerale Adipositas"
+        ],
+        "relatedValues": ["got", "gpt", "ggt", "hba1c", "triglyceride", "nuechtern-glukose", "homa-ir"],
+        "actions": [
+          "Lebersonographie (Ultraschall) durchführen – Fettleber bestätigen",
+          "Metabolische Parameter prüfen: HbA1c, Nüchternglukose, Triglyceride, HDL",
+          "GGT mitbestimmen – isolierte GPT-Erhöhung vs. breitere Leberschädigung",
+          "Lebensstil-Intervention: Gewichtsreduktion (5-10% Körpergewicht senkt Fettleber signifikant)",
+          "Alkoholkonsum dokumentieren und Medikamentenanamnese erheben"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Alkoholische Lebererkrankung (GOT/GPT-Ratio >2 typisch für Alkoholschaden)",
+          "Leberzirrhose (fortgeschrittene Fibrose, GOT aus geschädigten Hepatozyten)",
+          "Schwerer akuter Leberschaden / Lebernekrose",
+          "Muskuläre Ursache: GOT kommt auch aus Skelettmuskulatur (CK prüfen!)",
+          "Herzinfarkt (GOT aus Myokard – heute seltene Indikation)",
+          "Intensives Krafttraining (GOT-Erhöhung durch Muskelschaden)",
+          "Hämolyse (GOT aus Erythrozyten)"
+        ],
+        "symptoms": [
+          "Bei alkoholischer Lebererkrankung: Übelkeit, Appetitlosigkeit, Ikterus",
+          "Bei Zirrhose: Aszites, Spider-Naevi, Palmarerythem",
+          "Bei muskulärer Ursache: Muskelschmerzen nach Training",
+          "Müdigkeit und allgemeines Krankheitsgefühl",
+          "Gelbfärbung der Augen oder Haut (bei fortgeschrittenem Leberschaden)"
+        ],
+        "relatedValues": ["got", "gpt", "ggt", "ck", "bilirubin", "ldh"],
+        "actions": [
+          "GOT und GPT Absolutwerte betrachten – De-Ritis >1 bei normalen Absolutwerten ist unauffällig!",
+          "CK (Creatinkinase) bestimmen – muskuläre GOT-Erhöhung ausschließen",
+          "Alkoholanamnese: De-Ritis >2 ist hochverdächtig für Alkoholschaden",
+          "GGT mitbewerten – erhöhtes GGT + De-Ritis >1 = wahrscheinlich alkoholisch/toxisch",
+          "Bei V.a. Zirrhose: Lebersonographie, FibroScan, ggf. Leberbiopsie"
+        ]
+      },
+      "optimal": {
+        "meaning": "De-Ritis-Quotient im optimalen Bereich (0.7-1.0) bei normalen GOT- und GPT-Absolutwerten spricht für eine gesunde Leber ohne Hinweise auf entzündliche, toxische oder fibrotische Veränderungen. Die Balance zwischen GOT (mitochondrial) und GPT (zytosolisch) ist physiologisch."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "De-Ritis <1 + GPT erhöht",
+        "interpretation": "Eher milder Leberschaden (Fettleber, Medikamente). GPT ist primär leberspezifisch und zytosolisch – steigt bei leichter Zellmembranschädigung zuerst an.",
+        "severity": "attention"
+      },
+      {
+        "condition": "De-Ritis >1 + GOT stark erhöht",
+        "interpretation": "Eher schwerer Leberschaden (Nekrose, Alkohol) oder muskuläre Ursache (CK prüfen!). GOT ist mitochondrial – steigt erst bei tiefer Zellschädigung an.",
+        "severity": "warning"
+      },
+      {
+        "condition": "De-Ritis >2 + GGT erhöht",
+        "interpretation": "Hochverdächtig für alkoholische Lebererkrankung. Kombination aus De-Ritis >2 + erhöhtem GGT hat hohe Spezifität für Alkoholschaden.",
+        "severity": "warning"
+      },
+      {
+        "condition": "De-Ritis nur bei erhöhten Absolutwerten interpretieren",
+        "interpretation": "Der De-Ritis-Quotient ist nur bei gleichzeitig erhöhten GOT- und/oder GPT-Werten diagnostisch relevant. Bei normalen Absolutwerten hat die Ratio keine klinische Bedeutung.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Alkoholkonsum reduzieren oder eliminieren (Haupttreiber für GOT-dominante Leberschäden)",
+        "Gewichtsreduktion bei Übergewicht: 5-10% Gewichtsverlust kann eine Fettleber signifikant verbessern",
+        "Zucker- und Fruktosekonsum reduzieren (fördert hepatische Lipogenese)",
+        "Regelmäßige Bewegung: 150 min/Woche moderate Aktivität senkt Leberfett auch ohne Gewichtsverlust",
+        "Medikamente auf Lebertoxizität prüfen lassen (Paracetamol, Statine, NSAR)"
+      ],
+      "supplements": [
+        {
+          "name": "Silymarin (Mariendistel-Extrakt)",
+          "dosage": "200-400 mg/Tag (standardisiert auf 80% Silymarin)",
+          "timing": "Aufgeteilt auf 2-3 Einnahmen zu den Mahlzeiten",
+          "notes": "Evidenz für hepatoprotektive Wirkung, besonders bei toxischer Leberschädigung und Fettleber."
+        },
+        {
+          "name": "N-Acetylcystein (NAC)",
+          "dosage": "600-1200 mg/Tag",
+          "timing": "Nüchtern oder zwischen den Mahlzeiten",
+          "notes": "Glutathion-Vorläufer, unterstützt die hepatische Entgiftung. Besonders relevant bei Paracetamol-Exposition."
+        },
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-3 g/Tag",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Kann bei nichtalkoholischer Fettleber die Triglycerideinlagerung in der Leber reduzieren."
+        }
+      ],
+      "redFlags": [
+        "De-Ritis >2 + GGT >3× obere Norm – dringender Verdacht auf schweren alkoholischen Leberschaden, sofortige Alkoholkarenz und hepatologische Abklärung",
+        "GOT >10× obere Norm (>400 U/l) – akuter schwerer Leberschaden (Hepatitis, Intoxikation, Ischämie), sofortige ärztliche Abklärung",
+        "De-Ritis steigend bei bekannter chronischer Lebererkrankung – Hinweis auf Progression zur Zirrhose, FibroScan/Biopsie empfohlen"
+      ]
+    },
+    "sources": [
+      "ChatGPT Deep Research Report",
+      "Gemini Blutwerte-Analyse",
+      "Der Blutwerte-Code - Thiemo Osterhaus"
+    ]
+  }
+]

@@ -1,0 +1,396 @@
+[
+  {
+    "id": "homocystein",
+    "field": "optimal.male.max",
+    "action": "update",
+    "oldValue": 8,
+    "newValue": 7,
+    "reason": "Research-Konsens von Perplexity, ChatGPT Deep Research und Gemini: Optimaler Homocystein-Bereich ist 5-7 µmol/l, nicht 5-8. Target 7 bleibt, aber Max auf 7 senken fuer engeren optimalen Bereich. Huberman Lab und Chris Masterjohn bestaetigen <7 als ideal.",
+    "source": "Perplexity Blutwerte-Wissensdatenbank, ChatGPT Deep Research Report, Gemini Blutwerte-Analyse"
+  },
+  {
+    "id": "homocystein",
+    "field": "optimal.female.max",
+    "action": "update",
+    "oldValue": 8,
+    "newValue": 7,
+    "reason": "Gleiche Anpassung wie bei Maennern. Funktionelle Medizin: 5-7 µmol/l als optimaler Bereich. Bei Werten ueber 7 bereits erhoehtes kardiovaskulaeres Risiko und suboptimale Methylierung.",
+    "source": "Perplexity Blutwerte-Wissensdatenbank, ChatGPT Deep Research Report, Gemini Blutwerte-Analyse"
+  },
+  {
+    "id": "gpt",
+    "field": "optimal.male.max",
+    "action": "update",
+    "oldValue": 30,
+    "newValue": 25,
+    "reason": "Peter Attia empfiehlt ALT/GPT optimal unter 25 U/l. Mehrere Research-Quellen bestaetigen: GPT >25 U/l korreliert bereits mit erhoehtem Risiko fuer Fettleber und metabolische Dysfunktion, auch wenn Laborreferenzen bis 50 U/l reichen. Female optimal bleibt bei 25.",
+    "source": "ChatGPT Deep Research Report (Peter Attia), Gemini Blutwerte-Analyse"
+  },
+  {
+    "id": "gpt",
+    "field": "optimal.male.target",
+    "action": "update",
+    "oldValue": 20,
+    "newValue": 18,
+    "reason": "Angleichung an den engeren optimalen Bereich. Bei Max von 25 U/l ist ein Target von 18 ein besserer Mittelwert im optimalen Fenster (10-25).",
+    "source": "ChatGPT Deep Research Report (Peter Attia), Gemini Blutwerte-Analyse"
+  },
+  {
+    "id": "ggt",
+    "field": "optimal.male.max",
+    "action": "update",
+    "oldValue": 30,
+    "newValue": 20,
+    "reason": "Gemini-Analyse und funktionelle Medizin: Optimaler GGT unter 20 U/l. GGT ist ein unabhaengiger kardiovaskulaerer Risikomarker und Marker fuer oxidativen Stress. Studien zeigen bereits bei GGT >20 U/l erhoehtes kardiovaskulaeres Risiko. Werte 20-30 sind zwar im Referenzbereich, aber nicht optimal.",
+    "source": "Gemini Blutwerte-Analyse, ChatGPT Deep Research Report"
+  },
+  {
+    "id": "ggt",
+    "field": "optimal.female.max",
+    "action": "update",
+    "oldValue": 25,
+    "newValue": 18,
+    "reason": "Analog zur Anpassung bei Maennern. Funktionelles Optimum fuer Frauen bei GGT unter 18 U/l. Frauen haben physiologisch niedrigere GGT-Werte, daher engerer optimaler Bereich.",
+    "source": "Gemini Blutwerte-Analyse, ChatGPT Deep Research Report"
+  },
+  {
+    "id": "triglyceride",
+    "field": "optimal",
+    "action": "replace",
+    "oldValue": {
+      "male": { "min": 0, "max": 80, "target": 60 },
+      "female": { "min": 0, "max": 80, "target": 60 }
+    },
+    "newValue": "KEINE AENDERUNG - beibehalten",
+    "reason": "Research-Konsens bestaetigt: Triglyceride unter 80 mg/dl (manche Quellen sagen <75, andere <100) ist ein aggressives aber valides Ziel. Peter Attia und funktionelle Medizin empfehlen <70-80. Unsere aktuellen Werte (max 80, target 60) sind gut. Target 60 ist ambitioniert und wird durch die Daten unterstuetzt (Triglycerid/HDL-Ratio <1 als Goldstandard).",
+    "source": "Perplexity Blutwerte-Wissensdatenbank, ChatGPT Deep Research Report, Gemini Blutwerte-Analyse"
+  },
+  {
+    "id": "vitamin-d",
+    "field": "optimal",
+    "action": "replace",
+    "oldValue": {
+      "male": { "min": 50, "max": 70, "target": 60 },
+      "female": { "min": 50, "max": 70, "target": 60 }
+    },
+    "newValue": "KEINE AENDERUNG - beibehalten",
+    "reason": "Quellen geben unterschiedliche Bereiche an: 40-60 (konservativ), 50-70 (Mittelweg), 50-80 (aggressiv). Unser Bereich von 50-70 ng/ml mit Target 60 ist der beste Mittelweg und wird durch Endocrine Society, funktionelle Medizin und Osterhaus unterstuetzt.",
+    "source": "Perplexity Blutwerte-Wissensdatenbank, ChatGPT Deep Research Report, Gemini Blutwerte-Analyse"
+  },
+  {
+    "id": "tsh",
+    "field": "contextRules",
+    "action": "add",
+    "oldValue": null,
+    "newValue": {
+      "condition": "Biotin-Supplementierung (>5 mg/Tag)",
+      "interpretation": "ACHTUNG: Hochdosiertes Biotin (>5 mg/Tag, haeufig in Haar-/Haut-Supplementen) kann TSH FALSCH NIEDRIG und fT4/fT3 FALSCH HOCH erscheinen lassen (Streptavidin-Biotin-Interferenz im Immunoassay). Mindestens 48 Stunden (ATA empfiehlt 2 Tage) vor Schilddruesentests Biotin pausieren. Dies betrifft die meisten gaengigen Laborassays.",
+      "severity": "warning"
+    },
+    "reason": "American Thyroid Association (ATA) warnt ausdruecklich vor Biotin-Interferenz bei Schilddruesentests. Mehrere Fallberichte von Fehldiagnosen (Graves' Disease bei gesunden Patienten). Besonders relevant weil Biotin-Supplements (5-10 mg) sehr populaer sind und Patienten dies oft nicht erwaehnen.",
+    "source": "Perplexity Blutwerte-Wissensdatenbank, ChatGPT Deep Research Report, ATA Guidelines"
+  },
+  {
+    "id": "ft3",
+    "field": "contextRules",
+    "action": "add",
+    "oldValue": null,
+    "newValue": {
+      "condition": "Biotin-Supplementierung (>5 mg/Tag)",
+      "interpretation": "Hochdosiertes Biotin kann fT3-Werte im Immunoassay verfaelschen (falsch hoch). Biotin mindestens 48 Stunden vor der Blutabnahme absetzen. Betrifft alle Streptavidin-Biotin-basierten Assays.",
+      "severity": "warning"
+    },
+    "reason": "Biotin-Interferenz betrifft nicht nur TSH, sondern auch fT3-Messungen. Bei kompetitiven Immunoassays (fT3, fT4) fuehrt Biotin zu falsch erhoehten Werten, bei Sandwich-Assays (TSH) zu falsch erniedrigten. fT3 wird kompetitiv gemessen und ist daher betroffen.",
+    "source": "Perplexity Blutwerte-Wissensdatenbank, ChatGPT Deep Research Report"
+  },
+  {
+    "id": "ft4",
+    "field": "contextRules",
+    "action": "add",
+    "oldValue": null,
+    "newValue": {
+      "condition": "Biotin-Supplementierung (>5 mg/Tag)",
+      "interpretation": "Hochdosiertes Biotin kann fT4 FALSCH HOCH erscheinen lassen (kompetitiver Immunoassay-Interferenz). In Kombination mit falsch niedrigem TSH kann dies eine Schilddruesenueberfunktion vortaeuschen. Biotin 48 Stunden vor der Blutabnahme absetzen.",
+      "severity": "warning"
+    },
+    "reason": "fT4 wird wie fT3 in kompetitiven Immunoassays gemessen und ist durch Biotin-Interferenz betroffen. Das Muster 'TSH niedrig + fT4 hoch + fT3 hoch' durch Biotin kann eine Hyperthyreose vortaeuschen und zu unnoetigem Therapiebeginn fuehren.",
+    "source": "Perplexity Blutwerte-Wissensdatenbank, ChatGPT Deep Research Report, ATA Guidelines"
+  },
+  {
+    "id": "lpa",
+    "field": "contextRules",
+    "action": "add",
+    "oldValue": null,
+    "newValue": {
+      "condition": "Ergebnis in mg/dL statt nmol/L oder umgekehrt",
+      "interpretation": "ACHTUNG: Die Umrechnung zwischen nmol/L und mg/dL ist bei Lp(a) UNZULAESSIG! Anders als bei anderen Lipid-Werten variiert das Molekulargewicht von Lp(a) individuell je nach Apo(a)-Isoformgroesse (variable Anzahl von Kringle-IV-Repeats). Ein fester Umrechnungsfaktor existiert daher NICHT. Die Einheit des Laborbefunds muss strikt respektiert werden. Verlaufsmessungen NUR in der gleichen Einheit und idealerweise im gleichen Labor vergleichen.",
+      "severity": "warning"
+    },
+    "reason": "Lp(a) hat im Gegensatz zu anderen Blutfetten kein einheitliches Molekulargewicht. Die Apo(a)-Isoformen unterscheiden sich in der Anzahl der Kringle-IV-Repeats (5-50+), was zu einem Molekulargewicht von 300-800 kDa fuehrt. Umrechnungsfaktoren (z.B. 2.4) sind nur Schaetzwerte und koennen um bis zu 300% vom tatsaechlichen Wert abweichen.",
+    "source": "Perplexity Blutwerte-Wissensdatenbank, Gemini Blutwerte-Analyse, European Atherosclerosis Society Guidelines"
+  },
+  {
+    "id": "lpa",
+    "field": "alternativeUnits",
+    "action": "update",
+    "oldValue": [{ "unit": "mg/dl", "factor": 0.4167 }],
+    "newValue": [],
+    "reason": "Konsistent mit der neuen contextRule: Da die Umrechnung nmol/L ↔ mg/dL bei Lp(a) unzulaessig ist (variables Molekulargewicht je nach Apo(a)-Isoform), sollte der alternativeUnits-Eintrag entfernt werden, um falsche automatische Umrechnungen zu verhindern. Der Faktor 0.4167 ist nur ein grober Schaetzwert und kann individuell um bis zu 300% abweichen.",
+    "source": "European Atherosclerosis Society Guidelines, Perplexity Blutwerte-Wissensdatenbank"
+  },
+  {
+    "id": "ferritin",
+    "field": "contextRules",
+    "action": "add",
+    "oldValue": null,
+    "newValue": {
+      "condition": "CRP >5 mg/l UND Ferritin im Referenzbereich",
+      "interpretation": "Ferritin/CRP-Ratio berechnen: Ferritin (ng/ml) geteilt durch CRP (mg/l). Bei einer Ratio <100 und CRP >5 mg/l besteht trotz 'normalem' Ferritin ein hoher Verdacht auf funktionellen Eisenmangel. Die Entzuendung erhoeht Ferritin als Akute-Phase-Protein, waehrend gleichzeitig Eisen im retikuloendothelialen System sequestriert wird. Transferrinsaettigung und loeslicher Transferrinrezeptor als zusaetzliche Marker heranziehen.",
+      "severity": "attention"
+    },
+    "reason": "Die Ferritin/CRP-Ratio ist ein klinisch validierter Parameter zur Beurteilung des Eisenstatus bei gleichzeitiger Entzuendung. WHO und Haematologie-Leitlinien empfehlen die Ratio bei erhoehtem CRP. Eine Ratio <100 (Ferritin/CRP) deutet auch bei 'normalen' Ferritinwerten auf funktionellen Eisenmangel hin.",
+    "source": "ChatGPT Deep Research Report, Gemini Blutwerte-Analyse, WHO Iron Assessment Guidelines"
+  },
+  {
+    "id": "coenzym-q10",
+    "field": "contextRules",
+    "action": "add",
+    "oldValue": null,
+    "newValue": {
+      "condition": "Q10-Interpretation bei erhoehten Lipidwerten",
+      "interpretation": "Coenzym Q10 wird im Blut an Lipoproteine (v.a. LDL) gebunden transportiert. Bei hohem Cholesterin/LDL kann der Q10-Spiegel daher 'normal' erscheinen, obwohl der zellulaere Status unzureichend ist. Fuer eine praezisere Beurteilung lipidkorrigiertes Q10 berechnen: Q10 (µmol/l) geteilt durch Gesamtcholesterin (mmol/l). Ratio >0.200 = ausreichend, <0.200 = Mangel wahrscheinlich. Alternativ: Q10/LDL-Cholesterin-Ratio verwenden.",
+      "severity": "info"
+    },
+    "reason": "Q10 wird zu ca. 58% im LDL transportiert. Bei Dyslipidaemie oder Statin-Therapie kann der absolute Q10-Wert taeuschend sein. Die lipidkorrigierte Interpretation ist in der orthomolekularen Medizin und klinischen Studien (z.B. Q-SYMBIO) etabliert.",
+    "source": "Gemini Blutwerte-Analyse, ChatGPT Deep Research Report"
+  },
+  {
+    "id": "magnesium",
+    "field": "optimization.supplements",
+    "action": "update",
+    "oldValue": "Aktuell 2 Supplements: Magnesiumglycinat und Magnesium-L-Threonat",
+    "newValue": [
+      {
+        "name": "Magnesiumbisglycinat (abends)",
+        "dosage": "200-300 mg elementares Magnesium",
+        "timing": "Abends 30-60 Minuten vor dem Schlafengehen",
+        "notes": "Beste Bioverfuegbarkeit und Vertraeglichkeit. Glycinat aktiviert GABA-Rezeptoren und foerdert Entspannung und Schlaf. Daher ideal fuer die abendliche Einnahme. Kein Durchfall wie bei Oxid oder Citrat."
+      },
+      {
+        "name": "Magnesiummalat oder Magnesiumtaurat (morgens)",
+        "dosage": "100-200 mg elementares Magnesium",
+        "timing": "Morgens zum Fruehstueck",
+        "notes": "Malat unterstuetzt die ATP-Synthese und Energieproduktion (Krebs-Zyklus), ideal fuer den Tag. Taurat ist besonders herzschuetzend (Taurin + Magnesium). NICHT Magnesiumoxid verwenden - schlechteste Bioverfuegbarkeit (<4%), verursacht hauptsaechlich Durchfall."
+      },
+      {
+        "name": "Magnesium-L-Threonat (bei kognitiven Beschwerden)",
+        "dosage": "1.000-2.000 mg Magnesium-L-Threonat (ca. 144 mg elementares Mg)",
+        "timing": "Abends vor dem Schlafengehen",
+        "notes": "Einzige Magnesiumform, die nachweislich die Blut-Hirn-Schranke ueberwindet. Besonders geeignet bei Brain Fog, Schlafproblemen und Angst. Kann zusaetzlich zu Bisglycinat genommen werden."
+      }
+    ],
+    "reason": "Research-Quellen betonen die unterschiedliche Bioverfuegbarkeit und Wirkprofile verschiedener Magnesiumformen. Bisglycinat abends wegen GABA-Aktivierung, Malat/Taurat morgens wegen ATP-Synthese. Oxid sollte explizit als schlecht gekennzeichnet werden. Differenzierte Empfehlung nach Tageszeit und Wirkprofil verbessert die praktische Anwendbarkeit.",
+    "source": "Perplexity Blutwerte-Wissensdatenbank, ChatGPT Deep Research Report, Gemini Blutwerte-Analyse"
+  },
+  {
+    "id": "vitamin-b12",
+    "field": "optimization.supplements[0].notes",
+    "action": "update",
+    "oldValue": "Methylcobalamin ist die bioaktive Form. Cyanocobalamin ist günstiger, muss aber umgewandelt werden. Bei Resorptionsstörung: intramuskuläre Injektionen (Hydroxocobalamin bevorzugt).",
+    "newValue": "Methylcobalamin ist die bioaktive Form. Cyanocobalamin ist guenstiger, muss aber umgewandelt werden und ist bei MTHFR-Polymorphismus NICHT empfehlenswert (Methylcobalamin oder Adenosylcobalamin bevorzugen). Adenosylcobalamin ist die mitochondriale Form und ergaenzt Methylcobalamin. Bei Resorptionsstoerung: intramuskulaere Injektionen (Hydroxocobalamin bevorzugt, da es im Koerper sowohl zu Methyl- als auch zu Adenosylcobalamin umgewandelt werden kann).",
+    "reason": "MTHFR-Polymorphismus betrifft ca. 10-15% der Bevoelkerung (homozygot) und bis zu 40% heterozygot. Bei diesen Personen ist die Umwandlung von Cyanocobalamin zu Methylcobalamin eingeschraenkt. Die Empfehlung, direkt Methylcobalamin oder Adenosylcobalamin zu verwenden, ist klinisch relevant und wird von funktioneller Medizin und Nutrigenomik empfohlen.",
+    "source": "ChatGPT Deep Research Report, Perplexity Blutwerte-Wissensdatenbank"
+  },
+  {
+    "id": "vitamin-b12",
+    "field": "contextRules",
+    "action": "add",
+    "oldValue": null,
+    "newValue": {
+      "condition": "MTHFR-Polymorphismus bekannt oder vermutet",
+      "interpretation": "Bei MTHFR-Mutation (C677T oder A1298C) Methylcobalamin oder Adenosylcobalamin statt Cyanocobalamin verwenden. Cyanocobalamin benoetigt fuer die Umwandlung zu aktiven Formen einen funktionierenden Methylierungszyklus, der bei MTHFR-Mutation eingeschraenkt ist. Immer in Kombination mit 5-MTHF (Methylfolat) supplementieren.",
+      "severity": "attention"
+    },
+    "reason": "MTHFR-Polymorphismus ist ein haeufiger genetischer Befund, der die B12-Verwertung direkt betrifft. Ergaenzt die bestehende MTHFR-Erwaehnung bei Folsaeure mit der korrespondierenden B12-Empfehlung.",
+    "source": "ChatGPT Deep Research Report, Perplexity Blutwerte-Wissensdatenbank"
+  },
+  {
+    "id": "folsaeure",
+    "field": "contextRules",
+    "action": "add",
+    "oldValue": null,
+    "newValue": {
+      "condition": "Supplementierung mit synthetischer Folsaeure statt 5-MTHF",
+      "interpretation": "Bei MTHFR-Mutation (betrifft ca. 5-15% der Bevoelkerung homozygot, bis zu 40% heterozygot) AUSSCHLIESSLICH 5-MTHF (Methylfolat) als Supplementform verwenden. Synthetische Folsaeure (Pteroylglutaminsaeure) kann bei MTHFR-Mutation nicht effizient umgewandelt werden und kann sich als unmetabolisierte Folsaeure im Blut anreichern, was moeglicherweise negative Effekte hat (diskutiert: Immundysfunktion, Maskierung von B12-Mangel).",
+      "severity": "attention"
+    },
+    "reason": "Ergaenzung zur bestehenden MTHFR-Rule. Betonung, dass synthetische Folsaeure nicht nur weniger wirksam, sondern potentiell schaedlich sein kann, wenn sie sich unmetabolisiert anreichert. Die bestehende Rule erwaehnt MTHFR bereits, aber nicht die spezifischen Risiken synthetischer Folsaeure.",
+    "source": "ChatGPT Deep Research Report, Gemini Blutwerte-Analyse"
+  },
+  {
+    "id": "omega-3-index",
+    "field": "contextRules",
+    "action": "add",
+    "oldValue": null,
+    "newValue": {
+      "condition": "Verlaufsvergleich verschiedener Messungen",
+      "interpretation": "WICHTIG fuer Verlaufsvergleiche: Der HS-Omega-3-Index (nach Harris & von Schacky, Messung in Erythrozytenmembran) ist der validierte Goldstandard. Andere Methoden (Serum-Omega-3, Plasma-EPA/DHA, Vollblut-Fettsaeureanalyse) sind NICHT direkt vergleichbar. Immer die Messmethode und das Labor dokumentieren. Idealerweise alle Verlaufsmessungen beim gleichen Labor mit der gleichen Methode durchfuehren.",
+      "severity": "info"
+    },
+    "reason": "Verschiedene Labore verwenden unterschiedliche Methoden zur Omega-3-Bestimmung. Der HS-Omega-3-Index (Erythrozyten-Membran) ist der einzige validierte Biomarker mit definierten Risikokategorien. Plasma- oder Serum-Werte schwanken staerker und sind nicht direkt mit dem HS-Omega-3-Index vergleichbar.",
+    "source": "Perplexity Blutwerte-Wissensdatenbank, ChatGPT Deep Research Report"
+  },
+  {
+    "id": "erythrozyten",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben die bestehenden Daten zu Erythrozyten bestaetigt und validiert.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "haemoglobin",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben die bestehenden Daten bestaetigt.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "ferritin",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben Ferritin-Daten bestaetigt und Ferritin/CRP-Ratio als wichtige Ergaenzung identifiziert.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "vitamin-d",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben optimalen Bereich 50-70 ng/ml bestaetigt.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "triglyceride",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben Triglycerid-Zielwerte und TG/HDL-Ratio bestaetigt.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "homocystein",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben optimalen Bereich verfeinert (5-7 statt 5-8) und MTHFR-Relevanz bestaetigt.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "gpt",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (Peter Attia) (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Peter Attia via ChatGPT Deep Research: GPT/ALT optimal unter 25 U/l.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "ggt",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Gemini: Funktionelles Optimum GGT unter 20 U/l bestaetigt.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "tsh",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben TSH-Optimalbereich bestaetigt und Biotin-Interferenz als wichtige Ergaenzung identifiziert.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "ft3",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben fT3-Daten bestaetigt und Biotin-Interferenz ergaenzt.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "ft4",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben fT4-Daten bestaetigt und Biotin-Interferenz ergaenzt.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "lpa",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026), European Atherosclerosis Society (EAS) Consensus",
+    "reason": "Research-Quellen haben Lp(a)-Daten bestaetigt und die Umrechnungsproblematik nmol/L vs mg/dL als kritische Ergaenzung identifiziert.",
+    "source": "Alle drei Research-Quellen + EAS"
+  },
+  {
+    "id": "coenzym-q10",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben Q10-Daten bestaetigt und lipidkorrigierte Interpretation als Ergaenzung identifiziert.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "magnesium",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben Mg-Daten bestaetigt und Bioverfuegbarkeitsunterschiede der Formen als wichtige Ergaenzung identifiziert.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "vitamin-b12",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben B12-Daten bestaetigt und MTHFR-Supplementierungs-Empfehlung verfeinert.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "folsaeure",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben Folsaeure-Daten bestaetigt und Risiken synthetischer Folsaeure bei MTHFR bestaetigt.",
+    "source": "Alle drei Research-Quellen"
+  },
+  {
+    "id": "omega-3-index",
+    "field": "sources",
+    "action": "add",
+    "oldValue": ["Der Blutwerte-Code - Thiemo Osterhaus", "Labormedizin - Lothar Thomas"],
+    "newValue": "Perplexity Blutwerte-Wissensdatenbank (2026), ChatGPT Deep Research Report (2026), Gemini Blutwerte-Analyse (2026)",
+    "reason": "Research-Quellen haben Omega-3-Index-Daten bestaetigt und Methodenvergleichbarkeit als wichtigen Punkt identifiziert.",
+    "source": "Alle drei Research-Quellen"
+  }
+]
