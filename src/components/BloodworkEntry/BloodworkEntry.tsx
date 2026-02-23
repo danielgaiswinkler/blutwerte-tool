@@ -17,129 +17,23 @@ import {
   ChevronDown,
   FileUp,
 } from 'lucide-react';
+import InfoPopover from '../InfoPopover';
 import { parsePdf } from '../../utils/pdf-parser';
 import type { ParsedLabValue } from '../../utils/pdf-parser';
-
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
-
-interface BloodworkEntryData {
-  id: string;
-  date: string;
-  gender: 'male' | 'female';
-  values: Record<string, number>;
-  notes?: string;
-}
-
-type RangeStatus = 'optimal' | 'reference' | 'critical' | 'empty';
-
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-const STORAGE_KEY = 'blutwerte-entries';
-
-function loadEntries(): BloodworkEntryData[] {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
-}
-
-function saveEntries(entries: BloodworkEntryData[]) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
-}
-
-function generateId(): string {
-  return `entry-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-}
-
-function todayISO(): string {
-  return new Date().toISOString().split('T')[0];
-}
-
-function formatDate(iso: string): string {
-  try {
-    return new Date(iso).toLocaleDateString('de-DE', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    });
-  } catch {
-    return iso;
-  }
-}
-
-function getRangeStatus(
-  value: number | undefined,
-  bv: BloodValue,
-  gender: 'male' | 'female',
-): RangeStatus {
-  if (value === undefined || isNaN(value)) return 'empty';
-
-  const ref = bv.reference[gender];
-  const opt = bv.optimal[gender];
-
-  // Check optimal range first
-  const inOptimal =
-    (opt.min === undefined || value >= opt.min) &&
-    (opt.max === undefined || value <= opt.max);
-  if (inOptimal) return 'optimal';
-
-  // Check reference range
-  const inRef =
-    (ref.min === undefined || value >= ref.min) &&
-    (ref.max === undefined || value <= ref.max);
-  if (inRef) return 'reference';
-
-  return 'critical';
-}
-
-function statusColor(status: RangeStatus): string {
-  switch (status) {
-    case 'optimal':
-      return 'var(--color-success)';
-    case 'reference':
-      return 'var(--color-warning)';
-    case 'critical':
-      return 'var(--color-danger)';
-    default:
-      return 'var(--color-border)';
-  }
-}
-
-function statusBgClass(status: RangeStatus): string {
-  switch (status) {
-    case 'optimal':
-      return 'bg-success/10 border-success/40';
-    case 'reference':
-      return 'bg-warning/10 border-warning/40';
-    case 'critical':
-      return 'bg-danger/10 border-danger/40';
-    default:
-      return 'bg-bg-input border-border';
-  }
-}
-
-function rangeText(range: { min?: number; max?: number; target?: number }): string {
-  const parts: string[] = [];
-  if (range.min !== undefined && range.max !== undefined) {
-    parts.push(`${range.min}\u2013${range.max}`);
-  } else if (range.min !== undefined) {
-    parts.push(`> ${range.min}`);
-  } else if (range.max !== undefined) {
-    parts.push(`< ${range.max}`);
-  }
-  if (range.target !== undefined) {
-    parts.push(`Ziel: ${range.target}`);
-  }
-  return parts.join(' | ');
-}
+import {
+  loadEntriesForProfile,
+  loadEntries,
+  saveEntries,
+  generateId,
+  todayISO,
+  formatDate,
+  getRangeStatus,
+  statusColor,
+  statusBgClass,
+  rangeText,
+} from '../../utils/bloodwork-utils';
+import type { BloodworkEntryData } from '../../utils/bloodwork-utils';
+import { useProfile } from '../../context/ProfileContext';
 
 /**
  * Try to match a CSV column header to a BloodValue.
@@ -184,12 +78,15 @@ function ValueInput({ bv, value, gender, onChange }: ValueInputProps) {
       {/* Header row */}
       <div className="flex items-center justify-between gap-3 mb-2">
         <div className="flex-1 min-w-0">
-          <label
-            htmlFor={`input-${bv.id}`}
-            className="block text-sm font-medium text-text-primary truncate"
-          >
-            {bv.name}
-          </label>
+          <div className="flex items-center gap-1.5">
+            <label
+              htmlFor={`input-${bv.id}`}
+              className="text-sm font-medium text-text-primary truncate"
+            >
+              {bv.name}
+            </label>
+            <InfoPopover text={bv.description} size={13} />
+          </div>
           <span className="text-xs text-text-muted">{bv.unit}</span>
         </div>
 
@@ -222,7 +119,7 @@ function ValueInput({ bv, value, gender, onChange }: ValueInputProps) {
                 if (!isNaN(num)) onChange(bv.id, num);
               }
             }}
-            placeholder="\u2014"
+            placeholder="—"
             className="w-28 rounded-md border border-border bg-bg-input px-3 py-1.5 text-sm text-text-primary
                        placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent
                        text-right tabular-nums [appearance:textfield]
@@ -245,11 +142,13 @@ function ValueInput({ bv, value, gender, onChange }: ValueInputProps) {
 // ---------------------------------------------------------------------------
 
 export default function BloodworkEntry() {
+  const { activeProfile } = useProfile();
+
   // ---- State ----
   const [entries, setEntries] = useState<BloodworkEntryData[]>([]);
   const [activeEntryId, setActiveEntryId] = useState<string | null>(null);
   const [date, setDate] = useState(todayISO());
-  const [gender, setGender] = useState<'male' | 'female'>('male');
+  const [gender, setGender] = useState<'male' | 'female'>(activeProfile?.defaultGender ?? 'male');
   const [values, setValues] = useState<Record<string, number>>({});
   const [notes, setNotes] = useState('');
   const [activeCategory, setActiveCategory] = useState(categories[0]);
@@ -262,11 +161,18 @@ export default function BloodworkEntry() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const pdfInputRef = useRef<HTMLInputElement>(null);
 
-  // ---- Load entries on mount ----
+  // ---- Load entries for active profile ----
   useEffect(() => {
-    const loaded = loadEntries();
+    if (!activeProfile) return;
+    const loaded = loadEntriesForProfile(activeProfile.id)
+      .sort((a, b) => b.date.localeCompare(a.date));
     setEntries(loaded);
-  }, []);
+    setActiveEntryId(null);
+    setDate(todayISO());
+    setGender(activeProfile.defaultGender);
+    setValues({});
+    setNotes('');
+  }, [activeProfile]);
 
   // ---- Populate form when selecting an entry ----
   const selectEntry = useCallback(
@@ -309,16 +215,17 @@ export default function BloodworkEntry() {
   // ---- Save handler ----
   const handleSave = useCallback(() => {
     const filledCount = Object.keys(values).length;
-    if (filledCount === 0) return;
+    if (filledCount === 0 || !activeProfile) return;
 
-    const updatedEntries = [...entries];
+    // Load ALL entries (all profiles) for storage
+    const allEntries = loadEntries();
 
     if (activeEntryId) {
       // Update existing entry
-      const idx = updatedEntries.findIndex((e) => e.id === activeEntryId);
+      const idx = allEntries.findIndex((e) => e.id === activeEntryId);
       if (idx !== -1) {
-        updatedEntries[idx] = {
-          ...updatedEntries[idx],
+        allEntries[idx] = {
+          ...allEntries[idx],
           date,
           gender,
           values: { ...values },
@@ -333,37 +240,49 @@ export default function BloodworkEntry() {
         gender,
         values: { ...values },
         notes: notes || undefined,
+        profileId: activeProfile.id,
       };
-      updatedEntries.unshift(newEntry);
+      allEntries.unshift(newEntry);
       setActiveEntryId(newEntry.id);
     }
 
     // Sort by date descending
-    updatedEntries.sort((a, b) => b.date.localeCompare(a.date));
+    allEntries.sort((a, b) => b.date.localeCompare(a.date));
 
-    setEntries(updatedEntries);
-    saveEntries(updatedEntries);
+    // Save ALL entries
+    saveEntries(allEntries);
+
+    // Update local view (profile-filtered)
+    const profileEntries = allEntries
+      .filter((e) => e.profileId === activeProfile.id)
+      .sort((a, b) => b.date.localeCompare(a.date));
+    setEntries(profileEntries);
 
     // Brief save confirmation flash
     setSaveFlash(true);
     setTimeout(() => setSaveFlash(false), 1500);
-  }, [entries, activeEntryId, date, gender, values, notes]);
+  }, [entries, activeEntryId, date, gender, values, notes, activeProfile]);
 
   // ---- Delete handler ----
   const handleDelete = useCallback(
     (id: string) => {
+      // Remove from ALL entries
+      const allEntries = loadEntries().filter((e) => e.id !== id);
+      saveEntries(allEntries);
+
+      // Update local view
       const updated = entries.filter((e) => e.id !== id);
       setEntries(updated);
-      saveEntries(updated);
+
       if (activeEntryId === id) {
         setActiveEntryId(null);
         setDate(todayISO());
-        setGender('male');
+        setGender(activeProfile?.defaultGender ?? 'male');
         setValues({});
         setNotes('');
       }
     },
-    [entries, activeEntryId],
+    [entries, activeEntryId, activeProfile],
   );
 
   // ---- CSV Upload handler ----
@@ -542,7 +461,7 @@ export default function BloodworkEntry() {
             onClick={() => {
               setActiveEntryId(null);
               setDate(todayISO());
-              setGender('male');
+              setGender(activeProfile?.defaultGender ?? 'male');
               setValues({});
               setNotes('');
               setCsvFeedback(null);

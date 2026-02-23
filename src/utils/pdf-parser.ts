@@ -136,7 +136,7 @@ const LAB_MAPPINGS: LabMapping[] = [
   { pattern: /\bprogesteron\b/i, id: 'progesteron', dbUnit: 'ng/ml' },
 
   // Vitamine
-  { pattern: /vitamin\s*b\s*12|cobalamin/i, id: 'vitamin-b12', dbUnit: 'pg/ml' },
+  { pattern: /vitamin\s*b\s*12/i, id: 'vitamin-b12', dbUnit: 'pg/ml' },
   { pattern: /holotranscobalamin|holo[- ]?tc/i, id: 'holotranscobalamin', dbUnit: 'pmol/l' },
   { pattern: /fols[äa]ure|folat\b/i, id: 'folsaeure', dbUnit: 'ng/ml' },
   { pattern: /25[- ]?hydroxy[- ]?vitamin\s*d|vitamin\s*d\b/i, id: 'vitamin-d', dbUnit: 'ng/ml' },

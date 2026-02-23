@@ -7,12 +7,19 @@ import { bloodValues } from '../data';
 
 export type RangeStatus = 'optimal' | 'reference' | 'critical' | 'empty';
 
+export interface Profile {
+  id: string;
+  name: string;
+  defaultGender: 'male' | 'female';
+}
+
 export interface BloodworkEntryData {
   id: string;
   date: string;
   gender: 'male' | 'female';
   values: Record<string, number>;
   notes?: string;
+  profileId?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -20,6 +27,85 @@ export interface BloodworkEntryData {
 // ---------------------------------------------------------------------------
 
 export const STORAGE_KEY = 'blutwerte-entries';
+const PROFILES_KEY = 'blutwerte-profiles';
+const ACTIVE_PROFILE_KEY = 'blutwerte-active-profile';
+
+/** Default profile ID used for migration of existing entries. */
+export const DEFAULT_PROFILE_ID = 'profil-default';
+
+// --- Profiles ---
+
+/** Load all profiles from localStorage. Creates default profile if none exist. */
+export function loadProfiles(): Profile[] {
+  try {
+    const raw = localStorage.getItem(PROFILES_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+/** Persist profiles array to localStorage. */
+export function saveProfiles(profiles: Profile[]): void {
+  localStorage.setItem(PROFILES_KEY, JSON.stringify(profiles));
+}
+
+/** Get the active profile ID from localStorage. */
+export function getActiveProfileId(): string | null {
+  return localStorage.getItem(ACTIVE_PROFILE_KEY);
+}
+
+/** Set the active profile ID in localStorage. */
+export function setActiveProfileId(id: string): void {
+  localStorage.setItem(ACTIVE_PROFILE_KEY, id);
+}
+
+/**
+ * Initialize profiles on first use.
+ * - Creates default profile "Ich" if no profiles exist
+ * - Assigns all existing entries without profileId to the default profile
+ * Returns the (possibly updated) profiles array.
+ */
+export function initProfiles(): Profile[] {
+  let profiles = loadProfiles();
+
+  if (profiles.length === 0) {
+    // Create default profile
+    const defaultProfile: Profile = {
+      id: DEFAULT_PROFILE_ID,
+      name: 'Ich',
+      defaultGender: 'male',
+    };
+    profiles = [defaultProfile];
+    saveProfiles(profiles);
+    setActiveProfileId(defaultProfile.id);
+
+    // Migrate existing entries
+    const entries = loadEntries();
+    if (entries.length > 0) {
+      let changed = false;
+      for (const entry of entries) {
+        if (!entry.profileId) {
+          entry.profileId = defaultProfile.id;
+          changed = true;
+        }
+      }
+      if (changed) saveEntries(entries);
+    }
+  }
+
+  // Ensure there's an active profile
+  const activeId = getActiveProfileId();
+  if (!activeId || !profiles.find((p) => p.id === activeId)) {
+    setActiveProfileId(profiles[0].id);
+  }
+
+  return profiles;
+}
+
+// --- Entries ---
 
 /** Load all saved entries from localStorage. Returns [] on error. */
 export function loadEntries(): BloodworkEntryData[] {
@@ -31,6 +117,11 @@ export function loadEntries(): BloodworkEntryData[] {
   } catch {
     return [];
   }
+}
+
+/** Load entries filtered by profileId. */
+export function loadEntriesForProfile(profileId: string): BloodworkEntryData[] {
+  return loadEntries().filter((e) => e.profileId === profileId);
 }
 
 /** Persist entries array to localStorage. */

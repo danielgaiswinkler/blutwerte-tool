@@ -19,88 +19,20 @@ import {
   getValuesByCategory,
 } from '../../data';
 import type { BloodValue } from '../../data';
-
-// ---------------------------------------------------------------------------
-// Types (inline – wird spaeter in shared utils refactored)
-// ---------------------------------------------------------------------------
-
-const STORAGE_KEY = 'blutwerte-entries';
-
-interface BloodworkEntryData {
-  id: string;
-  date: string;
-  gender: 'male' | 'female';
-  values: Record<string, number>;
-  notes?: string;
-}
-
-type RangeStatus = 'optimal' | 'reference' | 'critical' | 'empty';
+import InfoPopover from '../InfoPopover';
+import {
+  loadEntriesForProfile,
+  formatDate,
+  getRangeStatus,
+  statusColor,
+  rangeText,
+} from '../../utils/bloodwork-utils';
+import type { BloodworkEntryData, RangeStatus } from '../../utils/bloodwork-utils';
+import { useProfile } from '../../context/ProfileContext';
 
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
-
-function loadEntries(): BloodworkEntryData[] {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    // Sort by date descending
-    return parsed.sort((a: BloodworkEntryData, b: BloodworkEntryData) =>
-      b.date.localeCompare(a.date),
-    );
-  } catch {
-    return [];
-  }
-}
-
-function formatDate(iso: string): string {
-  try {
-    return new Date(iso).toLocaleDateString('de-DE', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    });
-  } catch {
-    return iso;
-  }
-}
-
-function getRangeStatus(
-  value: number | undefined,
-  bv: BloodValue,
-  gender: 'male' | 'female',
-): RangeStatus {
-  if (value === undefined || isNaN(value)) return 'empty';
-
-  const opt = bv.optimal[gender];
-  const inOptimal =
-    (opt.min === undefined || value >= opt.min) &&
-    (opt.max === undefined || value <= opt.max);
-  if (inOptimal) return 'optimal';
-
-  const ref = bv.reference[gender];
-  const inRef =
-    (ref.min === undefined || value >= ref.min) &&
-    (ref.max === undefined || value <= ref.max);
-  if (inRef) return 'reference';
-
-  return 'critical';
-}
-
-function statusColor(status: RangeStatus): string {
-  switch (status) {
-    case 'optimal':
-      return 'var(--color-success)';
-    case 'reference':
-      return 'var(--color-warning)';
-    case 'critical':
-      return 'var(--color-danger)';
-    default:
-      return 'var(--color-border)';
-  }
-}
 
 function statusLabel(status: RangeStatus): string {
   switch (status) {
@@ -113,21 +45,6 @@ function statusLabel(status: RangeStatus): string {
     default:
       return '';
   }
-}
-
-function rangeText(range: { min?: number; max?: number; target?: number }): string {
-  const parts: string[] = [];
-  if (range.min !== undefined && range.max !== undefined) {
-    parts.push(`${range.min}\u2013${range.max}`);
-  } else if (range.min !== undefined) {
-    parts.push(`> ${range.min}`);
-  } else if (range.max !== undefined) {
-    parts.push(`< ${range.max}`);
-  }
-  if (range.target !== undefined) {
-    parts.push(`Ziel: ${range.target}`);
-  }
-  return parts.join(' | ');
 }
 
 /** Calculate how far a value is outside the reference range */
@@ -372,21 +289,27 @@ function CategoryCard({
         <div className="border-t border-(--color-border)/50 px-5 py-3">
           <div className="space-y-2">
             {sorted.map((av) => (
-              <Link
+              <div
                 key={av.bv.id}
-                to={`/wert/${av.bv.id}`}
-                className="flex items-center justify-between gap-3 py-1.5 rounded-lg px-2 -mx-2 hover:bg-(--color-bg-input)/40 transition-colors cursor-pointer group"
+                className="flex items-center justify-between gap-3 py-1.5 rounded-lg px-2 -mx-2 hover:bg-(--color-bg-input)/40 transition-colors group"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div
                     className="w-2.5 h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: statusColor(av.status) }}
                   />
-                  <span className="text-sm text-(--color-text-primary) truncate group-hover:text-(--color-accent) transition-colors">
+                  <Link
+                    to={`/wert/${av.bv.id}`}
+                    className="text-sm text-(--color-text-primary) truncate group-hover:text-(--color-accent) transition-colors"
+                  >
                     {av.bv.name}
-                  </span>
+                  </Link>
+                  <InfoPopover text={av.bv.description} size={13} />
                 </div>
-                <div className="flex items-center gap-2 shrink-0 text-right">
+                <Link
+                  to={`/wert/${av.bv.id}`}
+                  className="flex items-center gap-2 shrink-0 text-right"
+                >
                   <span className="text-sm font-mono font-medium text-(--color-text-primary)">
                     {av.value}
                   </span>
@@ -394,8 +317,8 @@ function CategoryCard({
                     {av.bv.unit}
                   </span>
                   <ArrowRight size={14} className="text-(--color-text-muted) opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-              </Link>
+                </Link>
+              </div>
             ))}
             {/* Show unfilled values grayed out */}
             {allCategoryValues
@@ -527,17 +450,22 @@ function EmptyState() {
 // ---------------------------------------------------------------------------
 
 export default function Dashboard() {
+  const { activeProfile } = useProfile();
   const [entries, setEntries] = useState<BloodworkEntryData[]>([]);
   const [selectedEntryId, setSelectedEntryId] = useState<string | null>(null);
 
-  // Load entries on mount
+  // Load entries for active profile
   useEffect(() => {
-    const loaded = loadEntries();
+    if (!activeProfile) return;
+    const loaded = loadEntriesForProfile(activeProfile.id)
+      .sort((a, b) => b.date.localeCompare(a.date));
     setEntries(loaded);
     if (loaded.length > 0) {
       setSelectedEntryId(loaded[0].id);
+    } else {
+      setSelectedEntryId(null);
     }
-  }, []);
+  }, [activeProfile]);
 
   // Active entry
   const activeEntry = useMemo(() => {
@@ -656,7 +584,7 @@ export default function Dashboard() {
       <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
         <div>
           <h2 className="text-2xl font-bold text-(--color-text-primary) mb-1">
-            Blutanalyse-Dashboard
+            {activeProfile ? `${activeProfile.name} — Blutanalyse` : 'Blutanalyse-Dashboard'}
           </h2>
           <div className="flex flex-wrap items-center gap-3 text-sm text-(--color-text-secondary)">
             <span className="flex items-center gap-1.5">
@@ -666,7 +594,7 @@ export default function Dashboard() {
             <span className="text-(--color-text-muted)">|</span>
             <span className="flex items-center gap-1.5">
               <User size={14} className="text-(--color-text-muted)" />
-              {gender === 'male' ? 'Maennlich' : 'Weiblich'}
+              {gender === 'male' ? 'Männlich' : 'Weiblich'}
             </span>
             <span className="text-(--color-text-muted)">|</span>
             <span className="flex items-center gap-1.5">

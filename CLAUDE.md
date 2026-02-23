@@ -9,20 +9,19 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - localStorage (Datenhaltung)
 - JSON-basierte Wissensdatenbank
 
-## Status (2026-02-22)
+## Status (2026-02-23)
 - [x] **Schritt 1: Wissensdatenbank** - 63 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
 - [x] **Schritt 2: Eingabeformular + CSV/JSON Import** - BloodworkEntry mit manuellem Input, CSV-Upload, localStorage
 - [x] **Schritt 3: Dashboard mit Ampelsystem** - Vollstaendiges Analyse-Dashboard mit Ampel-Uebersicht, Kategorie-Cards, kritische Werte Alert, Erfassungsgrad
 - [x] **Schritt 4: Einzelwert-Detailansicht** - SVG-Range-Bar, Interpretation, Optimierung, verwandte Werte, Quellen. Route /wert/:id
-- [x] **PDF-Import** - pdfjs-dist, positionsbasierte Zeilenrekonstruktion, 50+ Lab-Name-Mappings, Einheiten-Umrechnung
-- [ ] Schritt 5: Cross-Value-Analyse
-- [ ] Schritt 6: Trendansicht (Zeitverlauf)
-- [ ] Schritt 7: Empfehlungen & Optimierung (foods.json + supplements.json Daten vorhanden!)
+- [x] **PDF-Import** - pdfjs-dist, positionsbasierte Zeilenrekonstruktion, 50+ Lab-Name-Mappings, Einheiten-Umrechnung, Vitamin B12 Bug gefixt
+- [x] **Schritt 5: Cross-Value-Analyse** - 8 Panels (Eisen, Schilddrüse, Lipide, Methylierung, Insulinresistenz, Hormone-Mann, Leber, Niere), regelbasierte Auswertung, Route /analyse
+- [x] **Schritt 7: Empfehlungen & Optimierung** - Personalisierte Supplement-/Ernährungs-/Lifestyle-Tipps, foods.json + supplements.json Integration, Route /empfehlungen
+- [x] **Profile/Personen** - Multi-User mit ProfileContext, Profil-Selector in Sidebar, Migration bestehender Einträge
+- [x] **Laien-Info** - InfoPopover-Komponente ("Was bedeutet dieser Wert?") im Dashboard und Eingabeformular, nutzt description-Feld
+- [x] **Schritt 6: Trendansicht (Zeitverlauf)** - Recharts LineChart mit Status-Farben, Sparkline-Übersicht, Kategorie-Filter, Quick-Links für kritische Werte, Referenz-/Optimalbereich-Zonen, Zusammenfassungs-Stats, Messwert-Tabelle. Route /trend
 - [ ] Schritt 8: PDF-Export / Berichte
-- [ ] Profile/Personen (mehrere Nutzer mit eigenen Werten)
-- [ ] Laien-Info: "Was bedeutet dieser Wert?" — verständliche Erklärung pro Blutwert (Daten in description-Feld vorhanden, z.B. als Info-Icon/Tooltip im Dashboard, Eingabe und Detailansicht)
 - [ ] updates-from-research.json (34 Patches) in Hauptdatenbank mergen
-- [ ] BloodworkEntry refactoren (inline Helpers → shared utils)
 
 ## Datenstruktur
 - `src/data/bloodwork-knowledge.json` - Gesamte Wissensdatenbank (63 Werte)
@@ -30,7 +29,12 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - `src/data/foods.json` - Lebensmittel-Datenbank (17 Kategorien, Top-Foods pro Blutwert)
 - `src/data/lab-costs.json` - GOÄ-Kostenübersicht (63 Werte, Pakete, Spartipps)
 - `src/data/index.ts` - TypeScript-Typen + Exports
-- `src/utils/bloodwork-utils.ts` - Shared Utilities (Status-Berechnung, localStorage, Formatierung)
+- `src/utils/bloodwork-utils.ts` - Shared Utilities (Status-Berechnung, localStorage, Profile, Formatierung)
+- `src/utils/recommendations.ts` - Empfehlungs-Engine (Supplements + Foods + Lifestyle)
+- `src/utils/cross-value-rules.ts` - Cross-Value-Analyse-Regeln (8 Panels)
+- `src/context/ProfileContext.tsx` - React Context für Multi-User Profile
+- `src/components/InfoPopover.tsx` - Wiederverwendbare Laien-Info Komponente
+- `src/components/TrendView/TrendView.tsx` - Zeitverlauf-Charts mit Recharts (Sparklines, LineChart, Status-Dots)
 - Einzeldateien (Quelle): `blutbild-entzuendung.json`, `leber-niere-zucker.json`, `mikronaehrstoffe.json`, `herzgesundheit.json`, `hormone-spezial.json`, `zusatzwerte.json`
 
 ## Kategorien (13)
@@ -80,9 +84,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - Medizinisch-professioneller Look
 - Ampel: 🔴 Kritisch / 🟡 Suboptimal / 🟢 Optimal
 
-## Nächster Schritt (Session 2026-02-23)
-1. **Profile/Personen** — Name-Feld in Entries, Profil-Selector, getrennte Datenhaltung
-2. **PDF-Import testen** — Bioscentia PDF nochmal testen (Vitamin B12, Folsäure, Selen, Zink, Insulin Fixes verifizieren)
-3. **Schritt 7: Empfehlungen** — Personalisierte Supplement-/Ernährungs-/Lifestyle-Tipps basierend auf aktuellen Werten (Daten in foods.json + supplements.json vorhanden)
-4. **Schritt 5: Cross-Value-Analyse** — Zusammenhänge zwischen Werten (z.B. Eisen-Panel, Schilddrüse)
-5. **Berichte/PDF-Export** — Zusammenfassender Bericht als PDF
+## Nächster Schritt
+1. **Schritt 8: PDF-Export / Berichte** — Zusammenfassender Bericht als PDF
+2. **updates-from-research.json mergen** — 34 Patches in Hauptdatenbank einarbeiten
+3. **Zusätzliche Quellen-Dateien** — User hat weitere Dateien angekündigt ("liefer ich noch nach")

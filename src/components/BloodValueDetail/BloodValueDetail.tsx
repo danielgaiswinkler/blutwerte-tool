@@ -21,7 +21,7 @@ import {
 import { getValueById } from '../../data';
 import type { BloodValue, BloodValueRange } from '../../data';
 import {
-  loadEntries,
+  loadEntriesForProfile,
   getRangeStatus,
   statusColor,
   statusBgClass,
@@ -30,6 +30,7 @@ import {
   type RangeStatus,
   type BloodworkEntryData,
 } from '../../utils/bloodwork-utils';
+import { useProfile } from '../../context/ProfileContext';
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -590,19 +591,22 @@ function Collapsible({
 
 export default function BloodValueDetail() {
   const { id } = useParams<{ id: string }>();
+  const { activeProfile } = useProfile();
   const [entries, setEntries] = useState<BloodworkEntryData[]>([]);
   const [selectedEntryId, setSelectedEntryId] = useState<string | null>(null);
 
-  // Load entries on mount
+  // Load entries for active profile
   useEffect(() => {
-    const loaded = loadEntries();
-    // Sort by date descending
-    loaded.sort((a, b) => b.date.localeCompare(a.date));
+    if (!activeProfile) return;
+    const loaded = loadEntriesForProfile(activeProfile.id)
+      .sort((a, b) => b.date.localeCompare(a.date));
     setEntries(loaded);
     if (loaded.length > 0) {
       setSelectedEntryId(loaded[0].id);
+    } else {
+      setSelectedEntryId(null);
     }
-  }, []);
+  }, [activeProfile]);
 
   // Blood value definition
   const bloodValue = useMemo(() => (id ? getValueById(id) : undefined), [id]);
