@@ -14,7 +14,7 @@ import {
   formatDate,
   statusColor,
 } from '../../utils/bloodwork-utils';
-import type { BloodworkEntryData, RangeStatus } from '../../utils/bloodwork-utils';
+import type { BloodworkEntryData } from '../../utils/bloodwork-utils';
 import { useProfile } from '../../context/ProfileContext';
 import { analyzeCrossValues } from '../../utils/cross-value-rules';
 import type { CrossValuePanel, CrossValueInsight } from '../../utils/cross-value-rules';

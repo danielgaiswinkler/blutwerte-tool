@@ -3,7 +3,6 @@ import type { ReactNode } from 'react';
 import type { Profile } from '../utils/bloodwork-utils';
 import {
   initProfiles,
-  loadProfiles,
   saveProfiles,
   getActiveProfileId,
   setActiveProfileId as persistActiveProfileId,

@@ -1,4 +1,4 @@
-import { bloodValues, getValueById } from '../data';
+import { bloodValues } from '../data';
 import type { BloodValue } from '../data';
 import { getRangeStatus } from './bloodwork-utils';
 import type { RangeStatus } from './bloodwork-utils';

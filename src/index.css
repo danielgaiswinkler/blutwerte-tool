@@ -25,3 +25,203 @@ body {
   min-height: 100vh;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
+
+/* ========================================================================= */
+/* Print styles - Arzt-Bericht                                               */
+/* ========================================================================= */
+
+@media print {
+  /* Hide app shell */
+  body {
+    background: white !important;
+    color: #1a1a1a !important;
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+
+  /* Hide sidebar and screen-only elements */
+  nav,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Show print content */
+  .print\:block {
+    display: block !important;
+  }
+
+  /* Reset main layout */
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .flex.min-h-screen {
+    display: block !important;
+  }
+
+  /* Print report styles */
+  .print-report {
+    padding: 0;
+    color: #1a1a1a;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .print-header {
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 12pt;
+    margin-bottom: 16pt;
+  }
+
+  .print-header h1 {
+    font-size: 18pt;
+    font-weight: 700;
+    margin: 0 0 6pt 0;
+    color: #1a1a1a;
+  }
+
+  .print-meta {
+    display: flex;
+    justify-content: center;
+    gap: 16pt;
+    font-size: 10pt;
+    color: #555;
+  }
+
+  .print-summary {
+    display: flex;
+    justify-content: center;
+    gap: 24pt;
+    margin-bottom: 16pt;
+    padding: 8pt 0;
+  }
+
+  .print-summary-item {
+    font-size: 12pt;
+    font-weight: 600;
+    padding: 4pt 12pt;
+    border-radius: 4pt;
+  }
+
+  .print-summary-optimal { background: #dcfce7; color: #166534; }
+  .print-summary-suboptimal { background: #fef9c3; color: #854d0e; }
+  .print-summary-critical { background: #fee2e2; color: #991b1b; }
+
+  .print-category {
+    margin-bottom: 14pt;
+    break-inside: avoid;
+  }
+
+  .print-category-title {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1a1a1a;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 3pt;
+    margin: 0 0 4pt 0;
+  }
+
+  .print-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 4pt;
+  }
+
+  .print-table th {
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 1px solid #ccc;
+    padding: 3pt 6pt;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.3pt;
+  }
+
+  .print-table td {
+    padding: 3pt 6pt;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+
+  .print-table .print-value {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .print-row-critical td {
+    background: #fff5f5;
+  }
+
+  .print-row-reference td {
+    background: #fffef0;
+  }
+
+  .print-section {
+    margin-top: 20pt;
+    break-before: auto;
+  }
+
+  .print-section-title {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #1a1a1a;
+    border-bottom: 2px solid #333;
+    padding-bottom: 4pt;
+    margin: 0 0 10pt 0;
+  }
+
+  .print-rec {
+    margin-bottom: 12pt;
+    padding: 6pt 8pt;
+    border: 1px solid #ddd;
+    border-radius: 4pt;
+    break-inside: avoid;
+  }
+
+  .print-rec h3 {
+    font-size: 10.5pt;
+    font-weight: 600;
+    margin: 0 0 4pt 0;
+    color: #1a1a1a;
+  }
+
+  .print-rec strong {
+    font-size: 9pt;
+    color: #555;
+  }
+
+  .print-rec ul {
+    margin: 2pt 0 6pt 14pt;
+    padding: 0;
+  }
+
+  .print-rec li {
+    font-size: 9pt;
+    color: #333;
+    margin-bottom: 1pt;
+  }
+
+  .print-rec-redflags {
+    background: #fff5f5;
+    border: 1px solid #fecaca;
+    border-radius: 3pt;
+    padding: 4pt 6pt;
+    margin-top: 4pt;
+  }
+
+  .print-footer {
+    margin-top: 24pt;
+    padding-top: 8pt;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    font-size: 8pt;
+    color: #888;
+  }
+
+  .print-footer p {
+    margin: 2pt 0;
+  }
+}

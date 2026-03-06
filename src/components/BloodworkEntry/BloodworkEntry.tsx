@@ -16,10 +16,13 @@ import {
   FileText,
   ChevronDown,
   FileUp,
+  Camera,
+  ClipboardPaste,
 } from 'lucide-react';
 import InfoPopover from '../InfoPopover';
 import { parsePdf } from '../../utils/pdf-parser';
 import type { ParsedLabValue } from '../../utils/pdf-parser';
+import { parseText } from '../../utils/text-parser';
 import {
   loadEntriesForProfile,
   loadEntries,
@@ -160,6 +163,19 @@ export default function BloodworkEntry() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const pdfInputRef = useRef<HTMLInputElement>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
+  const [imageParsing, setImageParsing] = useState(false);
+  const [visionAvailable, setVisionAvailable] = useState(false);
+  const [showPasteArea, setShowPasteArea] = useState(false);
+  const [pasteText, setPasteText] = useState('');
+
+  // Check if Vision API is available
+  useEffect(() => {
+    fetch('/api/vision/status')
+      .then((r) => r.json())
+      .then((data: { available: boolean }) => setVisionAvailable(data.available))
+      .catch(() => setVisionAvailable(false));
+  }, []);
 
   // ---- Load entries for active profile ----
   useEffect(() => {
@@ -213,9 +229,16 @@ export default function BloodworkEntry() {
   );
 
   // ---- Save handler ----
+  const [saveError, setSaveError] = useState<string | null>(null);
+
   const handleSave = useCallback(() => {
     const filledCount = Object.keys(values).length;
-    if (filledCount === 0 || !activeProfile) return;
+    if (filledCount === 0 || !activeProfile) {
+      console.warn('[handleSave] Aborted: filledCount=%d, activeProfile=%s', filledCount, activeProfile?.id ?? 'null');
+      return;
+    }
+
+    setSaveError(null);
 
     // Load ALL entries (all profiles) for storage
     const allEntries = loadEntries();
@@ -231,6 +254,18 @@ export default function BloodworkEntry() {
           values: { ...values },
           notes: notes || undefined,
         };
+      } else {
+        // Entry not found (deleted?) — create new instead
+        const newEntry: BloodworkEntryData = {
+          id: generateId(),
+          date,
+          gender,
+          values: { ...values },
+          notes: notes || undefined,
+          profileId: activeProfile.id,
+        };
+        allEntries.unshift(newEntry);
+        setActiveEntryId(newEntry.id);
       }
     } else {
       // Create new entry
@@ -250,7 +285,11 @@ export default function BloodworkEntry() {
     allEntries.sort((a, b) => b.date.localeCompare(a.date));
 
     // Save ALL entries
-    saveEntries(allEntries);
+    const ok = saveEntries(allEntries);
+    if (!ok) {
+      setSaveError('Speichern fehlgeschlagen! Bitte Browser-Konsole pruefen.');
+      return;
+    }
 
     // Update local view (profile-filtered)
     const profileEntries = allEntries
@@ -261,7 +300,7 @@ export default function BloodworkEntry() {
     // Brief save confirmation flash
     setSaveFlash(true);
     setTimeout(() => setSaveFlash(false), 1500);
-  }, [entries, activeEntryId, date, gender, values, notes, activeProfile]);
+  }, [activeEntryId, date, gender, values, notes, activeProfile]);
 
   // ---- Delete handler ----
   const handleDelete = useCallback(
@@ -432,6 +471,119 @@ export default function BloodworkEntry() {
     setCsvFeedback(`${pdfPreview.length} Werte erfolgreich übernommen!`);
     setPdfPreview(null);
   }, [pdfPreview, values]);
+
+  // ---- Image Upload handler (Claude Vision) ----
+  const handleImageUpload = useCallback(
+    async (file: File) => {
+      setCsvFeedback(null);
+      setImageParsing(true);
+      setPdfPreview(null);
+
+      try {
+        // Read file as base64
+        const base64 = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            const result = reader.result as string;
+            // Remove data URL prefix (data:image/jpeg;base64,...)
+            const base64Data = result.split(',')[1];
+            resolve(base64Data);
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+
+        const mediaType = file.type || 'image/jpeg';
+
+        setCsvFeedback('Bild wird von KI analysiert... (kann 10-20 Sekunden dauern)');
+
+        const response = await fetch('/api/vision', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: base64, mediaType }),
+        });
+
+        if (!response.ok) {
+          const err = await response.json() as { error: string };
+          throw new Error(err.error || `Server-Fehler ${response.status}`);
+        }
+
+        const result = await response.json() as {
+          values: Array<{ id: string; name: string; value: number; unit: string; note?: string }>;
+          date: string | null;
+          lab: string | null;
+          warnings: string[];
+        };
+
+        if (result.date) setDate(result.date);
+
+        if (result.values.length > 0) {
+          // Convert to ParsedLabValue format
+          const parsed: ParsedLabValue[] = result.values
+            .filter((v) => v.id !== 'unknown')
+            .map((v) => ({
+              id: v.id,
+              name: v.name,
+              value: v.value,
+              unit: v.unit,
+              originalValue: v.value,
+              originalUnit: v.unit,
+              converted: false,
+              note: v.note,
+            }));
+
+          setPdfPreview(parsed);
+
+          const labInfo = result.lab ? ` (${result.lab})` : '';
+          const dateInfo = result.date
+            ? ` vom ${result.date.split('-').reverse().join('.')}`
+            : '';
+          const warnInfo = result.warnings.length > 0
+            ? ` Hinweise: ${result.warnings.join(', ')}`
+            : '';
+
+          setCsvFeedback(
+            `Bild erkannt${labInfo}${dateInfo}: ${parsed.length} Blutwerte gefunden. Bitte prüfen und übernehmen.${warnInfo}`,
+          );
+        } else {
+          setCsvFeedback(
+            'Keine Blutwerte im Bild erkannt. Bitte ein Foto eines Laborbefunds hochladen.',
+          );
+        }
+      } catch (err) {
+        setCsvFeedback(
+          `Fehler bei der Bild-Analyse: ${err instanceof Error ? err.message : 'Unbekannter Fehler'}`,
+        );
+      } finally {
+        setImageParsing(false);
+      }
+    },
+    [],
+  );
+
+  // ---- Text Paste handler ----
+  const handleTextPaste = useCallback(() => {
+    if (!pasteText.trim()) return;
+    setCsvFeedback(null);
+    setPdfPreview(null);
+
+    const result = parseText(pasteText);
+
+    if (result.warnings.length > 0) {
+      setCsvFeedback(result.warnings.join(' '));
+    }
+    if (result.date) setDate(result.date);
+
+    if (result.values.length > 0) {
+      setPdfPreview(result.values);
+      setCsvFeedback(
+        `${result.values.length} Blutwerte im Text erkannt. Bitte pruefen und uebernehmen.`,
+      );
+    }
+
+    setShowPasteArea(false);
+    setPasteText('');
+  }, [pasteText]);
 
   // ---- Derived ----
   const categoryValues = getValuesByCategory(activeCategory);
@@ -606,6 +758,33 @@ export default function BloodworkEntry() {
               Import
             </span>
             <div className="flex gap-2">
+              {/* Image Import (Claude Vision) */}
+              {visionAvailable && (
+                <>
+                  <input
+                    ref={imageInputRef}
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp,image/gif"
+                    className="hidden"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) handleImageUpload(file);
+                      e.target.value = '';
+                    }}
+                  />
+                  <button
+                    onClick={() => imageInputRef.current?.click()}
+                    disabled={imageParsing}
+                    className="flex items-center gap-1.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-4 py-2
+                               text-sm text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/60
+                               transition-colors disabled:opacity-50"
+                  >
+                    <Camera size={16} />
+                    {imageParsing ? 'KI analysiert...' : 'Bild Import'}
+                  </button>
+                </>
+              )}
+              {/* PDF Import */}
               <input
                 ref={pdfInputRef}
                 type="file"
@@ -627,6 +806,7 @@ export default function BloodworkEntry() {
                 <FileUp size={16} />
                 {pdfParsing ? 'Lese PDF...' : 'PDF Import'}
               </button>
+              {/* CSV Import */}
               <input
                 ref={fileInputRef}
                 type="file"
@@ -647,6 +827,16 @@ export default function BloodworkEntry() {
                 <Upload size={16} />
                 CSV
               </button>
+              {/* Text Paste Import */}
+              <button
+                onClick={() => setShowPasteArea((v) => !v)}
+                className="flex items-center gap-1.5 rounded-lg border border-purple-500/40 bg-purple-500/10 px-4 py-2
+                           text-sm text-purple-400 hover:bg-purple-500/20 hover:border-purple-500/60
+                           transition-colors"
+              >
+                <ClipboardPaste size={16} />
+                Text einfuegen
+              </button>
             </div>
           </div>
 
@@ -662,6 +852,53 @@ export default function BloodworkEntry() {
             {saveFlash ? 'Gespeichert!' : 'Speichern'}
           </button>
         </div>
+        {saveError && (
+          <div className="rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-2 text-sm text-red-400">
+            {saveError}
+          </div>
+        )}
+
+        {/* Text Paste Area */}
+        {showPasteArea && (
+          <div className="rounded-xl border border-purple-500/30 bg-purple-500/5 p-4 mb-4">
+            <div className="flex items-center justify-between mb-2">
+              <h4 className="text-sm font-semibold text-text-primary flex items-center gap-2">
+                <ClipboardPaste size={16} className="text-purple-400" />
+                Text einfuegen
+              </h4>
+              <button
+                onClick={() => { setShowPasteArea(false); setPasteText(''); }}
+                className="text-xs text-text-muted hover:text-text-primary transition-colors"
+              >
+                Abbrechen
+              </button>
+            </div>
+            <p className="text-xs text-text-muted mb-2">
+              Laborwerte als Text einfuegen — jeder Wert auf eine Zeile, z.B. &quot;LDL 149 mg/dl&quot; oder &quot;Gamma-GT: 10&quot;.
+              Auch ganze Laborbefund-Texte werden erkannt.
+            </p>
+            <textarea
+              value={pasteText}
+              onChange={(e) => setPasteText(e.target.value)}
+              placeholder={"LDL-Cholesterin  149  mg/dl\nHDL-Cholesterin  53  mg/dl\nTriglyceride  85  mg/dl\nGamma-GT  10  U/l\nTSH  1.06  mIU/l\n..."}
+              rows={8}
+              autoFocus
+              className="w-full rounded-lg border border-border bg-bg-input px-3 py-2 text-sm text-text-primary
+                         placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-purple-500/50
+                         resize-y font-mono"
+            />
+            <div className="flex justify-end mt-2">
+              <button
+                onClick={handleTextPaste}
+                disabled={!pasteText.trim()}
+                className="rounded-lg bg-purple-500 hover:bg-purple-600 px-4 py-2 text-sm font-medium text-white
+                           transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                Werte erkennen
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Import Feedback message */}
         {csvFeedback && (

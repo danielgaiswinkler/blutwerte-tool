@@ -34,7 +34,7 @@ export interface PdfParseResult {
 // Mapping: German lab names → blood value IDs
 // ---------------------------------------------------------------------------
 
-interface LabMapping {
+export interface LabMapping {
   pattern: RegExp;
   id: string;
   dbUnit: string;
@@ -55,7 +55,7 @@ function normalizeText(s: string): string {
   return s.replace(/\u00B5/g, '\u03BC').replace(/μ/g, 'µ');
 }
 
-const LAB_MAPPINGS: LabMapping[] = [
+export const LAB_MAPPINGS: LabMapping[] = [
   // Klinische Chemie
   { pattern: /gamma[- ]?gt/i, id: 'ggt', dbUnit: 'U/l' },
   { pattern: /got\s*\/?\s*ast/i, id: 'got', dbUnit: 'U/l' },

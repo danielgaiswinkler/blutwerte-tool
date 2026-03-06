@@ -124,9 +124,22 @@ export function loadEntriesForProfile(profileId: string): BloodworkEntryData[] {
   return loadEntries().filter((e) => e.profileId === profileId);
 }
 
-/** Persist entries array to localStorage. */
-export function saveEntries(entries: BloodworkEntryData[]): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+/** Persist entries array to localStorage. Returns true on success. */
+export function saveEntries(entries: BloodworkEntryData[]): boolean {
+  try {
+    const json = JSON.stringify(entries);
+    localStorage.setItem(STORAGE_KEY, json);
+    // Verify write succeeded
+    const verify = localStorage.getItem(STORAGE_KEY);
+    if (verify !== json) {
+      console.error('[saveEntries] Verification failed – written data does not match');
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error('[saveEntries] Failed to write to localStorage:', err);
+    return false;
+  }
 }
 
 // ---------------------------------------------------------------------------

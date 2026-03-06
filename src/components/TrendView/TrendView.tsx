@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Activity,
   ClipboardPlus,
-  ChevronDown,
   AlertTriangle,
 } from 'lucide-react';
 import {
@@ -25,14 +24,12 @@ import {
   bloodValues,
   categories,
   categoryLabels,
-  getValuesByCategory,
 } from '../../data';
 import type { BloodValue } from '../../data';
 import {
   loadEntriesForProfile,
   formatDate,
   getRangeStatus,
-  statusColor,
   rangeText,
 } from '../../utils/bloodwork-utils';
 import type { BloodworkEntryData, RangeStatus } from '../../utils/bloodwork-utils';

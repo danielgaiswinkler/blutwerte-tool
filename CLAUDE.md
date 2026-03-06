@@ -9,7 +9,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - localStorage (Datenhaltung)
 - JSON-basierte Wissensdatenbank
 
-## Status (2026-02-23)
+## Status (2026-03-06)
 - [x] **Schritt 1: Wissensdatenbank** - 63 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
 - [x] **Schritt 2: Eingabeformular + CSV/JSON Import** - BloodworkEntry mit manuellem Input, CSV-Upload, localStorage
 - [x] **Schritt 3: Dashboard mit Ampelsystem** - Vollstaendiges Analyse-Dashboard mit Ampel-Uebersicht, Kategorie-Cards, kritische Werte Alert, Erfassungsgrad
@@ -20,7 +20,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - [x] **Profile/Personen** - Multi-User mit ProfileContext, Profil-Selector in Sidebar, Migration bestehender Einträge
 - [x] **Laien-Info** - InfoPopover-Komponente ("Was bedeutet dieser Wert?") im Dashboard und Eingabeformular, nutzt description-Feld
 - [x] **Schritt 6: Trendansicht (Zeitverlauf)** - Recharts LineChart mit Status-Farben, Sparkline-Übersicht, Kategorie-Filter, Quick-Links für kritische Werte, Referenz-/Optimalbereich-Zonen, Zusammenfassungs-Stats, Messwert-Tabelle. Route /trend
-- [ ] Schritt 8: PDF-Export / Berichte
+- [x] **Schritt 8: Arzt-Bericht / Druckversion** - Werte-Auswahl mit Checkboxen, Kategorie-Toggle, Schnellauswahl (Alle/Auffaellige/Keine), optionale Empfehlungen + Supplement-Plan, druckoptimiertes Layout (weiss, Tabellen, Ampel-Emoji), @media print CSS. Route /bericht
 - [ ] updates-from-research.json (34 Patches) in Hauptdatenbank mergen
 
 ## Datenstruktur
@@ -35,6 +35,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - `src/context/ProfileContext.tsx` - React Context für Multi-User Profile
 - `src/components/InfoPopover.tsx` - Wiederverwendbare Laien-Info Komponente
 - `src/components/TrendView/TrendView.tsx` - Zeitverlauf-Charts mit Recharts (Sparklines, LineChart, Status-Dots)
+- `src/components/Report/Report.tsx` - Arzt-Bericht mit Werte-Auswahl, Druckversion (@media print)
 - Einzeldateien (Quelle): `blutbild-entzuendung.json`, `leber-niere-zucker.json`, `mikronaehrstoffe.json`, `herzgesundheit.json`, `hormone-spezial.json`, `zusatzwerte.json`
 
 ## Kategorien (13)
@@ -84,7 +85,41 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - Medizinisch-professioneller Look
 - Ampel: 🔴 Kritisch / 🟡 Suboptimal / 🟢 Optimal
 
-## Nächster Schritt
-1. **Schritt 8: PDF-Export / Berichte** — Zusammenfassender Bericht als PDF
-2. **updates-from-research.json mergen** — 34 Patches in Hauptdatenbank einarbeiten
-3. **Zusätzliche Quellen-Dateien** — User hat weitere Dateien angekündigt ("liefer ich noch nach")
+## Health Hub Integration (2026-03-06)
+- **Datenbruecke:** `~/Projects/health-hub/scripts/sync_blutwerte.py`
+- **Workflow:** Blutwerte-Tool JSON Export → sync_blutwerte.py → health-hub/data/blutwerte.json
+- **ID-Mapping:** 50+ Werte gemappt (Tool-IDs → Health Hub Kategorien)
+- **Export-Button** noch einzubauen (React-Code in sync_blutwerte.py --show-export-code)
+
+## Bekannte Probleme
+- **Serum vs. Vollblut:** Magnesium, Zink, Selen werden im Tool als Vollblut-Werte gefuehrt, Bioscentia misst aber Serum. Diese Werte NICHT importieren (verschiedene Referenzbereiche). Langfristig: Serum-Varianten als eigene IDs anlegen oder Hinweis im Import
+- **Text-Parser Erkennung:** Bei mehrzeiligem Paste (Name auf Zeile 1, Wert auf Zeile 2) werden manche Werte nicht erkannt. Parser erwartet Name + Wert auf einer Zeile
+- **Speichern-Bug untersuchen:** Daniel konnte ueber UI mehrfach Werte eingeben + Speichern klicken, aber `blutwerte-entries` war leer. Ursache unklar — evtl. profileId-Zuordnung. Auto-Import als Workaround eingebaut
+
+## Naechste Schritte
+1. ~~**Bild-Upload mit Claude Vision**~~ — ERLEDIGT (2026-03-06)
+   - Vite-Plugin `vite-plugin-vision.ts` als Backend (liest .env, proxied Claude API)
+   - POST /api/vision Endpoint (Base64-Bild → Claude Sonnet 4 → strukturierte Werte)
+   - GET /api/vision/status (prüft ob API-Key vorhanden)
+   - "Bild Import" Button in BloodworkEntry (grüner Camera-Button, nur sichtbar wenn API verfügbar)
+   - Wiederverwendet bestehendes ParsedLabValue Preview-Pattern (prüfen + übernehmen)
+   - Getestet mit Bioscentia-Rechnung: Labor + Datum korrekt erkannt, 29 Positionen extrahiert
+   - **Offen:** Test mit echtem Laborbefund-Foto (nicht Rechnung), ggf. Prompt-Feintuning
+2. ~~**Arzt-Export / Druckversion (PDF)**~~ — ERLEDIGT (2026-03-06)
+   - Report-Komponente `src/components/Report/Report.tsx` mit Werte-Auswahl (Checkboxen pro Kategorie)
+   - Schnellauswahl: Alle / Nur Auffaellige / Keine
+   - Optionale Sektionen: Empfehlungen + Supplement-Plan (Checkboxen)
+   - Print-Layout: Weisser Hintergrund, saubere Tabellen, Ampel-Emoji, Kategorien
+   - @media print CSS in index.css: Sidebar ausblenden, Print-Report einblenden
+   - Route /bericht in App.tsx
+3. **GitHub Pages Deploy** — App auf GitHub Pages deployen fuer Schwiegervater + externe Nutzung
+4. **Speichern-Bug fixen** — Untersuchen warum UI-Save nicht in localStorage schreibt
+5. **Export-Button** — "Export fuer Health Hub" Button in Settings/Dashboard einbauen
+6. **updates-from-research.json mergen** — 34 Patches in Hauptdatenbank einarbeiten
+7. **blutwerte-app aufraeumen oder loeschen** — Ist nur ein leeres Vite-Template, wird nicht gebraucht
+8. **Serum vs. Vollblut** — Serum-Varianten fuer Magnesium/Zink/Selen anlegen oder Import-Hinweis
+
+## Zielgruppen-Erweiterung (2026-03-06)
+- **Daniels Schwiegervater** als erster externer Testuser geplant
+- Bild-Import + Druckversion sind die Schluessel-Features fuer nicht-technikaffine User
+- Multi-Profile existiert bereits (Daniel + Stefanie) — Schwiegervater als drittes Profil

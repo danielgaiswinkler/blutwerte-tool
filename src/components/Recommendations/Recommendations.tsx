@@ -18,12 +18,10 @@ import {
 import {
   loadEntriesForProfile,
   formatDate,
-  getRangeStatus,
   statusColor,
 } from '../../utils/bloodwork-utils';
 import type { BloodworkEntryData, RangeStatus } from '../../utils/bloodwork-utils';
 import { useProfile } from '../../context/ProfileContext';
-import { bloodValues } from '../../data';
 import {
   getRecommendations,
   getSupplementSummary,
