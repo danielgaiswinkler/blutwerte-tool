@@ -9816,5 +9816,2066 @@
       "Gemini Blutwerte-Analyse",
       "Der Blutwerte-Code - Thiemo Osterhaus"
     ]
+  },
+  {
+    "id": "bsg",
+    "name": "BSG (Blutsenkungsgeschwindigkeit)",
+    "category": "entzuendung",
+    "categoryLabel": "Entzündungsmarker",
+    "description": "Die Blutsenkungsgeschwindigkeit (BSG) misst, wie schnell rote Blutkörperchen in einem Röhrchen absinken. Eine erhöhte BSG deutet auf Entzündungen, Infektionen oder Autoimmunerkrankungen hin. Sie ist ein unspezifischer, aber bewährter Entzündungsmarker, der langsamer reagiert als CRP und eher chronische Prozesse anzeigt.",
+    "unit": "mm/h",
+    "alternativeUnits": [],
+    "measurementType": "EDTA-Blut (Citratblut)",
+    "reference": {
+      "male": {
+        "min": 0,
+        "max": 15
+      },
+      "female": {
+        "min": 0,
+        "max": 20
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 0,
+        "max": 10,
+        "target": 5
+      },
+      "female": {
+        "min": 0,
+        "max": 12,
+        "target": 5
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Polyglobulie (erhöhte Erythrozytenzahl)",
+          "Sichelzellanämie",
+          "Extreme Dehydration",
+          "Kryoglobulinämie",
+          "Verbrauchskoagulopathie"
+        ],
+        "symptoms": [
+          "Meist keine spezifischen Symptome durch niedrige BSG selbst",
+          "Symptome der Grunderkrankung (z.B. Polyglobulie: Kopfschmerzen, Schwindel)"
+        ],
+        "relatedValues": [
+          "hs-crp",
+          "erythrozyten",
+          "haematokrit",
+          "leukozyten"
+        ],
+        "actions": [
+          "Blutbild kontrollieren (Polyglobulie ausschließen)",
+          "Klinisch meist nicht behandlungsbedürftig",
+          "Grunderkrankung abklären falls Verdacht besteht"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Akute und chronische Infektionen",
+          "Autoimmunerkrankungen (rheumatoide Arthritis, Lupus, Vaskulitis)",
+          "Chronisch-entzündliche Erkrankungen (Morbus Crohn, Colitis ulcerosa)",
+          "Maligne Erkrankungen (multiples Myelom, Lymphome)",
+          "Anämie (weniger Erythrozyten → schnelleres Absinken)",
+          "Schwangerschaft (physiologisch erhöht)",
+          "Fortgeschrittenes Alter (altersbedingt höher)"
+        ],
+        "symptoms": [
+          "Müdigkeit und Abgeschlagenheit",
+          "Fieber oder Nachtschweiß",
+          "Gelenkschmerzen oder -schwellungen",
+          "Ungewollter Gewichtsverlust",
+          "Allgemeines Krankheitsgefühl"
+        ],
+        "relatedValues": [
+          "hs-crp",
+          "leukozyten",
+          "ferritin",
+          "erythrozyten",
+          "haemoglobin"
+        ],
+        "actions": [
+          "CRP zusätzlich bestimmen (spezifischer und schneller reagierend)",
+          "Differentialblutbild und Eiweißelektrophorese anfordern",
+          "Bei stark erhöhter BSG (>50 mm/h): Malignome und Autoimmunerkrankungen ausschließen",
+          "Bei BSG >100 mm/h: dringende Abklärung (multiples Myelom, schwere Infektion, Vaskulitis)",
+          "Infektionsquellen suchen (Blutkultur, Bildgebung)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die BSG liegt im optimalen Bereich. Keine Hinweise auf relevante entzündliche Prozesse. In Kombination mit normalem CRP spricht dies für eine gute systemische Entzündungskontrolle."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "BSG erhöht + CRP normal",
+        "interpretation": "Möglicher Hinweis auf chronischen, niedriggradigen Entzündungsprozess oder Paraproteinämie. BSG reagiert langsamer als CRP und bleibt länger erhöht.",
+        "severity": "attention"
+      },
+      {
+        "condition": "BSG >50 mm/h ohne offensichtliche Ursache",
+        "interpretation": "Deutlich erhöhte BSG erfordert gezielte Abklärung: Autoimmunerkrankung, okkulte Infektion oder maligne Erkrankung ausschließen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "BSG erhöht + Anämie",
+        "interpretation": "Anämie allein kann die BSG erhöhen (weniger Erythrozyten = schnelleres Absinken). Anämie-Ursache gleichzeitig abklären.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Entzündungsfördernde Lebensmittel reduzieren (Zucker, Transfette, verarbeitetes Fleisch)",
+        "Omega-3-reiche Ernährung (fetter Fisch, Leinsamen, Walnüsse)",
+        "Regelmäßige moderate Bewegung (senkt systemische Entzündung)",
+        "Stressmanagement (chronischer Stress fördert Entzündung)",
+        "Ausreichend Schlaf (7-8 Stunden)"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-3 g/Tag",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Wirken entzündungshemmend durch Hemmung pro-inflammatorischer Zytokine."
+        },
+        {
+          "name": "Curcumin (mit Piperin)",
+          "dosage": "500-1000 mg/Tag",
+          "timing": "Zu den Mahlzeiten",
+          "notes": "Starke antiinflammatorische Wirkung. Bioverfügbarkeit durch Piperin um das 20-fache erhöht."
+        }
+      ],
+      "redFlags": [
+        "BSG >100 mm/h: Sofortige Abklärung – Verdacht auf multiples Myelom, schwere systemische Infektion oder Riesenzellarteriitis",
+        "BSG >50 mm/h mit Gewichtsverlust und Nachtschweiß: Malignom ausschließen",
+        "Plötzlicher BSG-Anstieg mit Kopfschmerzen und Sehstörungen bei >50-Jährigen: Arteriitis temporalis – sofortige Kortikoidtherapie erwägen"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "calcium",
+    "name": "Calcium (Serum)",
+    "category": "mineralstoffe",
+    "categoryLabel": "Mineralstoffe (Vollblut)",
+    "description": "Calcium ist das am häufigsten vorkommende Mineral im Körper und essentiell für Knochenaufbau, Muskelkontraktion, Nervenleitung und Blutgerinnung. Der Serum-Calcium-Wert wird streng reguliert und spiegelt nur etwa 1% des Gesamtcalciums wider – 99% sind in Knochen und Zähnen gespeichert.",
+    "unit": "mmol/l",
+    "alternativeUnits": [
+      {
+        "unit": "mg/dl",
+        "factor": 4.008
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 2.15,
+        "max": 2.58
+      },
+      "female": {
+        "min": 2.15,
+        "max": 2.58
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 2.20,
+        "max": 2.50,
+        "target": 2.35
+      },
+      "female": {
+        "min": 2.20,
+        "max": 2.50,
+        "target": 2.35
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Vitamin-D-Mangel (häufigste Ursache)",
+          "Hypoparathyreoidismus (nach Schilddrüsen-OP oder autoimmun)",
+          "Niereninsuffizienz (verminderte Vitamin-D-Aktivierung)",
+          "Magnesiummangel (stört Parathormon-Sekretion)",
+          "Malabsorption (Zöliakie, Morbus Crohn)",
+          "Akute Pankreatitis",
+          "Medikamente (Bisphosphonate, Schleifendiuretika, Antikonvulsiva)"
+        ],
+        "symptoms": [
+          "Muskelkrämpfe und Tetanie (Pfötchenstellung)",
+          "Kribbeln und Taubheit (Lippen, Finger, Zehen)",
+          "Herzrhythmusstörungen (verlängertes QT-Intervall)",
+          "Müdigkeit und Reizbarkeit",
+          "Trockene Haut, brüchige Nägel"
+        ],
+        "relatedValues": [
+          "vitamin-d",
+          "magnesium",
+          "kalium",
+          "kreatinin",
+          "gfr"
+        ],
+        "actions": [
+          "Vitamin-D-Spiegel bestimmen (häufigste Ursache für Hypokalzämie)",
+          "Parathormon (PTH) bestimmen lassen",
+          "Magnesium kontrollieren (Magnesiummangel verhindert PTH-Wirkung)",
+          "Albumin bestimmen (korrigiertes Calcium berechnen bei niedrigem Albumin)",
+          "Nierenfunktion überprüfen (Kreatinin, GFR)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Primärer Hyperparathyreoidismus (häufigste Ursache, Nebenschilddrüsenadenom)",
+          "Maligne Erkrankungen (Knochenmetastasen, paraneoplastisch)",
+          "Vitamin-D-Überdosierung (Intoxikation)",
+          "Sarkoidose und andere granulomatöse Erkrankungen",
+          "Thiazid-Diuretika",
+          "Immobilisation (Knochenabbau durch fehlende Belastung)",
+          "Schilddrüsenüberfunktion"
+        ],
+        "symptoms": [
+          "Müdigkeit, Schwäche, Verwirrtheit ('Stein-, Bein-, Magenpein')",
+          "Übelkeit, Erbrechen, Verstopfung",
+          "Vermehrtes Wasserlassen und Durst (Polyurie/Polydipsie)",
+          "Nierensteine",
+          "Knochenschmerzen",
+          "Herzrhythmusstörungen (verkürztes QT-Intervall)"
+        ],
+        "relatedValues": [
+          "vitamin-d",
+          "kreatinin",
+          "gfr",
+          "kalium",
+          "magnesium"
+        ],
+        "actions": [
+          "Parathormon (PTH) bestimmen – Schlüssel zur Differenzialdiagnose",
+          "Bei PTH erhöht: primären Hyperparathyreoidismus abklären",
+          "Bei PTH supprimiert: Malignom oder Vitamin-D-Intoxikation ausschließen",
+          "Nierenfunktion und Nierensteine abklären",
+          "Ausreichende Hydration sicherstellen (Flüssigkeitstherapie)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Calcium-Spiegel liegt im optimalen Bereich. Die Calcium-Homöostase durch Parathormon, Vitamin D und Calcitonin funktioniert gut. Knochen, Muskeln und Nerven sind adäquat versorgt."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Calcium niedrig + Vitamin D niedrig",
+        "interpretation": "Vitamin-D-Mangel als wahrscheinliche Ursache der Hypokalzämie. Vitamin-D-Supplementierung ist der erste Behandlungsschritt.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Calcium erhöht + Vitamin D sehr hoch (>150 nmol/l)",
+        "interpretation": "Mögliche Vitamin-D-Intoxikation. Supplementierung sofort pausieren und PTH bestimmen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Calcium grenzwertig + niedriges Albumin",
+        "interpretation": "Pseudohypokalzämie möglich – korrigiertes Calcium berechnen: Ca_korr = Ca_gemessen + 0.8 × (4.0 − Albumin in g/dl).",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Calciumreiche Ernährung: Milchprodukte, grünes Gemüse (Brokkoli, Grünkohl), Sardinen mit Gräten",
+        "Vitamin-D-Status optimieren (wichtig für Calcium-Aufnahme im Darm)",
+        "Regelmäßige Gewichtsbelastung/Krafttraining (fördert Calciumeinbau in Knochen)",
+        "Oxalatreiche Lebensmittel (Spinat, Rhabarber) nicht als Hauptcalciumquelle nutzen",
+        "Koffein und Salz in Maßen (fördern Calciumausscheidung)"
+      ],
+      "supplements": [
+        {
+          "name": "Calcium (als Citrat oder Carbonat)",
+          "dosage": "500-1000 mg/Tag",
+          "timing": "Aufgeteilt auf 2 Dosen zu den Mahlzeiten (max. 500 mg pro Einnahme)",
+          "notes": "Calciumcitrat wird besser aufgenommen und ist magenfreundlicher. Nicht gleichzeitig mit Eisen oder Schilddrüsenhormonen einnehmen."
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": "1000-4000 IE/Tag",
+          "timing": "Zu fetthaltiger Mahlzeit",
+          "notes": "Essentiell für Calcium-Aufnahme. Ohne ausreichend Vitamin D wird Calcium schlecht resorbiert."
+        },
+        {
+          "name": "Vitamin K2 (MK-7)",
+          "dosage": "100-200 µg/Tag",
+          "timing": "Zusammen mit Vitamin D und Fett",
+          "notes": "Lenkt Calcium in die Knochen statt in die Gefäße. Wichtig bei Calcium- und Vitamin-D-Supplementierung."
+        }
+      ],
+      "redFlags": [
+        "Calcium >3.0 mmol/l: Hyperkalzämische Krise – Notfall! Sofortige Hydration und ärztliche Behandlung",
+        "Calcium <1.8 mmol/l mit Tetanie/Krampfanfällen: Schwere Hypokalzämie – sofortige i.v. Calciumgabe",
+        "Calcium erhöht + unerklärlicher Gewichtsverlust: Maligne Erkrankung ausschließen"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "kupfer",
+    "name": "Kupfer (Serum)",
+    "category": "mineralstoffe",
+    "categoryLabel": "Mineralstoffe (Vollblut)",
+    "description": "Kupfer ist ein essentielles Spurenelement, das an zahlreichen enzymatischen Reaktionen beteiligt ist, darunter Energiestoffwechsel, Bindegewebsbildung, Eisentransport und antioxidative Abwehr. Es wird hauptsächlich über die Leber reguliert und im Blut an Coeruloplasmin gebunden transportiert.",
+    "unit": "µmol/l",
+    "alternativeUnits": [
+      {
+        "unit": "µg/dl",
+        "factor": 6.354
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 11.0,
+        "max": 22.0
+      },
+      "female": {
+        "min": 12.5,
+        "max": 24.4
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 12.0,
+        "max": 18.0,
+        "target": 15.0
+      },
+      "female": {
+        "min": 13.0,
+        "max": 20.0,
+        "target": 16.5
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Mangelernährung oder einseitige Ernährung",
+          "Malabsorption (Zöliakie, Morbus Crohn, bariatrische OP)",
+          "Übermäßige Zink-Supplementierung (Zink hemmt Kupferaufnahme kompetitiv)",
+          "Menkes-Syndrom (seltene genetische Erkrankung)",
+          "Nephrotisches Syndrom (renaler Verlust)"
+        ],
+        "symptoms": [
+          "Anämie, die nicht auf Eisen anspricht (kupferabhängige Eisenmobilisierung gestört)",
+          "Neutropenie (verminderte weiße Blutkörperchen)",
+          "Osteoporose und Knochenbrüchigkeit",
+          "Neurologische Symptome (Ataxie, Neuropathie)",
+          "Erhöhte Infektanfälligkeit"
+        ],
+        "relatedValues": [
+          "zink",
+          "serum-eisen",
+          "ferritin",
+          "leukozyten"
+        ],
+        "actions": [
+          "Zink-Supplementierung überprüfen (häufigste iatrogene Ursache)",
+          "Coeruloplasmin bestimmen lassen",
+          "Ernährungsanamnese erheben",
+          "Eisenstatus kontrollieren (Kupfermangel kann Eisenverwertung stören)",
+          "Malabsorption ausschließen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Akute und chronische Entzündungen (Kupfer ist ein Akute-Phase-Protein)",
+          "Infektionen",
+          "Orale Kontrazeptiva und Östrogen-Therapie",
+          "Schwangerschaft (physiologisch erhöht)",
+          "Lebererkrankungen (Wilson-Krankheit: Serum-Kupfer paradox niedrig, aber freies Kupfer hoch)",
+          "Maligne Erkrankungen"
+        ],
+        "symptoms": [
+          "Übelkeit, Erbrechen, Bauchschmerzen (bei akuter Kupfer-Toxizität)",
+          "Leberschäden (bei chronischer Überbelastung)",
+          "Oxidativer Stress",
+          "Neurologische Symptome (bei Morbus Wilson)",
+          "Kopfschmerzen"
+        ],
+        "relatedValues": [
+          "zink",
+          "hs-crp",
+          "gpt",
+          "got",
+          "ggt"
+        ],
+        "actions": [
+          "Entzündungsmarker kontrollieren (CRP – Kupfer steigt bei Entzündung)",
+          "Medikamentenanamnese (Östrogene, Kontrazeptiva)",
+          "Bei V.a. Morbus Wilson: Coeruloplasmin, freies Kupfer und 24h-Urin-Kupfer bestimmen",
+          "Leberwerte kontrollieren",
+          "Zink-Kupfer-Verhältnis berechnen (optimal ca. 10:1 bis 15:1)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Kupferspiegel liegt im optimalen Bereich. Die kupferabhängigen Enzyme arbeiten effizient, und das Zink-Kupfer-Gleichgewicht ist intakt."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Kupfer niedrig + hohe Zink-Supplementierung (>50 mg/Tag)",
+        "interpretation": "Wahrscheinlich zinkinduzierter Kupfermangel. Zinkdosis reduzieren und Kupferstatus nach 4-6 Wochen kontrollieren.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Kupfer erhöht + CRP erhöht",
+        "interpretation": "Kupfererhöhung vermutlich entzündungsbedingt (Akute-Phase-Reaktion). Ursache der Entzündung abklären, Kupfer nach Ausheilung kontrollieren.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Kupferreiche Lebensmittel: Leber, Schalentiere, Nüsse, Samen, Hülsenfrüchte, dunkle Schokolade",
+        "Zink-Kupfer-Balance beachten (hohe Zinkzufuhr senkt Kupfer)",
+        "Vitamin C in Maßen (hohe Dosen können Kupferaufnahme hemmen)",
+        "Trinkwasser aus Kupferleitungen kann zur Zufuhr beitragen"
+      ],
+      "supplements": [
+        {
+          "name": "Kupfer (als Kupferbisglycinat)",
+          "dosage": "1-2 mg/Tag",
+          "timing": "Zu einer Mahlzeit, nicht zusammen mit Zink",
+          "notes": "Nur bei nachgewiesenem Mangel supplementieren. Kupfer-Supplementierung kann bei falscher Dosierung toxisch sein."
+        },
+        {
+          "name": "Zink (bei erhöhtem Kupfer)",
+          "dosage": "15-30 mg/Tag",
+          "timing": "Nüchtern oder zwischen Mahlzeiten",
+          "notes": "Zink kann therapeutisch eingesetzt werden, um erhöhte Kupferspiegel zu senken (z.B. bei Morbus Wilson)."
+        }
+      ],
+      "redFlags": [
+        "Kupfer stark erniedrigt + Anämie + Neutropenie: Schwerer Kupfermangel – sofortige Supplementierung und hämatologische Abklärung",
+        "Kupfer erhöht + Kayser-Fleischer-Ring (goldbrauner Ring um die Iris): Morbus Wilson – hepatologische Abklärung dringend",
+        "Akute Kupfer-Intoxikation (Übelkeit, Erbrechen, blaugrünes Erbrechen): Sofortige Notfallbehandlung"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "lipase",
+    "name": "Lipase",
+    "category": "leber",
+    "categoryLabel": "Leberwerte",
+    "description": "Lipase ist ein Verdauungsenzym, das hauptsächlich von der Bauchspeicheldrüse (Pankreas) produziert wird und Fette spaltet. Sie ist der spezifischste Labormarker für Pankreaserkrankungen. Im Gegensatz zur Amylase steigt Lipase bei Pankreatitis länger an und ist organspezifischer.",
+    "unit": "U/l",
+    "alternativeUnits": [
+      {
+        "unit": "µkat/l",
+        "factor": 0.0167
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 0,
+        "max": 67
+      },
+      "female": {
+        "min": 0,
+        "max": 67
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 10,
+        "max": 40,
+        "target": 25
+      },
+      "female": {
+        "min": 10,
+        "max": 40,
+        "target": 25
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Chronische Pankreatitis im Endstadium (Parenchymzerstörung)",
+          "Pankreasinsuffizienz (exokrine Insuffizienz)",
+          "Zystische Fibrose (Mukoviszidose)",
+          "Pankreasteilresektion",
+          "Selten klinisch relevant als isolierter Befund"
+        ],
+        "symptoms": [
+          "Fettstühle (Steatorrhö) bei Pankreasinsuffizienz",
+          "Blähungen und Völlegefühl nach fettreichen Mahlzeiten",
+          "Gewichtsverlust bei Maldigestion",
+          "Vitamin-Mangelerscheinungen (fettlösliche Vitamine A, D, E, K)"
+        ],
+        "relatedValues": [
+          "gpt",
+          "got",
+          "ggt",
+          "bilirubin"
+        ],
+        "actions": [
+          "Pankreas-Elastase im Stuhl bestimmen (Goldstandard für exokrine Insuffizienz)",
+          "Fettlösliche Vitamine kontrollieren (A, D, E, K)",
+          "Ernährungsberatung bezüglich Fettaufnahme",
+          "Bei bestätigter Insuffizienz: Pankreasenzym-Substitution erwägen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Akute Pankreatitis (häufigste klinisch relevante Ursache)",
+          "Chronische Pankreatitis (Schub)",
+          "Gallensteine mit Verlegung des Pankreasgangs",
+          "Alkoholmissbrauch",
+          "Niereninsuffizienz (verminderte renale Clearance)",
+          "Medikamente (Opioide, Thiazide, Steroide)",
+          "Darmobstruktion oder Peritonitis",
+          "Makrolipasämie (harmlos, aber persistierend erhöht)"
+        ],
+        "symptoms": [
+          "Starke Oberbauchschmerzen (gürtelförmig in den Rücken ausstrahlend)",
+          "Übelkeit und Erbrechen",
+          "Fieber",
+          "Aufgeblähter Bauch (Meteorismus)",
+          "Gummibauch (bei schwerer Pankreatitis)"
+        ],
+        "relatedValues": [
+          "gpt",
+          "got",
+          "ggt",
+          "bilirubin",
+          "hs-crp",
+          "leukozyten",
+          "kreatinin"
+        ],
+        "actions": [
+          "Bei Lipase >3× obere Norm + typische Schmerzen: akute Pankreatitis wahrscheinlich",
+          "Bildgebung (Sonographie, CT) zur Beurteilung des Pankreas",
+          "Gallensteine ausschließen (Sonographie)",
+          "Nierenfunktion überprüfen (Kreatinin, GFR)",
+          "Alkoholanamnese erheben",
+          "Triglyceride bestimmen (Hypertriglyceridämie als Ursache)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Die Lipase liegt im optimalen Bereich. Die Bauchspeicheldrüse arbeitet normal, und es gibt keine Hinweise auf Pankreasschäden oder -entzündung."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Lipase >3× obere Norm (>200 U/l) + Oberbauchschmerzen",
+        "interpretation": "Hochverdächtig auf akute Pankreatitis. Sofortige klinische Abklärung, Bildgebung und stationäre Aufnahme empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Lipase leicht erhöht + Kreatinin erhöht",
+        "interpretation": "Niereninsuffizienz kann eine milde Lipase-Erhöhung verursachen (verminderte renale Clearance). Kein sicherer Hinweis auf Pankreaserkrankung.",
+        "severity": "info"
+      },
+      {
+        "condition": "Lipase erhöht + GGT und Bilirubin erhöht",
+        "interpretation": "Hinweis auf biliäre Pankreatitis durch Gallensteine. Sonographie des Gallengangsystems empfohlen.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Alkoholkonsum reduzieren oder eliminieren (Hauptrisikofaktor für Pankreatitis)",
+        "Fettreiche Mahlzeiten in Maßen (entlastet die Bauchspeicheldrüse)",
+        "Triglyceride kontrollieren (Hypertriglyceridämie >1000 mg/dl kann Pankreatitis auslösen)",
+        "Rauchstopp (Rauchen ist unabhängiger Risikofaktor für Pankreatitis)",
+        "Mehrere kleine Mahlzeiten statt wenige große"
+      ],
+      "supplements": [
+        {
+          "name": "Pankreasenzyme (Pankreatin)",
+          "dosage": "25.000-50.000 IE Lipase pro Hauptmahlzeit",
+          "timing": "Zu Beginn jeder Mahlzeit",
+          "notes": "Nur bei nachgewiesener exokriner Pankreasinsuffizienz. Dosierung an Fettgehalt der Mahlzeit anpassen."
+        },
+        {
+          "name": "Fettlösliche Vitamine (A, D, E, K)",
+          "dosage": "Individuell nach Spiegel",
+          "timing": "Zu fetthaltiger Mahlzeit mit Pankreasenzymen",
+          "notes": "Bei Pankreasinsuffizienz ist die Fettresorption gestört, was zu Mangel an fettlöslichen Vitaminen führt."
+        }
+      ],
+      "redFlags": [
+        "Lipase >3× obere Norm mit akuten Bauchschmerzen: Akute Pankreatitis – sofortige ärztliche Vorstellung",
+        "Persistierend erhöhte Lipase mit Gewichtsverlust: Pankreaskarzinom ausschließen",
+        "Lipase >10× obere Norm: Schwere akute Pankreatitis – Notfallbehandlung, Intensivstation erwägen"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "lh",
+    "name": "LH (Luteinisierendes Hormon)",
+    "category": "sexualhormone",
+    "categoryLabel": "Sexualhormone (Mann)",
+    "description": "Das luteinisierende Hormon (LH) wird in der Hypophyse gebildet und steuert beim Mann die Testosteronproduktion in den Leydig-Zellen des Hodens. Bei der Frau löst der LH-Anstieg den Eisprung aus. LH ist zusammen mit FSH ein zentraler Marker zur Unterscheidung zwischen primärem (Hoden/Ovar) und sekundärem (Hypophyse/Hypothalamus) Hypogonadismus.",
+    "unit": "IU/l",
+    "alternativeUnits": [
+      {
+        "unit": "mIU/ml",
+        "factor": 1
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 1.7,
+        "max": 8.6
+      },
+      "female": {
+        "min": 1.0,
+        "max": 96.0
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 2.0,
+        "max": 6.0,
+        "target": 4.0
+      },
+      "female": {
+        "min": 2.0,
+        "max": 12.0,
+        "target": 6.0
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Sekundärer Hypogonadismus (Hypophysen-/Hypothalamus-Insuffizienz)",
+          "Hypophysentumor (Prolaktinom, nicht-funktionell)",
+          "Hyperprolaktinämie (Prolaktin hemmt GnRH und damit LH)",
+          "Anabolika-/Testosteron-Verwendung (supprimiert LH über negatives Feedback)",
+          "Schwerer Stress, Untergewicht oder extremer Sport",
+          "Medikamente (Opioide, Glukokortikoide)",
+          "Kallmann-Syndrom (kongenitaler GnRH-Mangel)"
+        ],
+        "symptoms": [
+          "Niedrige Testosteronwerte beim Mann",
+          "Libidoverlust und erektile Dysfunktion",
+          "Zyklusstörungen bis Amenorrhoe bei der Frau",
+          "Infertilität",
+          "Müdigkeit und Antriebslosigkeit",
+          "Reduzierte Muskelmasse"
+        ],
+        "relatedValues": [
+          "fsh",
+          "testosteron-gesamt",
+          "testosteron-frei",
+          "prolaktin",
+          "estradiol",
+          "shbg"
+        ],
+        "actions": [
+          "Testosteron (gesamt + frei) bestimmen",
+          "Prolaktin bestimmen (Prolaktinom als Ursache ausschließen)",
+          "MRT der Hypophyse bei V.a. Hypophysentumor",
+          "Medikamentenanamnese (Opioide, Anabolika, Glukokortikoide)",
+          "FSH gleichzeitig bestimmen (gemeinsame Bewertung)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Primärer Hypogonadismus (Hodenversagen, Klinefelter-Syndrom)",
+          "Menopause/Klimakterium bei der Frau (physiologisch)",
+          "Kastration oder Hodenschädigung (Trauma, Torsion, Chemotherapie)",
+          "Ovarialinsuffizienz (vorzeitige Menopause)",
+          "Anorchie (fehlende Hoden)"
+        ],
+        "symptoms": [
+          "Niedrige Testosteronwerte trotz hohem LH (Hoden reagieren nicht)",
+          "Hitzewallungen",
+          "Infertilität",
+          "Gynäkomastie beim Mann",
+          "Osteoporose bei langfristigem Hypogonadismus"
+        ],
+        "relatedValues": [
+          "fsh",
+          "testosteron-gesamt",
+          "testosteron-frei",
+          "estradiol",
+          "prolaktin"
+        ],
+        "actions": [
+          "Testosteron bestimmen (bei primärem Hypogonadismus erniedrigt trotz hohem LH)",
+          "FSH gleichzeitig bestimmen (bei primärem Hypogonadismus ebenfalls erhöht)",
+          "Karyotyp-Analyse bei V.a. Klinefelter-Syndrom (47,XXY)",
+          "Hodensonographie bei Männern",
+          "AMH bestimmen bei Frauen (ovarielle Reserve)"
+        ]
+      },
+      "optimal": {
+        "meaning": "LH liegt im optimalen Bereich. Die hypothalamisch-hypophysäre-gonadale Achse funktioniert regulär, und die Signalgebung zur Testosteron- bzw. Östrogenproduktion ist intakt."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "LH niedrig + Testosteron niedrig",
+        "interpretation": "Sekundärer (zentraler) Hypogonadismus – Problem liegt in Hypophyse oder Hypothalamus. Prolaktin und MRT Hypophyse empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "LH hoch + Testosteron niedrig",
+        "interpretation": "Primärer Hypogonadismus – Hoden reagieren nicht ausreichend auf LH-Stimulation. Ursache im Hoden suchen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "LH supprimiert (<0.5) + Testosteron hoch",
+        "interpretation": "Exogene Testosteronzufuhr (TRT, Anabolika) supprimiert die körpereigene LH-Produktion über negatives Feedback. Erwarteter Befund unter Testosterontherapie.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausreichend Schlaf (LH wird pulsatil vor allem nachts ausgeschüttet)",
+        "Körperfett in gesundem Bereich halten (Adipositas senkt LH)",
+        "Chronischen Stress reduzieren (Cortisol supprimiert GnRH/LH)",
+        "Regelmäßiges Krafttraining (fördert die HPG-Achse)",
+        "Alkoholkonsum reduzieren (hemmt LH-Sekretion)"
+      ],
+      "supplements": [
+        {
+          "name": "Zink",
+          "dosage": "15-30 mg/Tag",
+          "timing": "Abends, nicht mit Eisen oder Calcium",
+          "notes": "Zinkmangel kann die LH-Sekretion beeinträchtigen. Nur bei nachgewiesenem Mangel supplementieren."
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": "1000-4000 IE/Tag",
+          "timing": "Zu fetthaltiger Mahlzeit",
+          "notes": "Vitamin-D-Mangel ist mit niedrigeren LH- und Testosteronspiegeln assoziiert."
+        }
+      ],
+      "redFlags": [
+        "LH <0.5 IU/l + Testosteron niedrig + Kopfschmerzen/Sehstörungen: Hypophysentumor ausschließen – MRT dringend",
+        "LH stark erhöht >20 IU/l beim Mann <40 Jahre: Primärer Hypogonadismus – endokrinologische Abklärung",
+        "LH supprimiert ohne bekannte Testosterontherapie: Anabolika-Missbrauch oder Hypophyseninsuffizienz abklären"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "fsh",
+    "name": "FSH (Follikelstimulierendes Hormon)",
+    "category": "sexualhormone",
+    "categoryLabel": "Sexualhormone (Mann)",
+    "description": "Das follikelstimulierende Hormon (FSH) wird in der Hypophyse gebildet und steuert beim Mann die Spermatogenese in den Sertoli-Zellen des Hodens. Bei der Frau fördert FSH das Follikelwachstum im Eierstock. Zusammen mit LH ist FSH ein Schlüsselmarker für die Beurteilung der Gonadenfunktion und Fertilität.",
+    "unit": "IU/l",
+    "alternativeUnits": [
+      {
+        "unit": "mIU/ml",
+        "factor": 1
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 1.5,
+        "max": 12.4
+      },
+      "female": {
+        "min": 1.7,
+        "max": 134.8
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 2.0,
+        "max": 8.0,
+        "target": 4.5
+      },
+      "female": {
+        "min": 3.5,
+        "max": 12.0,
+        "target": 7.0
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Sekundärer Hypogonadismus (Hypophysen-/Hypothalamus-Insuffizienz)",
+          "Hyperprolaktinämie",
+          "Anabolika-/Testosteron-Verwendung (supprimiert FSH)",
+          "Schwerer Stress, Unterernährung",
+          "Hypophysentumor",
+          "Kallmann-Syndrom",
+          "Medikamente (Opioide, hochdosierte Glukokortikoide)"
+        ],
+        "symptoms": [
+          "Infertilität (verminderte Spermienproduktion beim Mann)",
+          "Oligo- oder Azoospermie im Spermiogramm",
+          "Zyklusstörungen bei der Frau",
+          "Symptome des Testosteronmangels (wenn LH gleichzeitig niedrig)"
+        ],
+        "relatedValues": [
+          "lh",
+          "testosteron-gesamt",
+          "testosteron-frei",
+          "prolaktin",
+          "estradiol"
+        ],
+        "actions": [
+          "LH gleichzeitig bestimmen (gemeinsame Interpretation)",
+          "Prolaktin messen (Prolaktinom als Ursache)",
+          "Testosteron bestimmen",
+          "Spermiogramm bei Kinderwunsch",
+          "MRT Hypophyse bei V.a. zentrale Ursache"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Primärer Hypogonadismus (Hodenversagen, Klinefelter-Syndrom)",
+          "Sertoli-Cell-Only-Syndrom (keine Spermienproduktion)",
+          "Zustand nach Chemotherapie oder Bestrahlung (Keimzellschädigung)",
+          "Menopause bei der Frau (physiologisch)",
+          "Vorzeitige Ovarialinsuffizienz",
+          "Hodenhochstand (Kryptorchismus) – Folgeschäden"
+        ],
+        "symptoms": [
+          "Infertilität (Azoospermie bei stark erhöhtem FSH)",
+          "Kleine, feste Hoden beim Mann",
+          "Hitzewallungen (bei begleitendem Testosteronmangel)",
+          "Osteoporose bei langfristigem Hypogonadismus"
+        ],
+        "relatedValues": [
+          "lh",
+          "testosteron-gesamt",
+          "testosteron-frei",
+          "estradiol",
+          "prolaktin"
+        ],
+        "actions": [
+          "Spermiogramm durchführen (Beurteilung der Spermatogenese)",
+          "LH und Testosteron bestimmen",
+          "Karyotyp-Analyse bei V.a. Klinefelter-Syndrom",
+          "Hodensonographie",
+          "Inhibin B bestimmen (Marker für Sertoli-Zellfunktion)"
+        ]
+      },
+      "optimal": {
+        "meaning": "FSH liegt im optimalen Bereich. Die Spermatogenese bzw. Follikelreifung wird adäquat stimuliert, und die hypothalamisch-hypophysäre Regulation funktioniert normal."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "FSH hoch + LH hoch + Testosteron niedrig",
+        "interpretation": "Klassisches Bild eines primären Hypogonadismus – die Hypophyse versucht durch erhöhte Gonadotropine die insuffizienten Gonaden zu stimulieren.",
+        "severity": "warning"
+      },
+      {
+        "condition": "FSH niedrig + LH niedrig + Testosteron niedrig",
+        "interpretation": "Sekundärer (zentraler) Hypogonadismus – Hypophyse produziert nicht genug Gonadotropine. Prolaktin und MRT Hypophyse empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "FSH isoliert erhöht + LH normal + Testosteron normal",
+        "interpretation": "Isolierte FSH-Erhöhung kann auf Sertoli-Zell-Schaden hinweisen. Spermiogramm und Inhibin B empfohlen.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausreichend Schlaf (Gonadotropine werden nachts pulsatil ausgeschüttet)",
+        "Gesundes Körpergewicht halten (Adipositas stört HPG-Achse)",
+        "Stressreduktion (chronischer Stress supprimiert Gonadotropine)",
+        "Moderates Training (Übertraining kann FSH senken)",
+        "Hitze am Hoden vermeiden (Spermatogenese temperaturempfindlich)"
+      ],
+      "supplements": [
+        {
+          "name": "Zink",
+          "dosage": "15-30 mg/Tag",
+          "timing": "Abends",
+          "notes": "Wichtig für Spermatogenese und Gonadotropin-Sekretion."
+        },
+        {
+          "name": "Folsäure",
+          "dosage": "400-800 µg/Tag",
+          "timing": "Morgens",
+          "notes": "Folsäure ist auch für die männliche Fertilität wichtig (DNA-Synthese in Spermien)."
+        },
+        {
+          "name": "Selen",
+          "dosage": "100-200 µg/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Selenoproteine sind essentiell für die Spermatogenese."
+        }
+      ],
+      "redFlags": [
+        "FSH >20 IU/l beim Mann <40: Schwerer Hodendefekt wahrscheinlich – Spermiogramm und endokrinologische Abklärung",
+        "FSH + LH supprimiert ohne Anabolika-Einnahme: Hypophyseninsuffizienz ausschließen – MRT dringend",
+        "FSH >40 IU/l bei Frau <40: Vorzeitige Ovarialinsuffizienz – endokrinologische Betreuung"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "prolaktin",
+    "name": "Prolaktin",
+    "category": "sexualhormone",
+    "categoryLabel": "Sexualhormone (Mann)",
+    "description": "Prolaktin ist ein Hypophysenhormon, das primär die Milchproduktion bei Frauen steuert, aber auch beim Mann wichtige Funktionen hat. Erhöhte Prolaktinwerte können LH und FSH supprimieren und damit zu Hypogonadismus und Infertilität führen. Prolaktin ist stressempfindlich und sollte morgens in Ruhe abgenommen werden.",
+    "unit": "ng/ml",
+    "alternativeUnits": [
+      {
+        "unit": "µg/l",
+        "factor": 1
+      },
+      {
+        "unit": "mIU/l",
+        "factor": 21.2
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 4.0,
+        "max": 15.2
+      },
+      "female": {
+        "min": 4.8,
+        "max": 23.3
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 5.0,
+        "max": 10.0,
+        "target": 7.0
+      },
+      "female": {
+        "min": 5.0,
+        "max": 15.0,
+        "target": 10.0
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Hypophysenvorderlappeninsuffizienz (Sheehan-Syndrom)",
+          "Medikamente (Dopaminagonisten wie Cabergolin, Bromocriptin)",
+          "Selten klinisch relevant als isolierter Befund"
+        ],
+        "symptoms": [
+          "Meist keine spezifischen Symptome",
+          "Stillprobleme bei Frauen nach Geburt (fehlende Milchproduktion)",
+          "Kann Hinweis auf globale Hypophyseninsuffizienz sein"
+        ],
+        "relatedValues": [
+          "lh",
+          "fsh",
+          "testosteron-gesamt",
+          "cortisol",
+          "tsh"
+        ],
+        "actions": [
+          "Medikamentenanamnese (Dopaminagonisten)",
+          "Bei V.a. Hypophyseninsuffizienz: komplettes Hypophysen-Panel (TSH, ACTH, Cortisol, LH, FSH, GH/IGF-1)",
+          "MRT Hypophyse bei Verdacht auf strukturelle Läsion"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Prolaktinom (häufigster hormonaktiver Hypophysentumor)",
+          "Medikamente (Neuroleptika, Antidepressiva, Metoclopramid, Domperidon)",
+          "Stress bei Blutabnahme (Prolaktin ist stresssensitiv!)",
+          "Hypothyreose (TRH stimuliert auch Prolaktin)",
+          "Schwangerschaft und Stillzeit (physiologisch)",
+          "Makroprolaktinämie (biologisch inaktive Prolaktin-Aggregate – harmlos)",
+          "Nieren- oder Leberinsuffizienz",
+          "Brustwandreizung (Gürtelrose, Piercing)"
+        ],
+        "symptoms": [
+          "Libidoverlust, erektile Dysfunktion beim Mann",
+          "Galaktorrhoe (Milchfluss außerhalb der Stillzeit)",
+          "Zyklusstörungen, Amenorrhoe bei der Frau",
+          "Infertilität (LH/FSH-Suppression)",
+          "Kopfschmerzen, Sehstörungen (bei Makroprolaktinom durch Chiasma-Kompression)",
+          "Gynäkomastie beim Mann"
+        ],
+        "relatedValues": [
+          "lh",
+          "fsh",
+          "testosteron-gesamt",
+          "testosteron-frei",
+          "tsh",
+          "estradiol"
+        ],
+        "actions": [
+          "Medikamentenanamnese (häufigste Ursache für Hyperprolaktinämie!)",
+          "TSH bestimmen (Hypothyreose als Ursache ausschließen)",
+          "Makroprolaktin bestimmen lassen (PEG-Fällung – schließt harmlose Makroprolaktinämie aus)",
+          "MRT der Hypophyse bei Prolaktin >50 ng/ml oder Verdacht auf Prolaktinom",
+          "Messung wiederholen (Stress bei Blutabnahme kann Prolaktin verdoppeln)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Prolaktin liegt im optimalen Bereich. Die dopaminerge Hemmung der Prolaktinsekretion funktioniert normal, und es gibt keine Hinweise auf eine Störung der HPG-Achse durch Hyperprolaktinämie."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Prolaktin erhöht + TSH erhöht",
+        "interpretation": "Hypothyreose als Ursache der Hyperprolaktinämie wahrscheinlich. TRH stimuliert sowohl TSH als auch Prolaktin. Schilddrüsen-Behandlung normalisiert oft auch Prolaktin.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Prolaktin >100 ng/ml",
+        "interpretation": "Stark erhöhtes Prolaktin – Prolaktinom wahrscheinlich. Je höher der Wert, desto größer typischerweise der Tumor. MRT der Hypophyse dringend empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Prolaktin leicht erhöht (15-25 ng/ml beim Mann) + Neuroleptika-Einnahme",
+        "interpretation": "Medikamenteninduzierte Hyperprolaktinämie. Häufig unter Neuroleptika, Antidepressiva oder Prokinetika. Rücksprache mit behandelndem Arzt.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Stressreduktion (Prolaktin ist stresssensitiv – Meditation, Achtsamkeit)",
+        "Ausreichend Schlaf (Prolaktin steigt im Schlaf physiologisch an)",
+        "Blutabnahme morgens, nüchtern, nach 15-20 Min Ruhe (vermeidet Stress-Artefakt)",
+        "Brustwandreizung vermeiden (kann Prolaktin erhöhen)",
+        "Moderate Bewegung (extremer Sport kann Prolaktin vorübergehend erhöhen)"
+      ],
+      "supplements": [
+        {
+          "name": "Vitamin B6 (Pyridoxin/P5P)",
+          "dosage": "50-100 mg/Tag",
+          "timing": "Morgens",
+          "notes": "Vitamin B6 unterstützt die Dopaminsynthese und kann milde Prolaktinerhöhungen senken. Nicht >100 mg/Tag (Neuropathie-Risiko)."
+        },
+        {
+          "name": "Zink",
+          "dosage": "15-30 mg/Tag",
+          "timing": "Abends",
+          "notes": "Zink kann Prolaktin modulieren und unterstützt die Testosteronproduktion."
+        }
+      ],
+      "redFlags": [
+        "Prolaktin >200 ng/ml: Makroprolaktinom wahrscheinlich – MRT Hypophyse dringend, Sehfeldprüfung, endokrinologische Anbindung",
+        "Prolaktin erhöht + Gesichtsfeldausfall (bitemporale Hemianopsie): Chiasma-Kompression durch Makroadenom – Notfall",
+        "Prolaktin erhöht + Libidoverlust + erektile Dysfunktion: Hypogonadismus durch Hyperprolaktinämie – Ursache behandeln"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "fai",
+    "name": "FAI (Free Androgen Index)",
+    "category": "sexualhormone",
+    "categoryLabel": "Sexualhormone (Mann)",
+    "description": "Der Free Androgen Index (FAI) ist ein berechneter Wert, der das Verhältnis von Gesamttestosteron zu SHBG widerspiegelt und als Schätzung für das bioverfügbare Testosteron dient. Formel: FAI = (Testosteron gesamt in nmol/l × 100) / SHBG in nmol/l. Er ist besonders nützlich, wenn SHBG stark erhöht oder erniedrigt ist und damit das freie Testosteron beeinflusst.",
+    "unit": "",
+    "alternativeUnits": [],
+    "measurementType": "Berechnet (aus Testosteron und SHBG)",
+    "reference": {
+      "male": {
+        "min": 35,
+        "max": 93
+      },
+      "female": {
+        "min": 0.5,
+        "max": 6.5
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 40,
+        "max": 70,
+        "target": 55
+      },
+      "female": {
+        "min": 1.0,
+        "max": 5.0,
+        "target": 3.0
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Niedriges Gesamttestosteron (Hypogonadismus)",
+          "Stark erhöhtes SHBG (Hyperthyreose, Lebererkrankung, Östrogene, Alter)",
+          "Kombination aus beidem",
+          "Medikamente die SHBG erhöhen (Antiepileptika, orale Kontrazeptiva)"
+        ],
+        "symptoms": [
+          "Libidoverlust, erektile Dysfunktion",
+          "Müdigkeit, Antriebslosigkeit",
+          "Muskelverlust, erhöhtes Körperfett",
+          "Depressive Verstimmung",
+          "Konzentrationsstörungen"
+        ],
+        "relatedValues": [
+          "testosteron-gesamt",
+          "testosteron-frei",
+          "shbg",
+          "estradiol",
+          "lh",
+          "fsh"
+        ],
+        "actions": [
+          "SHBG und Testosteron getrennt bewerten (wo liegt das Problem?)",
+          "Bei hohem SHBG: Schilddrüsenfunktion prüfen, Leberwerte kontrollieren",
+          "Bei niedrigem Testosteron: LH/FSH zur Ursachenbestimmung",
+          "Freies Testosteron direkt messen lassen (Gleichgewichtsdialyse)",
+          "Medikamentenanamnese"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Exogene Testosteronzufuhr (TRT, Anabolika)",
+          "Stark erniedrigtes SHBG (Adipositas, Insulinresistenz, Hypothyreose)",
+          "PCOS bei Frauen (häufigste Ursache für erhöhten FAI bei Frauen)",
+          "Nebennierenhyperplasie",
+          "Androgen-produzierende Tumoren (selten)"
+        ],
+        "symptoms": [
+          "Akne, fettige Haut",
+          "Haarausfall (androgenetische Alopezie)",
+          "Hirsutismus bei Frauen (vermehrte Körperbehaarung)",
+          "Aggressivität, Reizbarkeit",
+          "Zyklusstörungen bei Frauen"
+        ],
+        "relatedValues": [
+          "testosteron-gesamt",
+          "testosteron-frei",
+          "shbg",
+          "estradiol",
+          "dhea-s",
+          "nuechtern-insulin",
+          "homa-ir"
+        ],
+        "actions": [
+          "SHBG prüfen (niedriges SHBG bei Insulinresistenz/Adipositas häufig)",
+          "Insulinresistenz abklären (Nüchtern-Insulin, HOMA-IR)",
+          "Bei Frauen: PCOS-Diagnostik (Ultraschall, LH/FSH-Ratio)",
+          "Bei Männern: Anabolika-Anamnese",
+          "Schilddrüsenfunktion prüfen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der FAI liegt im optimalen Bereich. Das Verhältnis von Testosteron zu SHBG ist ausgewogen, und es steht ausreichend bioverfügbares Testosteron zur Verfügung."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "FAI niedrig + SHBG stark erhöht + Testosteron gesamt normal",
+        "interpretation": "Funktioneller Androgenmangel trotz normalem Gesamttestosteron. Das hohe SHBG bindet zu viel Testosteron. Ursache des erhöhten SHBG klären.",
+        "severity": "attention"
+      },
+      {
+        "condition": "FAI hoch + SHBG niedrig + Insulinresistenz",
+        "interpretation": "Insulinresistenz senkt SHBG, was den FAI artifiziell erhöht. Metabolisches Syndrom behandeln – SHBG und FAI normalisieren sich oft mit Insulinsensitivierung.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Körperfett reduzieren (Adipositas senkt SHBG → verfälscht FAI)",
+        "Insulinresistenz behandeln (senkt SHBG – siehe HOMA-IR-Optimierung)",
+        "Krafttraining (fördert Testosteronproduktion)",
+        "Ausreichend Schlaf (7-8 Stunden für optimale Hormonproduktion)",
+        "Alkoholkonsum reduzieren (beeinflusst SHBG und Testosteron)"
+      ],
+      "supplements": [
+        {
+          "name": "Zink",
+          "dosage": "15-30 mg/Tag",
+          "timing": "Abends",
+          "notes": "Unterstützt Testosteronproduktion und kann SHBG modulieren."
+        },
+        {
+          "name": "Magnesium",
+          "dosage": "300-400 mg/Tag",
+          "timing": "Abends",
+          "notes": "Magnesium kann die Bioverfügbarkeit von Testosteron erhöhen."
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": "1000-4000 IE/Tag",
+          "timing": "Zu fetthaltiger Mahlzeit",
+          "notes": "Vitamin-D-Mangel ist mit niedrigeren Testosteronwerten assoziiert."
+        }
+      ],
+      "redFlags": [
+        "FAI <20 beim Mann mit Symptomen: Deutlicher Androgenmangel – endokrinologische Abklärung",
+        "FAI >10 bei der Frau: PCOS oder androgen-produzierender Tumor ausschließen",
+        "FAI extrem hoch (>100) ohne bekannte Testosterontherapie: Diagnostik dringend"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "neutrophile",
+    "name": "Neutrophile Granulozyten (relativ)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Neutrophile Granulozyten sind die häufigsten weißen Blutkörperchen und die erste Verteidigungslinie des angeborenen Immunsystems gegen bakterielle Infektionen. Der relative Anteil (in Prozent der Gesamtleukozyten) gibt Aufschluss über das Differentialblutbild und hilft bei der Unterscheidung zwischen bakteriellen und viralen Infektionen.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": {
+        "min": 42.0,
+        "max": 77.0
+      },
+      "female": {
+        "min": 42.0,
+        "max": 77.0
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 45.0,
+        "max": 65.0,
+        "target": 55.0
+      },
+      "female": {
+        "min": 45.0,
+        "max": 65.0,
+        "target": 55.0
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Virale Infektionen (Influenza, EBV, HIV, Hepatitis)",
+          "Medikamente (Chemotherapie, Metamizol, Thyreostatika, Antibiotika)",
+          "Autoimmun-Neutropenie",
+          "Vitamin-B12- oder Folsäuremangel",
+          "Knochenmarkerkrankungen (aplastische Anämie, Leukämie)",
+          "Hypersplenismus (Milzvergrößerung)"
+        ],
+        "symptoms": [
+          "Erhöhte Infektanfälligkeit (besonders bakterielle Infektionen)",
+          "Fieber, Schüttelfrost",
+          "Mundschleimhaut-Ulzera",
+          "Halsschmerzen",
+          "Hautinfektionen"
+        ],
+        "relatedValues": [
+          "leukozyten",
+          "lymphozyten",
+          "monozyten",
+          "hs-crp",
+          "vitamin_b12",
+          "folsaeure"
+        ],
+        "actions": [
+          "Absolute Neutrophilenzahl berechnen (Leukozyten × Neutrophile% / 100)",
+          "Bei <1000/µl (schwere Neutropenie): Infektionsprophylaxe und hämatologische Abklärung",
+          "Medikamentenanamnese (häufige iatrogene Ursache)",
+          "Virusserologie bei V.a. virale Ursache",
+          "Vitamin B12 und Folsäure bestimmen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Bakterielle Infektionen (häufigste Ursache)",
+          "Akute Entzündungen (Appendizitis, Pneumonie, Abszess)",
+          "Stress und körperliche Belastung (Stressneutrophilie)",
+          "Rauchen",
+          "Kortikosteroid-Therapie (mobilisiert Neutrophile aus dem Knochenmark)",
+          "Myeloproliferative Erkrankungen (CML)",
+          "Postoperativ oder nach Trauma"
+        ],
+        "symptoms": [
+          "Fieber",
+          "Lokale Entzündungszeichen (Rötung, Schwellung, Schmerz)",
+          "Allgemeines Krankheitsgefühl",
+          "Erhöhte Körpertemperatur"
+        ],
+        "relatedValues": [
+          "leukozyten",
+          "lymphozyten",
+          "hs-crp",
+          "bsg"
+        ],
+        "actions": [
+          "CRP bestimmen (Korrelation mit bakterieller Infektion)",
+          "Infektionsfokus suchen (Anamnese, körperliche Untersuchung, Bildgebung)",
+          "Blutausstrich bei V.a. Linksverschiebung (unreife Granulozyten)",
+          "Bei persistierender Neutrophilie ohne Infektion: myeloproliferative Erkrankung ausschließen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Neutrophilen-Anteil liegt im optimalen Bereich. Das angeborene Immunsystem ist einsatzbereit, und es gibt keine Hinweise auf eine akute bakterielle Infektion oder Neutropenie."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Neutrophile hoch + Lymphozyten niedrig",
+        "interpretation": "Typisches Muster bei bakterieller Infektion oder Kortikosteroid-Therapie. Die Neutrophilen-Lymphozyten-Ratio (NLR) >3 deutet auf systemische Entzündung hin.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Neutrophile niedrig + Lymphozyten hoch",
+        "interpretation": "Typisches Muster bei viraler Infektion. Das Immunsystem schaltet auf lymphozytäre Abwehr um.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausgewogene Ernährung zur Unterstützung der Immunfunktion",
+        "Regelmäßige moderate Bewegung (stärkt das Immunsystem)",
+        "Ausreichend Schlaf (Immunzellen regenerieren sich im Schlaf)",
+        "Rauchstopp (Rauchen erhöht chronisch die Neutrophilen)",
+        "Stressmanagement (chronischer Stress verändert das Differentialblutbild)"
+      ],
+      "supplements": [
+        {
+          "name": "Vitamin C",
+          "dosage": "500-1000 mg/Tag",
+          "timing": "Über den Tag verteilt",
+          "notes": "Unterstützt die Neutrophilenfunktion (Phagozytose und oxidativer Burst)."
+        },
+        {
+          "name": "Zink",
+          "dosage": "15-25 mg/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Essentiell für die Immunfunktion und Granulozyten-Reifung."
+        }
+      ],
+      "redFlags": [
+        "Absolute Neutrophilenzahl <500/µl: Schwere Neutropenie (Agranulozytose) – Notfall, Infektionsrisiko extrem hoch, sofortige hämatologische Abklärung",
+        "Neutrophile >90% mit Linksverschiebung: Schwere bakterielle Infektion oder Sepsis – sofortige Abklärung und Antibiotikatherapie",
+        "Persistierende Leukozytose >30.000/µl mit Neutrophilie: CML oder Leukämie ausschließen"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "lymphozyten",
+    "name": "Lymphozyten (relativ)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Lymphozyten sind die Hauptzellen des erworbenen (adaptiven) Immunsystems. Sie umfassen T-Zellen (zelluläre Abwehr), B-Zellen (Antikörperproduktion) und NK-Zellen (natürliche Killerzellen). Der relative Anteil am Differentialblutbild hilft bei der Unterscheidung von Infektionstypen und Immundefekten.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": {
+        "min": 20.0,
+        "max": 44.0
+      },
+      "female": {
+        "min": 20.0,
+        "max": 44.0
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 25.0,
+        "max": 40.0,
+        "target": 32.0
+      },
+      "female": {
+        "min": 25.0,
+        "max": 40.0,
+        "target": 32.0
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Akute bakterielle Infektion (relative Lymphopenie durch Neutrophilie)",
+          "HIV-Infektion (CD4-T-Zell-Verlust)",
+          "Kortikosteroid-Therapie (Lymphozyten-Redistribution)",
+          "Chemotherapie und Immunsuppression",
+          "Autoimmunerkrankungen (Lupus)",
+          "Stress (Cortisol senkt Lymphozyten)",
+          "Mangelernährung"
+        ],
+        "symptoms": [
+          "Erhöhte Infektanfälligkeit (besonders virale und opportunistische Infektionen)",
+          "Rezidivierende Infektionen",
+          "Langwierige Krankheitsverläufe",
+          "Müdigkeit und Schwäche"
+        ],
+        "relatedValues": [
+          "leukozyten",
+          "neutrophile",
+          "hs-crp",
+          "cortisol"
+        ],
+        "actions": [
+          "Absolute Lymphozytenzahl berechnen (Leukozyten × Lymphozyten% / 100)",
+          "Bei persistierender Lymphopenie: HIV-Test anbieten",
+          "Medikamentenanamnese (Kortikosteroide, Immunsuppressiva)",
+          "Immunstatus (Immunglobuline IgG, IgA, IgM) bei V.a. Immundefekt",
+          "Lymphozytensubpopulationen (CD4/CD8) bei V.a. T-Zell-Defekt"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Virale Infektionen (EBV – Mononukleose, CMV, Hepatitis, Masern)",
+          "Chronisch-lymphatische Leukämie (CLL) – besonders bei Älteren",
+          "Pertussis (Keuchhusten – typische Lymphozytose bei Kindern)",
+          "Autoimmunerkrankungen",
+          "Schilddrüsenüberfunktion",
+          "Rauchen (milde chronische Lymphozytose)"
+        ],
+        "symptoms": [
+          "Fieber, Halsschmerzen, geschwollene Lymphknoten (bei EBV)",
+          "Müdigkeit (bei EBV oft wochenlang)",
+          "Hepatosplenomegalie",
+          "Hautausschlag (bei manchen viralen Infektionen)"
+        ],
+        "relatedValues": [
+          "leukozyten",
+          "neutrophile",
+          "monozyten",
+          "hs-crp",
+          "gpt"
+        ],
+        "actions": [
+          "Bei V.a. EBV: Mononukleose-Schnelltest und EBV-Serologie",
+          "Blutausstrich (atypische Lymphozyten bei EBV, Smudge Cells bei CLL)",
+          "Bei persistierender Lymphozytose >5000/µl bei >50-Jährigen: CLL ausschließen (Durchflusszytometrie)",
+          "Virusserologien bei V.a. virale Genese"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Lymphozyten-Anteil liegt im optimalen Bereich. Das adaptive Immunsystem ist intakt und einsatzbereit. Es gibt keine Hinweise auf akute virale Infektion oder Immundefizienz."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Lymphozyten hoch + Neutrophile niedrig",
+        "interpretation": "Typisches Muster bei viraler Infektion. Lymphozyten übernehmen die Hauptabwehr, während Neutrophile relativ abnehmen.",
+        "severity": "info"
+      },
+      {
+        "condition": "Lymphozyten persistierend >5000/µl absolut bei >50-Jährigen",
+        "interpretation": "Verdacht auf chronisch-lymphatische Leukämie (CLL). Durchflusszytometrie zur Klärung empfohlen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausreichend Schlaf (T-Zell-Funktion ist schlafabhängig)",
+        "Regelmäßige moderate Bewegung (stärkt adaptives Immunsystem)",
+        "Stressreduktion (Cortisol supprimiert Lymphozyten)",
+        "Ausgewogene Ernährung mit viel Gemüse und Obst (Antioxidantien)",
+        "Impfstatus aktuell halten (trainiert B- und T-Zellen)"
+      ],
+      "supplements": [
+        {
+          "name": "Vitamin D3",
+          "dosage": "1000-4000 IE/Tag",
+          "timing": "Zu fetthaltiger Mahlzeit",
+          "notes": "Vitamin D moduliert die T-Zell-Funktion und unterstützt die Immunregulation."
+        },
+        {
+          "name": "Zink",
+          "dosage": "15-25 mg/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Zink ist essentiell für T-Zell-Reifung und -Funktion."
+        }
+      ],
+      "redFlags": [
+        "Absolute Lymphozyten <1000/µl: Schwere Lymphopenie – Immundefekt abklären, HIV-Test erwägen",
+        "Lymphozytose >10.000/µl: CLL oder lymphoproliferative Erkrankung – sofortige hämatologische Abklärung",
+        "Atypische Lymphozyten >10% im Blutausstrich: EBV, CMV oder andere schwere Virusinfektion"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "monozyten",
+    "name": "Monozyten (relativ)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Monozyten sind die größten weißen Blutkörperchen und Teil des angeborenen Immunsystems. Sie zirkulieren 1-3 Tage im Blut und wandern dann ins Gewebe, wo sie zu Makrophagen (Fresszellen) oder dendritischen Zellen heranreifen. Sie sind wichtig für die Phagozytose, Antigenpräsentation und Zytokinproduktion.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": {
+        "min": 2.0,
+        "max": 12.0
+      },
+      "female": {
+        "min": 2.0,
+        "max": 12.0
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 4.0,
+        "max": 8.0,
+        "target": 6.0
+      },
+      "female": {
+        "min": 4.0,
+        "max": 8.0,
+        "target": 6.0
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Knochenmarkdepression (Chemotherapie, Bestrahlung)",
+          "Haarzell-Leukämie (typische Monozytopenie)",
+          "Aplastische Anämie",
+          "Glukokortikoid-Therapie (akut)",
+          "Schwere akute Infektionen (Verbrauch)",
+          "Selten klinisch isoliert relevant"
+        ],
+        "symptoms": [
+          "Meist keine isolierten Symptome durch niedrige Monozyten",
+          "Erhöhte Infektanfälligkeit bei schwerer Monozytopenie",
+          "Symptome der Grunderkrankung"
+        ],
+        "relatedValues": [
+          "leukozyten",
+          "neutrophile",
+          "lymphozyten"
+        ],
+        "actions": [
+          "Differentialblutbild kontrollieren",
+          "Bei persistierender Monozytopenie: Knochenmark-Erkrankung ausschließen",
+          "Medikamentenanamnese"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Chronische Infektionen (Tuberkulose, Endokarditis, Brucellose)",
+          "Autoimmunerkrankungen (Sarkoidose, Kollagenosen)",
+          "Chronisch-entzündliche Darmerkrankungen (M. Crohn, Colitis ulcerosa)",
+          "Maligne Erkrankungen (Monozytenleukämie, Lymphome)",
+          "Erholungsphase nach akuter Infektion oder Neutropenie",
+          "Chronischer Stress"
+        ],
+        "symptoms": [
+          "Fieber, Nachtschweiß (bei chronischen Infektionen)",
+          "Gewichtsverlust",
+          "Müdigkeit",
+          "Lymphknotenschwellung"
+        ],
+        "relatedValues": [
+          "leukozyten",
+          "neutrophile",
+          "lymphozyten",
+          "hs-crp",
+          "bsg"
+        ],
+        "actions": [
+          "Chronische Infektionen ausschließen (Tuberkulose, Endokarditis)",
+          "Autoimmundiagnostik bei V.a. Sarkoidose oder Kollagenose",
+          "Bei persistierender Monozytose: hämatologische Abklärung (CMML ausschließen)",
+          "CRP und BSG bestimmen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Monozyten-Anteil liegt im optimalen Bereich. Die Makrophagen-Vorläufer sind in ausreichender Zahl vorhanden, und es gibt keine Hinweise auf chronische Infektionen oder hämatologische Erkrankungen."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Monozyten erhöht + BSG erhöht + Fieber",
+        "interpretation": "Hinweis auf chronische Infektion oder granulomatöse Erkrankung. Tuberkulose, Sarkoidose und Endokarditis ausschließen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Monozyten erhöht in Erholungsphase nach Infektion",
+        "interpretation": "Reaktive Monozytose in der Rekonvaleszenz ist normal und zeigt die Aktivierung der Gewebereparatur an.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Entzündungsfördernde Ernährung vermeiden (Zucker, Transfette)",
+        "Omega-3-reiche Ernährung (antiinflammatorisch)",
+        "Regelmäßige moderate Bewegung",
+        "Stressmanagement (chronischer Stress erhöht Monozyten)",
+        "Ausreichend Schlaf"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-3 g/Tag",
+          "timing": "Zu fetthaltiger Mahlzeit",
+          "notes": "Modulieren die Monozytenfunktion und reduzieren pro-inflammatorische Zytokinproduktion."
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": "1000-4000 IE/Tag",
+          "timing": "Zu fetthaltiger Mahlzeit",
+          "notes": "Vitamin D moduliert die Makrophagen-Differenzierung und -Funktion."
+        }
+      ],
+      "redFlags": [
+        "Persistierende Monozytose >1000/µl absolut über Wochen: CMML (Chronische Myelomonozytäre Leukämie) ausschließen",
+        "Monozytopenie + Panzytopenie: Knochenmarkversagen – sofortige hämatologische Abklärung",
+        "Monozytose + B-Symptome (Fieber, Nachtschweiß, Gewichtsverlust): Malignom ausschließen"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "eosinophile",
+    "name": "Eosinophile Granulozyten (relativ)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Eosinophile Granulozyten sind spezialisierte weiße Blutkörperchen, die vor allem bei der Abwehr von Parasiten und bei allergischen Reaktionen eine Rolle spielen. Sie enthalten Granula mit zytotoxischen Proteinen. Erhöhte Eosinophile sind ein Leitbefund bei Allergien, Asthma, Parasitenbefall und bestimmten Autoimmunerkrankungen.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": {
+        "min": 0.5,
+        "max": 5.5
+      },
+      "female": {
+        "min": 0.5,
+        "max": 5.5
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 1.0,
+        "max": 4.0,
+        "target": 2.5
+      },
+      "female": {
+        "min": 1.0,
+        "max": 4.0,
+        "target": 2.5
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Akute Infektion oder Stress (Cortisol supprimiert Eosinophile)",
+          "Kortikosteroid-Therapie",
+          "Cushing-Syndrom (endogener Cortisolexzess)",
+          "Akute bakterielle Infektion (Verschiebung zu Neutrophilen)",
+          "Selten klinisch relevant als isolierter Befund"
+        ],
+        "symptoms": [
+          "Meist keine spezifischen Symptome durch niedrige Eosinophile",
+          "Symptome der Grunderkrankung (z.B. Cushing-Zeichen)"
+        ],
+        "relatedValues": [
+          "leukozyten",
+          "neutrophile",
+          "cortisol",
+          "hs-crp"
+        ],
+        "actions": [
+          "Klinisch meist kein Handlungsbedarf",
+          "Bei V.a. Cushing: Cortisol-Diagnostik",
+          "Medikamentenanamnese (Kortikosteroide)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Allergische Erkrankungen (Asthma, Heuschnupfen, Neurodermitis, Urtikaria)",
+          "Parasitenbefall (Würmer, Protozoen – häufig nach Tropenreise)",
+          "Medikamentenallergie",
+          "Autoimmunerkrankungen (eosinophile Granulomatose mit Polyangiitis – Churg-Strauss)",
+          "Eosinophile Ösophagitis",
+          "Hypereosinophiles Syndrom (HES)",
+          "Maligne Erkrankungen (Hodgkin-Lymphom, T-Zell-Lymphom)"
+        ],
+        "symptoms": [
+          "Juckreiz, Hautausschlag (bei Allergie)",
+          "Asthma-Symptome (Husten, Atemnot, Giemen)",
+          "Bauchschmerzen, Durchfall (bei Parasiten oder eosinophiler GI-Erkrankung)",
+          "Schluckbeschwerden (bei eosinophiler Ösophagitis)",
+          "Fieber (bei Parasitose oder Vaskulitis)"
+        ],
+        "relatedValues": [
+          "leukozyten",
+          "hs-crp",
+          "basophile"
+        ],
+        "actions": [
+          "Allergie-Diagnostik (IgE gesamt + spezifisches IgE, Prick-Test)",
+          "Stuhluntersuchung auf Parasiten (besonders nach Tropenreise)",
+          "Medikamentenanamnese (Medikamentenallergie häufig)",
+          "Bei Eosinophilie >1500/µl absolut: Organschäden ausschließen (Herz, Lunge, Haut)",
+          "Bei persistierender Eosinophilie: hämatologische und rheumatologische Abklärung"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Eosinophilen-Anteil liegt im optimalen Bereich. Es gibt keine Hinweise auf allergische Reaktionen, Parasitosen oder eosinophile Erkrankungen."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Eosinophile erhöht + Asthma/Atopie bekannt",
+        "interpretation": "Allergische Eosinophilie – typisch bei atopischen Erkrankungen. Allergie-Management optimieren, IgE kontrollieren.",
+        "severity": "info"
+      },
+      {
+        "condition": "Eosinophile >1500/µl absolut (>20%)",
+        "interpretation": "Schwere Eosinophilie – Organschäden möglich (Herz, Lunge, Haut, GI-Trakt). Dringende Abklärung: Parasitose, Vaskulitis, HES oder Malignom.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Allergene identifizieren und meiden (Hausstaubmilben, Pollen, Tierhaare)",
+        "Ernährung: potenzielle Nahrungsmittelallergene identifizieren",
+        "Raumluftqualität verbessern (HEPA-Filter, regelmäßiges Lüften)",
+        "Stressreduktion (Stress kann Allergie-Symptome verstärken)",
+        "Regelmäßige Darmpflege (Probiotika können Allergieneigung modulieren)"
+      ],
+      "supplements": [
+        {
+          "name": "Quercetin",
+          "dosage": "500-1000 mg/Tag",
+          "timing": "Vor den Mahlzeiten",
+          "notes": "Natürliches Antihistaminikum und Mastzellstabilisator. Kann bei allergischer Eosinophilie unterstützend wirken."
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": "500-1000 mg/Tag",
+          "timing": "Über den Tag verteilt",
+          "notes": "Kann Histaminspiegel senken und die Immunregulation unterstützen."
+        }
+      ],
+      "redFlags": [
+        "Eosinophile >5000/µl absolut: Schwere Hypereosinophilie – sofortige Abklärung wegen Endomyokardfibrose-Risiko",
+        "Eosinophilie + Dyspnoe + Herzinsuffizienz-Zeichen: Eosinophile Myokarditis – kardiologischer Notfall",
+        "Eosinophilie nach Tropenreise + Fieber: Parasitose – sofortige tropenmedizinische Abklärung"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "basophile",
+    "name": "Basophile Granulozyten (relativ)",
+    "category": "blutbild",
+    "categoryLabel": "Großes Blutbild",
+    "description": "Basophile Granulozyten sind die seltensten weißen Blutkörperchen (normalerweise <1% aller Leukozyten). Sie enthalten Histamin und Heparin in ihren Granula und spielen eine Rolle bei allergischen Reaktionen und der Parasitenabwehr. Funktionell sind sie den Mastzellen im Gewebe ähnlich.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "EDTA-Blut",
+    "reference": {
+      "male": {
+        "min": 0,
+        "max": 1.75
+      },
+      "female": {
+        "min": 0,
+        "max": 1.75
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 0,
+        "max": 1.0,
+        "target": 0.5
+      },
+      "female": {
+        "min": 0,
+        "max": 1.0,
+        "target": 0.5
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Akute allergische Reaktion (Degranulation – Basophile sind ins Gewebe abgewandert)",
+          "Kortikosteroid-Therapie",
+          "Akute Infektion oder Stress",
+          "Hyperthyreose",
+          "Praktisch nicht klinisch relevant als isolierter Befund (Basophile sind immer sehr niedrig)"
+        ],
+        "symptoms": [
+          "Keine spezifischen Symptome durch niedrige Basophile"
+        ],
+        "relatedValues": [
+          "leukozyten",
+          "eosinophile",
+          "cortisol"
+        ],
+        "actions": [
+          "Kein isolierter Handlungsbedarf",
+          "Im Kontext des Gesamtblutbilds bewerten"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Myeloproliferative Erkrankungen (CML – basophile Krise als Zeichen der Akzeleration)",
+          "Allergische Reaktionen und Urtikaria",
+          "Hypothyreose",
+          "Chronisch-entzündliche Erkrankungen (Colitis ulcerosa)",
+          "Polycythaemia vera",
+          "Nach Splenektomie",
+          "Eisenmangel"
+        ],
+        "symptoms": [
+          "Juckreiz (Histaminfreisetzung)",
+          "Urtikaria (Nesselsucht)",
+          "Symptome der Grunderkrankung (z.B. CML-Symptome)"
+        ],
+        "relatedValues": [
+          "leukozyten",
+          "eosinophile",
+          "neutrophile",
+          "tsh",
+          "ferritin"
+        ],
+        "actions": [
+          "Differentialblutbild kontrollieren",
+          "Bei persistierender Basophilie: myeloproliferative Erkrankung ausschließen (BCR-ABL bei V.a. CML)",
+          "Schilddrüsenfunktion prüfen (TSH)",
+          "Allergologische Abklärung bei Allergie-Symptomen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Der Basophilen-Anteil liegt im normalen Bereich. Kein Hinweis auf myeloproliferative Erkrankung oder ausgeprägte allergische Aktivierung."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Basophile erhöht + Eosinophile erhöht",
+        "interpretation": "Gleichzeitige Basophilie und Eosinophilie kann auf myeloproliferative Erkrankung oder schwere allergische Reaktion hinweisen. Differenzialdiagnostik empfohlen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Basophile >3% + Leukozyten erhöht",
+        "interpretation": "Basophilie in Kombination mit Leukozytose ist verdächtig auf CML, besonders in der akzelerierten Phase. BCR-ABL-Test empfohlen.",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Allergene meiden (reduziert Histamin-getriggerte Basophilen-Aktivierung)",
+        "Histaminarme Ernährung bei Histaminintoleranz",
+        "Stressreduktion",
+        "Ausreichend Schlaf",
+        "Regelmäßige Bewegung"
+      ],
+      "supplements": [
+        {
+          "name": "Quercetin",
+          "dosage": "500-1000 mg/Tag",
+          "timing": "Vor den Mahlzeiten",
+          "notes": "Mastzell- und Basophilen-Stabilisator, kann Histaminfreisetzung reduzieren."
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": "500-1000 mg/Tag",
+          "timing": "Über den Tag verteilt",
+          "notes": "Unterstützt den Histaminabbau und moduliert die Immunantwort."
+        }
+      ],
+      "redFlags": [
+        "Basophile >5% + Leukozytose: CML in akzelerierter Phase – sofortige hämatologische Abklärung",
+        "Basophilie + Splenomegalie + Leukozytose: Dringender Verdacht auf myeloproliferative Erkrankung",
+        "Schwere allergische Reaktion (Anaphylaxie) mit Basophilen-Degranulation: Notfallbehandlung mit Adrenalin"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
+  },
+  {
+    "id": "non-hdl",
+    "name": "Non-HDL-Cholesterin",
+    "category": "lipide",
+    "categoryLabel": "Herzgesundheit & Lipid-Panel",
+    "description": "Non-HDL-Cholesterin ist die Differenz aus Gesamtcholesterin minus HDL und umfasst alle atherogenen (gefäßschädigenden) Lipoproteine: LDL, VLDL, IDL und Lp(a). Es ist ein besserer Risikomarker als LDL allein, da es alle ApoB-haltigen Partikel erfasst und auch bei erhöhten Triglyceriden zuverlässig bleibt. Berechnung: Non-HDL = Gesamtcholesterin − HDL.",
+    "unit": "mg/dl",
+    "alternativeUnits": [
+      {
+        "unit": "mmol/l",
+        "factor": 0.02586
+      }
+    ],
+    "measurementType": "Serum (berechnet)",
+    "reference": {
+      "male": {
+        "min": 0,
+        "max": 145
+      },
+      "female": {
+        "min": 0,
+        "max": 145
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 60,
+        "max": 130,
+        "target": 100
+      },
+      "female": {
+        "min": 60,
+        "max": 130,
+        "target": 100
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Malnutrition oder Malabsorption",
+          "Hyperthyreose (beschleunigter Lipidstoffwechsel)",
+          "Schwere Lebererkrankung (verminderte Lipoprotein-Synthese)",
+          "Intensive lipidsenkende Therapie (Statine + Ezetimib)",
+          "Genetisch: Hypobetalipoproteinämie"
+        ],
+        "symptoms": [
+          "Meist keine Symptome durch niedrige Non-HDL-Werte",
+          "Bei extrem niedrigen Werten: fettlösliche Vitaminmangelerscheinungen möglich",
+          "Hormonstörungen (Cholesterin ist Vorstufe für Steroidhormone)"
+        ],
+        "relatedValues": [
+          "gesamtcholesterin",
+          "ldl",
+          "hdl",
+          "triglyceride",
+          "apob"
+        ],
+        "actions": [
+          "Schilddrüsenfunktion prüfen (Hyperthyreose senkt Lipide)",
+          "Leberfunktion kontrollieren",
+          "Bei extrem niedrigen Werten: fettlösliche Vitamine kontrollieren",
+          "Ernährungsstatus evaluieren"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Atherogene Dyslipidämie (erhöhtes kardiovaskuläres Risiko)",
+          "Metabolisches Syndrom und Insulinresistenz",
+          "Familiäre Hypercholesterinämie",
+          "Hypothyreose",
+          "Nephrotisches Syndrom",
+          "Cholestase (Gallenstau)",
+          "Ungesunder Lebensstil (fettreiche Ernährung, Bewegungsmangel, Übergewicht)"
+        ],
+        "symptoms": [
+          "Meist keine direkten Symptome (stille Gefahr)",
+          "Langfristig: Atherosklerose, KHK, Herzinfarkt, Schlaganfall",
+          "Xanthelasmen oder Xanthome (bei stark erhöhten Werten)"
+        ],
+        "relatedValues": [
+          "gesamtcholesterin",
+          "ldl",
+          "hdl",
+          "triglyceride",
+          "apob",
+          "lpa",
+          "trig-hdl-ratio",
+          "hba1c",
+          "nuechtern-insulin"
+        ],
+        "actions": [
+          "ApoB bestimmen (bester einzelner Marker für atherogene Partikelanzahl)",
+          "10-Jahres-KV-Risiko berechnen (SCORE2, Framingham)",
+          "Lp(a) einmalig bestimmen (genetisch fixiert, erhöht Non-HDL)",
+          "Metabolisches Syndrom abklären (Triglyceride, HDL, Bauchumfang, Blutzucker, Blutdruck)",
+          "Schilddrüsenfunktion prüfen (Hypothyreose ist behandelbare Ursache)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Non-HDL-Cholesterin liegt im optimalen Bereich. Die Gesamtbelastung mit atherogenen Lipoproteinen ist gering, was ein niedriges kardiovaskuläres Risiko widerspiegelt."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Non-HDL erhöht + Triglyceride erhöht + HDL niedrig",
+        "interpretation": "Atherogene Dyslipidämie – typisches Muster bei Insulinresistenz und metabolischem Syndrom. LDL kann falsch-normal erscheinen, während Non-HDL und ApoB das wahre Risiko zeigen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Non-HDL >30 mg/dl über LDL",
+        "interpretation": "Große Diskrepanz zwischen Non-HDL und LDL deutet auf erhöhte Remnant-Lipoproteine (VLDL, IDL) hin. Triglyceride und ApoB kontrollieren.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Non-HDL optimal + ApoB erhöht",
+        "interpretation": "Kleine, dichte LDL-Partikel möglich (mehr Partikel bei gleicher Cholesterinmenge). ApoB ist der zuverlässigere Marker für die Partikelanzahl.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Mediterrane Ernährung (reich an Olivenöl, Fisch, Gemüse, Nüssen)",
+        "Transfette komplett meiden (gehärtete Pflanzenfette, Fast Food)",
+        "Raffinierte Kohlenhydrate und Zucker reduzieren (senkt Triglycerid-Anteil)",
+        "Regelmäßige Bewegung: 150 min/Woche moderate Aktivität",
+        "Gewichtsreduktion bei Übergewicht (5-10% können Non-HDL deutlich senken)",
+        "Ballaststoffreich essen (Haferflocken, Leinsamen, Hülsenfrüchte)"
+      ],
+      "supplements": [
+        {
+          "name": "Omega-3-Fettsäuren (EPA/DHA)",
+          "dosage": "2-4 g/Tag",
+          "timing": "Zu einer fetthaltigen Mahlzeit",
+          "notes": "Senken vor allem Triglyceride und damit den VLDL-Anteil des Non-HDL. Hohe Dosen (>2g EPA) können auch Restvpartikel senken."
+        },
+        {
+          "name": "Berberin",
+          "dosage": "500-1500 mg/Tag",
+          "timing": "Aufgeteilt auf 2-3 Dosen zu den Mahlzeiten",
+          "notes": "Kann LDL und Non-HDL senken über LDLR-Upregulation. Ähnlicher Wirkmechanismus wie Statine, aber pflanzlich."
+        },
+        {
+          "name": "Bergamotte-Extrakt",
+          "dosage": "500-1000 mg/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Kann LDL, Triglyceride und Non-HDL senken. Polyphenol-reicher Extrakt aus Bergamotte-Orangen."
+        }
+      ],
+      "redFlags": [
+        "Non-HDL >220 mg/dl: Stark erhöhtes KV-Risiko – lipidsenkende Therapie mit Arzt besprechen",
+        "Non-HDL erhöht + familiäre Vorbelastung (Herzinfarkt <55 J. bei Verwandten): Familiäre Hypercholesterinämie ausschließen",
+        "Non-HDL trotz Lebensstiloptimierung weiterhin >160 mg/dl: Statintherapie in Betracht ziehen"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
   }
 ]
