@@ -11877,5 +11877,114 @@
       "Bioscentia Referenzbereiche",
       "Klinische Labormedizin (Thomas)"
     ]
+  },
+  {
+    "id": "harnstoff",
+    "name": "Harnstoff (BUN)",
+    "category": "niere",
+    "categoryLabel": "Nierenwerte",
+    "description": "Harnstoff ist das Hauptendprodukt des Eiweißstoffwechsels und wird über die Nieren ausgeschieden. Er ist neben Kreatinin ein wichtiger Marker für die Nierenfunktion, wird aber auch durch die Eiweißzufuhr und den Flüssigkeitshaushalt beeinflusst.",
+    "unit": "mg/dl",
+    "alternativeUnits": [
+      {
+        "unit": "mmol/l",
+        "factor": 0.1665
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 16.6,
+        "max": 48.5
+      },
+      "female": {
+        "min": 15.0,
+        "max": 45.0
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 18,
+        "max": 40,
+        "target": 30
+      },
+      "female": {
+        "min": 16,
+        "max": 38,
+        "target": 28
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Sehr geringe Eiweißzufuhr / Mangelernährung",
+          "Schwere Lebererkrankung (weniger Harnstoff-Synthese)",
+          "Überwässerung (Verdünnungseffekt)",
+          "Schwangerschaft"
+        ],
+        "symptoms": [
+          "Meist keine spezifischen Symptome",
+          "Eventuell Schwäche bei Eiweißmangel"
+        ],
+        "relatedValues": [
+          "kreatinin",
+          "gfr",
+          "gpt"
+        ],
+        "actions": [
+          "Eiweißzufuhr überprüfen",
+          "Leberfunktion kontrollieren",
+          "Flüssigkeitszufuhr evaluieren"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Eingeschränkte Nierenfunktion",
+          "Dehydration (häufigste harmlose Ursache)",
+          "Sehr hohe Eiweißzufuhr",
+          "Katabole Zustände (Fieber, Verbrennungen, Trauma)",
+          "Obere Magen-Darm-Blutung",
+          "Medikamente (Kortikosteroide, Tetracycline)"
+        ],
+        "symptoms": [
+          "Übelkeit, Appetitlosigkeit",
+          "Müdigkeit und Konzentrationsprobleme",
+          "Bei stark erhöhten Werten: Urämie-Symptome (Juckreiz, Verwirrtheit)"
+        ],
+        "relatedValues": [
+          "kreatinin",
+          "gfr",
+          "cystatin-c",
+          "harnsaeure"
+        ],
+        "actions": [
+          "Flüssigkeitszufuhr sicherstellen",
+          "Nierenfunktion prüfen (GFR, Cystatin C)",
+          "Eiweißzufuhr auf 1.2-1.6 g/kg anpassen",
+          "Bei deutlicher Erhöhung: Nephrologe konsultieren"
+        ]
+      }
+    },
+    "optimization": {
+      "supplements": [],
+      "foods": [
+        "Ausreichend trinken (mind. 2 Liter/Tag)",
+        "Moderate Eiweißzufuhr (1.2-1.6 g/kg Körpergewicht)",
+        "Pflanzliches und tierisches Eiweiß mischen"
+      ],
+      "lifestyle": [
+        "Gute Hydration, besonders bei Sport",
+        "Nierenfunktion regelmäßig kontrollieren bei Kreatin-Supplementierung"
+      ],
+      "redFlags": [
+        "Harnstoff >60 mg/dl + GFR <60: Verdacht auf chronische Nierenerkrankung",
+        "Schneller Anstieg des Harnstoffs: Akute Nierenschädigung oder Dehydration ausschließen"
+      ]
+    },
+    "sources": [
+      "Der Blutwerte-Code – Thiemo Osterhaus",
+      "Bioscentia Referenzbereiche",
+      "Klinische Labormedizin (Thomas)"
+    ]
   }
 ]
