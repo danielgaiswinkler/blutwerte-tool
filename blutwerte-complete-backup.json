@@ -106,7 +106,10 @@
       "vitamin-b12": 743,
       "folsaeure": 11.2,
       "vitamin-d": 55,
-      "harnstoff": 30.0
+      "harnstoff": 30.0,
+      "magnesium-serum": 0.99,
+      "zink-serum": 17.1,
+      "selen-serum": 1.13
     },
     "profileId": "profil-default"
   }
