@@ -9,8 +9,8 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - localStorage (Datenhaltung)
 - JSON-basierte Wissensdatenbank
 
-## Status (2026-03-06)
-- [x] **Schritt 1: Wissensdatenbank** - 63 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
+## Status (2026-03-06) — v1.0.0
+- [x] **Schritt 1: Wissensdatenbank** - 78 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
 - [x] **Schritt 2: Eingabeformular + CSV/JSON Import** - BloodworkEntry mit manuellem Input, CSV-Upload, localStorage
 - [x] **Schritt 3: Dashboard mit Ampelsystem** - Vollstaendiges Analyse-Dashboard mit Ampel-Uebersicht, Kategorie-Cards, kritische Werte Alert, Erfassungsgrad
 - [x] **Schritt 4: Einzelwert-Detailansicht** - SVG-Range-Bar, Interpretation, Optimierung, verwandte Werte, Quellen. Route /wert/:id
@@ -42,17 +42,17 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 ## Kategorien (13)
 | Kategorie | Label | Anzahl |
 |-----------|-------|--------|
-| blutbild | Großes Blutbild | 8 |
-| entzuendung | Entzündungsmarker | 3 |
-| leber | Leberwerte | 4 |
-| niere | Nierenwerte | 4 |
+| blutbild | Großes Blutbild | 14 |
+| entzuendung | Entzündungsmarker | 4 |
+| leber | Leberwerte | 6 |
+| niere | Nierenwerte | 5 |
 | blutzucker | Blutzucker & Insulin | 4 |
 | eisen | Eisen-Panel | 3 |
 | vitamine | Vitamine | 5 |
-| mineralstoffe | Mineralstoffe (Vollblut) | 3 |
-| lipide | Herzgesundheit & Lipid-Panel | 7 |
+| mineralstoffe | Mineralstoffe (Vollblut) | 6 |
+| lipide | Herzgesundheit & Lipid-Panel | 8 |
 | schilddruese | Schilddrüse | 3 |
-| sexualhormone | Sexualhormone (Mann) | 6 |
+| sexualhormone | Sexualhormone (Mann) | 10 |
 | stressachse | Stressachse | 1 |
 | spezial | Spezialwerte | 2 |
 
@@ -95,7 +95,6 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 ## Bekannte Probleme
 - **Serum vs. Vollblut:** Magnesium, Zink, Selen werden im Tool als Vollblut-Werte gefuehrt, Bioscentia misst aber Serum. Diese Werte NICHT importieren (verschiedene Referenzbereiche). Langfristig: Serum-Varianten als eigene IDs anlegen oder Hinweis im Import
 - **Text-Parser Erkennung:** Bei mehrzeiligem Paste (Name auf Zeile 1, Wert auf Zeile 2) werden manche Werte nicht erkannt. Parser erwartet Name + Wert auf einer Zeile
-- **Speichern-Bug untersuchen:** Daniel konnte ueber UI mehrfach Werte eingeben + Speichern klicken, aber `blutwerte-entries` war leer. Ursache unklar — evtl. profileId-Zuordnung. Auto-Import als Workaround eingebaut
 
 ## Naechste Schritte
 1. ~~**Bild-Upload mit Claude Vision**~~ — ERLEDIGT (2026-03-06)
@@ -129,7 +128,10 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
    - Reset: Alle Daten eines Profils loeschen (mit Bestätigung)
    - Info-Box erklaert lokale Datenhaltung
    - Auto-Import von import.json entfernt (keine persoenlichen Daten im Deploy)
-6. **Export fuer Health Hub** — Separater Export-Button fuer Health Hub Sync
+6. ~~**Wissensdatenbank erweitert**~~ — ERLEDIGT (2026-03-06)
+   - 78 Blutwerte (vorher 63): +BSG, Calcium, Kupfer, Lipase, LH, FSH, Prolaktin, FAI, Differentialblutbild (5), Non-HDL, Harnstoff
+   - Vollstaendiges Backup mit allen Health-Hub-Werten: 79 Einzelwerte ueber 4 Tests
+7. **Export fuer Health Hub** — Separater Export-Button fuer Health Hub Sync
 6. **updates-from-research.json mergen** — 34 Patches in Hauptdatenbank einarbeiten
 7. **blutwerte-app aufraeumen oder loeschen** — Ist nur ein leeres Vite-Template, wird nicht gebraucht
 8. **Serum vs. Vollblut** — Serum-Varianten fuer Magnesium/Zink/Selen anlegen oder Import-Hinweis
