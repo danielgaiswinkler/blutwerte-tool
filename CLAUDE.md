@@ -36,6 +36,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - `src/components/InfoPopover.tsx` - Wiederverwendbare Laien-Info Komponente
 - `src/components/TrendView/TrendView.tsx` - Zeitverlauf-Charts mit Recharts (Sparklines, LineChart, Status-Dots)
 - `src/components/Report/Report.tsx` - Arzt-Bericht mit Werte-Auswahl, Druckversion (@media print)
+- `src/components/SettingsPage/SettingsPage.tsx` - Export/Import/Reset, localStorage-Info
 - Einzeldateien (Quelle): `blutbild-entzuendung.json`, `leber-niere-zucker.json`, `mikronaehrstoffe.json`, `herzgesundheit.json`, `hormone-spezial.json`, `zusatzwerte.json`
 
 ## Kategorien (13)
@@ -112,9 +113,23 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
    - Print-Layout: Weisser Hintergrund, saubere Tabellen, Ampel-Emoji, Kategorien
    - @media print CSS in index.css: Sidebar ausblenden, Print-Report einblenden
    - Route /bericht in App.tsx
-3. **GitHub Pages Deploy** — App auf GitHub Pages deployen fuer Schwiegervater + externe Nutzung
-4. **Speichern-Bug fixen** — Untersuchen warum UI-Save nicht in localStorage schreibt
-5. **Export-Button** — "Export fuer Health Hub" Button in Settings/Dashboard einbauen
+3. ~~**GitHub Pages Deploy**~~ — ERLEDIGT (2026-03-06)
+   - GitHub Actions Workflow `.github/workflows/deploy.yml` (auto-deploy bei push auf main)
+   - `public/404.html` SPA-Redirect fuer React Router auf GitHub Pages
+   - Live: https://danielgaiswinkler.github.io/blutwerte-tool/
+4. ~~**Speichern-Bug fixen**~~ — ERLEDIGT (2026-03-06)
+   - `saveEntries()` mit try/catch + Verification (prüft ob write geklappt hat)
+   - Rote Fehlermeldung im UI wenn Speichern fehlschlägt
+   - Fallback wenn activeEntryId auf gelöschten Eintrag zeigt
+   - Console-Warnings bei Early-Returns
+5. ~~**Export/Import + Settings-Seite**~~ — ERLEDIGT (2026-03-06)
+   - Einstellungen-Seite (`src/components/SettingsPage/SettingsPage.tsx`)
+   - Export: JSON-Download mit allen Profil-Eintraegen als Backup
+   - Import: JSON-Upload mit Duplikat-Erkennung (gleiche ID = skip)
+   - Reset: Alle Daten eines Profils loeschen (mit Bestätigung)
+   - Info-Box erklaert lokale Datenhaltung
+   - Auto-Import von import.json entfernt (keine persoenlichen Daten im Deploy)
+6. **Export fuer Health Hub** — Separater Export-Button fuer Health Hub Sync
 6. **updates-from-research.json mergen** — 34 Patches in Hauptdatenbank einarbeiten
 7. **blutwerte-app aufraeumen oder loeschen** — Ist nur ein leeres Vite-Template, wird nicht gebraucht
 8. **Serum vs. Vollblut** — Serum-Varianten fuer Magnesium/Zink/Selen anlegen oder Import-Hinweis
