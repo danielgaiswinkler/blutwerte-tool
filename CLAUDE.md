@@ -21,7 +21,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - [x] **Laien-Info** - InfoPopover-Komponente ("Was bedeutet dieser Wert?") im Dashboard und Eingabeformular, nutzt description-Feld
 - [x] **Schritt 6: Trendansicht (Zeitverlauf)** - Recharts LineChart mit Status-Farben, Sparkline-Übersicht, Kategorie-Filter, Quick-Links für kritische Werte, Referenz-/Optimalbereich-Zonen, Zusammenfassungs-Stats, Messwert-Tabelle. Route /trend
 - [x] **Schritt 8: Arzt-Bericht / Druckversion** - Werte-Auswahl mit Checkboxen, Kategorie-Toggle, Schnellauswahl (Alle/Auffaellige/Keine), optionale Empfehlungen + Supplement-Plan, druckoptimiertes Layout (weiss, Tabellen, Ampel-Emoji), @media print CSS. Route /bericht
-- [ ] updates-from-research.json (34 Patches) in Hauptdatenbank mergen
+- [x] updates-from-research.json (34 Patches) in Hauptdatenbank gemerged (2026-03-06)
 
 ## Datenstruktur
 - `src/data/bloodwork-knowledge.json` - Gesamte Wissensdatenbank (63 Werte)
@@ -75,10 +75,10 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - Neue Felder: bfrHinweis, bfrWarnung, efsaReferenz, dgeReferenz, sicherheitshinweisB6, b12DosierungsPraxis, zusaetzlicheMarker, rechtlicherStatus
 - Allgemeine Hinweise: 10 (erweitert um Kontraindikationen, B6-Sicherheit, BfR-Ashwagandha)
 
-## Research-Updates (2026-02-22)
-- `src/data/updates-from-research.json` - 34 Update-Objekte aus 3 Research-Quellen
-- Noch NICHT in Hauptdatenbank gemerged (Patch-Datei als Referenz)
-- Aenderungen: Optimale Bereiche (Homocystein, GPT, GGT), neue ContextRules (Biotin, Lp(a)-Umrechnung, Ferritin/CRP-Ratio, Q10-Lipidkorrektur), Supplement-Updates (Mg-Formen, B12/MTHFR, Folsaeure), Omega-3-Methodik
+## Research-Updates (2026-02-22, gemerged 2026-03-06)
+- `src/data/updates-from-research.json.applied` - 37 Update-Objekte aus 3 Research-Quellen (35 applied, 2 skipped as "keine Aenderung")
+- GEMERGED in Hauptdatenbank am 2026-03-06
+- Aenderungen: Optimale Bereiche (Homocystein 5-7, GPT max 25/target 18, GGT max 20/18), neue ContextRules (Biotin-Interferenz TSH/fT3/fT4, Lp(a)-Umrechnungswarnung, Ferritin/CRP-Ratio, Q10-Lipidkorrektur, B12-MTHFR, Folsaeure-MTHFR, Omega-3-Messmethodik), Supplement-Updates (Mg 3 Formen mit Tageszeit, B12/MTHFR-Hinweis), Lp(a) alternativeUnits entfernt, 16 Eintraege mit Research-Quellen ergaenzt
 
 ## Design
 - Dark-Mode (gradient #0f172a → #1e293b)
@@ -132,7 +132,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
    - 78 Blutwerte (vorher 63): +BSG, Calcium, Kupfer, Lipase, LH, FSH, Prolaktin, FAI, Differentialblutbild (5), Non-HDL, Harnstoff
    - Vollstaendiges Backup mit allen Health-Hub-Werten: 79 Einzelwerte ueber 4 Tests
 7. **Export fuer Health Hub** — Separater Export-Button fuer Health Hub Sync
-6. **updates-from-research.json mergen** — 34 Patches in Hauptdatenbank einarbeiten
+6. ~~**updates-from-research.json mergen**~~ — ERLEDIGT (2026-03-06), 35 Patches applied
 7. **blutwerte-app aufraeumen oder loeschen** — Ist nur ein leeres Vite-Template, wird nicht gebraucht
 8. **Serum vs. Vollblut** — Serum-Varianten fuer Magnesium/Zink/Selen anlegen oder Import-Hinweis
 

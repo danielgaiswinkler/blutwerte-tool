@@ -142,6 +142,95 @@ export function parseText(text: string): {
     }
   }
 
+  // --- Multi-line matching: name on line N, value on line N+1 ---
+  for (let i = 0; i < lines.length - 1; i++) {
+    const nameLine = lines[i].trim();
+    const valueLine = lines[i + 1].trim();
+    if (!nameLine || !valueLine) continue;
+
+    // Skip if valueLine starts with a letter (probably another name, not a value)
+    if (/^[a-zA-ZäöüÄÖÜ]/.test(valueLine) && !/^[<>]?\s*\d/.test(valueLine)) continue;
+
+    // Try LAB_MAPPINGS on nameLine, number on valueLine
+    for (const mapping of LAB_MAPPINGS) {
+      if (matched.has(mapping.id)) continue;
+
+      const nameMatch = mapping.pattern.exec(nameLine);
+      if (!nameMatch) continue;
+
+      // Check if the nameLine already had a number (already matched in single-line pass)
+      const afterName = nameLine.slice(nameMatch.index + nameMatch[0].length);
+      if (/\d+[.,]?\d*/.test(afterName)) continue;
+
+      // Try to get number from next line
+      const numMatch = valueLine.match(/[<>]?\s*(\d+[.,]\d+|\d+)/);
+      if (!numMatch) continue;
+
+      const num = parseFloat(numMatch[1].replace(',', '.'));
+      if (isNaN(num)) continue;
+
+      const afterNum = valueLine.slice((numMatch.index ?? 0) + numMatch[0].length).trim();
+      const unitMatch = afterNum.match(/^([a-zA-Zµμ%°/²³]+(?:\/[a-zA-Zµμ%°²³]+)*)/);
+      const detectedUnit = unitMatch ? unitMatch[1] : '';
+
+      let finalValue = num;
+      if (mapping.convert && detectedUnit) {
+        finalValue = mapping.convert(num, detectedUnit);
+      }
+      finalValue = Math.round(finalValue * 100) / 100;
+
+      const bv = bloodValues.find((b) => b.id === mapping.id);
+
+      values.push({
+        id: mapping.id,
+        name: bv?.name ?? mapping.id,
+        value: finalValue,
+        unit: bv?.unit ?? mapping.dbUnit,
+        originalValue: num,
+        originalUnit: detectedUnit || mapping.dbUnit,
+        converted: finalValue !== num,
+      });
+
+      matched.add(mapping.id);
+      break;
+    }
+
+    // Also try direct name/ID matching across two lines
+    for (const bv of bloodValues) {
+      if (matched.has(bv.id)) continue;
+
+      const nameLower = bv.name.toLowerCase();
+      const idLower = bv.id.toLowerCase();
+      const lineLower = nameLine.toLowerCase();
+
+      if (!lineLower.startsWith(nameLower) && !lineLower.startsWith(idLower)) continue;
+
+      // Ensure nameLine doesn't already contain a number
+      const startIdx = lineLower.startsWith(nameLower) ? nameLower.length : idLower.length;
+      const rest = nameLine.slice(startIdx);
+      if (/\d+[.,]?\d*/.test(rest)) continue;
+
+      const numMatch = valueLine.match(/[<>]?\s*(\d+[.,]\d+|\d+)/);
+      if (!numMatch) continue;
+
+      const num = parseFloat(numMatch[1].replace(',', '.'));
+      if (isNaN(num)) continue;
+
+      values.push({
+        id: bv.id,
+        name: bv.name,
+        value: num,
+        unit: bv.unit,
+        originalValue: num,
+        originalUnit: bv.unit,
+        converted: false,
+      });
+
+      matched.add(bv.id);
+      break;
+    }
+  }
+
   if (values.length === 0) {
     warnings.push('Keine Blutwerte im Text erkannt. Tipp: Jeder Wert auf eine eigene Zeile, z.B. "LDL 149" oder "Gamma-GT: 10 U/l".');
   }

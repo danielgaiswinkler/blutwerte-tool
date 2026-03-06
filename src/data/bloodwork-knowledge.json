@@ -19,7 +19,7 @@
         "max": 5.9
       },
       "female": {
-        "min": 4.0,
+        "min": 4,
         "max": 5.2
       }
     },
@@ -167,7 +167,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -194,18 +197,18 @@
         "max": 17.5
       },
       "female": {
-        "min": 12.0,
-        "max": 16.0
+        "min": 12,
+        "max": 16
       }
     },
     "optimal": {
       "male": {
         "min": 14.5,
-        "max": 16.0,
+        "max": 16,
         "target": 15.2
       },
       "female": {
-        "min": 13.0,
+        "min": 13,
         "max": 14.5,
         "target": 13.8
       }
@@ -341,7 +344,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -1001,24 +1007,24 @@
     "measurementType": "EDTA-Blut",
     "reference": {
       "male": {
-        "min": 4.0,
-        "max": 10.0
+        "min": 4,
+        "max": 10
       },
       "female": {
-        "min": 4.0,
-        "max": 10.0
+        "min": 4,
+        "max": 10
       }
     },
     "optimal": {
       "male": {
-        "min": 5.0,
+        "min": 5,
         "max": 7.5,
-        "target": 6.0
+        "target": 6
       },
       "female": {
-        "min": 5.0,
+        "min": 5,
         "max": 7.5,
-        "target": 6.0
+        "target": 6
       }
     },
     "interpretation": {
@@ -1336,22 +1342,22 @@
     "reference": {
       "male": {
         "min": 0,
-        "max": 5.0
+        "max": 5
       },
       "female": {
         "min": 0,
-        "max": 5.0
+        "max": 5
       }
     },
     "optimal": {
       "male": {
         "min": 0,
-        "max": 1.0,
+        "max": 1,
         "target": 0.5
       },
       "female": {
         "min": 0,
-        "max": 1.0,
+        "max": 1,
         "target": 0.5
       }
     },
@@ -1970,8 +1976,8 @@
     "optimal": {
       "male": {
         "min": 10,
-        "max": 30,
-        "target": 20
+        "max": 25,
+        "target": 18
       },
       "female": {
         "min": 10,
@@ -2103,7 +2109,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (Peter Attia) (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -2128,12 +2137,12 @@
     "optimal": {
       "male": {
         "min": 10,
-        "max": 30,
+        "max": 20,
         "target": 18
       },
       "female": {
         "min": 8,
-        "max": 25,
+        "max": 18,
         "target": 14
       }
     },
@@ -2253,7 +2262,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -2724,11 +2736,11 @@
     "reference": {
       "male": {
         "min": 0.5,
-        "max": 1.0
+        "max": 1
       },
       "female": {
         "min": 0.5,
-        "max": 1.0
+        "max": 1
       }
     },
     "optimal": {
@@ -2871,7 +2883,7 @@
     "reference": {
       "male": {
         "min": 3.5,
-        "max": 7.0
+        "max": 7
       },
       "female": {
         "min": 2.5,
@@ -3202,11 +3214,11 @@
     "measurementType": "EDTA-Blut",
     "reference": {
       "male": {
-        "min": 4.0,
+        "min": 4,
         "max": 5.7
       },
       "female": {
-        "min": 4.0,
+        "min": 4,
         "max": 5.7
       }
     },
@@ -3214,12 +3226,12 @@
       "male": {
         "min": 4.5,
         "max": 5.2,
-        "target": 5.0
+        "target": 5
       },
       "female": {
         "min": 4.5,
         "max": 5.2,
-        "target": 5.0
+        "target": 5
       }
     },
     "interpretation": {
@@ -3368,24 +3380,24 @@
     "measurementType": "Serum",
     "reference": {
       "male": {
-        "min": 2.0,
-        "max": 25.0
+        "min": 2,
+        "max": 25
       },
       "female": {
-        "min": 2.0,
-        "max": 25.0
+        "min": 2,
+        "max": 25
       }
     },
     "optimal": {
       "male": {
-        "min": 3.0,
-        "max": 8.0,
-        "target": 5.0
+        "min": 3,
+        "max": 8,
+        "target": 5
       },
       "female": {
-        "min": 3.0,
-        "max": 8.0,
-        "target": 5.0
+        "min": 3,
+        "max": 8,
+        "target": 5
       }
     },
     "interpretation": {
@@ -3543,12 +3555,12 @@
     "optimal": {
       "male": {
         "min": 0.3,
-        "max": 1.0,
+        "max": 1,
         "target": 0.7
       },
       "female": {
         "min": 0.3,
-        "max": 1.0,
+        "max": 1,
         "target": 0.7
       }
     },
@@ -3808,6 +3820,11 @@
         "condition": "Ferritin >500 ng/ml",
         "interpretation": "Deutlich erhöhtes Ferritin. Hämochromatose muss ausgeschlossen werden. Transferrinsättigung und HFE-Gentest veranlassen. Auch Lebererkrankungen und schwere Entzündungen können ursächlich sein.",
         "severity": "warning"
+      },
+      {
+        "condition": "CRP >5 mg/l UND Ferritin im Referenzbereich",
+        "interpretation": "Ferritin/CRP-Ratio berechnen: Ferritin (ng/ml) geteilt durch CRP (mg/l). Bei einer Ratio <100 und CRP >5 mg/l besteht trotz 'normalem' Ferritin ein hoher Verdacht auf funktionellen Eisenmangel. Die Entzuendung erhoeht Ferritin als Akute-Phase-Protein, waehrend gleichzeitig Eisen im retikuloendothelialen System sequestriert wird. Transferrinsaettigung und loeslicher Transferrinrezeptor als zusaetzliche Marker heranziehen.",
+        "severity": "attention"
       }
     ],
     "optimization": {
@@ -3835,7 +3852,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -4253,7 +4273,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -4370,6 +4393,11 @@
         "condition": "Metformin-Einnahme seit >6 Monaten",
         "interpretation": "Metformin hemmt die B12-Resorption. B12-Status (idealerweise HoloTC) sollte regelmäßig kontrolliert und bei Bedarf supplementiert werden.",
         "severity": "attention"
+      },
+      {
+        "condition": "MTHFR-Polymorphismus bekannt oder vermutet",
+        "interpretation": "Bei MTHFR-Mutation (C677T oder A1298C) Methylcobalamin oder Adenosylcobalamin statt Cyanocobalamin verwenden. Cyanocobalamin benoetigt fuer die Umwandlung zu aktiven Formen einen funktionierenden Methylierungszyklus, der bei MTHFR-Mutation eingeschraenkt ist. Immer in Kombination mit 5-MTHF (Methylfolat) supplementieren.",
+        "severity": "attention"
       }
     ],
     "optimization": {
@@ -4384,7 +4412,7 @@
           "name": "Methylcobalamin oder Hydroxocobalamin",
           "dosage": "500-1.000 µg/Tag sublingual, bei schwerem Mangel: 5.000 µg/Tag oder Injektionen",
           "timing": "Morgens sublingual (unter die Zunge), unabhängig von Mahlzeiten",
-          "notes": "Methylcobalamin ist die bioaktive Form. Cyanocobalamin ist günstiger, muss aber umgewandelt werden. Bei Resorptionsstörung: intramuskuläre Injektionen (Hydroxocobalamin bevorzugt)."
+          "notes": "Methylcobalamin ist die bioaktive Form. Cyanocobalamin ist guenstiger, muss aber umgewandelt werden und ist bei MTHFR-Polymorphismus NICHT empfehlenswert (Methylcobalamin oder Adenosylcobalamin bevorzugen). Adenosylcobalamin ist die mitochondriale Form und ergaenzt Methylcobalamin. Bei Resorptionsstoerung: intramuskulaere Injektionen (Hydroxocobalamin bevorzugt, da es im Koerper sowohl zu Methyl- als auch zu Adenosylcobalamin umgewandelt werden kann)."
         },
         {
           "name": "Vitamin B-Komplex",
@@ -4401,7 +4429,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -4559,24 +4590,24 @@
     "measurementType": "Serum",
     "reference": {
       "male": {
-        "min": 3.0,
-        "max": 20.0
+        "min": 3,
+        "max": 20
       },
       "female": {
-        "min": 3.0,
-        "max": 20.0
+        "min": 3,
+        "max": 20
       }
     },
     "optimal": {
       "male": {
-        "min": 10.0,
-        "max": 20.0,
-        "target": 15.0
+        "min": 10,
+        "max": 20,
+        "target": 15
       },
       "female": {
-        "min": 10.0,
-        "max": 20.0,
-        "target": 15.0
+        "min": 10,
+        "max": 20,
+        "target": 15
       }
     },
     "interpretation": {
@@ -4655,6 +4686,11 @@
         "condition": "MTHFR-Mutation bekannt",
         "interpretation": "Bei MTHFR-Mutation kann synthetische Folsäure nicht effizient in die aktive Form umgewandelt werden. Unbedingt 5-MTHF (Methylfolat) als Supplementform verwenden.",
         "severity": "attention"
+      },
+      {
+        "condition": "Supplementierung mit synthetischer Folsaeure statt 5-MTHF",
+        "interpretation": "Bei MTHFR-Mutation (betrifft ca. 5-15% der Bevoelkerung homozygot, bis zu 40% heterozygot) AUSSCHLIESSLICH 5-MTHF (Methylfolat) als Supplementform verwenden. Synthetische Folsaeure (Pteroylglutaminsaeure) kann bei MTHFR-Mutation nicht effizient umgewandelt werden und kann sich als unmetabolisierte Folsaeure im Blut anreichern, was moeglicherweise negative Effekte hat (diskutiert: Immundysfunktion, Maskierung von B12-Mangel).",
+        "severity": "attention"
       }
     ],
     "optimization": {
@@ -4679,7 +4715,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -4699,22 +4738,22 @@
     "reference": {
       "male": {
         "min": 0.5,
-        "max": 2.0
+        "max": 2
       },
       "female": {
         "min": 0.5,
-        "max": 2.0
+        "max": 2
       }
     },
     "optimal": {
       "male": {
         "min": 1.5,
-        "max": 3.0,
+        "max": 3,
         "target": 2.5
       },
       "female": {
         "min": 1.5,
-        "max": 3.0,
+        "max": 3,
         "target": 2.5
       }
     },
@@ -4789,6 +4828,11 @@
         "condition": "Chronische Herzinsuffizienz",
         "interpretation": "Studien zeigen, dass Q10-Supplementierung bei Herzinsuffizienz die Herzfunktion verbessern und die Mortalität senken kann (Q-SYMBIO-Studie). 200-300 mg Ubichinol/Tag empfohlen.",
         "severity": "attention"
+      },
+      {
+        "condition": "Q10-Interpretation bei erhoehten Lipidwerten",
+        "interpretation": "Coenzym Q10 wird im Blut an Lipoproteine (v.a. LDL) gebunden transportiert. Bei hohem Cholesterin/LDL kann der Q10-Spiegel daher 'normal' erscheinen, obwohl der zellulaere Status unzureichend ist. Fuer eine praezisere Beurteilung lipidkorrigiertes Q10 berechnen: Q10 (µmol/l) geteilt durch Gesamtcholesterin (mmol/l). Ratio >0.200 = ausreichend, <0.200 = Mangel wahrscheinlich. Alternativ: Q10/LDL-Cholesterin-Ratio verwenden.",
+        "severity": "info"
       }
     ],
     "optimization": {
@@ -4814,7 +4858,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -4945,16 +4992,22 @@
       ],
       "supplements": [
         {
-          "name": "Magnesiumglycinat",
-          "dosage": "300-400 mg elementares Magnesium/Tag, aufgeteilt auf 2 Einnahmen",
-          "timing": "Abends vor dem Schlafengehen (schlaffördernd) und/oder morgens",
-          "notes": "Magnesiumglycinat hat die beste Bioverfügbarkeit und Verträglichkeit. Glycinat wirkt zusätzlich beruhigend. Alternative: Magnesiumtaurat (besonders für Herzgesundheit) oder Magnesiumcitrat (bei Verstopfung)."
+          "name": "Magnesiumbisglycinat (abends)",
+          "dosage": "200-300 mg elementares Magnesium",
+          "timing": "Abends 30-60 Minuten vor dem Schlafengehen",
+          "notes": "Beste Bioverfuegbarkeit und Vertraeglichkeit. Glycinat aktiviert GABA-Rezeptoren und foerdert Entspannung und Schlaf. Daher ideal fuer die abendliche Einnahme. Kein Durchfall wie bei Oxid oder Citrat."
         },
         {
-          "name": "Magnesium-L-Threonat",
+          "name": "Magnesiummalat oder Magnesiumtaurat (morgens)",
+          "dosage": "100-200 mg elementares Magnesium",
+          "timing": "Morgens zum Fruehstueck",
+          "notes": "Malat unterstuetzt die ATP-Synthese und Energieproduktion (Krebs-Zyklus), ideal fuer den Tag. Taurat ist besonders herzschuetzend (Taurin + Magnesium). NICHT Magnesiumoxid verwenden - schlechteste Bioverfuegbarkeit (<4%), verursacht hauptsaechlich Durchfall."
+        },
+        {
+          "name": "Magnesium-L-Threonat (bei kognitiven Beschwerden)",
           "dosage": "1.000-2.000 mg Magnesium-L-Threonat (ca. 144 mg elementares Mg)",
           "timing": "Abends vor dem Schlafengehen",
-          "notes": "Einzige Magnesiumform, die nachweislich die Blut-Hirn-Schranke überwindet. Besonders geeignet bei kognitiven Beschwerden, Schlafstörungen und Angst."
+          "notes": "Einzige Magnesiumform, die nachweislich die Blut-Hirn-Schranke ueberwindet. Besonders geeignet bei Brain Fog, Schlafproblemen und Angst. Kann zusaetzlich zu Bisglycinat genommen werden."
         }
       ],
       "redFlags": [
@@ -4965,7 +5018,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -4984,23 +5040,23 @@
     "measurementType": "Vollblut",
     "reference": {
       "male": {
-        "min": 4.0,
+        "min": 4,
         "max": 7.5
       },
       "female": {
-        "min": 4.0,
+        "min": 4,
         "max": 7.5
       }
     },
     "optimal": {
       "male": {
-        "min": 6.0,
-        "max": 7.0,
+        "min": 6,
+        "max": 7,
         "target": 6.5
       },
       "female": {
-        "min": 6.0,
-        "max": 7.0,
+        "min": 6,
+        "max": 7,
         "target": 6.5
       }
     },
@@ -5918,7 +5974,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -6095,12 +6154,7 @@
     "categoryLabel": "Herzgesundheit & Lipid-Panel",
     "description": "Lipoprotein(a) ist ein LDL-aehnliches Partikel mit einem zusaetzlichen Apolipoprotein(a)-Protein, das kovalent an ApoB gebunden ist. Osterhaus betont: Lp(a) ist zu ueber 90% GENETISCH determiniert und aendert sich im Laufe des Lebens kaum. Es muss daher nur EINMAL im Leben gemessen werden. Erhoehtes Lp(a) ist ein unabhaengiger, kausaler Risikofaktor fuer Atherosklerose, Aortenklappenstenose und thrombotische Ereignisse - UNABHAENGIG von LDL. Etwa 20% der Bevoelkerung haben erhoehte Werte. Das Tueckische: Lp(a) kann durch Lifestyle-Massnahmen und die meisten Supplements NICHT gesenkt werden. Wer ein erhoehtes Lp(a) hat, muss alle anderen veraenderbaren Risikofaktoren umso strenger kontrollieren, insbesondere ApoB. Jeder Mensch sollte Lp(a) mindestens einmal im Leben messen lassen.",
     "unit": "nmol/l",
-    "alternativeUnits": [
-      {
-        "unit": "mg/dl",
-        "factor": 0.4167
-      }
-    ],
+    "alternativeUnits": [],
     "measurementType": "Serum",
     "reference": {
       "male": {
@@ -6194,6 +6248,11 @@
         "condition": "lpa > 125",
         "interpretation": "Stark erhoehtes Lp(a) (oberhalb des 95. Perzentils). Signifikant erhoehtes Risiko fuer kardiovaskulaere Ereignisse und Aortenklappenstenose. Kardiologische Mitbetreuung dringend empfohlen. Alle veraenderbaren Risikofaktoren maximal aggressiv kontrollieren. Bei Progression der Atherosklerose: Lipoprotein-Apherese erwaegen.",
         "severity": "warning"
+      },
+      {
+        "condition": "Ergebnis in mg/dL statt nmol/L oder umgekehrt",
+        "interpretation": "ACHTUNG: Die Umrechnung zwischen nmol/L und mg/dL ist bei Lp(a) UNZULAESSIG! Anders als bei anderen Lipid-Werten variiert das Molekulargewicht von Lp(a) individuell je nach Apo(a)-Isoformgroesse (variable Anzahl von Kringle-IV-Repeats). Ein fester Umrechnungsfaktor existiert daher NICHT. Die Einheit des Laborbefunds muss strikt respektiert werden. Verlaufsmessungen NUR in der gleichen Einheit und idealerweise im gleichen Labor vergleichen.",
+        "severity": "warning"
       }
     ],
     "optimization": {
@@ -6235,7 +6294,11 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)",
+      "European Atherosclerosis Society (EAS) Consensus"
     ]
   },
   {
@@ -6250,22 +6313,22 @@
     "reference": {
       "male": {
         "min": 0,
-        "max": 2.0
+        "max": 2
       },
       "female": {
         "min": 0,
-        "max": 2.0
+        "max": 2
       }
     },
     "optimal": {
       "male": {
         "min": 0,
-        "max": 1.0,
+        "max": 1,
         "target": 0.7
       },
       "female": {
         "min": 0,
-        "max": 1.0,
+        "max": 1,
         "target": 0.7
       }
     },
@@ -6408,23 +6471,23 @@
     "reference": {
       "male": {
         "min": 0.4,
-        "max": 4.0
+        "max": 4
       },
       "female": {
         "min": 0.4,
-        "max": 4.0
+        "max": 4
       }
     },
     "optimal": {
       "male": {
         "min": 0.5,
-        "max": 2.0,
-        "target": 1.0
+        "max": 2,
+        "target": 1
       },
       "female": {
         "min": 0.5,
-        "max": 2.0,
-        "target": 1.0
+        "max": 2,
+        "target": 1
       }
     },
     "interpretation": {
@@ -6519,6 +6582,11 @@
         "condition": "tsh < 0.27",
         "interpretation": "TSH supprimiert. Moegliche Ueberfunktion. Dringend fT3 und fT4 bestimmen und Endokrinologen konsultieren.",
         "severity": "warning"
+      },
+      {
+        "condition": "Biotin-Supplementierung (>5 mg/Tag)",
+        "interpretation": "ACHTUNG: Hochdosiertes Biotin (>5 mg/Tag, haeufig in Haar-/Haut-Supplementen) kann TSH FALSCH NIEDRIG und fT4/fT3 FALSCH HOCH erscheinen lassen (Streptavidin-Biotin-Interferenz im Immunoassay). Mindestens 48 Stunden (ATA empfiehlt 2 Tage) vor Schilddruesentests Biotin pausieren. Dies betrifft die meisten gaengigen Laborassays.",
+        "severity": "warning"
       }
     ],
     "optimization": {
@@ -6558,7 +6626,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -6577,23 +6648,23 @@
     "measurementType": "Serum",
     "reference": {
       "male": {
-        "min": 2.0,
+        "min": 2,
         "max": 4.4
       },
       "female": {
-        "min": 2.0,
+        "min": 2,
         "max": 4.4
       }
     },
     "optimal": {
       "male": {
-        "min": 3.0,
-        "max": 4.0,
+        "min": 3,
+        "max": 4,
         "target": 3.5
       },
       "female": {
-        "min": 3.0,
-        "max": 4.0,
+        "min": 3,
+        "max": 4,
         "target": 3.5
       }
     },
@@ -6677,6 +6748,11 @@
         "condition": "ft3 > 4.0 AND tsh < 0.4",
         "interpretation": "fT3 erhoeht bei supprimiertem TSH: Deutlicher Hinweis auf Schilddruesenueberfunktion. Endokrinologische Abklaerung dringend empfohlen.",
         "severity": "warning"
+      },
+      {
+        "condition": "Biotin-Supplementierung (>5 mg/Tag)",
+        "interpretation": "Hochdosiertes Biotin kann fT3-Werte im Immunoassay verfaelschen (falsch hoch). Biotin mindestens 48 Stunden vor der Blutabnahme absetzen. Betrifft alle Streptavidin-Biotin-basierten Assays.",
+        "severity": "warning"
       }
     ],
     "optimization": {
@@ -6716,7 +6792,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -6745,12 +6824,12 @@
     },
     "optimal": {
       "male": {
-        "min": 1.0,
+        "min": 1,
         "max": 1.5,
         "target": 1.3
       },
       "female": {
-        "min": 1.0,
+        "min": 1,
         "max": 1.5,
         "target": 1.3
       }
@@ -6834,6 +6913,11 @@
         "condition": "ft4 > 1.5 AND tsh < 0.4",
         "interpretation": "fT4 erhoeht bei supprimiertem TSH. Hyperthyreose wahrscheinlich. Dringend Endokrinologe aufsuchen.",
         "severity": "warning"
+      },
+      {
+        "condition": "Biotin-Supplementierung (>5 mg/Tag)",
+        "interpretation": "Hochdosiertes Biotin kann fT4 FALSCH HOCH erscheinen lassen (kompetitiver Immunoassay-Interferenz). In Kombination mit falsch niedrigem TSH kann dies eine Schilddruesenueberfunktion vortaeuschen. Biotin 48 Stunden vor der Blutabnahme absetzen.",
+        "severity": "warning"
       }
     ],
     "optimization": {
@@ -6872,7 +6956,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -7060,8 +7147,8 @@
     "measurementType": "Serum",
     "reference": {
       "male": {
-        "min": 5.0,
-        "max": 25.0
+        "min": 5,
+        "max": 25
       },
       "female": {
         "min": 0.5,
@@ -7070,12 +7157,12 @@
     },
     "optimal": {
       "male": {
-        "min": 15.0,
-        "max": 25.0,
-        "target": 20.0
+        "min": 15,
+        "max": 25,
+        "target": 20
       },
       "female": {
-        "min": 1.0,
+        "min": 1,
         "max": 2.5,
         "target": 1.5
       }
@@ -7949,6 +8036,11 @@
         "condition": "omega-3-index optimal AND homocystein erhoeht",
         "interpretation": "Guter Omega-3-Status, aber Homocystein erhoeht. Omega-3 allein reicht nicht zur kardiovaskulaeren Risikoreduktion. B-Vitamine (B12, Folsaeure, B6) fuer Homocystein-Senkung ergaenzen.",
         "severity": "info"
+      },
+      {
+        "condition": "Verlaufsvergleich verschiedener Messungen",
+        "interpretation": "WICHTIG fuer Verlaufsvergleiche: Der HS-Omega-3-Index (nach Harris & von Schacky, Messung in Erythrozytenmembran) ist der validierte Goldstandard. Andere Methoden (Serum-Omega-3, Plasma-EPA/DHA, Vollblut-Fettsaeureanalyse) sind NICHT direkt vergleichbar. Immer die Messmethode und das Labor dokumentieren. Idealerweise alle Verlaufsmessungen beim gleichen Labor mit der gleichen Methode durchfuehren.",
+        "severity": "info"
       }
     ],
     "optimization": {
@@ -7981,7 +8073,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -8006,12 +8101,12 @@
     "optimal": {
       "male": {
         "min": 5,
-        "max": 8,
+        "max": 7,
         "target": 7
       },
       "female": {
         "min": 5,
-        "max": 8,
+        "max": 7,
         "target": 7
       }
     },
@@ -8066,7 +8161,7 @@
         ]
       },
       "optimal": {
-        "meaning": "Homocystein im optimalen Bereich (5-8 umol/l). Die Methylierung funktioniert gut und die B-Vitamin-Versorgung ist ausreichend. Niedriges kardiovaskulaeres Risiko durch Homocystein. Gute Voraussetzung fuer gesunde Gefaesse und kognitive Funktion."
+        "meaning": "Homocystein im optimalen Bereich (5-7 umol/l). Die Methylierung funktioniert gut und die B-Vitamin-Versorgung ist ausreichend. Niedriges kardiovaskulaeres Risiko durch Homocystein. Gute Voraussetzung fuer gesunde Gefaesse und kognitive Funktion."
       }
     },
     "contextRules": [
@@ -8128,7 +8223,10 @@
     },
     "sources": [
       "Der Blutwerte-Code - Thiemo Osterhaus",
-      "Labormedizin - Lothar Thomas"
+      "Labormedizin - Lothar Thomas",
+      "Perplexity Blutwerte-Wissensdatenbank (2026)",
+      "ChatGPT Deep Research Report (2026)",
+      "Gemini Blutwerte-Analyse (2026)"
     ]
   },
   {
@@ -8797,12 +8895,12 @@
     },
     "optimal": {
       "male": {
-        "min": 4.0,
+        "min": 4,
         "max": 4.5,
         "target": 4.2
       },
       "female": {
-        "min": 4.0,
+        "min": 4,
         "max": 4.5,
         "target": 4.2
       }
@@ -8953,12 +9051,12 @@
       "male": {
         "min": 1,
         "max": 3,
-        "target": 2.0
+        "target": 2
       },
       "female": {
         "min": 1,
         "max": 3,
-        "target": 2.0
+        "target": 2
       }
     },
     "interpretation": {
@@ -9361,11 +9459,11 @@
     "reference": {
       "male": {
         "min": 11.5,
-        "max": 15.0
+        "max": 15
       },
       "female": {
         "min": 11.5,
-        "max": 15.0
+        "max": 15
       }
     },
     "optimal": {
@@ -9675,12 +9773,12 @@
     "optimal": {
       "male": {
         "min": 0.7,
-        "max": 1.0,
+        "max": 1,
         "target": 0.85
       },
       "female": {
         "min": 0.7,
-        "max": 1.0,
+        "max": 1,
         "target": 0.85
       }
     },
@@ -9985,13 +10083,13 @@
     },
     "optimal": {
       "male": {
-        "min": 2.20,
-        "max": 2.50,
+        "min": 2.2,
+        "max": 2.5,
         "target": 2.35
       },
       "female": {
-        "min": 2.20,
-        "max": 2.50,
+        "min": 2.2,
+        "max": 2.5,
         "target": 2.35
       }
     },
@@ -10137,8 +10235,8 @@
     "measurementType": "Serum",
     "reference": {
       "male": {
-        "min": 11.0,
-        "max": 22.0
+        "min": 11,
+        "max": 22
       },
       "female": {
         "min": 12.5,
@@ -10147,13 +10245,13 @@
     },
     "optimal": {
       "male": {
-        "min": 12.0,
-        "max": 18.0,
-        "target": 15.0
+        "min": 12,
+        "max": 18,
+        "target": 15
       },
       "female": {
-        "min": 13.0,
-        "max": 20.0,
+        "min": 13,
+        "max": 20,
         "target": 16.5
       }
     },
@@ -10440,20 +10538,20 @@
         "max": 8.6
       },
       "female": {
-        "min": 1.0,
-        "max": 96.0
+        "min": 1,
+        "max": 96
       }
     },
     "optimal": {
       "male": {
-        "min": 2.0,
-        "max": 6.0,
-        "target": 4.0
+        "min": 2,
+        "max": 6,
+        "target": 4
       },
       "female": {
-        "min": 2.0,
-        "max": 12.0,
-        "target": 6.0
+        "min": 2,
+        "max": 12,
+        "target": 6
       }
     },
     "interpretation": {
@@ -10601,14 +10699,14 @@
     },
     "optimal": {
       "male": {
-        "min": 2.0,
-        "max": 8.0,
+        "min": 2,
+        "max": 8,
         "target": 4.5
       },
       "female": {
         "min": 3.5,
-        "max": 12.0,
-        "target": 7.0
+        "max": 12,
+        "target": 7
       }
     },
     "interpretation": {
@@ -10753,7 +10851,7 @@
     "measurementType": "Serum",
     "reference": {
       "male": {
-        "min": 4.0,
+        "min": 4,
         "max": 15.2
       },
       "female": {
@@ -10763,14 +10861,14 @@
     },
     "optimal": {
       "male": {
-        "min": 5.0,
-        "max": 10.0,
-        "target": 7.0
+        "min": 5,
+        "max": 10,
+        "target": 7
       },
       "female": {
-        "min": 5.0,
-        "max": 15.0,
-        "target": 10.0
+        "min": 5,
+        "max": 15,
+        "target": 10
       }
     },
     "interpretation": {
@@ -10913,9 +11011,9 @@
         "target": 55
       },
       "female": {
-        "min": 1.0,
-        "max": 5.0,
-        "target": 3.0
+        "min": 1,
+        "max": 5,
+        "target": 3
       }
     },
     "interpretation": {
@@ -11047,24 +11145,24 @@
     "measurementType": "EDTA-Blut",
     "reference": {
       "male": {
-        "min": 42.0,
-        "max": 77.0
+        "min": 42,
+        "max": 77
       },
       "female": {
-        "min": 42.0,
-        "max": 77.0
+        "min": 42,
+        "max": 77
       }
     },
     "optimal": {
       "male": {
-        "min": 45.0,
-        "max": 65.0,
-        "target": 55.0
+        "min": 45,
+        "max": 65,
+        "target": 55
       },
       "female": {
-        "min": 45.0,
-        "max": 65.0,
-        "target": 55.0
+        "min": 45,
+        "max": 65,
+        "target": 55
       }
     },
     "interpretation": {
@@ -11189,24 +11287,24 @@
     "measurementType": "EDTA-Blut",
     "reference": {
       "male": {
-        "min": 20.0,
-        "max": 44.0
+        "min": 20,
+        "max": 44
       },
       "female": {
-        "min": 20.0,
-        "max": 44.0
+        "min": 20,
+        "max": 44
       }
     },
     "optimal": {
       "male": {
-        "min": 25.0,
-        "max": 40.0,
-        "target": 32.0
+        "min": 25,
+        "max": 40,
+        "target": 32
       },
       "female": {
-        "min": 25.0,
-        "max": 40.0,
-        "target": 32.0
+        "min": 25,
+        "max": 40,
+        "target": 32
       }
     },
     "interpretation": {
@@ -11329,24 +11427,24 @@
     "measurementType": "EDTA-Blut",
     "reference": {
       "male": {
-        "min": 2.0,
-        "max": 12.0
+        "min": 2,
+        "max": 12
       },
       "female": {
-        "min": 2.0,
-        "max": 12.0
+        "min": 2,
+        "max": 12
       }
     },
     "optimal": {
       "male": {
-        "min": 4.0,
-        "max": 8.0,
-        "target": 6.0
+        "min": 4,
+        "max": 8,
+        "target": 6
       },
       "female": {
-        "min": 4.0,
-        "max": 8.0,
-        "target": 6.0
+        "min": 4,
+        "max": 8,
+        "target": 6
       }
     },
     "interpretation": {
@@ -11474,13 +11572,13 @@
     },
     "optimal": {
       "male": {
-        "min": 1.0,
-        "max": 4.0,
+        "min": 1,
+        "max": 4,
         "target": 2.5
       },
       "female": {
-        "min": 1.0,
-        "max": 4.0,
+        "min": 1,
+        "max": 4,
         "target": 2.5
       }
     },
@@ -11610,12 +11708,12 @@
     "optimal": {
       "male": {
         "min": 0,
-        "max": 1.0,
+        "max": 1,
         "target": 0.5
       },
       "female": {
         "min": 0,
-        "max": 1.0,
+        "max": 1,
         "target": 0.5
       }
     },
@@ -11898,8 +11996,8 @@
         "max": 48.5
       },
       "female": {
-        "min": 15.0,
-        "max": 45.0
+        "min": 15,
+        "max": 45
       }
     },
     "optimal": {

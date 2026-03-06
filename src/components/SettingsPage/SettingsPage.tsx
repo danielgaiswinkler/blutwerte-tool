@@ -191,6 +191,10 @@ export default function SettingsPage() {
           <Download size={16} />
           Export herunterladen
         </button>
+        <p className="text-xs text-text-muted mt-2">
+          Tipp: Die Export-Datei ist auch kompatibel mit dem Health Hub Sync
+          (sync_blutwerte.py).
+        </p>
       </div>
 
       {/* Import */}
