@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Routes, Route, NavLink } from 'react-router-dom'
 import { Activity, Upload, BarChart3, TrendingUp, Settings, FileText, Users, Plus, Check, X, Trash2, Sparkles, GitBranch } from 'lucide-react'
 import Dashboard from './components/Dashboard/Dashboard'
@@ -8,26 +8,12 @@ import Recommendations from './components/Recommendations/Recommendations'
 import CrossValueAnalysis from './components/CrossValueAnalysis/CrossValueAnalysis'
 import TrendView from './components/TrendView/TrendView'
 import Report from './components/Report/Report'
+import SettingsPage from './components/SettingsPage/SettingsPage'
 import { useProfile } from './context/ProfileContext'
-import { loadEntries, saveEntries } from './utils/bloodwork-utils'
 
 function App() {
   const { profiles, activeProfile, setActiveProfile, addProfile, deleteProfile } = useProfile()
   const [showAddProfile, setShowAddProfile] = useState(false)
-
-  // Auto-Import: Lade Seed-Daten wenn keine Eintraege vorhanden
-  useEffect(() => {
-    if (loadEntries().length > 0 || profiles.length === 0) return;
-    fetch(import.meta.env.BASE_URL + 'import.json')
-      .then((r) => { if (r.ok) return r.json(); throw new Error('no file'); })
-      .then((data: Array<Record<string, unknown>>) => {
-        const profileId = profiles[0].id;
-        const entries = data.map((e) => ({ ...e, profileId }));
-        saveEntries(entries as never[]);
-        window.location.reload();
-      })
-      .catch(() => { /* keine Import-Datei vorhanden, kein Problem */ });
-  }, [profiles]);
   const [newProfileName, setNewProfileName] = useState('')
   const [newProfileGender, setNewProfileGender] = useState<'male' | 'female'>('male')
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null)
@@ -204,7 +190,7 @@ function App() {
           <Route path="/analyse" element={<CrossValueAnalysis />} />
           <Route path="/trend" element={<TrendView />} />
           <Route path="/bericht" element={<Report />} />
-          <Route path="/einstellungen" element={<PlaceholderPage title="Einstellungen" />} />
+          <Route path="/einstellungen" element={<SettingsPage />} />
         </Routes>
       </main>
     </div>
@@ -226,17 +212,6 @@ function SidebarLink({ to, icon, label }: { to: string; icon: React.ReactNode; l
       {icon}
       {label}
     </NavLink>
-  )
-}
-
-function PlaceholderPage({ title }: { title: string }) {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <div className="text-center">
-        <h2 className="text-2xl font-bold text-(--color-text-primary) mb-2">{title}</h2>
-        <p className="text-(--color-text-muted)">Kommt bald...</p>
-      </div>
-    </div>
   )
 }
 
