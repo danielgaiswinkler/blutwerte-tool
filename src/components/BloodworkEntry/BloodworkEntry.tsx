@@ -1015,7 +1015,7 @@ export default function BloodworkEntry() {
             {statusCounts.critical > 0 && (
               <span className="flex items-center gap-1 text-xs text-text-secondary">
                 <span className="w-2 h-2 rounded-full bg-danger" />
-                {statusCounts.critical} kritisch
+                {statusCounts.critical} auffaellig
               </span>
             )}
           </div>

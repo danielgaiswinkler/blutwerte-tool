@@ -115,7 +115,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 3. ~~**GitHub Pages Deploy**~~ — ERLEDIGT (2026-03-06)
    - GitHub Actions Workflow `.github/workflows/deploy.yml` (auto-deploy bei push auf main)
    - `public/404.html` SPA-Redirect fuer React Router auf GitHub Pages
-   - Live: https://danielgaiswinkler.github.io/blutwerte-tool/
+   - Live: https://health-data-tools.github.io/blutwerte-tool/
 4. ~~**Speichern-Bug fixen**~~ — ERLEDIGT (2026-03-06)
    - `saveEntries()` mit try/catch + Verification (prüft ob write geklappt hat)
    - Rote Fehlermeldung im UI wenn Speichern fehlschlägt

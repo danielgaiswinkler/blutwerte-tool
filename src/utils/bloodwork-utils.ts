@@ -237,6 +237,29 @@ export function rangeText(range: {
 }
 
 // ---------------------------------------------------------------------------
+// User Supplement Stack (per profile)
+// ---------------------------------------------------------------------------
+
+const SUPPLEMENT_STACK_PREFIX = 'blutwerte-supplements-';
+
+/** Load the list of supplement IDs the user already takes (for a given profile). */
+export function loadUserSupplements(profileId: string): string[] {
+  try {
+    const raw = localStorage.getItem(SUPPLEMENT_STACK_PREFIX + profileId);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+/** Save the list of supplement IDs the user already takes. */
+export function saveUserSupplements(profileId: string, supplementIds: string[]): void {
+  localStorage.setItem(SUPPLEMENT_STACK_PREFIX + profileId, JSON.stringify(supplementIds));
+}
+
+// ---------------------------------------------------------------------------
 // Date helpers
 // ---------------------------------------------------------------------------
 

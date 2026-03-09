@@ -60,7 +60,7 @@ function statusLabel(status: RangeStatus): string {
   switch (status) {
     case 'optimal': return 'Optimal';
     case 'reference': return 'Suboptimal';
-    case 'critical': return 'Kritisch';
+    case 'critical': return 'Auffaellig';
     default: return '';
   }
 }

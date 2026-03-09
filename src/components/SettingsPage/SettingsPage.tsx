@@ -1,19 +1,41 @@
-import { useState, useRef, useCallback } from 'react';
-import { Download, Upload, Trash2, AlertTriangle, Check, Info } from 'lucide-react';
+import { useState, useRef, useCallback, useEffect } from 'react';
+import { Download, Upload, Trash2, AlertTriangle, Check, Info, Pill } from 'lucide-react';
 import { useProfile } from '../../context/ProfileContext';
 import {
   loadEntries,
   loadEntriesForProfile,
   saveEntries,
+  loadUserSupplements,
+  saveUserSupplements,
   STORAGE_KEY,
 } from '../../utils/bloodwork-utils';
 import type { BloodworkEntryData } from '../../utils/bloodwork-utils';
+import supplementsData from '../../data/supplements.json';
+
+const allSupplements = (supplementsData as { supplements: Array<{ id: string; name: string; categoryLabel: string }> }).supplements;
 
 export default function SettingsPage() {
   const { activeProfile, profiles } = useProfile();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; msg: string } | null>(null);
   const [confirmReset, setConfirmReset] = useState(false);
+  const [userSupplements, setUserSupplements] = useState<string[]>([]);
+
+  // Load user supplement stack
+  useEffect(() => {
+    if (activeProfile) {
+      setUserSupplements(loadUserSupplements(activeProfile.id));
+    }
+  }, [activeProfile]);
+
+  const toggleSupplement = useCallback((id: string) => {
+    if (!activeProfile) return;
+    setUserSupplements((prev) => {
+      const next = prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id];
+      saveUserSupplements(activeProfile.id, next);
+      return next;
+    });
+  }, [activeProfile]);
 
   const showFeedback = (type: 'success' | 'error', msg: string) => {
     setFeedback({ type, msg });
@@ -226,6 +248,52 @@ export default function SettingsPage() {
           <Upload size={16} />
           JSON-Datei hochladen
         </button>
+      </div>
+
+      {/* Supplement Stack */}
+      <div className="rounded-xl border border-border bg-bg-card p-5 space-y-3">
+        <h3 className="text-base font-semibold text-text-primary flex items-center gap-2">
+          <Pill size={18} className="text-purple-400" />
+          Mein Supplement-Stack
+        </h3>
+        <p className="text-sm text-text-muted">
+          Markiere die Supplements, die du bereits nimmst. Die Empfehlungen-Seite zeigt dann an,
+          welche du schon abgedeckt hast.
+        </p>
+        <div className="space-y-1">
+          {(() => {
+            const groups = new Map<string, typeof allSupplements>();
+            for (const s of allSupplements) {
+              const arr = groups.get(s.categoryLabel) ?? [];
+              arr.push(s);
+              groups.set(s.categoryLabel, arr);
+            }
+            return [...groups.entries()].map(([label, supps]) => (
+              <div key={label}>
+                <p className="text-xs font-semibold text-text-secondary mt-3 mb-1.5">{label}</p>
+                {supps.map((s) => (
+                  <label
+                    key={s.id}
+                    className="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-bg-input/30 cursor-pointer transition-colors"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={userSupplements.includes(s.id)}
+                      onChange={() => toggleSupplement(s.id)}
+                      className="w-4 h-4 rounded border-border accent-purple-500"
+                    />
+                    <span className="text-sm text-text-primary">{s.name}</span>
+                  </label>
+                ))}
+              </div>
+            ));
+          })()}
+        </div>
+        {userSupplements.length > 0 && (
+          <p className="text-xs text-purple-400 mt-2">
+            {userSupplements.length} Supplement{userSupplements.length !== 1 ? 's' : ''} markiert
+          </p>
+        )}
       </div>
 
       {/* Reset */}

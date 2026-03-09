@@ -47,7 +47,7 @@ function statusLabel(status: RangeStatus): string {
   switch (status) {
     case 'optimal': return 'Optimal';
     case 'reference': return 'Suboptimal';
-    case 'critical': return 'Kritisch';
+    case 'critical': return 'Auffaellig';
     default: return '';
   }
 }
@@ -145,7 +145,7 @@ function PrintReport({
           {'\u{1F7E1}'} {counts.reference} Suboptimal
         </div>
         <div className="print-summary-item print-summary-critical">
-          {'\u{1F534}'} {counts.critical} Kritisch
+          {'\u{1F534}'} {counts.critical} Auffaellig
         </div>
       </div>
 

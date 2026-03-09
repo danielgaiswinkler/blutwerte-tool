@@ -14,9 +14,11 @@ import {
   Ban,
   Clock,
   Star,
+  Check,
 } from 'lucide-react';
 import {
   loadEntriesForProfile,
+  loadUserSupplements,
   formatDate,
   statusColor,
 } from '../../utils/bloodwork-utils';
@@ -36,7 +38,7 @@ function statusBadge(status: RangeStatus) {
   if (status === 'critical') {
     return (
       <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-danger)]/15 border border-[var(--color-danger)]/30 px-2.5 py-0.5 text-xs font-medium text-(--color-danger)">
-        <ShieldAlert size={12} /> Kritisch
+        <ShieldAlert size={12} /> Auffaellig
       </span>
     );
   }
@@ -69,7 +71,7 @@ function stufeBadge(mussStufe: number) {
 // Sub-components
 // ---------------------------------------------------------------------------
 
-function SupplementCard({ supplement, compact }: { supplement: SupplementData; compact?: boolean }) {
+function SupplementCard({ supplement, compact, alreadyTaking }: { supplement: SupplementData; compact?: boolean; alreadyTaking?: boolean }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -85,6 +87,11 @@ function SupplementCard({ supplement, compact }: { supplement: SupplementData; c
               {supplement.name}
             </span>
             {stufeBadge(supplement.mussStufe)}
+            {alreadyTaking && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-purple-500/15 border border-purple-500/30 px-2 py-0.5 text-[10px] font-medium text-purple-400">
+                <Check size={10} /> Nimmst du bereits
+              </span>
+            )}
           </div>
           {!compact && (
             <p className="text-xs text-(--color-text-muted) mt-1 ml-[22px]">
@@ -286,7 +293,7 @@ function FoodSection({ foods }: { foods: FoodCategory[] }) {
   );
 }
 
-function RecommendationCard({ rec }: { rec: ValueRecommendation }) {
+function RecommendationCard({ rec, userSupplements }: { rec: ValueRecommendation; userSupplements: string[] }) {
   const [expanded, setExpanded] = useState(false);
   const borderColor = rec.status === 'critical' ? 'border-[var(--color-danger)]/40' : 'border-[var(--color-warning)]/40';
 
@@ -364,7 +371,7 @@ function RecommendationCard({ rec }: { rec: ValueRecommendation }) {
               </h4>
               <div className="space-y-2">
                 {rec.supplements.map((s) => (
-                  <SupplementCard key={s.id} supplement={s} />
+                  <SupplementCard key={s.id} supplement={s} alreadyTaking={userSupplements.includes(s.id)} />
                 ))}
               </div>
             </div>
@@ -441,10 +448,13 @@ function RecommendationCard({ rec }: { rec: ValueRecommendation }) {
 // Supplement Summary Panel
 // ---------------------------------------------------------------------------
 
-function SupplementSummaryPanel({ recommendations }: { recommendations: ValueRecommendation[] }) {
+function SupplementSummaryPanel({ recommendations, userSupplements }: { recommendations: ValueRecommendation[]; userSupplements: string[] }) {
   const summary = useMemo(() => getSupplementSummary(recommendations), [recommendations]);
 
   if (summary.length === 0) return null;
+
+  const newSupplements = summary.filter((s) => !userSupplements.includes(s.supplement.id));
+  const existingSupplements = summary.filter((s) => userSupplements.includes(s.supplement.id));
 
   return (
     <div className="rounded-xl border border-(--color-accent)/30 bg-(--color-accent)/5 p-5 mb-8">
@@ -454,9 +464,14 @@ function SupplementSummaryPanel({ recommendations }: { recommendations: ValueRec
       </h3>
       <p className="text-xs text-(--color-text-muted) mb-4">
         Basierend auf deinen Blutwerten empfohlene Supplements, priorisiert nach Wichtigkeit.
+        {existingSupplements.length > 0 && (
+          <span className="text-purple-400">
+            {' '}{existingSupplements.length} davon nimmst du bereits.
+          </span>
+        )}
       </p>
       <div className="space-y-2">
-        {summary.map(({ supplement, targetValues }) => (
+        {newSupplements.map(({ supplement, targetValues }) => (
           <div
             key={supplement.id}
             className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-(--color-border) bg-(--color-bg-card) px-4 py-2.5"
@@ -467,6 +482,49 @@ function SupplementSummaryPanel({ recommendations }: { recommendations: ValueRec
                   {supplement.name}
                 </span>
                 {stufeBadge(supplement.mussStufe)}
+              </div>
+              <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
+                <span className="text-[10px] text-(--color-text-muted)">Für:</span>
+                {targetValues.map((tv) => (
+                  <span
+                    key={tv.bv.id}
+                    className="rounded-full px-1.5 py-0.5 text-[10px]"
+                    style={{
+                      backgroundColor: `color-mix(in srgb, ${statusColor(tv.status)} 15%, transparent)`,
+                      color: statusColor(tv.status),
+                    }}
+                  >
+                    {tv.bv.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <span className="text-xs text-(--color-text-muted) shrink-0">
+              {supplement.preisProMonat}/Mo
+            </span>
+          </div>
+        ))}
+        {existingSupplements.length > 0 && newSupplements.length > 0 && (
+          <div className="border-t border-(--color-border)/30 pt-2 mt-2">
+            <p className="text-[10px] text-purple-400 font-medium mb-1.5 flex items-center gap-1">
+              <Check size={10} /> Bereits in deinem Stack
+            </p>
+          </div>
+        )}
+        {existingSupplements.map(({ supplement, targetValues }) => (
+          <div
+            key={supplement.id}
+            className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-purple-500/20 bg-purple-500/5 px-4 py-2.5 opacity-75"
+          >
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-sm font-medium text-(--color-text-primary)">
+                  {supplement.name}
+                </span>
+                {stufeBadge(supplement.mussStufe)}
+                <span className="inline-flex items-center gap-1 rounded-full bg-purple-500/15 border border-purple-500/30 px-2 py-0.5 text-[10px] font-medium text-purple-400">
+                  <Check size={10} /> Nimmst du
+                </span>
               </div>
               <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
                 <span className="text-[10px] text-(--color-text-muted)">Für:</span>
@@ -548,8 +606,9 @@ export default function Recommendations() {
   const { activeProfile } = useProfile();
   const [entries, setEntries] = useState<BloodworkEntryData[]>([]);
   const [selectedEntryId, setSelectedEntryId] = useState<string | null>(null);
+  const [userSupplements, setUserSupplements] = useState<string[]>([]);
 
-  // Load entries for active profile
+  // Load entries and user supplement stack for active profile
   useEffect(() => {
     if (!activeProfile) return;
     const loaded = loadEntriesForProfile(activeProfile.id).sort((a, b) =>
@@ -558,6 +617,7 @@ export default function Recommendations() {
     setEntries(loaded);
     if (loaded.length > 0) setSelectedEntryId(loaded[0].id);
     else setSelectedEntryId(null);
+    setUserSupplements(loadUserSupplements(activeProfile.id));
   }, [activeProfile]);
 
   const activeEntry = useMemo(() => {
@@ -620,7 +680,7 @@ export default function Recommendations() {
         {criticalCount > 0 && (
           <div className="rounded-xl border border-[var(--color-danger)]/30 bg-[var(--color-danger)]/5 p-4 text-center">
             <p className="text-2xl font-bold text-(--color-danger)">{criticalCount}</p>
-            <p className="text-xs text-(--color-text-muted)">Kritisch</p>
+            <p className="text-xs text-(--color-text-muted)">Auffaellig</p>
           </div>
         )}
         {suboptimalCount > 0 && (
@@ -632,7 +692,7 @@ export default function Recommendations() {
       </div>
 
       {/* Supplement Summary */}
-      <SupplementSummaryPanel recommendations={recommendations} />
+      <SupplementSummaryPanel recommendations={recommendations} userSupplements={userSupplements} />
 
       {/* Individual recommendations */}
       <h3 className="text-lg font-semibold text-(--color-text-primary) mb-4">
@@ -640,7 +700,7 @@ export default function Recommendations() {
       </h3>
       <div className="space-y-3 mb-8">
         {recommendations.map((rec) => (
-          <RecommendationCard key={rec.bloodValue.id} rec={rec} />
+          <RecommendationCard key={rec.bloodValue.id} rec={rec} userSupplements={userSupplements} />
         ))}
       </div>
 

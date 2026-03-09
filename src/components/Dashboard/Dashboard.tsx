@@ -41,7 +41,7 @@ function statusLabel(status: RangeStatus): string {
     case 'reference':
       return 'Suboptimal';
     case 'critical':
-      return 'Kritisch';
+      return 'Auffaellig';
     default:
       return '';
   }
@@ -359,7 +359,7 @@ function CriticalAlert({
       <div className="flex items-center gap-2 mb-4">
         <AlertTriangle size={20} style={{ color: 'var(--color-danger)' }} />
         <h3 className="text-base font-semibold text-(--color-danger)">
-          {criticalValues.length} kritische{' '}
+          {criticalValues.length} auffaellige{' '}
           {criticalValues.length === 1 ? 'Wert' : 'Werte'} ausserhalb des
           Referenzbereichs
         </h3>
@@ -672,7 +672,7 @@ export default function Dashboard() {
           icon={
             <AlertTriangle size={16} style={{ color: 'var(--color-danger)' }} />
           }
-          label="Kritisch"
+          label="Auffaellig"
           count={analysis.critical.length}
           total={analysis.filledCount}
           color="var(--color-danger)"

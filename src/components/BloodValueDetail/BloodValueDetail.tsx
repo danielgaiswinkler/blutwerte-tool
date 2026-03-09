@@ -43,7 +43,7 @@ function statusLabel(status: RangeStatus): string {
     case 'reference':
       return 'Suboptimal';
     case 'critical':
-      return 'Kritisch';
+      return 'Auffaellig';
     default:
       return 'Nicht erfasst';
   }
@@ -471,7 +471,7 @@ function RangeBar({ value, reference, optimal, unit, status }: RangeBarProps) {
             fontSize={8}
             opacity={0.7}
           >
-            Kritisch
+            Auffaellig
           </text>
         )}
         <text
@@ -493,7 +493,7 @@ function RangeBar({ value, reference, optimal, unit, status }: RangeBarProps) {
             fontSize={8}
             opacity={0.7}
           >
-            Kritisch
+            Auffaellig
           </text>
         )}
       </svg>
@@ -502,7 +502,7 @@ function RangeBar({ value, reference, optimal, unit, status }: RangeBarProps) {
       <div className="flex items-center justify-center gap-6 mt-2 text-xs text-(--color-text-muted)">
         <span className="flex items-center gap-1.5">
           <span className="w-3 h-2 rounded-sm" style={{ backgroundColor: '#ef4444', opacity: 0.7 }} />
-          Kritisch
+          Auffaellig
         </span>
         <span className="flex items-center gap-1.5">
           <span className="w-3 h-2 rounded-sm" style={{ backgroundColor: '#eab308', opacity: 0.8 }} />
