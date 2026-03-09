@@ -12084,5 +12084,462 @@
       "Bioscentia Referenzbereiche",
       "Klinische Labormedizin (Thomas)"
     ]
+  },
+  {
+    "id": "magnesium-serum",
+    "name": "Magnesium (Serum)",
+    "category": "mineralstoffe",
+    "categoryLabel": "Mineralstoffe",
+    "description": "Magnesium im Serum ist der am häufigsten von Laboren bestimmte Magnesium-Wert. WICHTIG: Nur ca. 1% des Gesamtmagnesiums befindet sich im Serum – der Serum-Wert kann normal sein, obwohl intrazellulär bereits ein erheblicher Mangel besteht. Ein niedriger Serum-Wert zeigt einen Mangel erst an, wenn die Speicher bereits massiv erschöpft sind. Vollblut-Magnesium ist deutlich aussagekräftiger. Dennoch: Ein erniedrigter Serum-Wert ist immer ernst zu nehmen, da er einen fortgeschrittenen Mangel anzeigt.",
+    "unit": "mmol/l",
+    "alternativeUnits": [
+      {
+        "unit": "mg/dl",
+        "factor": 24.305
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 0.66,
+        "max": 1.07
+      },
+      "female": {
+        "min": 0.66,
+        "max": 1.07
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 0.80,
+        "max": 0.95,
+        "target": 0.87
+      },
+      "female": {
+        "min": 0.80,
+        "max": 0.95,
+        "target": 0.87
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Unzureichende Magnesium-Zufuhr (ausgelaugte Böden, verarbeitete Lebensmittel)",
+          "Chronischer Stress (Stresshormone erhöhen die renale Magnesiumausscheidung)",
+          "Intensiver Sport (Magnesiummangel durch Schwitzen und erhöhten Verbrauch)",
+          "Medikamente: PPI, Diuretika, Antibiotika (Aminoglykoside), Cisplatin",
+          "Chronischer Alkoholkonsum (erhöhte renale Ausscheidung)",
+          "Diabetes mellitus / Insulinresistenz (osmotische Diurese)",
+          "Chronische Darmerkrankungen (Malabsorption)",
+          "Hoher Koffeinkonsum (>3 Tassen Kaffee/Tag)"
+        ],
+        "symptoms": [
+          "Muskelkrämpfe und -zuckungen (besonders Waden, nachts)",
+          "Schlafstörungen, Einschlafprobleme",
+          "Innere Unruhe, Nervosität, Angstzustände",
+          "Kopfschmerzen und Migräne",
+          "Herzrhythmusstörungen (Palpitationen, Extrasystolen)",
+          "Chronische Müdigkeit trotz ausreichend Schlaf"
+        ],
+        "relatedValues": [
+          "vitamin-d",
+          "zink-serum",
+          "selen-serum"
+        ],
+        "actions": [
+          "WICHTIG: Erniedrigtes Serum-Magnesium zeigt einen bereits fortgeschrittenen Mangel – sofort supplementieren",
+          "Magnesiumreiche Ernährung: Kürbiskerne, dunkle Schokolade (>70%), Mandeln, Spinat, schwarze Bohnen",
+          "Magnesium-Supplementierung mit gut bioverfügbarer Form einleiten (Glycinat oder Citrat)",
+          "Stressmanagement: Meditation, Yoga, Atemübungen (Stress = Magnesiummangel!)",
+          "Koffein und Alkohol reduzieren",
+          "Vollblut-Messung anfordern für genauere Beurteilung des tatsächlichen Magnesiumstatus"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Überdosierung von Magnesium-Supplementen",
+          "Niereninsuffizienz (verminderte Ausscheidung)",
+          "Hypothyreose (verlangsamter Stoffwechsel)",
+          "Morbus Addison (Nebenniereninsuffizienz)",
+          "Lithium-Therapie",
+          "Übermäßige Anwendung von magnesiumhaltigen Antazida"
+        ],
+        "symptoms": [
+          "Durchfall (erste Anzeichen einer Überdosierung)",
+          "Muskelschwäche und Hyporeflexie",
+          "Übelkeit und Erbrechen",
+          "Blutdruckabfall (Hypotonie)",
+          "Herzrhythmusstörungen bei schwerer Hypermagnesiämie"
+        ],
+        "relatedValues": [
+          "vitamin-d",
+          "zink-serum",
+          "selen-serum"
+        ],
+        "actions": [
+          "Magnesium-Supplementierung reduzieren oder pausieren",
+          "Nierenfunktion kontrollieren (Kreatinin, GFR)",
+          "Schilddrüsenwerte überprüfen (TSH, fT3, fT4)",
+          "Hydrierung sicherstellen (Ausscheidung über die Nieren fördern)"
+        ]
+      },
+      "optimal": {
+        "meaning": "Dein Serum-Magnesium liegt im optimalen Bereich. Beachte jedoch: Ein normaler Serum-Wert schließt einen intrazellulären Mangel nicht vollständig aus. Wenn Symptome wie Muskelkrämpfe, Schlafstörungen oder Unruhe bestehen, kann eine zusätzliche Vollblut-Messung sinnvoll sein."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Serum-Wert normal, aber Symptome eines Magnesiummangels",
+        "interpretation": "Ein normaler Serum-Magnesium-Wert schließt einen Mangel NICHT aus! Nur 1% des Körper-Magnesiums ist im Serum. Bei Symptomen wie Muskelkrämpfen, Schlafstörungen oder Unruhe: Vollblut-Magnesium messen lassen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "PPI-Einnahme (Protonenpumpeninhibitoren) seit >3 Monaten",
+        "interpretation": "PPI reduzieren die Magnesiumresorption erheblich. Magnesiummangel unter PPI-Therapie ist häufig und kann schwere Symptome verursachen. Regelmäßige Kontrolle empfohlen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Vitamin-D-Supplementierung geplant oder aktiv",
+        "interpretation": "Magnesium wird für die Aktivierung von Vitamin D benötigt. Bei Magnesiummangel kann supplementiertes Vitamin D nicht optimal wirken. Immer erst Magnesium auffüllen, dann Vitamin D supplementieren.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Magnesiumreiche Lebensmittel: Kürbiskerne (535 mg/100g), dunkle Schokolade (>70%), Cashews, Mandeln, Spinat, schwarze Bohnen",
+        "Mineralwasser mit hohem Mg-Gehalt (>100 mg/l) als tägliche Basis",
+        "Epsom-Salz-Bäder (Magnesiumsulfat) oder Magnesium-Fußbäder zur transdermalen Aufnahme",
+        "Stressreduktion hat höchste Priorität – chronischer Stress ist der größte Magnesium-Räuber",
+        "Ausreichend Schlaf (7-8 Stunden) – Magnesium wird nachts für Regenerationsprozesse benötigt"
+      ],
+      "supplements": [
+        {
+          "name": "Magnesiumglycinat",
+          "dosage": "300-400 mg elementares Magnesium/Tag, aufgeteilt auf 2 Einnahmen",
+          "timing": "Abends vor dem Schlafengehen (schlaffördernd) und/oder morgens",
+          "notes": "Magnesiumglycinat hat die beste Bioverfügbarkeit und Verträglichkeit. Glycinat wirkt zusätzlich beruhigend. Alternative: Magnesiumtaurat (besonders für Herzgesundheit) oder Magnesiumcitrat (bei Verstopfung)."
+        },
+        {
+          "name": "Magnesium-L-Threonat",
+          "dosage": "1.000-2.000 mg Magnesium-L-Threonat (ca. 144 mg elementares Mg)",
+          "timing": "Abends vor dem Schlafengehen",
+          "notes": "Einzige Magnesiumform, die nachweislich die Blut-Hirn-Schranke überwindet. Besonders geeignet bei kognitiven Beschwerden, Schlafstörungen und Angst."
+        }
+      ],
+      "redFlags": [
+        "Serum-Magnesium <0.50 mmol/l: Schwerer Mangel – ärztliche Behandlung erforderlich, ggf. Infusionstherapie",
+        "Schwere Muskelkrämpfe + Herzrhythmusstörungen: Kardiologische Abklärung erforderlich",
+        "Magnesium supplementieren und Durchfall: Dosis reduzieren oder Form wechseln (Oxid/Citrat → Glycinat)"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Labormedizin - Lothar Thomas",
+      "Der Blutwerte-Code - Thiemo Osterhaus"
+    ]
+  },
+  {
+    "id": "zink-serum",
+    "name": "Zink (Serum)",
+    "category": "mineralstoffe",
+    "categoryLabel": "Mineralstoffe",
+    "description": "Zink im Serum ist der von den meisten Laboren standardmäßig gemessene Zink-Wert. WICHTIG: Der Serum-Zink-Wert unterliegt starken Schwankungen – er sinkt bei Infektionen und Entzündungen (Akute-Phase-Reaktion), variiert nach Tageszeit (morgens höher als abends) und wird durch Mahlzeiten beeinflusst. Bei akuten Infekten oder erhöhtem CRP ist der Serum-Zink-Wert nicht verwertbar, da Zink aktiv in die Zellen umverteilt wird. Vollblut-Zink ist aussagekräftiger für den tatsächlichen Zinkstatus.",
+    "unit": "µmol/l",
+    "alternativeUnits": [
+      {
+        "unit": "µg/dl",
+        "factor": 6.54
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 9.0,
+        "max": 18.0
+      },
+      "female": {
+        "min": 9.0,
+        "max": 17.0
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 12.0,
+        "max": 16.0,
+        "target": 14.0
+      },
+      "female": {
+        "min": 12.0,
+        "max": 16.0,
+        "target": 14.0
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Akute Infektion oder Entzündung (Akute-Phase-Reaktion – Zink wird in Zellen umverteilt, Serum sinkt!)",
+          "Unzureichende Zufuhr (v.a. vegetarische/vegane Ernährung – Phytinsäure hemmt Aufnahme)",
+          "Chronische Darmerkrankungen (Morbus Crohn, Zöliakie, Leaky Gut)",
+          "Hoher Alkoholkonsum (erhöhte renale Ausscheidung)",
+          "Erhöhter Bedarf (Schwangerschaft, Stillzeit, intensiver Sport, Pubertät)",
+          "Medikamente (ACE-Hemmer, Diuretika, Kortikosteroide, orale Kontrazeptiva)",
+          "Hohe Eisen- oder Kupfer-Supplementierung (kompetitive Absorption)",
+          "Diabetes mellitus (erhöhte renale Zinkverluste)"
+        ],
+        "symptoms": [
+          "Häufige Infekte, verlängerte Erkältungsdauer (Zink ist zentral für T-Zell-Funktion)",
+          "Haarausfall und dünnes, brüchiges Haar",
+          "Hautprobleme: Akne, trockene Haut, schlechte Wundheilung",
+          "Geschmacks- und Geruchsverlust (Hypogeusie/Hyposmie)",
+          "Nagelveränderungen (weiße Flecken, brüchige Nägel)",
+          "Verminderte Libido und Testosteronmangel bei Männern"
+        ],
+        "relatedValues": [
+          "magnesium-serum",
+          "selen-serum",
+          "ferritin",
+          "crp"
+        ],
+        "actions": [
+          "Erst prüfen: Liegt eine akute Infektion/Entzündung vor? CRP checken – bei erhöhtem CRP ist der Serum-Zink-Wert nicht aussagekräftig!",
+          "Zinkreiche Ernährung: Austern (höchster Zinkgehalt!), Rindfleisch, Kürbiskerne, Cashews, Linsen",
+          "Phytinsäure-Aufnahme reduzieren: Hülsenfrüchte und Getreide einweichen, keimen oder fermentieren",
+          "Zink-Supplementierung bei nachgewiesenem Mangel einleiten",
+          "Kupfer-Spiegel kontrollieren (chronische Zink-Supplementierung kann Kupfermangel verursachen)",
+          "Für genauere Beurteilung: Vollblut-Zink messen lassen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Überdosierung von Zink-Supplementen (häufigste Ursache)",
+          "Kontamination der Blutprobe (Zink-haltige Materialien im Labor)",
+          "Hämolyse in der Probe (Zink aus Erythrozyten freigesetzt)",
+          "Berufliche Exposition (Galvanisierung, Metallverarbeitung)",
+          "Übermäßiger Konsum zinkangereicherter Lebensmittel"
+        ],
+        "symptoms": [
+          "Übelkeit, Erbrechen, Durchfall (akute Zinkintoxikation)",
+          "Kupfermangel bei chronischer Überdosierung (Zink hemmt Kupfer-Resorption!)",
+          "Anämie (sekundär durch Kupfermangel)",
+          "Immunsuppression (paradoxerweise bei zu hohem Zink)",
+          "Metallischer Geschmack im Mund"
+        ],
+        "relatedValues": [
+          "magnesium-serum",
+          "selen-serum",
+          "ferritin"
+        ],
+        "actions": [
+          "Zink-Supplementierung reduzieren oder pausieren",
+          "Kupfer-Spiegel kontrollieren (Kupfermangel durch Zink-Überdosierung?)",
+          "Bei beruflicher Exposition: arbeitsmedizinische Untersuchung",
+          "Nierenfunktion kontrollieren"
+        ]
+      },
+      "optimal": {
+        "meaning": "Dein Serum-Zink liegt im optimalen Bereich. Das Immunsystem, die Hautgesundheit, die Hormonproduktion und die Wundheilung können effizient funktionieren. Beachte: Bei akuten Infekten oder Entzündungen kann der Wert vorübergehend niedriger gemessen werden (Akute-Phase-Reaktion)."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "CRP erhöht (Entzündung/Infektion aktiv)",
+        "interpretation": "Bei erhöhtem CRP ist der Serum-Zink-Wert NICHT aussagekräftig! Zink wird bei Entzündungen aktiv aus dem Serum in die Zellen umverteilt (Akute-Phase-Reaktion). Ein niedriger Wert zeigt hier keine echte Unterversorgung an. Kontrolle nach Abklingen der Entzündung empfohlen.",
+        "severity": "warning"
+      },
+      {
+        "condition": "Vegetarische oder vegane Ernährung",
+        "interpretation": "Bei pflanzlicher Ernährung ist die Zink-Bioverfügbarkeit durch Phytinsäure deutlich reduziert. Der Zinkbedarf ist ca. 50% höher als bei Mischkost. Regelmäßige Kontrolle und ggf. Supplementierung empfohlen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Langfristige Zink-Supplementierung >25 mg/Tag",
+        "interpretation": "Bei chronischer Zink-Supplementierung >25 mg/Tag kann ein Kupfermangel entstehen. Kupfer-Spiegel kontrollieren oder Zink-Kupfer-Kombinationspräparat verwenden (Verhältnis 10:1).",
+        "severity": "attention"
+      },
+      {
+        "condition": "Blutabnahme nicht nüchtern",
+        "interpretation": "Serum-Zink wird durch Mahlzeiten beeinflusst. Für vergleichbare Werte sollte die Blutabnahme morgens nüchtern erfolgen.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Zinkreiche Lebensmittel: Austern (78 mg/100g!), Rindfleisch, Lammfleisch, Kürbiskerne, Cashews, Sesam",
+        "Phytinsäure reduzieren: Hülsenfrüchte über Nacht einweichen, Sauerteigbrot statt Hefebrot",
+        "Zink und Eisen nicht gleichzeitig supplementieren (kompetitive Absorption)",
+        "Protein zu den Mahlzeiten fördert die Zinkaufnahme",
+        "Kaffee und Tee getrennt von zinkreichen Mahlzeiten konsumieren"
+      ],
+      "supplements": [
+        {
+          "name": "Zinkbisglycinat (oder Zinkpicolinat)",
+          "dosage": "15-25 mg elementares Zink/Tag bei Mangel, 10-15 mg/Tag als Erhaltungsdosis",
+          "timing": "Abends zum Abendessen oder vor dem Schlafengehen, getrennt von Eisen und Calcium",
+          "notes": "Zinkbisglycinat und Zinkpicolinat haben die beste Bioverfügbarkeit. Bei Supplementierung >25 mg/Tag: Kupfer ergänzen (2-3 mg/Tag). Nicht nüchtern einnehmen (Übelkeit möglich)."
+        }
+      ],
+      "redFlags": [
+        "Serum-Zink <7.0 µmol/l ohne Entzündung: Schwerer Mangel – ärztliche Supplementierung und Ursachensuche erforderlich",
+        "Langfristige Zink-Supplementierung ohne Kupfer-Kontrolle: Kupfermangel mit Anämie möglich",
+        "Akuter Geschmacks-/Geruchsverlust: Zinkmangel als mögliche Ursache abklären (DD: auch COVID-19)"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Labormedizin - Lothar Thomas",
+      "Der Blutwerte-Code - Thiemo Osterhaus"
+    ]
+  },
+  {
+    "id": "selen-serum",
+    "name": "Selen (Serum)",
+    "category": "mineralstoffe",
+    "categoryLabel": "Mineralstoffe",
+    "description": "Selen im Serum wird von den meisten Standardlaboren gemessen und reflektiert die kurzfristige Selenversorgung (v.a. über die letzten Wochen). Der Serum-Wert ist stärker von der aktuellen Ernährung beeinflusst als der Vollblut-Wert, der den langfristigen Selenstatus besser abbildet. Selen ist essentiell für die Schilddrüsenfunktion (T4→T3-Konversion), das Immunsystem und den antioxidativen Schutz. Deutschland, Österreich und die Schweiz gelten als Selenmangelgebiete.",
+    "unit": "µmol/l",
+    "alternativeUnits": [
+      {
+        "unit": "µg/l",
+        "factor": 78.96
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 0.63,
+        "max": 1.52
+      },
+      "female": {
+        "min": 0.63,
+        "max": 1.52
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 0.90,
+        "max": 1.20,
+        "target": 1.05
+      },
+      "female": {
+        "min": 0.90,
+        "max": 1.20,
+        "target": 1.05
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Selenarme Böden in Mitteleuropa (Hauptursache in DACH-Region)",
+          "Unzureichende Zufuhr über die Ernährung (wenig Fisch, Fleisch, Paranüsse)",
+          "Vegane/vegetarische Ernährung (pflanzliche Selenquellen abhängig vom Bodengehalt)",
+          "Chronisch-entzündliche Darmerkrankungen (gestörte Resorption)",
+          "Dialysepatienten (Selenverlust über Dialyse)",
+          "Rauchen (erhöhter oxidativer Stress und Selenverbrauch)",
+          "Schwere Lebererkrankungen (gestörte Selenoprotein-Synthese)",
+          "Erhöhter Bedarf bei chronischen Entzündungen oder Autoimmunerkrankungen"
+        ],
+        "symptoms": [
+          "Schilddrüsenunterfunktion (T4 kann nicht effizient in aktives T3 umgewandelt werden)",
+          "Geschwächtes Immunsystem, häufige Infekte",
+          "Haarausfall und brüchige Nägel",
+          "Muskelschwäche und Muskelschmerzen",
+          "Kognitive Beeinträchtigung, Stimmungsschwankungen",
+          "Unfruchtbarkeit (Selen wichtig für Spermienqualität)"
+        ],
+        "relatedValues": [
+          "zink-serum",
+          "magnesium-serum",
+          "vitamin-d"
+        ],
+        "actions": [
+          "Selenreiche Lebensmittel: Paranüsse (1-2 Stück/Tag decken den Bedarf!), Fisch, Fleisch, Eier",
+          "Selen-Supplementierung einleiten (Form abhängig vom Einnahmezeitpunkt)",
+          "Schilddrüsenwerte kontrollieren (TSH, fT3, fT4, TPO-AK)",
+          "Bei Autoimmunthyreoiditis (Hashimoto): Selen kann TPO-Antikörper senken",
+          "Kontrolle des Selenstatus nach 3-6 Monaten",
+          "Für genauere Langzeitbeurteilung: Vollblut-Selen messen lassen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Überdosierung von Selen-Supplementen (>400 µg/Tag über längere Zeit)",
+          "Übermäßiger Verzehr von Paranüssen (können bis zu 90 µg Selen pro Nuss enthalten)",
+          "Berufliche Exposition (Glas-, Elektronik-, Metallindustrie)",
+          "Kontaminiertes Trinkwasser (in bestimmten Regionen)",
+          "Versehentliche Mehrfach-Supplementierung (Selen in verschiedenen Produkten enthalten)"
+        ],
+        "symptoms": [
+          "Haarausfall (paradox – sowohl bei Mangel als auch Überschuss!)",
+          "Knoblauchartiger Mundgeruch (Selenose – charakteristisches Zeichen)",
+          "Brüchige, verformte Nägel mit weißen Flecken",
+          "Übelkeit, Durchfall, Erbrechen",
+          "Periphere Neuropathie (Kribbeln, Taubheit in Extremitäten)"
+        ],
+        "relatedValues": [
+          "zink-serum",
+          "magnesium-serum",
+          "vitamin-d"
+        ],
+        "actions": [
+          "Selen-Supplementierung sofort reduzieren oder absetzen",
+          "Paranuss-Konsum einschränken (max. 1-2 Stück/Tag)",
+          "Alle Supplemente auf verstecktes Selen prüfen (Multivitamine!)",
+          "Schilddrüsenwerte kontrollieren (TSH, fT3, fT4)",
+          "Bei Werten >1.90 µmol/l (>150 µg/l): ärztliche Überwachung erforderlich"
+        ]
+      },
+      "optimal": {
+        "meaning": "Dein Serum-Selen liegt im optimalen Bereich für gute Schilddrüsenfunktion und antioxidativen Schutz. Die T4-zu-T3-Konversion kann effizient ablaufen. Der Serum-Wert zeigt die kurzfristige Versorgung – für den Langzeitstatus ist Vollblut-Selen aussagekräftiger."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Hashimoto-Thyreoiditis (Autoimmunthyreoiditis) diagnostiziert",
+        "interpretation": "Studien zeigen, dass 200 µg Selen/Tag die TPO-Antikörper bei Hashimoto signifikant senken kann. Selen-Supplementierung wird bei Hashimoto von vielen Endokrinologen empfohlen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "TSH erhöht bei niedrigem Selen",
+        "interpretation": "Selenmangel kann die Schilddrüsenfunktion beeinträchtigen, da die Dejodasen (T4→T3-Konversion) selenabhängig sind. Selen auffüllen und Schilddrüsenwerte nach 3 Monaten kontrollieren.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Serum-Selen vs. Vollblut-Selen",
+        "interpretation": "Der Serum-Wert reflektiert die kurzfristige Selenversorgung (letzte Wochen), während Vollblut-Selen den langfristigen Status über Monate zeigt. Bei Grenzwerten im Serum kann eine Vollblut-Messung zusätzliche Klarheit bringen.",
+        "severity": "info"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Paranüsse: 1-2 Stück/Tag sind die beste natürliche Selenquelle (je nach Herkunft 10-90 µg pro Nuss)",
+        "Selenreiche Lebensmittel: Fisch (Thunfisch, Hering), Fleisch, Eier, Pilze, Knoblauch",
+        "Regelmäßig Seefisch essen (2-3x/Woche) für Selen und Omega-3-Fettsäuren",
+        "Nicht rauchen – Rauchen erhöht den oxidativen Stress und den Selenverbrauch"
+      ],
+      "supplements": [
+        {
+          "name": "Natriumselenit (anorganisch)",
+          "dosage": "100-200 µg/Tag",
+          "timing": "Nüchtern einnehmen (mind. 30 Min. vor dem Essen)",
+          "notes": "Anorganisches Selen, das nicht in Proteine eingebaut wird. Wirkt direkt antioxidativ. Bei Schilddrüsenerkrankungen bevorzugt. NICHT zusammen mit Vitamin C einnehmen (reduziert Natriumselenit)."
+        },
+        {
+          "name": "Selenomethionin (organisch)",
+          "dosage": "100-200 µg/Tag",
+          "timing": "Zu einer Mahlzeit",
+          "notes": "Organische Selenform, wird in Proteine eingebaut und bildet einen Selenspeicher im Körper. Langfristig für den Aufbau eines Selenpools geeignet. Kann mit Mahlzeiten eingenommen werden."
+        }
+      ],
+      "redFlags": [
+        "Serum-Selen <0.50 µmol/l mit Schilddrüsenproblemen: Dringend auffüllen, endokrinologische Beurteilung",
+        "Serum-Selen >1.90 µmol/l: Überdosierung möglich – Supplementierung reduzieren, ärztliche Kontrolle",
+        "Knoblauchartiger Mundgeruch bei Supplementierung: Zeichen einer Selenose – Supplementierung sofort stoppen"
+      ]
+    },
+    "sources": [
+      "Bioscentia Referenzbereiche",
+      "Labormedizin - Lothar Thomas",
+      "Der Blutwerte-Code - Thiemo Osterhaus"
+    ]
   }
 ]

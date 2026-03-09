@@ -10,7 +10,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - JSON-basierte Wissensdatenbank
 
 ## Status (2026-03-06) — v1.0.0
-- [x] **Schritt 1: Wissensdatenbank** - 78 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
+- [x] **Schritt 1: Wissensdatenbank** - 81 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
 - [x] **Schritt 2: Eingabeformular + CSV/JSON Import** - BloodworkEntry mit manuellem Input, CSV-Upload, localStorage
 - [x] **Schritt 3: Dashboard mit Ampelsystem** - Vollstaendiges Analyse-Dashboard mit Ampel-Uebersicht, Kategorie-Cards, kritische Werte Alert, Erfassungsgrad
 - [x] **Schritt 4: Einzelwert-Detailansicht** - SVG-Range-Bar, Interpretation, Optimierung, verwandte Werte, Quellen. Route /wert/:id
@@ -24,7 +24,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - [x] updates-from-research.json (34 Patches) in Hauptdatenbank gemerged (2026-03-06)
 
 ## Datenstruktur
-- `src/data/bloodwork-knowledge.json` - Gesamte Wissensdatenbank (63 Werte)
+- `src/data/bloodwork-knowledge.json` - Gesamte Wissensdatenbank (81 Werte)
 - `src/data/supplements.json` - Supplement-Datenbank (17 Supplements, Timing, Interaktionen, Kosten)
 - `src/data/foods.json` - Lebensmittel-Datenbank (17 Kategorien, Top-Foods pro Blutwert)
 - `src/data/lab-costs.json` - GOÄ-Kostenübersicht (63 Werte, Pakete, Spartipps)
@@ -134,7 +134,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 7. **Export fuer Health Hub** — Separater Export-Button fuer Health Hub Sync
 6. ~~**updates-from-research.json mergen**~~ — ERLEDIGT (2026-03-06), 35 Patches applied
 7. **blutwerte-app aufraeumen oder loeschen** — Ist nur ein leeres Vite-Template, wird nicht gebraucht
-8. **Serum vs. Vollblut** — Serum-Varianten fuer Magnesium/Zink/Selen anlegen oder Import-Hinweis
+8. ~~**Serum vs. Vollblut**~~ — ERLEDIGT (2026-03-06), 3 Serum-Varianten angelegt: magnesium-serum, zink-serum, selen-serum
 
 ## Zielgruppen-Erweiterung (2026-03-06)
 - **Daniels Schwiegervater** als erster externer Testuser geplant
