@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Routes, Route, NavLink } from 'react-router-dom'
-import { Activity, Upload, BarChart3, TrendingUp, Settings, FileText, Users, Plus, Check, X, Trash2, Sparkles, GitBranch } from 'lucide-react'
+import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
+import { Activity, Upload, BarChart3, TrendingUp, Settings, FileText, Users, Plus, Check, X, Trash2, Sparkles, GitBranch, Menu } from 'lucide-react'
 import Dashboard from './components/Dashboard/Dashboard'
 import BloodworkEntry from './components/BloodworkEntry/BloodworkEntry'
 import BloodValueDetail from './components/BloodValueDetail/BloodValueDetail'
@@ -17,6 +17,8 @@ function App() {
   const [newProfileName, setNewProfileName] = useState('')
   const [newProfileGender, setNewProfileGender] = useState<'male' | 'female'>('male')
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const location = useLocation()
 
   const handleAddProfile = () => {
     const name = newProfileName.trim()
@@ -33,16 +35,63 @@ function App() {
     setConfirmDelete(null)
   }
 
+  const closeSidebar = () => setSidebarOpen(false)
+
+  // Current page label for mobile header
+  const pageLabels: Record<string, string> = {
+    '/': 'Dashboard',
+    '/eingabe': 'Werte eingeben',
+    '/empfehlungen': 'Empfehlungen',
+    '/analyse': 'Cross-Analyse',
+    '/trend': 'Verlauf',
+    '/bericht': 'Bericht',
+    '/einstellungen': 'Einstellungen',
+  }
+  const currentLabel = pageLabels[location.pathname] ?? 'Blutwerte-Tool'
+
   return (
     <div className="flex min-h-screen">
+      {/* Mobile Header */}
+      <div className="fixed top-0 left-0 right-0 z-30 flex items-center gap-3 bg-(--color-bg-secondary) border-b border-(--color-border) px-4 py-3 md:hidden">
+        <button
+          onClick={() => setSidebarOpen(true)}
+          className="p-1 rounded-lg hover:bg-(--color-bg-input) text-(--color-text-secondary) transition-colors"
+        >
+          <Menu size={22} />
+        </button>
+        <Activity className="w-5 h-5 text-(--color-accent)" />
+        <span className="text-sm font-semibold text-(--color-text-primary)">{currentLabel}</span>
+      </div>
+
+      {/* Overlay (mobile only) */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/50 md:hidden"
+          onClick={closeSidebar}
+        />
+      )}
+
       {/* Sidebar */}
-      <nav className="w-64 bg-(--color-bg-secondary) border-r border-(--color-border) p-4 flex flex-col">
-        <div className="mb-6">
-          <h1 className="text-xl font-bold text-(--color-text-primary) flex items-center gap-2">
-            <Activity className="w-6 h-6 text-(--color-accent)" />
-            Blutwerte-Tool
-          </h1>
-          <p className="text-xs text-(--color-text-muted) mt-1">Persönliche Blutanalyse</p>
+      <nav className={`
+        fixed top-0 left-0 z-50 h-full w-64 bg-(--color-bg-secondary) border-r border-(--color-border) p-4 flex flex-col
+        transition-transform duration-200 ease-in-out
+        md:sticky md:top-0 md:translate-x-0 md:h-screen
+        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+      `}>
+        <div className="mb-6 flex items-center justify-between">
+          <div>
+            <h1 className="text-xl font-bold text-(--color-text-primary) flex items-center gap-2">
+              <Activity className="w-6 h-6 text-(--color-accent)" />
+              Blutwerte-Tool
+            </h1>
+            <p className="text-xs text-(--color-text-muted) mt-1">Persönliche Blutanalyse</p>
+          </div>
+          <button
+            onClick={closeSidebar}
+            className="p-1 rounded-lg hover:bg-(--color-bg-input) text-(--color-text-muted) md:hidden"
+          >
+            <X size={18} />
+          </button>
         </div>
 
         {/* Profile Selector */}
@@ -166,13 +215,13 @@ function App() {
         </div>
 
         <div className="flex flex-col gap-1">
-          <SidebarLink to="/" icon={<BarChart3 className="w-5 h-5" />} label="Dashboard" />
-          <SidebarLink to="/eingabe" icon={<Upload className="w-5 h-5" />} label="Werte eingeben" />
-          <SidebarLink to="/empfehlungen" icon={<Sparkles className="w-5 h-5" />} label="Empfehlungen" />
-          <SidebarLink to="/analyse" icon={<GitBranch className="w-5 h-5" />} label="Cross-Analyse" />
-          <SidebarLink to="/trend" icon={<TrendingUp className="w-5 h-5" />} label="Verlauf" />
-          <SidebarLink to="/bericht" icon={<FileText className="w-5 h-5" />} label="Bericht" />
-          <SidebarLink to="/einstellungen" icon={<Settings className="w-5 h-5" />} label="Einstellungen" />
+          <SidebarLink to="/" icon={<BarChart3 className="w-5 h-5" />} label="Dashboard" onClick={closeSidebar} />
+          <SidebarLink to="/eingabe" icon={<Upload className="w-5 h-5" />} label="Werte eingeben" onClick={closeSidebar} />
+          <SidebarLink to="/empfehlungen" icon={<Sparkles className="w-5 h-5" />} label="Empfehlungen" onClick={closeSidebar} />
+          <SidebarLink to="/analyse" icon={<GitBranch className="w-5 h-5" />} label="Cross-Analyse" onClick={closeSidebar} />
+          <SidebarLink to="/trend" icon={<TrendingUp className="w-5 h-5" />} label="Verlauf" onClick={closeSidebar} />
+          <SidebarLink to="/bericht" icon={<FileText className="w-5 h-5" />} label="Bericht" onClick={closeSidebar} />
+          <SidebarLink to="/einstellungen" icon={<Settings className="w-5 h-5" />} label="Einstellungen" onClick={closeSidebar} />
         </div>
 
         <div className="mt-auto pt-4 border-t border-(--color-border)">
@@ -181,7 +230,7 @@ function App() {
       </nav>
 
       {/* Main Content */}
-      <main className="flex-1 p-8 overflow-auto">
+      <main className="flex-1 p-4 pt-16 md:p-8 md:pt-8 overflow-auto">
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/wert/:id" element={<BloodValueDetail />} />
@@ -197,10 +246,11 @@ function App() {
   )
 }
 
-function SidebarLink({ to, icon, label }: { to: string; icon: React.ReactNode; label: string }) {
+function SidebarLink({ to, icon, label, onClick }: { to: string; icon: React.ReactNode; label: string; onClick?: () => void }) {
   return (
     <NavLink
       to={to}
+      onClick={onClick}
       className={({ isActive }) =>
         `flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
           isActive
