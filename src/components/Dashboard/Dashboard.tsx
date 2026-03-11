@@ -11,17 +11,21 @@ import {
   User,
   Calendar,
   Shield,
+  Pill,
 } from 'lucide-react';
 import {
   bloodValues,
   categories,
   categoryLabels,
   getValuesByCategory,
+  findInteractions,
+  getMedicationById,
 } from '../../data';
 import type { BloodValue } from '../../data';
 import InfoPopover from '../InfoPopover';
 import {
   loadEntriesForProfile,
+  loadUserMedications,
   formatDate,
   getRangeStatus,
   statusColor,
@@ -420,7 +424,47 @@ function CriticalAlert({
 // Empty state component
 // ---------------------------------------------------------------------------
 
-// TODO: MedicationsBanner — kommt mit Medikamenten-Feature
+function MedicationsBanner({ profileId }: { profileId: string }) {
+  const activeMeds = loadUserMedications(profileId);
+  if (activeMeds.length === 0) return null;
+
+  const interactions = findInteractions(activeMeds);
+  const highRisk = interactions.filter(i => i.severity === 'high');
+  const medNames = activeMeds
+    .map(id => getMedicationById(id))
+    .filter(Boolean)
+    .map(m => m!.genericName);
+
+  return (
+    <div className={`rounded-xl border p-4 mb-6 ${highRisk.length > 0 ? 'border-danger/40 bg-danger/5' : 'border-(--color-accent)/30 bg-(--color-accent)/5'}`}>
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-start gap-3 min-w-0">
+          <Pill size={20} className={`shrink-0 mt-0.5 ${highRisk.length > 0 ? 'text-danger' : 'text-(--color-accent)'}`} />
+          <div className="min-w-0">
+            <p className="text-sm font-semibold text-(--color-text-primary)">
+              {activeMeds.length} Medikament{activeMeds.length !== 1 ? 'e' : ''} aktiv
+            </p>
+            <p className="text-xs text-(--color-text-muted) mt-0.5 truncate">
+              {medNames.join(', ')}
+            </p>
+            {highRisk.length > 0 && (
+              <p className="text-xs text-danger font-medium mt-1 flex items-center gap-1">
+                <AlertTriangle size={12} />
+                {highRisk.length} kritische Wechselwirkung{highRisk.length !== 1 ? 'en' : ''}!
+              </p>
+            )}
+          </div>
+        </div>
+        <Link
+          to="/medikamente"
+          className="shrink-0 text-xs px-3 py-1.5 rounded-lg border border-(--color-border) text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-bg-input) transition-colors"
+        >
+          Details
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 function EmptyState() {
   return (
@@ -650,7 +694,7 @@ export default function Dashboard() {
       {/* ================================================================== */}
       <CriticalAlert criticalValues={analysis.critical} gender={gender} />
 
-      {/* TODO: MedicationsBanner — kommt mit Medikamenten-Feature */}
+      <MedicationsBanner profileId={activeProfile?.id ?? ''} />
 
       {/* ================================================================== */}
       {/* SUMMARY BAR (Ampel-Uebersicht)                                    */}

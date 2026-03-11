@@ -18,10 +18,11 @@ import {
   Calendar,
   User,
 } from 'lucide-react';
-import { getValueById } from '../../data';
+import { getValueById, medications, type Medication, type MedicationEffect } from '../../data';
 import type { BloodValue, BloodValueRange } from '../../data';
 import {
   loadEntriesForProfile,
+  loadUserMedications,
   getRangeStatus,
   statusColor,
   statusBgClass,
@@ -1157,7 +1158,7 @@ export default function BloodValueDetail() {
       {/* ================================================================ */}
       {/* MEDICATION EFFECTS ON THIS VALUE                                 */}
       {/* ================================================================ */}
-      {/* TODO: MedicationEffectsSection — kommt mit Medikamenten-Feature */}
+      <MedicationEffectsSection bloodValueId={bloodValue.id} profileId={activeProfile?.id ?? ''} />
 
       {/* ================================================================ */}
       {/* RELATED VALUES (full section)                                    */}
@@ -1242,4 +1243,87 @@ export default function BloodValueDetail() {
   );
 }
 
-// TODO: MedicationEffectsSection — kommt mit Medikamenten-Feature
+function MedicationEffectsSection({ bloodValueId, profileId }: { bloodValueId: string; profileId: string }) {
+  const activeMeds = loadUserMedications(profileId);
+
+  const affectingMeds: { medication: Medication; effect: MedicationEffect; isActive: boolean }[] = [];
+
+  for (const med of medications) {
+    for (const effect of med.bloodValueEffects) {
+      if (effect.bloodValueId === bloodValueId && effect.direction !== 'neutral') {
+        affectingMeds.push({
+          medication: med,
+          effect,
+          isActive: activeMeds.includes(med.id),
+        });
+      }
+    }
+  }
+
+  if (affectingMeds.length === 0) return null;
+
+  const magnitudeOrder: Record<string, number> = { stark: 0, moderat: 1, leicht: 2, selten: 3, keine: 4 };
+  affectingMeds.sort((a, b) => {
+    if (a.isActive !== b.isActive) return a.isActive ? -1 : 1;
+    return (magnitudeOrder[a.effect.magnitude] ?? 4) - (magnitudeOrder[b.effect.magnitude] ?? 4);
+  });
+
+  const activeCount = affectingMeds.filter(m => m.isActive).length;
+
+  return (
+    <div className="rounded-xl border border-(--color-border) bg-(--color-bg-card) p-5 mb-6">
+      <div className="flex items-center gap-2 mb-4">
+        <Pill size={18} className="text-(--color-accent)" />
+        <h3 className="text-base font-semibold text-(--color-text-primary)">
+          Medikamenten-Einfluss
+        </h3>
+        {activeCount > 0 && (
+          <span className="px-2 py-0.5 rounded-full bg-(--color-accent) text-white text-xs font-medium">
+            {activeCount} aktiv
+          </span>
+        )}
+      </div>
+
+      <div className="space-y-2">
+        {affectingMeds.map(({ medication, effect, isActive }) => (
+          <div
+            key={medication.id}
+            className={`flex items-start gap-3 rounded-lg border px-3 py-2.5 ${
+              isActive
+                ? 'border-(--color-accent)/40 bg-(--color-accent)/5'
+                : 'border-(--color-border) bg-(--color-bg-secondary)'
+            }`}
+          >
+            <div className="mt-0.5 shrink-0">
+              {effect.direction === 'increase' ? (
+                <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-danger/15 text-danger">
+                  <ChevronUp size={14} />
+                </span>
+              ) : (
+                <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-400/15 text-blue-400">
+                  <ChevronDown size={14} />
+                </span>
+              )}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2">
+                <span className={`text-sm font-medium ${isActive ? 'text-(--color-accent)' : 'text-(--color-text-primary)'}`}>
+                  {medication.genericName}
+                </span>
+                <span className="text-[10px] text-(--color-text-muted)">
+                  ({medication.tradeNames[0]})
+                </span>
+                {isActive && (
+                  <span className="px-1.5 py-0.5 rounded text-[10px] bg-(--color-accent)/20 text-(--color-accent) font-medium">
+                    Nimmt ein
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-(--color-text-muted) mt-0.5">{effect.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
