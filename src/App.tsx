@@ -228,7 +228,7 @@ function App() {
         </div>
 
         <div className="mt-auto pt-4 border-t border-(--color-border)">
-          <p className="text-xs text-(--color-text-muted)">v2.0.0 — 78 Blutwerte · 47 Medikamente</p>
+          <p className="text-xs text-(--color-text-muted)">v2.0.0 — 78 Blutwerte · 48 Medikamente</p>
         </div>
       </nav>
 

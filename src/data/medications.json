@@ -79,6 +79,11 @@
       "id": "gicht",
       "label": "Gicht-Medikamente",
       "icon": "pill"
+    },
+    {
+      "id": "prostata",
+      "label": "Prostata-Medikamente",
+      "icon": "pill"
     }
   ],
   "medications": [
@@ -189,7 +194,7 @@
     {
       "id": "rosuvastatin",
       "genericName": "Rosuvastatin",
-      "tradeNames": ["Crestor", "Rosuvastatin-ratiopharm"],
+      "tradeNames": ["Crestor", "Rosuvastatin-ratiopharm", "Rosuvastatin ZENTIVA", "Rosuvadore"],
       "category": "statine",
       "description": "Stärkstes Statin. Senkt LDL am effektivsten aller Statine.",
       "commonDosages": ["5 mg", "10 mg", "20 mg", "40 mg"],
@@ -241,7 +246,7 @@
     {
       "id": "ezetimib",
       "genericName": "Ezetimib",
-      "tradeNames": ["Ezetrol", "Inegy (Kombi mit Simvastatin)", "Ezetimib-ratiopharm"],
+      "tradeNames": ["Ezetrol", "Inegy (Kombi mit Simvastatin)", "Ezetimib-ratiopharm", "Ezetimib ZENTIVA"],
       "category": "cholesterin-andere",
       "description": "Hemmt die Cholesterin-Aufnahme im Darm. Oft als Ergänzung zu Statinen.",
       "commonDosages": ["10 mg"],
@@ -375,7 +380,7 @@
     {
       "id": "candesartan",
       "genericName": "Candesartan",
-      "tradeNames": ["Atacand", "Blopress", "Candesartan-ratiopharm"],
+      "tradeNames": ["Atacand", "Blopress", "Candesartan-ratiopharm", "Candesartan ZENTIVA"],
       "category": "sartane",
       "description": "AT1-Blocker (Sartan). Alternative zu ACE-Hemmern ohne Reizhusten.",
       "commonDosages": ["4 mg", "8 mg", "16 mg", "32 mg"],
@@ -609,7 +614,7 @@
     {
       "id": "torasemid",
       "genericName": "Torasemid",
-      "tradeNames": ["Torem", "Torasemid-ratiopharm"],
+      "tradeNames": ["Torem", "Torasemid-ratiopharm", "Torasemid AL"],
       "category": "diuretika",
       "description": "Schleifendiuretikum. Stärker als HCT, bei Herzinsuffizienz und Ödemen.",
       "commonDosages": ["5 mg", "10 mg", "20 mg"],
@@ -689,7 +694,7 @@
     {
       "id": "spironolacton",
       "genericName": "Spironolacton",
-      "tradeNames": ["Aldactone", "Spironolacton-ratiopharm"],
+      "tradeNames": ["Aldactone", "Spironolacton-ratiopharm", "Spironolacton HEXAL"],
       "category": "diuretika",
       "description": "Kaliumsparendes Diuretikum (Aldosteron-Antagonist). Bei Herzinsuffizienz.",
       "commonDosages": ["25 mg", "50 mg", "100 mg"],
@@ -781,7 +786,7 @@
     {
       "id": "ass-100",
       "genericName": "Acetylsalicylsäure (niedrigdosiert)",
-      "tradeNames": ["ASS 100", "Aspirin Protect", "ASS-ratiopharm"],
+      "tradeNames": ["ASS 100", "Aspirin Protect", "ASS-ratiopharm", "AAS HEXAL", "ASS HEXAL"],
       "category": "thrombozytenhemmer",
       "description": "Thrombozytenaggregationshemmer. Standardtherapie nach Herzinfarkt/Stent.",
       "commonDosages": ["75 mg", "100 mg"],
@@ -1501,6 +1506,22 @@
           "direction": "increase",
           "magnitude": "selten",
           "description": "Selten Eosinophilie (allergische Reaktion)"
+        }
+      ]
+    },
+    {
+      "id": "tamsulosin",
+      "genericName": "Tamsulosin",
+      "tradeNames": ["Tamsulosin 1A Pharma", "Alna", "Omnic", "Tamsulosin-ratiopharm"],
+      "category": "prostata",
+      "description": "Alpha-1-Rezeptorblocker. Entspannt die glatte Muskulatur der Prostata und Harnröhre. Bei gutartiger Prostatavergrößerung (BPH) zur Verbesserung des Harnflusses.",
+      "commonDosages": ["0,4 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Sehr selten Leberwerterhöhung"
         }
       ]
     }
