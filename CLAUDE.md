@@ -9,7 +9,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - localStorage (Datenhaltung)
 - JSON-basierte Wissensdatenbank
 
-## Status (2026-03-11) — v1.1.0
+## Status (2026-03-11) — v2.0.0
 - [x] **Schritt 1: Wissensdatenbank** - 81 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
 - [x] **Schritt 2: Eingabeformular + CSV/JSON Import** - BloodworkEntry mit manuellem Input, CSV-Upload, localStorage
 - [x] **Schritt 3: Dashboard mit Ampelsystem** - Vollstaendiges Analyse-Dashboard mit Ampel-Uebersicht, Kategorie-Cards, kritische Werte Alert, Erfassungsgrad
