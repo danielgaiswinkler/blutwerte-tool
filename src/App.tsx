@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
-import { Activity, Upload, BarChart3, TrendingUp, Settings, FileText, Users, Plus, Check, X, Trash2, Sparkles, GitBranch, Menu } from 'lucide-react'
+import { Activity, Upload, BarChart3, TrendingUp, Settings, FileText, Users, Plus, Check, X, Trash2, Sparkles, GitBranch, Menu, Pill } from 'lucide-react'
 import Dashboard from './components/Dashboard/Dashboard'
 import BloodworkEntry from './components/BloodworkEntry/BloodworkEntry'
 import BloodValueDetail from './components/BloodValueDetail/BloodValueDetail'
@@ -8,6 +8,7 @@ import Recommendations from './components/Recommendations/Recommendations'
 import CrossValueAnalysis from './components/CrossValueAnalysis/CrossValueAnalysis'
 import TrendView from './components/TrendView/TrendView'
 import Report from './components/Report/Report'
+import Medications from './components/Medications/Medications'
 import SettingsPage from './components/SettingsPage/SettingsPage'
 import { useProfile } from './context/ProfileContext'
 
@@ -42,6 +43,7 @@ function App() {
     '/': 'Dashboard',
     '/eingabe': 'Werte eingeben',
     '/empfehlungen': 'Empfehlungen',
+    '/medikamente': 'Medikamente',
     '/analyse': 'Cross-Analyse',
     '/trend': 'Verlauf',
     '/bericht': 'Bericht',
@@ -218,6 +220,7 @@ function App() {
           <SidebarLink to="/" icon={<BarChart3 className="w-5 h-5" />} label="Dashboard" onClick={closeSidebar} />
           <SidebarLink to="/eingabe" icon={<Upload className="w-5 h-5" />} label="Werte eingeben" onClick={closeSidebar} />
           <SidebarLink to="/empfehlungen" icon={<Sparkles className="w-5 h-5" />} label="Empfehlungen" onClick={closeSidebar} />
+          <SidebarLink to="/medikamente" icon={<Pill className="w-5 h-5" />} label="Medikamente" onClick={closeSidebar} />
           <SidebarLink to="/analyse" icon={<GitBranch className="w-5 h-5" />} label="Cross-Analyse" onClick={closeSidebar} />
           <SidebarLink to="/trend" icon={<TrendingUp className="w-5 h-5" />} label="Verlauf" onClick={closeSidebar} />
           <SidebarLink to="/bericht" icon={<FileText className="w-5 h-5" />} label="Bericht" onClick={closeSidebar} />
@@ -236,6 +239,7 @@ function App() {
           <Route path="/wert/:id" element={<BloodValueDetail />} />
           <Route path="/eingabe" element={<BloodworkEntry />} />
           <Route path="/empfehlungen" element={<Recommendations />} />
+          <Route path="/medikamente" element={<Medications />} />
           <Route path="/analyse" element={<CrossValueAnalysis />} />
           <Route path="/trend" element={<TrendView />} />
           <Route path="/bericht" element={<Report />} />

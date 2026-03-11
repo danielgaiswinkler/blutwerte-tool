@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { Download, Upload, Trash2, AlertTriangle, Check, Info, Pill } from 'lucide-react';
+import { Download, Upload, Trash2, AlertTriangle, Check, Info, Pill, Camera, Eye, EyeOff } from 'lucide-react';
 import { useProfile } from '../../context/ProfileContext';
 import {
   loadEntries,
@@ -10,6 +10,12 @@ import {
   STORAGE_KEY,
 } from '../../utils/bloodwork-utils';
 import type { BloodworkEntryData } from '../../utils/bloodwork-utils';
+import {
+  encryptApiKey,
+  hasStoredApiKey,
+  storeEncryptedKey,
+  removeApiKey,
+} from '../../utils/vision-crypto';
 import supplementsData from '../../data/supplements.json';
 
 const allSupplements = (supplementsData as { supplements: Array<{ id: string; name: string; categoryLabel: string }> }).supplements;
@@ -296,6 +302,9 @@ export default function SettingsPage() {
         )}
       </div>
 
+      {/* Vision API Key */}
+      <VisionApiKeySection />
+
       {/* Reset */}
       <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-5 space-y-3">
         <h3 className="text-base font-semibold text-text-primary flex items-center gap-2">
@@ -358,6 +367,204 @@ export default function SettingsPage() {
       <div className="text-xs text-text-muted text-center pt-4">
         Speicherort: localStorage · Schluessel: {STORAGE_KEY}
       </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Vision API Key Management
+// ---------------------------------------------------------------------------
+
+function VisionApiKeySection() {
+  const [hasKey, setHasKey] = useState(hasStoredApiKey());
+  const [apiKeyInput, setApiKeyInput] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [showApiKey, setShowApiKey] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; msg: string } | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+
+  const showMsg = (type: 'success' | 'error', msg: string) => {
+    setFeedback({ type, msg });
+    setTimeout(() => setFeedback(null), 5000);
+  };
+
+  const handleSaveKey = async () => {
+    if (!apiKeyInput.trim()) {
+      showMsg('error', 'Bitte API-Key eingeben.');
+      return;
+    }
+    if (!apiKeyInput.trim().startsWith('sk-ant-')) {
+      showMsg('error', 'Ungueltiger API-Key. Muss mit "sk-ant-" beginnen.');
+      return;
+    }
+    if (password.length < 4) {
+      showMsg('error', 'Passwort muss mindestens 4 Zeichen haben.');
+      return;
+    }
+    if (password !== passwordConfirm) {
+      showMsg('error', 'Passwoerter stimmen nicht ueberein.');
+      return;
+    }
+
+    setSaving(true);
+    try {
+      const encrypted = await encryptApiKey(apiKeyInput.trim(), password);
+      storeEncryptedKey(encrypted);
+      setHasKey(true);
+      setApiKeyInput('');
+      setPassword('');
+      setPasswordConfirm('');
+      showMsg('success', 'API-Key verschluesselt gespeichert! Bild-Import ist jetzt verfuegbar.');
+    } catch {
+      showMsg('error', 'Fehler beim Verschluesseln. Bitte erneut versuchen.');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleDeleteKey = () => {
+    removeApiKey();
+    setHasKey(false);
+    setConfirmDelete(false);
+    showMsg('success', 'API-Key geloescht.');
+  };
+
+  return (
+    <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-5 space-y-3">
+      <h3 className="text-base font-semibold text-text-primary flex items-center gap-2">
+        <Camera size={18} className="text-emerald-400" />
+        KI Bild-Import (Claude Vision)
+      </h3>
+
+      {hasKey ? (
+        <>
+          <div className="flex items-center gap-2 text-sm">
+            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+            <span className="text-emerald-400 font-medium">API-Key konfiguriert</span>
+            <span className="text-text-muted">— verschluesselt gespeichert</span>
+          </div>
+          <p className="text-sm text-text-muted">
+            Du kannst jetzt Laborberichte per Foto importieren. Beim Import wirst du nach deinem
+            Passwort gefragt, um den Key zu entschluesseln.
+          </p>
+          {!confirmDelete ? (
+            <button
+              onClick={() => setConfirmDelete(true)}
+              className="flex items-center gap-2 rounded-lg border border-red-500/40 px-3 py-1.5
+                         text-xs text-red-400 hover:bg-red-500/10 transition-colors"
+            >
+              <Trash2 size={14} />
+              API-Key entfernen
+            </button>
+          ) : (
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleDeleteKey}
+                className="rounded-lg bg-red-600 hover:bg-red-700 px-3 py-1.5 text-xs font-medium text-white transition-colors"
+              >
+                Ja, entfernen
+              </button>
+              <button
+                onClick={() => setConfirmDelete(false)}
+                className="rounded-lg border border-border px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary transition-colors"
+              >
+                Abbrechen
+              </button>
+            </div>
+          )}
+        </>
+      ) : (
+        <>
+          <p className="text-sm text-text-muted">
+            Mit einem Anthropic API-Key kannst du Laborberichte per Foto hochladen.
+            Die KI (Claude) erkennt automatisch alle Blutwerte im Bild.
+          </p>
+          <div className="rounded-lg border border-border bg-bg-input/50 p-4 space-y-3">
+            <div>
+              <label className="text-xs font-medium text-text-secondary block mb-1">
+                Anthropic API-Key
+              </label>
+              <div className="relative">
+                <input
+                  type={showApiKey ? 'text' : 'password'}
+                  value={apiKeyInput}
+                  onChange={(e) => setApiKeyInput(e.target.value)}
+                  placeholder="sk-ant-..."
+                  className="w-full rounded-lg border border-border bg-bg-input px-3 py-2 pr-10 text-sm text-text-primary
+                             placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-emerald-500/50 font-mono"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowApiKey((v) => !v)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary transition-colors"
+                >
+                  {showApiKey ? <EyeOff size={16} /> : <Eye size={16} />}
+                </button>
+              </div>
+              <p className="text-[11px] text-text-muted mt-1">
+                Erstelle einen Key auf{' '}
+                <a
+                  href="https://console.anthropic.com/settings/keys"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-400 hover:underline"
+                >
+                  console.anthropic.com
+                </a>
+                {' '}(kostet ca. 0,01-0,03 EUR pro Analyse)
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="text-xs font-medium text-text-secondary block mb-1">Passwort</label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Min. 4 Zeichen"
+                  className="w-full rounded-lg border border-border bg-bg-input px-3 py-2 text-sm text-text-primary
+                             placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                />
+              </div>
+              <div>
+                <label className="text-xs font-medium text-text-secondary block mb-1">Passwort wiederholen</label>
+                <input
+                  type="password"
+                  value={passwordConfirm}
+                  onChange={(e) => setPasswordConfirm(e.target.value)}
+                  placeholder="Nochmal eingeben"
+                  onKeyDown={(e) => { if (e.key === 'Enter') handleSaveKey(); }}
+                  className="w-full rounded-lg border border-border bg-bg-input px-3 py-2 text-sm text-text-primary
+                             placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                />
+              </div>
+            </div>
+            <p className="text-[11px] text-text-muted">
+              Der API-Key wird mit deinem Passwort AES-256 verschluesselt. Er liegt nie im Klartext im Browser.
+              Bei jedem Bild-Import gibst du das Passwort einmal ein.
+            </p>
+            <button
+              onClick={handleSaveKey}
+              disabled={saving || !apiKeyInput || !password || !passwordConfirm}
+              className="flex items-center gap-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 px-4 py-2
+                         text-sm font-medium text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              <Check size={16} />
+              {saving ? 'Verschluessele...' : 'Key speichern'}
+            </button>
+          </div>
+        </>
+      )}
+
+      {feedback && (
+        <div className={`rounded-lg px-3 py-2 text-sm ${
+          feedback.type === 'success' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'bg-red-500/10 text-red-400 border border-red-500/30'
+        }`}>
+          {feedback.msg}
+        </div>
+      )}
     </div>
   );
 }

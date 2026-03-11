@@ -1,0 +1,1646 @@
+{
+  "categories": [
+    {
+      "id": "statine",
+      "label": "Cholesterinsenker (Statine)",
+      "icon": "heart"
+    },
+    {
+      "id": "cholesterin-andere",
+      "label": "Cholesterinsenker (Andere)",
+      "icon": "heart"
+    },
+    {
+      "id": "ace-hemmer",
+      "label": "ACE-Hemmer (Blutdruck)",
+      "icon": "activity"
+    },
+    {
+      "id": "sartane",
+      "label": "AT1-Blocker / Sartane (Blutdruck)",
+      "icon": "activity"
+    },
+    {
+      "id": "betablocker",
+      "label": "Betablocker (Blutdruck/Herz)",
+      "icon": "activity"
+    },
+    {
+      "id": "calciumantagonisten",
+      "label": "Calciumantagonisten (Blutdruck)",
+      "icon": "activity"
+    },
+    {
+      "id": "diuretika",
+      "label": "Diuretika (Entwässerung)",
+      "icon": "droplets"
+    },
+    {
+      "id": "antikoagulantien",
+      "label": "Blutverdünner (Antikoagulantien)",
+      "icon": "shield"
+    },
+    {
+      "id": "thrombozytenhemmer",
+      "label": "Thrombozytenaggregationshemmer",
+      "icon": "shield"
+    },
+    {
+      "id": "herz-weitere",
+      "label": "Weitere Herzmedikamente",
+      "icon": "heart"
+    },
+    {
+      "id": "lunge",
+      "label": "Lungenmedikamente",
+      "icon": "wind"
+    },
+    {
+      "id": "diabetes",
+      "label": "Diabetes-Medikamente",
+      "icon": "pill"
+    },
+    {
+      "id": "schilddruese",
+      "label": "Schilddrüse",
+      "icon": "pill"
+    },
+    {
+      "id": "magen",
+      "label": "Magenschutz (PPI)",
+      "icon": "pill"
+    },
+    {
+      "id": "schmerz",
+      "label": "Schmerzmittel / Entzündungshemmer",
+      "icon": "pill"
+    },
+    {
+      "id": "gicht",
+      "label": "Gicht-Medikamente",
+      "icon": "pill"
+    }
+  ],
+  "medications": [
+    {
+      "id": "atorvastatin",
+      "genericName": "Atorvastatin",
+      "tradeNames": ["Sortis", "Atorvastatin-ratiopharm", "Atorvastatin HEXAL"],
+      "category": "statine",
+      "description": "Cholesterinsenker aus der Gruppe der Statine. Hemmt die HMG-CoA-Reduktase und senkt dadurch die Cholesterinproduktion in der Leber.",
+      "commonDosages": ["10 mg", "20 mg", "40 mg", "80 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "ldl",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt LDL-Cholesterin um 30–50% (dosisabhängig)"
+        },
+        {
+          "bloodValueId": "gesamtcholesterin",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt Gesamtcholesterin um 25–40%"
+        },
+        {
+          "bloodValueId": "non-hdl",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt Non-HDL-Cholesterin um 30–45%"
+        },
+        {
+          "bloodValueId": "apob",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt ApoB um 25–40%"
+        },
+        {
+          "bloodValueId": "triglyceride",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Triglyceride um 10–20%"
+        },
+        {
+          "bloodValueId": "hdl",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann HDL leicht erhöhen (5–10%)"
+        },
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Kann GPT/ALT erhöhen (Leberwerte kontrollieren!)"
+        },
+        {
+          "bloodValueId": "got",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Kann GOT/AST erhöhen (Leberwerte kontrollieren!)"
+        },
+        {
+          "bloodValueId": "ck",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Kann CK erhöhen — Hinweis auf Muskelschäden (Myopathie). Bei Muskelschmerzen sofort Arzt aufsuchen!"
+        }
+      ]
+    },
+    {
+      "id": "simvastatin",
+      "genericName": "Simvastatin",
+      "tradeNames": ["Zocor", "Simvastatin-ratiopharm", "SimvaHEXAL"],
+      "category": "statine",
+      "description": "Cholesterinsenker (Statin). Wird in der Leber zum aktiven Metaboliten umgewandelt.",
+      "commonDosages": ["10 mg", "20 mg", "40 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "ldl",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt LDL um 25–40%"
+        },
+        {
+          "bloodValueId": "gesamtcholesterin",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt Gesamtcholesterin um 20–35%"
+        },
+        {
+          "bloodValueId": "triglyceride",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Triglyceride um 10–15%"
+        },
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Kann Leberwerte erhöhen"
+        },
+        {
+          "bloodValueId": "ck",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Kann CK erhöhen (Myopathie-Risiko höher als bei anderen Statinen)"
+        }
+      ]
+    },
+    {
+      "id": "rosuvastatin",
+      "genericName": "Rosuvastatin",
+      "tradeNames": ["Crestor", "Rosuvastatin-ratiopharm"],
+      "category": "statine",
+      "description": "Stärkstes Statin. Senkt LDL am effektivsten aller Statine.",
+      "commonDosages": ["5 mg", "10 mg", "20 mg", "40 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "ldl",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt LDL um 40–55% (stärkstes Statin)"
+        },
+        {
+          "bloodValueId": "gesamtcholesterin",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt Gesamtcholesterin um 30–45%"
+        },
+        {
+          "bloodValueId": "apob",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt ApoB um 35–45%"
+        },
+        {
+          "bloodValueId": "triglyceride",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Triglyceride um 10–20%"
+        },
+        {
+          "bloodValueId": "hdl",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann HDL um 5–15% erhöhen"
+        },
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Kann Leberwerte erhöhen"
+        },
+        {
+          "bloodValueId": "ck",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Kann CK erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "ezetimib",
+      "genericName": "Ezetimib",
+      "tradeNames": ["Ezetrol", "Inegy (Kombi mit Simvastatin)", "Ezetimib-ratiopharm"],
+      "category": "cholesterin-andere",
+      "description": "Hemmt die Cholesterin-Aufnahme im Darm. Oft als Ergänzung zu Statinen.",
+      "commonDosages": ["10 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "ldl",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt LDL um weitere 15–25% (zusätzlich zum Statin)"
+        },
+        {
+          "bloodValueId": "gesamtcholesterin",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Gesamtcholesterin um 10–15%"
+        }
+      ]
+    },
+    {
+      "id": "bezafibrat",
+      "genericName": "Bezafibrat",
+      "tradeNames": ["Cedur", "Bezafibrat-ratiopharm"],
+      "category": "cholesterin-andere",
+      "description": "Fibrat — senkt vor allem Triglyceride und erhöht HDL.",
+      "commonDosages": ["200 mg", "400 mg retard"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "triglyceride",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt Triglyceride um 30–50%"
+        },
+        {
+          "bloodValueId": "hdl",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Erhöht HDL um 10–20%"
+        },
+        {
+          "bloodValueId": "ldl",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Senkt LDL leicht (5–15%)"
+        },
+        {
+          "bloodValueId": "ck",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Kann CK erhöhen (Myopathie-Risiko, besonders in Kombination mit Statinen!)"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin leicht erhöhen (reversibel)"
+        }
+      ]
+    },
+    {
+      "id": "ramipril",
+      "genericName": "Ramipril",
+      "tradeNames": ["Delix", "Ramipril-ratiopharm", "RamiLich"],
+      "category": "ace-hemmer",
+      "description": "ACE-Hemmer zur Blutdrucksenkung. Schützt auch Herz und Nieren.",
+      "commonDosages": ["2,5 mg", "5 mg", "10 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kalium erhöhen (Hyperkaliämie-Risiko, besonders bei Niereninsuffizienz)"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin initial leicht erhöhen (bis 30% ist tolerabel)"
+        },
+        {
+          "bloodValueId": "gfr",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "GFR kann initial leicht sinken (langfristig nierenschützend)"
+        }
+      ]
+    },
+    {
+      "id": "enalapril",
+      "genericName": "Enalapril",
+      "tradeNames": ["Xanef", "Enalapril-ratiopharm"],
+      "category": "ace-hemmer",
+      "description": "ACE-Hemmer. Prodrug — wird in der Leber zum aktiven Enalaprilat umgewandelt.",
+      "commonDosages": ["5 mg", "10 mg", "20 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kalium erhöhen"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin initial leicht erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "lisinopril",
+      "genericName": "Lisinopril",
+      "tradeNames": ["Acerbon", "Lisinopril-ratiopharm"],
+      "category": "ace-hemmer",
+      "description": "ACE-Hemmer. Kein Prodrug — wird nicht in der Leber umgewandelt.",
+      "commonDosages": ["5 mg", "10 mg", "20 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kalium erhöhen"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin initial leicht erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "candesartan",
+      "genericName": "Candesartan",
+      "tradeNames": ["Atacand", "Blopress", "Candesartan-ratiopharm"],
+      "category": "sartane",
+      "description": "AT1-Blocker (Sartan). Alternative zu ACE-Hemmern ohne Reizhusten.",
+      "commonDosages": ["4 mg", "8 mg", "16 mg", "32 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kalium erhöhen (wie ACE-Hemmer)"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin leicht erhöhen"
+        },
+        {
+          "bloodValueId": "harnsaeure",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Harnsäure leicht senken (Vorteil bei Gicht)"
+        }
+      ]
+    },
+    {
+      "id": "valsartan",
+      "genericName": "Valsartan",
+      "tradeNames": ["Diovan", "Valsartan-ratiopharm"],
+      "category": "sartane",
+      "description": "AT1-Blocker zur Blutdrucksenkung und Herzinsuffizienz-Therapie.",
+      "commonDosages": ["40 mg", "80 mg", "160 mg", "320 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kalium erhöhen"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin leicht erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "losartan",
+      "genericName": "Losartan",
+      "tradeNames": ["Lorzaar", "Losartan-ratiopharm"],
+      "category": "sartane",
+      "description": "Erster AT1-Blocker. Hat zusätzlich einen harnsäuresenkenden Effekt.",
+      "commonDosages": ["25 mg", "50 mg", "100 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kalium erhöhen"
+        },
+        {
+          "bloodValueId": "harnsaeure",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Harnsäure um 15–30% (einziger Sartan mit diesem Effekt)"
+        }
+      ]
+    },
+    {
+      "id": "metoprolol",
+      "genericName": "Metoprolol",
+      "tradeNames": ["Beloc-Zok", "Metoprolol-ratiopharm", "Metohexal"],
+      "category": "betablocker",
+      "description": "Beta-1-selektiver Betablocker. Bei Bluthochdruck, Herzinsuffizienz, nach Herzinfarkt.",
+      "commonDosages": ["23,75 mg", "47,5 mg", "95 mg", "190 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "triglyceride",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Triglyceride leicht erhöhen"
+        },
+        {
+          "bloodValueId": "hdl",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann HDL leicht senken"
+        },
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Blutzucker leicht erhöhen (maskiert Hypoglykämie-Symptome bei Diabetikern!)"
+        },
+        {
+          "bloodValueId": "hba1c",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann HbA1c leicht erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "bisoprolol",
+      "genericName": "Bisoprolol",
+      "tradeNames": ["Concor", "Bisoprolol-ratiopharm", "BisaHEXAL"],
+      "category": "betablocker",
+      "description": "Hoch-selektiver Beta-1-Blocker. Häufigstes Betablocker-Präparat in Deutschland.",
+      "commonDosages": ["1,25 mg", "2,5 mg", "5 mg", "10 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "triglyceride",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Triglyceride leicht erhöhen (weniger als ältere Betablocker)"
+        },
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Blutzucker leicht beeinflussen"
+        }
+      ]
+    },
+    {
+      "id": "nebivolol",
+      "genericName": "Nebivolol",
+      "tradeNames": ["Nebilet", "Nebivolol-ratiopharm"],
+      "category": "betablocker",
+      "description": "Betablocker mit zusätzlicher gefäßerweiternder Wirkung (NO-Freisetzung). Metabolisch neutraler.",
+      "commonDosages": ["1,25 mg", "2,5 mg", "5 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "triglyceride",
+          "direction": "neutral",
+          "magnitude": "keine",
+          "description": "Im Gegensatz zu älteren Betablockern kaum Einfluss auf Lipide"
+        },
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "neutral",
+          "magnitude": "keine",
+          "description": "Metabolisch weitgehend neutral"
+        }
+      ]
+    },
+    {
+      "id": "amlodipin",
+      "genericName": "Amlodipin",
+      "tradeNames": ["Norvasc", "Amlodipin-ratiopharm"],
+      "category": "calciumantagonisten",
+      "description": "Calciumkanal-Blocker vom Dihydropyridin-Typ. Senkt Blutdruck durch Gefäßerweiterung.",
+      "commonDosages": ["5 mg", "10 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Erhöhung der Leberwerte"
+        }
+      ]
+    },
+    {
+      "id": "verapamil",
+      "genericName": "Verapamil",
+      "tradeNames": ["Isoptin", "Verapamil-ratiopharm"],
+      "category": "calciumantagonisten",
+      "description": "Nicht-Dihydropyridin-Calciumantagonist. Wirkt auch auf das Herz (frequenzsenkend).",
+      "commonDosages": ["40 mg", "80 mg", "120 mg", "240 mg retard"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Erhöhung der Leberwerte"
+        }
+      ]
+    },
+    {
+      "id": "hydrochlorothiazid",
+      "genericName": "Hydrochlorothiazid (HCT)",
+      "tradeNames": ["Esidrix", "HCT-ratiopharm", "oft in Kombipräparaten"],
+      "category": "diuretika",
+      "description": "Thiazid-Diuretikum. Sehr häufig in Kombination mit ACE-Hemmern oder Sartanen.",
+      "commonDosages": ["12,5 mg", "25 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Kalium (Hypokaliämie-Risiko!) — regelmäßig kontrollieren"
+        },
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Blutzucker erhöhen (diabetogener Effekt)"
+        },
+        {
+          "bloodValueId": "harnsaeure",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Erhöht Harnsäure (kann Gichtanfall auslösen!)"
+        },
+        {
+          "bloodValueId": "triglyceride",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Triglyceride leicht erhöhen"
+        },
+        {
+          "bloodValueId": "ldl",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann LDL leicht erhöhen"
+        },
+        {
+          "bloodValueId": "calcium",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Calcium leicht erhöhen (verminderte Ausscheidung)"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin bei Dehydratation erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "torasemid",
+      "genericName": "Torasemid",
+      "tradeNames": ["Torem", "Torasemid-ratiopharm"],
+      "category": "diuretika",
+      "description": "Schleifendiuretikum. Stärker als HCT, bei Herzinsuffizienz und Ödemen.",
+      "commonDosages": ["5 mg", "10 mg", "20 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Kalium (stärker als HCT)"
+        },
+        {
+          "bloodValueId": "harnsaeure",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Erhöht Harnsäure"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin bei Volumenmangel erhöhen"
+        },
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Blutzucker leicht erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "furosemid",
+      "genericName": "Furosemid",
+      "tradeNames": ["Lasix", "Furosemid-ratiopharm"],
+      "category": "diuretika",
+      "description": "Schleifendiuretikum. Stark entwässernd, bei akuter Herzinsuffizienz.",
+      "commonDosages": ["20 mg", "40 mg", "80 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt Kalium deutlich (regelmäßig kontrollieren!)"
+        },
+        {
+          "bloodValueId": "calcium",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Erhöht Calcium-Ausscheidung (Gegenteil von HCT)"
+        },
+        {
+          "bloodValueId": "magnesium-serum",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Kann Magnesium senken"
+        },
+        {
+          "bloodValueId": "harnsaeure",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Erhöht Harnsäure"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin bei Dehydratation erhöhen"
+        },
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Blutzucker erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "spironolacton",
+      "genericName": "Spironolacton",
+      "tradeNames": ["Aldactone", "Spironolacton-ratiopharm"],
+      "category": "diuretika",
+      "description": "Kaliumsparendes Diuretikum (Aldosteron-Antagonist). Bei Herzinsuffizienz.",
+      "commonDosages": ["25 mg", "50 mg", "100 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Erhöht Kalium (Hyperkaliämie-Risiko! Besonders mit ACE-Hemmern/Sartanen)"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin leicht erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "phenprocoumon",
+      "genericName": "Phenprocoumon",
+      "tradeNames": ["Marcumar", "Falithrom"],
+      "category": "antikoagulantien",
+      "description": "Vitamin-K-Antagonist (Cumarin). Klassischer Blutverdünner, braucht INR-Kontrollen.",
+      "commonDosages": ["individuell nach INR"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Erhöhung der Leberwerte"
+        }
+      ]
+    },
+    {
+      "id": "rivaroxaban",
+      "genericName": "Rivaroxaban",
+      "tradeNames": ["Xarelto"],
+      "category": "antikoagulantien",
+      "description": "Direkter Faktor-Xa-Hemmer (NOAK/DOAK). Kein INR-Monitoring nötig.",
+      "commonDosages": ["10 mg", "15 mg", "20 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Erhöhung der Leberwerte"
+        }
+      ]
+    },
+    {
+      "id": "apixaban",
+      "genericName": "Apixaban",
+      "tradeNames": ["Eliquis"],
+      "category": "antikoagulantien",
+      "description": "Direkter Faktor-Xa-Hemmer (NOAK/DOAK). Häufig bei Vorhofflimmern.",
+      "commonDosages": ["2,5 mg", "5 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Erhöhung der Leberwerte"
+        }
+      ]
+    },
+    {
+      "id": "edoxaban",
+      "genericName": "Edoxaban",
+      "tradeNames": ["Lixiana"],
+      "category": "antikoagulantien",
+      "description": "Direkter Faktor-Xa-Hemmer (NOAK/DOAK).",
+      "commonDosages": ["30 mg", "60 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Erhöhung der Leberwerte"
+        },
+        {
+          "bloodValueId": "bilirubin",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Bilirubin-Erhöhung"
+        }
+      ]
+    },
+    {
+      "id": "ass-100",
+      "genericName": "Acetylsalicylsäure (niedrigdosiert)",
+      "tradeNames": ["ASS 100", "Aspirin Protect", "ASS-ratiopharm"],
+      "category": "thrombozytenhemmer",
+      "description": "Thrombozytenaggregationshemmer. Standardtherapie nach Herzinfarkt/Stent.",
+      "commonDosages": ["75 mg", "100 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "thrombozyten",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Hemmt Thrombozytenfunktion (Anzahl bleibt meist gleich, Funktion eingeschränkt)"
+        }
+      ]
+    },
+    {
+      "id": "clopidogrel",
+      "genericName": "Clopidogrel",
+      "tradeNames": ["Plavix", "Iscover", "Clopidogrel-ratiopharm"],
+      "category": "thrombozytenhemmer",
+      "description": "P2Y12-Hemmer. Oft in Kombination mit ASS nach Stent (duale Plättchenhemmung).",
+      "commonDosages": ["75 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "thrombozyten",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Hemmt Thrombozytenfunktion"
+        },
+        {
+          "bloodValueId": "leukozyten",
+          "direction": "decrease",
+          "magnitude": "selten",
+          "description": "Selten Leukopenie"
+        }
+      ]
+    },
+    {
+      "id": "digoxin",
+      "genericName": "Digoxin",
+      "tradeNames": ["Lanicor", "Digacin"],
+      "category": "herz-weitere",
+      "description": "Herzglykosid. Bei Herzinsuffizienz und Vorhofflimmern zur Frequenzkontrolle.",
+      "commonDosages": ["0,05 mg", "0,1 mg", "0,2 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "neutral",
+          "magnitude": "keine",
+          "description": "Beeinflusst Kalium nicht direkt, aber Hypokaliämie verstärkt Digoxin-Toxizität massiv!"
+        },
+        {
+          "bloodValueId": "calcium",
+          "direction": "neutral",
+          "magnitude": "keine",
+          "description": "Hyperkalzämie verstärkt Digoxin-Toxizität!"
+        }
+      ]
+    },
+    {
+      "id": "amiodaron",
+      "genericName": "Amiodaron",
+      "tradeNames": ["Cordarex", "Amiodaron-ratiopharm"],
+      "category": "herz-weitere",
+      "description": "Antiarrhythmikum Klasse III. Bei schweren Herzrhythmusstörungen.",
+      "commonDosages": ["100 mg", "200 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "tsh",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Kann TSH erhöhen (Hypothyreose) — enthält viel Jod, beeinflusst Schilddrüse massiv!"
+        },
+        {
+          "bloodValueId": "ft4",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Kann fT4 erhöhen (auch Hyperthyreose möglich)"
+        },
+        {
+          "bloodValueId": "ft3",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Hemmt T4→T3-Konversion, kann fT3 senken"
+        },
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Kann Leberwerte deutlich erhöhen (Lebertoxizität!)"
+        },
+        {
+          "bloodValueId": "got",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Kann GOT/AST erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "isdn",
+      "genericName": "Isosorbiddinitrat (ISDN)",
+      "tradeNames": ["Isoket", "ISDN-ratiopharm"],
+      "category": "herz-weitere",
+      "description": "Nitrat. Bei Angina pectoris (Brustenge) und akuter Herzinsuffizienz.",
+      "commonDosages": ["20 mg", "40 mg", "60 mg retard"],
+      "bloodValueEffects": []
+    },
+    {
+      "id": "salbutamol",
+      "genericName": "Salbutamol",
+      "tradeNames": ["Sultanol", "SalbuHEXAL", "Salbutamol-ratiopharm"],
+      "category": "lunge",
+      "description": "Kurzwirksamer Beta-2-Sympathomimetikum (SABA). Notfall-Spray bei Atemnot.",
+      "commonDosages": ["100 µg/Hub Inhalator"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Kalium kurzzeitig senken (Beta-2-Effekt)"
+        },
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Blutzucker kurzzeitig erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "formoterol",
+      "genericName": "Formoterol",
+      "tradeNames": ["Foradil", "Oxis"],
+      "category": "lunge",
+      "description": "Langwirksames Beta-2-Sympathomimetikum (LABA). Oft mit inhalativen Steroiden kombiniert.",
+      "commonDosages": ["6 µg", "12 µg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kalium",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Kalium leicht senken"
+        },
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Blutzucker leicht erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "tiotropium",
+      "genericName": "Tiotropium",
+      "tradeNames": ["Spiriva"],
+      "category": "lunge",
+      "description": "Langwirksames Anticholinergikum (LAMA). Standard bei COPD.",
+      "commonDosages": ["18 µg Kapsel", "2,5 µg/Hub Respimat"],
+      "bloodValueEffects": []
+    },
+    {
+      "id": "budesonid-inhalativ",
+      "genericName": "Budesonid (inhalativ)",
+      "tradeNames": ["Pulmicort", "Budesonid-ratiopharm"],
+      "category": "lunge",
+      "description": "Inhalatives Corticosteroid (ICS). Basistherapie bei Asthma, bei COPD in Kombination.",
+      "commonDosages": ["200 µg", "400 µg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "cortisol",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann bei hohen Dosen Cortisol leicht senken (Nebennierenrinden-Suppression)"
+        }
+      ]
+    },
+    {
+      "id": "prednisolon",
+      "genericName": "Prednisolon (oral)",
+      "tradeNames": ["Decortin H", "Prednisolon-ratiopharm"],
+      "category": "lunge",
+      "description": "Orales Corticosteroid. Bei COPD-Exazerbation, Asthma-Notfall, Autoimmunerkrankungen.",
+      "commonDosages": ["5 mg", "10 mg", "20 mg", "50 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "increase",
+          "magnitude": "stark",
+          "description": "Erhöht Blutzucker deutlich (Steroid-Diabetes!)"
+        },
+        {
+          "bloodValueId": "hba1c",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Kann HbA1c bei Langzeittherapie erhöhen"
+        },
+        {
+          "bloodValueId": "leukozyten",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Erhöht Leukozyten (Demargination — keine echte Infektion!)"
+        },
+        {
+          "bloodValueId": "lymphozyten",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Lymphozyten (Immunsuppression)"
+        },
+        {
+          "bloodValueId": "kalium",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Kalium senken"
+        },
+        {
+          "bloodValueId": "calcium",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Calcium (Osteoporose-Risiko bei Langzeittherapie!)"
+        },
+        {
+          "bloodValueId": "cortisol",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Unterdrückt körpereigene Cortisol-Produktion (NNR-Suppression!)"
+        },
+        {
+          "bloodValueId": "triglyceride",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Triglyceride und Cholesterin erhöhen"
+        },
+        {
+          "bloodValueId": "gesamtcholesterin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Gesamtcholesterin erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "montelukast",
+      "genericName": "Montelukast",
+      "tradeNames": ["Singulair", "Montelukast-ratiopharm"],
+      "category": "lunge",
+      "description": "Leukotrien-Rezeptor-Antagonist. Bei Asthma als Ergänzung.",
+      "commonDosages": ["10 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Erhöhung der Leberwerte"
+        },
+        {
+          "bloodValueId": "eosinophile",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten eosinophile Granulomatose (Churg-Strauss)"
+        }
+      ]
+    },
+    {
+      "id": "metformin",
+      "genericName": "Metformin",
+      "tradeNames": ["Glucophage", "Metformin-ratiopharm", "Siofor"],
+      "category": "diabetes",
+      "description": "Biguanid. First-Line-Therapie bei Typ-2-Diabetes. Senkt Insulinresistenz.",
+      "commonDosages": ["500 mg", "850 mg", "1000 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Nüchtern-Blutzucker um 20–30%"
+        },
+        {
+          "bloodValueId": "hba1c",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt HbA1c um 1,0–1,5%"
+        },
+        {
+          "bloodValueId": "homa-ir",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Verbessert Insulinresistenz (senkt HOMA-IR)"
+        },
+        {
+          "bloodValueId": "nuechtern-insulin",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Nüchtern-Insulin senken"
+        },
+        {
+          "bloodValueId": "triglyceride",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Triglyceride leicht senken"
+        },
+        {
+          "bloodValueId": "ldl",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann LDL leicht senken"
+        },
+        {
+          "bloodValueId": "vitamin-b12",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Kann Vitamin B12 senken (Langzeittherapie! B12 regelmäßig kontrollieren)"
+        },
+        {
+          "bloodValueId": "folsaeure",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Folsäure leicht senken"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "neutral",
+          "magnitude": "keine",
+          "description": "Kontraindiziert bei GFR <30! Nierenfunktion überwachen"
+        }
+      ]
+    },
+    {
+      "id": "empagliflozin",
+      "genericName": "Empagliflozin",
+      "tradeNames": ["Jardiance"],
+      "category": "diabetes",
+      "description": "SGLT2-Hemmer. Senkt Blutzucker über Zuckerausscheidung im Urin. Zusätzlich herzschützend.",
+      "commonDosages": ["10 mg", "25 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "hba1c",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt HbA1c um 0,5–0,8%"
+        },
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Nüchtern-Blutzucker"
+        },
+        {
+          "bloodValueId": "harnsaeure",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Senkt Harnsäure (positiver Nebeneffekt)"
+        },
+        {
+          "bloodValueId": "haematokrit",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Hämatokrit leicht erhöhen (Hämokonzentration durch Diurese)"
+        },
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin initial leicht erhöhen (hemodynamischer Effekt)"
+        },
+        {
+          "bloodValueId": "kalium",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kalium leicht beeinflussen"
+        }
+      ]
+    },
+    {
+      "id": "sitagliptin",
+      "genericName": "Sitagliptin",
+      "tradeNames": ["Januvia", "Xelevia"],
+      "category": "diabetes",
+      "description": "DPP-4-Hemmer (Gliptin). Steigert Inkretinwirkung, wenig Hypoglykämie-Risiko.",
+      "commonDosages": ["25 mg", "50 mg", "100 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "hba1c",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Senkt HbA1c um 0,5–0,8%"
+        },
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Senkt Nüchtern-Blutzucker moderat"
+        },
+        {
+          "bloodValueId": "lipase",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Lipase erhöhen (Pankreatitis-Risiko beachten!)"
+        }
+      ]
+    },
+    {
+      "id": "semaglutid",
+      "genericName": "Semaglutid",
+      "tradeNames": ["Ozempic (s.c.)", "Rybelsus (oral)", "Wegovy (Adipositas)"],
+      "category": "diabetes",
+      "description": "GLP-1-Rezeptor-Agonist. Senkt Blutzucker und Gewicht. Auch bei Adipositas zugelassen.",
+      "commonDosages": ["0,25 mg", "0,5 mg", "1 mg", "2,4 mg (Wegovy)"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "hba1c",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt HbA1c um 1,0–1,8%"
+        },
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt Nüchtern-Blutzucker deutlich"
+        },
+        {
+          "bloodValueId": "triglyceride",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Triglyceride um 15–25%"
+        },
+        {
+          "bloodValueId": "ldl",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann LDL leicht senken"
+        },
+        {
+          "bloodValueId": "gpt",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Leberwerte verbessern (Fettleber-Reduktion)"
+        },
+        {
+          "bloodValueId": "hs-crp",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Entzündungswerte leicht senken"
+        },
+        {
+          "bloodValueId": "lipase",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Lipase erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "glimepirid",
+      "genericName": "Glimepirid",
+      "tradeNames": ["Amaryl", "Glimepirid-ratiopharm"],
+      "category": "diabetes",
+      "description": "Sulfonylharnstoff. Steigert Insulinausschüttung. Hypoglykämie-Risiko!",
+      "commonDosages": ["1 mg", "2 mg", "3 mg", "4 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "nuechtern-glukose",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt Blutzucker (Hypoglykämie-Risiko!)"
+        },
+        {
+          "bloodValueId": "hba1c",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Senkt HbA1c um 1,0–1,5%"
+        },
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Leberwerterhöhung"
+        }
+      ]
+    },
+    {
+      "id": "l-thyroxin",
+      "genericName": "Levothyroxin (L-Thyroxin)",
+      "tradeNames": ["Euthyrox", "L-Thyroxin Henning", "L-Thyrox HEXAL"],
+      "category": "schilddruese",
+      "description": "Schilddrüsenhormon T4. Standardtherapie bei Hypothyreose (Schilddrüsenunterfunktion).",
+      "commonDosages": ["25 µg", "50 µg", "75 µg", "100 µg", "125 µg", "150 µg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "tsh",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt TSH (Ziel: Normalisierung des TSH in den optimalen Bereich)"
+        },
+        {
+          "bloodValueId": "ft4",
+          "direction": "increase",
+          "magnitude": "moderat",
+          "description": "Erhöht freies T4"
+        },
+        {
+          "bloodValueId": "ft3",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann fT3 erhöhen (durch T4→T3-Konversion)"
+        },
+        {
+          "bloodValueId": "gesamtcholesterin",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Cholesterin bei Hypothyreose normalisieren"
+        },
+        {
+          "bloodValueId": "ldl",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann LDL bei Hypothyreose senken (Normalisierung)"
+        }
+      ]
+    },
+    {
+      "id": "pantoprazol",
+      "genericName": "Pantoprazol",
+      "tradeNames": ["Pantozol", "Pantoprazol-ratiopharm"],
+      "category": "magen",
+      "description": "Protonenpumpenhemmer (PPI). Magenschutz, bei Reflux und Magengeschwüren.",
+      "commonDosages": ["20 mg", "40 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "magnesium-serum",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Kann Magnesium bei Langzeittherapie senken (>3 Monate)"
+        },
+        {
+          "bloodValueId": "vitamin-b12",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Kann Vitamin B12 bei Langzeittherapie senken (verminderte Aufnahme)"
+        },
+        {
+          "bloodValueId": "calcium",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Calcium-Aufnahme beeinträchtigen (Osteoporose-Risiko bei Langzeittherapie)"
+        },
+        {
+          "bloodValueId": "serum-eisen",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Eisenaufnahme beeinträchtigen"
+        },
+        {
+          "bloodValueId": "ferritin",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann langfristig Eisenspeicher senken"
+        }
+      ]
+    },
+    {
+      "id": "omeprazol",
+      "genericName": "Omeprazol",
+      "tradeNames": ["Antra", "Omeprazol-ratiopharm"],
+      "category": "magen",
+      "description": "Protonenpumpenhemmer (PPI). Wie Pantoprazol, aber mehr Wechselwirkungen über CYP2C19.",
+      "commonDosages": ["20 mg", "40 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "magnesium-serum",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Kann Magnesium bei Langzeittherapie senken"
+        },
+        {
+          "bloodValueId": "vitamin-b12",
+          "direction": "decrease",
+          "magnitude": "moderat",
+          "description": "Kann Vitamin B12 bei Langzeittherapie senken"
+        },
+        {
+          "bloodValueId": "calcium",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann Calcium-Aufnahme beeinträchtigen"
+        }
+      ]
+    },
+    {
+      "id": "ibuprofen",
+      "genericName": "Ibuprofen",
+      "tradeNames": ["Ibuprofen-ratiopharm", "Nurofen", "IBU-HEXAL"],
+      "category": "schmerz",
+      "description": "NSAR (nicht-steroidales Antirheumatikum). Schmerzmittel und Entzündungshemmer.",
+      "commonDosages": ["200 mg", "400 mg", "600 mg", "800 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kreatinin erhöhen (nierenschädigend bei Langzeitgebrauch!)"
+        },
+        {
+          "bloodValueId": "gfr",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Kann GFR senken (Nierenfunktion verschlechtern)"
+        },
+        {
+          "bloodValueId": "kalium",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kalium erhöhen"
+        },
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Leberwerterhöhung"
+        },
+        {
+          "bloodValueId": "thrombozyten",
+          "direction": "decrease",
+          "magnitude": "leicht",
+          "description": "Hemmt Thrombozytenfunktion (Blutungsrisiko mit Blutverdünnern!)"
+        }
+      ]
+    },
+    {
+      "id": "diclofenac",
+      "genericName": "Diclofenac",
+      "tradeNames": ["Voltaren", "Diclofenac-ratiopharm"],
+      "category": "schmerz",
+      "description": "NSAR. Stärker entzündungshemmend als Ibuprofen, aber höheres kardiovaskuläres Risiko.",
+      "commonDosages": ["25 mg", "50 mg", "75 mg retard"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "kreatinin",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Nierenwerte verschlechtern"
+        },
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Leberwerte erhöhen (häufiger als bei Ibuprofen)"
+        },
+        {
+          "bloodValueId": "got",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann GOT/AST erhöhen"
+        },
+        {
+          "bloodValueId": "kalium",
+          "direction": "increase",
+          "magnitude": "leicht",
+          "description": "Kann Kalium erhöhen"
+        }
+      ]
+    },
+    {
+      "id": "metamizol",
+      "genericName": "Metamizol",
+      "tradeNames": ["Novalgin", "Novaminsulfon-ratiopharm"],
+      "category": "schmerz",
+      "description": "Pyrazolon-Analgetikum. Stark schmerzlindernd und fiebersenkend. Agranulozytose-Risiko!",
+      "commonDosages": ["500 mg", "1000 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "leukozyten",
+          "direction": "decrease",
+          "magnitude": "selten",
+          "description": "Sehr selten Agranulozytose (lebensbedrohlich! Bei Fieber+Halsschmerzen sofort Blutbild!)"
+        },
+        {
+          "bloodValueId": "neutrophile",
+          "direction": "decrease",
+          "magnitude": "selten",
+          "description": "Sehr selten massiver Abfall der Neutrophilen"
+        },
+        {
+          "bloodValueId": "thrombozyten",
+          "direction": "decrease",
+          "magnitude": "selten",
+          "description": "Sehr selten Thrombozytopenie"
+        }
+      ]
+    },
+    {
+      "id": "allopurinol",
+      "genericName": "Allopurinol",
+      "tradeNames": ["Zyloric", "Allopurinol-ratiopharm"],
+      "category": "gicht",
+      "description": "Xanthinoxidase-Hemmer. Senkt Harnsäure bei Gicht.",
+      "commonDosages": ["100 mg", "300 mg"],
+      "bloodValueEffects": [
+        {
+          "bloodValueId": "harnsaeure",
+          "direction": "decrease",
+          "magnitude": "stark",
+          "description": "Senkt Harnsäure deutlich (Ziel: <6 mg/dl)"
+        },
+        {
+          "bloodValueId": "gpt",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Leberwerterhöhung"
+        },
+        {
+          "bloodValueId": "leukozyten",
+          "direction": "decrease",
+          "magnitude": "selten",
+          "description": "Selten Leukopenie"
+        },
+        {
+          "bloodValueId": "eosinophile",
+          "direction": "increase",
+          "magnitude": "selten",
+          "description": "Selten Eosinophilie (allergische Reaktion)"
+        }
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "statin-fibrat",
+      "medications": ["atorvastatin", "simvastatin", "rosuvastatin", "bezafibrat"],
+      "severity": "high",
+      "description": "Statine + Fibrate: Deutlich erhöhtes Risiko für Myopathie und Rhabdomyolyse! CK regelmäßig kontrollieren. Besonders gefährlich mit Simvastatin.",
+      "affectedValues": ["ck"],
+      "recommendation": "CK vor Therapiebeginn und regelmäßig kontrollieren. Bei Muskelschmerzen sofort Arzt aufsuchen!"
+    },
+    {
+      "id": "ace-sartan-spiro",
+      "medications": ["ramipril", "enalapril", "lisinopril", "candesartan", "valsartan", "losartan", "spironolacton"],
+      "severity": "high",
+      "description": "ACE-Hemmer/Sartane + Spironolacton: Hohes Risiko für Hyperkaliämie! Kalium engmaschig kontrollieren.",
+      "affectedValues": ["kalium"],
+      "recommendation": "Kalium und Kreatinin regelmäßig kontrollieren (alle 1-4 Wochen initial)."
+    },
+    {
+      "id": "ace-sartan-kombination",
+      "medications": ["ramipril", "enalapril", "lisinopril", "candesartan", "valsartan", "losartan"],
+      "severity": "high",
+      "description": "ACE-Hemmer + Sartan gleichzeitig: NICHT empfohlen! Keine Vorteile, aber mehr Nebenwirkungen (Hyperkaliämie, Nierenversagen).",
+      "affectedValues": ["kalium", "kreatinin"],
+      "recommendation": "Kombination vermeiden. Nur eines der beiden Medikamente verwenden."
+    },
+    {
+      "id": "ace-nsar",
+      "medications": ["ramipril", "enalapril", "lisinopril", "candesartan", "valsartan", "losartan", "ibuprofen", "diclofenac"],
+      "severity": "moderate",
+      "description": "ACE-Hemmer/Sartane + NSAR: Verminderte Blutdrucksenkung, erhöhtes Risiko für Nierenschäden und Hyperkaliämie ('Triple Whammy' mit Diuretika).",
+      "affectedValues": ["kreatinin", "gfr", "kalium"],
+      "recommendation": "NSAR möglichst vermeiden oder kurzzeitig und niedrig dosieren. Nierenwerte kontrollieren."
+    },
+    {
+      "id": "triple-whammy",
+      "medications": ["ramipril", "enalapril", "lisinopril", "candesartan", "valsartan", "losartan", "hydrochlorothiazid", "torasemid", "furosemid", "ibuprofen", "diclofenac"],
+      "severity": "high",
+      "description": "Triple Whammy: ACE-Hemmer/Sartan + Diuretikum + NSAR = Hohes Risiko für akutes Nierenversagen!",
+      "affectedValues": ["kreatinin", "gfr", "kalium"],
+      "recommendation": "Diese Dreifach-Kombination unbedingt vermeiden! Bei Schmerzen Alternative zu NSAR wählen (z.B. Paracetamol)."
+    },
+    {
+      "id": "blutverd-nsar",
+      "medications": ["phenprocoumon", "rivaroxaban", "apixaban", "edoxaban", "ass-100", "clopidogrel", "ibuprofen", "diclofenac"],
+      "severity": "high",
+      "description": "Blutverdünner + NSAR: Stark erhöhtes Blutungsrisiko! Besonders gastrointestinale Blutungen.",
+      "affectedValues": ["thrombozyten"],
+      "recommendation": "NSAR möglichst vermeiden. Wenn nötig: Magenschutz (PPI) dazu und kurzzeitig niedrig dosieren."
+    },
+    {
+      "id": "digoxin-diuretika",
+      "medications": ["digoxin", "hydrochlorothiazid", "torasemid", "furosemid"],
+      "severity": "high",
+      "description": "Digoxin + Kalium-senkende Diuretika: Hypokaliämie verstärkt Digoxin-Toxizität massiv! Lebensgefahr!",
+      "affectedValues": ["kalium"],
+      "recommendation": "Kalium engmaschig überwachen (Ziel: >4,0 mmol/l). Ggf. Kalium-Substitution."
+    },
+    {
+      "id": "metformin-niere",
+      "medications": ["metformin", "ibuprofen", "diclofenac"],
+      "severity": "moderate",
+      "description": "Metformin + NSAR: NSAR können Nierenfunktion verschlechtern. Bei eingeschränkter Niere steigt Laktatazidose-Risiko unter Metformin.",
+      "affectedValues": ["kreatinin", "gfr"],
+      "recommendation": "Nierenfunktion kontrollieren. Bei GFR <45 besondere Vorsicht."
+    },
+    {
+      "id": "statin-amiodaron",
+      "medications": ["simvastatin", "atorvastatin", "amiodaron"],
+      "severity": "moderate",
+      "description": "Statine + Amiodaron: Amiodaron hemmt Statin-Abbau. Erhöhtes Myopathie-Risiko, besonders bei Simvastatin.",
+      "affectedValues": ["ck", "gpt"],
+      "recommendation": "Simvastatin max. 20 mg/Tag mit Amiodaron. Atorvastatin-Dosis ggf. reduzieren."
+    },
+    {
+      "id": "ppi-clopidogrel",
+      "medications": ["omeprazol", "clopidogrel"],
+      "severity": "moderate",
+      "description": "Omeprazol + Clopidogrel: Omeprazol kann die Wirkung von Clopidogrel abschwächen (CYP2C19-Hemmung).",
+      "affectedValues": [],
+      "recommendation": "Statt Omeprazol besser Pantoprazol verwenden (weniger CYP2C19-Interaktion)."
+    },
+    {
+      "id": "ppi-thyroxin",
+      "medications": ["pantoprazol", "omeprazol", "l-thyroxin"],
+      "severity": "low",
+      "description": "PPI + L-Thyroxin: PPI können die Aufnahme von L-Thyroxin beeinträchtigen.",
+      "affectedValues": ["tsh", "ft4"],
+      "recommendation": "L-Thyroxin 30–60 Minuten vor dem PPI einnehmen. TSH nach Dosis-Änderung kontrollieren."
+    },
+    {
+      "id": "betablocker-diabetes",
+      "medications": ["metoprolol", "bisoprolol", "metformin", "glimepirid", "sitagliptin", "empagliflozin", "semaglutid"],
+      "severity": "low",
+      "description": "Betablocker + Diabetes-Medikamente: Betablocker können Unterzucker-Symptome maskieren (kein Herzrasen bei Hypo).",
+      "affectedValues": ["nuechtern-glukose"],
+      "recommendation": "Blutzucker engmaschiger kontrollieren. Patienten über veränderte Hypo-Symptome aufklären."
+    },
+    {
+      "id": "diuretika-diabetes",
+      "medications": ["hydrochlorothiazid", "torasemid", "furosemid", "metformin", "glimepirid"],
+      "severity": "low",
+      "description": "Thiazide/Schleifendiuretika + Diabetes-Medikamente: Diuretika können Blutzucker erhöhen und Diabetes-Einstellung verschlechtern.",
+      "affectedValues": ["nuechtern-glukose", "hba1c"],
+      "recommendation": "Blutzucker nach Diuretikum-Start engmaschiger kontrollieren. Ggf. Diabetes-Dosis anpassen."
+    },
+    {
+      "id": "marcumar-ass",
+      "medications": ["phenprocoumon", "ass-100"],
+      "severity": "moderate",
+      "description": "Marcumar + ASS: Deutlich erhöhtes Blutungsrisiko. Kombination nur bei strenger Indikation (z.B. mechanische Herzklappe + KHK).",
+      "affectedValues": [],
+      "recommendation": "Nur auf ausdrückliche Anordnung des Kardiologen. INR engmaschig kontrollieren."
+    },
+    {
+      "id": "allopurinol-ace",
+      "medications": ["allopurinol", "ramipril", "enalapril", "lisinopril"],
+      "severity": "low",
+      "description": "Allopurinol + ACE-Hemmer: Leicht erhöhtes Risiko für Überempfindlichkeitsreaktionen und Leukopenie.",
+      "affectedValues": ["leukozyten"],
+      "recommendation": "Blutbild gelegentlich kontrollieren. Bei Hautausschlag sofort Arzt aufsuchen."
+    },
+    {
+      "id": "prednisolon-diuretika",
+      "medications": ["prednisolon", "hydrochlorothiazid", "torasemid", "furosemid"],
+      "severity": "moderate",
+      "description": "Kortison + Diuretika: Additive Kaliumsenkung. Erhöhtes Hypokaliämie-Risiko.",
+      "affectedValues": ["kalium"],
+      "recommendation": "Kalium regelmäßig kontrollieren. Ggf. Kalium substituieren."
+    },
+    {
+      "id": "prednisolon-nsar",
+      "medications": ["prednisolon", "ibuprofen", "diclofenac"],
+      "severity": "moderate",
+      "description": "Kortison + NSAR: Stark erhöhtes Risiko für Magengeschwüre und gastrointestinale Blutungen.",
+      "affectedValues": [],
+      "recommendation": "Kombination möglichst vermeiden. Wenn nötig: Magenschutz (PPI) dazu."
+    }
+  ]
+}

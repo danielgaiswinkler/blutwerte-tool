@@ -1155,6 +1155,11 @@ export default function BloodValueDetail() {
       </div>
 
       {/* ================================================================ */}
+      {/* MEDICATION EFFECTS ON THIS VALUE                                 */}
+      {/* ================================================================ */}
+      {/* TODO: MedicationEffectsSection — kommt mit Medikamenten-Feature */}
+
+      {/* ================================================================ */}
       {/* RELATED VALUES (full section)                                    */}
       {/* ================================================================ */}
       {allRelatedData.length > 0 && (
@@ -1236,3 +1241,5 @@ export default function BloodValueDetail() {
     </div>
   );
 }
+
+// TODO: MedicationEffectsSection — kommt mit Medikamenten-Feature

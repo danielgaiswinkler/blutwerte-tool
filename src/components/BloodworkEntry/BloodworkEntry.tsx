@@ -23,6 +23,8 @@ import InfoPopover from '../InfoPopover';
 import { parsePdf } from '../../utils/pdf-parser';
 import type { ParsedLabValue } from '../../utils/pdf-parser';
 import { parseText } from '../../utils/text-parser';
+import { callVisionApi } from '../../utils/vision-api';
+import { hasStoredApiKey, getEncryptedKey, decryptApiKey } from '../../utils/vision-crypto';
 import {
   loadEntriesForProfile,
   loadEntries,
@@ -165,16 +167,17 @@ export default function BloodworkEntry() {
   const pdfInputRef = useRef<HTMLInputElement>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
   const [imageParsing, setImageParsing] = useState(false);
-  const [visionAvailable, setVisionAvailable] = useState(false);
+  const [hasOwnKey, setHasOwnKey] = useState(false);
   const [showPasteArea, setShowPasteArea] = useState(false);
   const [pasteText, setPasteText] = useState('');
+  const [showPasswordDialog, setShowPasswordDialog] = useState(false);
+  const [visionPassword, setVisionPassword] = useState('');
+  const [pendingImageFile, setPendingImageFile] = useState<File | null>(null);
+  const [passwordError, setPasswordError] = useState<string | null>(null);
 
-  // Check if Vision API is available
+  // Check if user has their own encrypted API key
   useEffect(() => {
-    fetch('/api/vision/status')
-      .then((r) => r.json())
-      .then((data: { available: boolean }) => setVisionAvailable(data.available))
-      .catch(() => setVisionAvailable(false));
+    setHasOwnKey(hasStoredApiKey());
   }, []);
 
   // ---- Load entries for active profile ----
@@ -473,93 +476,116 @@ export default function BloodworkEntry() {
   }, [pdfPreview, values]);
 
   // ---- Image Upload handler (Claude Vision) ----
-  const handleImageUpload = useCallback(
-    async (file: File) => {
-      setCsvFeedback(null);
-      setImageParsing(true);
-      setPdfPreview(null);
+  // Step 1: User picks image → Worker (direkt) oder Passwort-Dialog (eigener Key)
+  const handleImageSelect = useCallback((file: File) => {
+    if (hasOwnKey) {
+      // Eigener Key: Passwort-Dialog zeigen
+      setPendingImageFile(file);
+      setVisionPassword('');
+      setPasswordError(null);
+      setShowPasswordDialog(true);
+    } else {
+      // Standard: direkt ueber Worker (kein Passwort noetig)
+      processImageViaWorker(file);
+    }
+  }, [hasOwnKey]);
 
-      try {
-        // Read file as base64
-        const base64 = await new Promise<string>((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onload = () => {
-            const result = reader.result as string;
-            // Remove data URL prefix (data:image/jpeg;base64,...)
-            const base64Data = result.split(',')[1];
-            resolve(base64Data);
-          };
-          reader.onerror = reject;
-          reader.readAsDataURL(file);
-        });
+  // Worker-Route: Kein eigener Key noetig
+  const processImageViaWorker = useCallback(async (file: File) => {
+    setCsvFeedback(null);
+    setImageParsing(true);
+    setPdfPreview(null);
 
-        const mediaType = file.type || 'image/jpeg';
+    try {
+      const base64 = await fileToBase64(file);
+      const mediaType = file.type || 'image/jpeg';
+      setCsvFeedback('Bild wird von KI analysiert... (kann 10-20 Sekunden dauern)');
 
-        setCsvFeedback('Bild wird von KI analysiert... (kann 10-20 Sekunden dauern)');
+      const result = await callVisionApi(base64, mediaType);
+      applyVisionResult(result);
+    } catch (err) {
+      setCsvFeedback(
+        `Fehler bei der Bild-Analyse: ${err instanceof Error ? err.message : 'Unbekannter Fehler'}`,
+      );
+    } finally {
+      setImageParsing(false);
+    }
+  }, []);
 
-        const response = await fetch('/api/vision', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ image: base64, mediaType }),
-        });
+  // Eigener-Key-Route: Passwort → entschluesseln → API-Call
+  const handleVisionWithPassword = useCallback(async () => {
+    if (!pendingImageFile || !visionPassword) return;
 
-        if (!response.ok) {
-          const err = await response.json() as { error: string };
-          throw new Error(err.error || `Server-Fehler ${response.status}`);
-        }
+    const encrypted = getEncryptedKey();
+    if (!encrypted) {
+      setPasswordError('Kein API-Key gespeichert.');
+      return;
+    }
 
-        const result = await response.json() as {
-          values: Array<{ id: string; name: string; value: number; unit: string; note?: string }>;
-          date: string | null;
-          lab: string | null;
-          warnings: string[];
-        };
+    let apiKey: string;
+    try {
+      apiKey = await decryptApiKey(encrypted, visionPassword);
+    } catch {
+      setPasswordError('Falsches Passwort.');
+      return;
+    }
 
-        if (result.date) setDate(result.date);
+    setShowPasswordDialog(false);
+    setVisionPassword('');
+    setPasswordError(null);
+    setCsvFeedback(null);
+    setImageParsing(true);
+    setPdfPreview(null);
 
-        if (result.values.length > 0) {
-          // Convert to ParsedLabValue format
-          const parsed: ParsedLabValue[] = result.values
-            .filter((v) => v.id !== 'unknown')
-            .map((v) => ({
-              id: v.id,
-              name: v.name,
-              value: v.value,
-              unit: v.unit,
-              originalValue: v.value,
-              originalUnit: v.unit,
-              converted: false,
-              note: v.note,
-            }));
+    try {
+      const base64 = await fileToBase64(pendingImageFile);
+      const mediaType = pendingImageFile.type || 'image/jpeg';
+      setCsvFeedback('Bild wird von KI analysiert... (kann 10-20 Sekunden dauern)');
 
-          setPdfPreview(parsed);
+      const result = await callVisionApi(base64, mediaType, apiKey);
+      applyVisionResult(result);
+    } catch (err) {
+      setCsvFeedback(
+        `Fehler bei der Bild-Analyse: ${err instanceof Error ? err.message : 'Unbekannter Fehler'}`,
+      );
+    } finally {
+      setImageParsing(false);
+      setPendingImageFile(null);
+    }
+  }, [pendingImageFile, visionPassword]);
 
-          const labInfo = result.lab ? ` (${result.lab})` : '';
-          const dateInfo = result.date
-            ? ` vom ${result.date.split('-').reverse().join('.')}`
-            : '';
-          const warnInfo = result.warnings.length > 0
-            ? ` Hinweise: ${result.warnings.join(', ')}`
-            : '';
+  // Shared helpers
+  function fileToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const dataUrl = reader.result as string;
+        resolve(dataUrl.split(',')[1]);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
 
-          setCsvFeedback(
-            `Bild erkannt${labInfo}${dateInfo}: ${parsed.length} Blutwerte gefunden. Bitte prüfen und übernehmen.${warnInfo}`,
-          );
-        } else {
-          setCsvFeedback(
-            'Keine Blutwerte im Bild erkannt. Bitte ein Foto eines Laborbefunds hochladen.',
-          );
-        }
-      } catch (err) {
-        setCsvFeedback(
-          `Fehler bei der Bild-Analyse: ${err instanceof Error ? err.message : 'Unbekannter Fehler'}`,
-        );
-      } finally {
-        setImageParsing(false);
-      }
-    },
-    [],
-  );
+  function applyVisionResult(result: { values: ParsedLabValue[]; date: string | null; lab: string | null; warnings: string[] }) {
+    if (result.date) setDate(result.date);
+
+    if (result.values.length > 0) {
+      setPdfPreview(result.values);
+      const labInfo = result.lab ? ` (${result.lab})` : '';
+      const dateInfo = result.date
+        ? ` vom ${result.date.split('-').reverse().join('.')}`
+        : '';
+      const warnInfo = result.warnings.length > 0
+        ? ` Hinweise: ${result.warnings.join(', ')}`
+        : '';
+      setCsvFeedback(
+        `Bild erkannt${labInfo}${dateInfo}: ${result.values.length} Blutwerte gefunden. Bitte pruefen und uebernehmen.${warnInfo}`,
+      );
+    } else {
+      setCsvFeedback('Keine Blutwerte im Bild erkannt. Bitte ein Foto eines Laborbefunds hochladen.');
+    }
+  }
 
   // ---- Text Paste handler ----
   const handleTextPaste = useCallback(() => {
@@ -759,31 +785,28 @@ export default function BloodworkEntry() {
             </span>
             <div className="flex gap-2">
               {/* Image Import (Claude Vision) */}
-              {visionAvailable && (
-                <>
-                  <input
-                    ref={imageInputRef}
-                    type="file"
-                    accept="image/jpeg,image/png,image/webp,image/gif"
-                    className="hidden"
-                    onChange={(e) => {
-                      const file = e.target.files?.[0];
-                      if (file) handleImageUpload(file);
-                      e.target.value = '';
-                    }}
-                  />
-                  <button
-                    onClick={() => imageInputRef.current?.click()}
-                    disabled={imageParsing}
-                    className="flex items-center gap-1.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-4 py-2
-                               text-sm text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/60
-                               transition-colors disabled:opacity-50"
-                  >
-                    <Camera size={16} />
-                    {imageParsing ? 'KI analysiert...' : 'Bild Import'}
-                  </button>
-                </>
-              )}
+              <input
+                ref={imageInputRef}
+                type="file"
+                accept="image/jpeg,image/png,image/webp,image/gif"
+                className="hidden"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) handleImageSelect(file);
+                  e.target.value = '';
+                }}
+              />
+              <button
+                onClick={() => imageInputRef.current?.click()}
+                disabled={imageParsing}
+                className="flex items-center gap-1.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-4 py-2
+                           text-sm text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/60
+                           transition-colors disabled:opacity-50"
+                title="Laborbefund-Foto per KI analysieren"
+              >
+                <Camera size={16} />
+                {imageParsing ? 'KI analysiert...' : 'Bild Import'}
+              </button>
               {/* PDF Import */}
               <input
                 ref={pdfInputRef}
@@ -855,6 +878,51 @@ export default function BloodworkEntry() {
         {saveError && (
           <div className="rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-2 text-sm text-red-400">
             {saveError}
+          </div>
+        )}
+
+        {/* Password Dialog for Vision API */}
+        {showPasswordDialog && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+            <div className="rounded-xl border border-border bg-bg-card p-6 w-full max-w-sm mx-4 shadow-2xl">
+              <h4 className="text-base font-semibold text-text-primary mb-2 flex items-center gap-2">
+                <Camera size={18} className="text-emerald-400" />
+                Bild-Import Passwort
+              </h4>
+              <p className="text-sm text-text-muted mb-4">
+                Gib dein Passwort ein, um den API-Key zu entschluesseln.
+              </p>
+              <input
+                type="password"
+                value={visionPassword}
+                onChange={(e) => { setVisionPassword(e.target.value); setPasswordError(null); }}
+                onKeyDown={(e) => { if (e.key === 'Enter' && visionPassword) handleVisionWithPassword(); }}
+                placeholder="Passwort"
+                autoFocus
+                className="w-full rounded-lg border border-border bg-bg-input px-3 py-2 text-sm text-text-primary
+                           placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-emerald-500/50 mb-2"
+              />
+              {passwordError && (
+                <p className="text-xs text-red-400 mb-2">{passwordError}</p>
+              )}
+              <div className="flex justify-end gap-2 mt-3">
+                <button
+                  onClick={() => { setShowPasswordDialog(false); setPendingImageFile(null); setVisionPassword(''); }}
+                  className="rounded-lg border border-border px-4 py-2 text-sm text-text-secondary
+                             hover:text-text-primary transition-colors"
+                >
+                  Abbrechen
+                </button>
+                <button
+                  onClick={handleVisionWithPassword}
+                  disabled={!visionPassword}
+                  className="rounded-lg bg-emerald-600 hover:bg-emerald-700 px-4 py-2 text-sm font-medium text-white
+                             transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  Analysieren
+                </button>
+              </div>
+            </div>
           </div>
         )}
 

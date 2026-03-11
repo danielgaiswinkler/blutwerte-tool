@@ -420,6 +420,8 @@ function CriticalAlert({
 // Empty state component
 // ---------------------------------------------------------------------------
 
+// TODO: MedicationsBanner — kommt mit Medikamenten-Feature
+
 function EmptyState() {
   return (
     <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
@@ -647,6 +649,8 @@ export default function Dashboard() {
       {/* CRITICAL VALUES ALERT                                              */}
       {/* ================================================================== */}
       <CriticalAlert criticalValues={analysis.critical} gender={gender} />
+
+      {/* TODO: MedicationsBanner — kommt mit Medikamenten-Feature */}
 
       {/* ================================================================== */}
       {/* SUMMARY BAR (Ampel-Uebersicht)                                    */}

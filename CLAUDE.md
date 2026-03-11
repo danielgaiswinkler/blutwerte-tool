@@ -9,7 +9,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - localStorage (Datenhaltung)
 - JSON-basierte Wissensdatenbank
 
-## Status (2026-03-06) — v1.0.0
+## Status (2026-03-11) — v1.1.0
 - [x] **Schritt 1: Wissensdatenbank** - 81 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
 - [x] **Schritt 2: Eingabeformular + CSV/JSON Import** - BloodworkEntry mit manuellem Input, CSV-Upload, localStorage
 - [x] **Schritt 3: Dashboard mit Ampelsystem** - Vollstaendiges Analyse-Dashboard mit Ampel-Uebersicht, Kategorie-Cards, kritische Werte Alert, Erfassungsgrad
@@ -22,20 +22,24 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - [x] **Schritt 6: Trendansicht (Zeitverlauf)** - Recharts LineChart mit Status-Farben, Sparkline-Übersicht, Kategorie-Filter, Quick-Links für kritische Werte, Referenz-/Optimalbereich-Zonen, Zusammenfassungs-Stats, Messwert-Tabelle. Route /trend
 - [x] **Schritt 8: Arzt-Bericht / Druckversion** - Werte-Auswahl mit Checkboxen, Kategorie-Toggle, Schnellauswahl (Alle/Auffaellige/Keine), optionale Empfehlungen + Supplement-Plan, druckoptimiertes Layout (weiss, Tabellen, Ampel-Emoji), @media print CSS. Route /bericht
 - [x] updates-from-research.json (34 Patches) in Hauptdatenbank gemerged (2026-03-06)
+- [x] **Medikamenten-Feature** - 48 Medikamente in 16 Kategorien, Wechselwirkungen (17 Interaktionen), Blutwert-Einflüsse, Dashboard-Banner, Detail-Seiten-Integration
 
 ## Datenstruktur
 - `src/data/bloodwork-knowledge.json` - Gesamte Wissensdatenbank (81 Werte)
 - `src/data/supplements.json` - Supplement-Datenbank (17 Supplements, Timing, Interaktionen, Kosten)
 - `src/data/foods.json` - Lebensmittel-Datenbank (17 Kategorien, Top-Foods pro Blutwert)
 - `src/data/lab-costs.json` - GOÄ-Kostenübersicht (63 Werte, Pakete, Spartipps)
-- `src/data/index.ts` - TypeScript-Typen + Exports
+- `src/data/medications.json` - Medikamenten-Datenbank (48 Medikamente, 16 Kategorien, 17 Wechselwirkungen)
+- `src/data/index.ts` - TypeScript-Typen + Exports (inkl. Medication-Types + Aggregation)
 - `src/utils/bloodwork-utils.ts` - Shared Utilities (Status-Berechnung, localStorage, Profile, Formatierung)
 - `src/utils/recommendations.ts` - Empfehlungs-Engine (Supplements + Foods + Lifestyle)
 - `src/utils/cross-value-rules.ts` - Cross-Value-Analyse-Regeln (8 Panels)
+- `src/utils/bloodwork-utils.ts` - Shared Utilities (inkl. loadUserMedications/saveUserMedications)
 - `src/context/ProfileContext.tsx` - React Context für Multi-User Profile
 - `src/components/InfoPopover.tsx` - Wiederverwendbare Laien-Info Komponente
 - `src/components/TrendView/TrendView.tsx` - Zeitverlauf-Charts mit Recharts (Sparklines, LineChart, Status-Dots)
 - `src/components/Report/Report.tsx` - Arzt-Bericht mit Werte-Auswahl, Druckversion (@media print)
+- `src/components/Medications/Medications.tsx` - Medikamenten-Seite (Checkboxen, Wechselwirkungen, Blutwert-Einflüsse)
 - `src/components/SettingsPage/SettingsPage.tsx` - Export/Import/Reset, localStorage-Info
 - Einzeldateien (Quelle): `blutbild-entzuendung.json`, `leber-niere-zucker.json`, `mikronaehrstoffe.json`, `herzgesundheit.json`, `hormone-spezial.json`, `zusatzwerte.json`
 
@@ -97,13 +101,20 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - **Text-Parser Erkennung:** Bei mehrzeiligem Paste (Name auf Zeile 1, Wert auf Zeile 2) werden manche Werte nicht erkannt. Parser erwartet Name + Wert auf einer Zeile
 
 ## Naechste Schritte
-1. ~~**Bild-Upload mit Claude Vision**~~ — ERLEDIGT (2026-03-06)
-   - Vite-Plugin `vite-plugin-vision.ts` als Backend (liest .env, proxied Claude API)
-   - POST /api/vision Endpoint (Base64-Bild → Claude Sonnet 4 → strukturierte Werte)
-   - GET /api/vision/status (prüft ob API-Key vorhanden)
-   - "Bild Import" Button in BloodworkEntry (grüner Camera-Button, nur sichtbar wenn API verfügbar)
-   - Wiederverwendet bestehendes ParsedLabValue Preview-Pattern (prüfen + übernehmen)
-   - Getestet mit Bioscentia-Rechnung: Labor + Datum korrekt erkannt, 29 Positionen extrahiert
+1. ~~**Bild-Upload mit Claude Vision**~~ — ERLEDIGT (2026-03-06, Cloudflare Worker 2026-03-11)
+   - **2-Stufen-Architektur:**
+     - **Standard (alle User):** Cloudflare Worker `blutwerte-vision.danielgaiswinkler.workers.dev`
+       - Daniels API-Key liegt als Secret im Worker (nie im Browser)
+       - Origin-Check: Nur Requests von GitHub Pages + localhost erlaubt
+       - Kein Setup noetig — Bild-Import funktioniert sofort fuer jeden
+     - **Fallback (Power-User):** Eigener API-Key verschluesselt in localStorage
+       - `src/utils/vision-crypto.ts` — AES-256-GCM (PBKDF2, 100k Iterationen)
+       - Passwort-Dialog bei jedem Import, Key wird nach Call verworfen
+       - Einrichtung unter Einstellungen
+   - `src/utils/vision-api.ts` — Versucht Worker, dann Fallback auf eigenen Key
+   - `worker/` — Cloudflare Worker Source (wrangler.toml + src/index.ts)
+   - "Bild Import" Button ist IMMER sichtbar (gruen)
+   - Vite-Plugin `vite-plugin-vision.ts` nicht mehr aktiv (aus vite.config.ts entfernt)
    - **Offen:** Test mit echtem Laborbefund-Foto (nicht Rechnung), ggf. Prompt-Feintuning
 2. ~~**Arzt-Export / Druckversion (PDF)**~~ — ERLEDIGT (2026-03-06)
    - Report-Komponente `src/components/Report/Report.tsx` mit Werte-Auswahl (Checkboxen pro Kategorie)

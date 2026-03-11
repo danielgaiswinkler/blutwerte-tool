@@ -260,6 +260,29 @@ export function saveUserSupplements(profileId: string, supplementIds: string[]):
 }
 
 // ---------------------------------------------------------------------------
+// User Medications (per profile)
+// ---------------------------------------------------------------------------
+
+const MEDICATIONS_PREFIX = 'blutwerte-medications-';
+
+/** Load the list of medication IDs the user takes (for a given profile). */
+export function loadUserMedications(profileId: string): string[] {
+  try {
+    const raw = localStorage.getItem(MEDICATIONS_PREFIX + profileId);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+/** Save the list of medication IDs the user takes. */
+export function saveUserMedications(profileId: string, medicationIds: string[]): void {
+  localStorage.setItem(MEDICATIONS_PREFIX + profileId, JSON.stringify(medicationIds));
+}
+
+// ---------------------------------------------------------------------------
 // Date helpers
 // ---------------------------------------------------------------------------
 
