@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { Search, AlertTriangle, ArrowUp, ArrowDown, ChevronDown, ChevronRight, Pill, Info, Shield, Heart, Activity, Wind, Droplets, X } from 'lucide-react'
+import { Search, AlertTriangle, ArrowUp, ArrowDown, ChevronDown, ChevronRight, ChevronsUpDown, Pill, Info, Shield, Heart, Activity, Wind, Droplets, X } from 'lucide-react'
 import { useProfile } from '../../context/ProfileContext'
 import { loadUserMedications, saveUserMedications } from '../../utils/bloodwork-utils'
 import {
@@ -85,12 +85,25 @@ export default function Medications() {
   }
 
   const toggleCategory = (catId: string) => {
-    setExpandedCategories(prev => {
-      const next = new Set(prev)
-      if (next.has(catId)) next.delete(catId)
-      else next.add(catId)
-      return next
-    })
+    // When manually toggling, respect allCollapsed for active categories
+    const wasExpanded = isCategoryExpanded(catId)
+    if (wasExpanded) {
+      // Collapsing: if it was auto-expanded (active), we need allCollapsed mode
+      if (!expandedCategories.has(catId) && categoriesWithActive.has(catId)) {
+        setAllCollapsed(true)
+      }
+      setExpandedCategories(prev => {
+        const next = new Set(prev)
+        next.delete(catId)
+        return next
+      })
+    } else {
+      setExpandedCategories(prev => {
+        const next = new Set(prev)
+        next.add(catId)
+        return next
+      })
+    }
   }
 
   // Filter medications by search
@@ -134,8 +147,25 @@ export default function Medications() {
     return cats
   }, [activeMeds])
 
-  const isCategoryExpanded = (catId: string) =>
-    expandedCategories.has(catId) || categoriesWithActive.has(catId)
+  // "all collapsed" override: when user explicitly collapses all, even active categories stay closed
+  const [allCollapsed, setAllCollapsed] = useState(false)
+
+  const isCategoryExpanded = (catId: string) => {
+    if (allCollapsed) return expandedCategories.has(catId)
+    return expandedCategories.has(catId) || categoriesWithActive.has(catId)
+  }
+
+  const expandAll = () => {
+    setAllCollapsed(false)
+    setExpandedCategories(new Set(groupedMedications.map(g => g.category.id)))
+  }
+
+  const collapseAll = () => {
+    setAllCollapsed(true)
+    setExpandedCategories(new Set())
+  }
+
+  const allExpanded = groupedMedications.every(g => isCategoryExpanded(g.category.id))
 
   return (
     <div className="max-w-6xl mx-auto space-y-6">
@@ -171,6 +201,17 @@ export default function Medications() {
                 <X size={16} />
               </button>
             )}
+          </div>
+
+          {/* Expand/Collapse all */}
+          <div className="flex justify-end">
+            <button
+              onClick={allExpanded ? collapseAll : expandAll}
+              className="flex items-center gap-1.5 text-xs text-(--color-text-muted) hover:text-(--color-text-primary) transition-colors"
+            >
+              <ChevronsUpDown size={14} />
+              {allExpanded ? 'Alle einklappen' : 'Alle ausklappen'}
+            </button>
           </div>
 
           {/* Active count */}
