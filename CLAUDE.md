@@ -9,7 +9,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - localStorage (Datenhaltung)
 - JSON-basierte Wissensdatenbank
 
-## Status (2026-03-11) — v2.0.0
+## Status (2026-03-13) — v2.1.0
 - [x] **Schritt 1: Wissensdatenbank** - 81 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
 - [x] **Schritt 2: Eingabeformular + CSV/JSON Import** - BloodworkEntry mit manuellem Input, CSV-Upload, localStorage
 - [x] **Schritt 3: Dashboard mit Ampelsystem** - Vollstaendiges Analyse-Dashboard mit Ampel-Uebersicht, Kategorie-Cards, kritische Werte Alert, Erfassungsgrad
@@ -23,6 +23,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - [x] **Schritt 8: Arzt-Bericht / Druckversion** - Werte-Auswahl mit Checkboxen, Kategorie-Toggle, Schnellauswahl (Alle/Auffaellige/Keine), optionale Empfehlungen + Supplement-Plan, druckoptimiertes Layout (weiss, Tabellen, Ampel-Emoji), @media print CSS. Route /bericht
 - [x] updates-from-research.json (34 Patches) in Hauptdatenbank gemerged (2026-03-06)
 - [x] **Medikamenten-Feature** - 48 Medikamente in 16 Kategorien, Wechselwirkungen (17 Interaktionen), Blutwert-Einflüsse, Dashboard-Banner, Detail-Seiten-Integration
+- [x] **Labor-Planer** - Empfehlungen fuer naechsten Bluttest: Fehlende Werte (priorisiert nach Basis/Erweitert/Komplett), Retest-Erinnerungen, Paket-Empfehlungen mit Coverage-Score, interaktiver Kostenrechner (GOAe 1.0x/1.15x), 12 Labore, 4 Home-Test-Anbieter, 13 Spartipps, Dashboard-Nudge. Route /labor-planer
 
 ## Datenstruktur
 - `src/data/bloodwork-knowledge.json` - Gesamte Wissensdatenbank (81 Werte)
@@ -41,6 +42,8 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - `src/components/Report/Report.tsx` - Arzt-Bericht mit Werte-Auswahl, Druckversion (@media print)
 - `src/components/Medications/Medications.tsx` - Medikamenten-Seite (Checkboxen, Wechselwirkungen, Blutwert-Einflüsse)
 - `src/components/SettingsPage/SettingsPage.tsx` - Export/Import/Reset, localStorage-Info
+- `src/components/LabPlanner/LabPlanner.tsx` - Labor-Planer (Fehlende Werte, Retest, Pakete, Kostenrechner, Labore, Spartipps)
+- `src/utils/lab-planner-utils.ts` - Berechnungslogik (getMissingValues, getRetestValues, getPackageRecommendations, calculateSelectedCost)
 - Einzeldateien (Quelle): `blutbild-entzuendung.json`, `leber-niere-zucker.json`, `mikronaehrstoffe.json`, `herzgesundheit.json`, `hormone-spezial.json`, `zusatzwerte.json`
 
 ## Kategorien (13)

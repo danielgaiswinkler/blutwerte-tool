@@ -1,5 +1,6 @@
 import bloodworkData from './bloodwork-knowledge.json';
 import medicationsData from './medications.json';
+import labCostsData from './lab-costs.json';
 
 export interface BloodValueRange {
   min?: number;
@@ -142,3 +143,67 @@ export const getAggregatedEffects = (activeMedIds: string[]): Record<string, { m
   }
   return result;
 };
+
+// ---------------------------------------------------------------------------
+// Lab Costs
+// ---------------------------------------------------------------------------
+
+export interface LabCostValue {
+  bloodValueId: string;
+  name: string;
+  goaeZiffer: string;
+  cost_1_0x: number;
+  cost_1_15x: number;
+  cost_1_3x: number;
+  kassenleistung: boolean;
+  kassenDetails: string;
+  igel: boolean;
+  paket: string;
+  h1Hoechstwert: boolean;
+  einmalig: boolean;
+  retestIntervall: string;
+  retestHinweis: string;
+  note?: string;
+}
+
+export interface LabPackage {
+  id: string;
+  name: string;
+  frequency: string;
+  laborkosten_1_15x: number;
+  arztkosten: number;
+  gesamtkosten: number;
+  description: string;
+  parameters: string[];
+}
+
+export interface LabFixedCosts {
+  blutentnahme: { goaeZiffer: string; cost_1_0x: number; cost_2_3x: number; cost_max: number; description: string };
+  beratung: { goaeZiffer: string; cost_2_3x: number; description: string };
+  probenversand: { goaeZiffer: string; cost_range: string; cost_typical: number; description: string };
+}
+
+export interface LabInfo {
+  name: string;
+  preisbasis: string;
+  besonderheiten: string;
+}
+
+export interface HomeTestProvider {
+  name: string;
+  preisbereich: string;
+  vorteile: string;
+  nachteile: string;
+  geeignetFuer: string;
+}
+
+export const labCostValues: LabCostValue[] = labCostsData.values as LabCostValue[];
+export const labPackages: LabPackage[] = labCostsData.packages as LabPackage[];
+export const labFixedCosts = labCostsData.fixedCosts as LabFixedCosts;
+export const labSparTipps: string[] = labCostsData.sparTipps;
+export const labore: LabInfo[] = labCostsData.labore as LabInfo[];
+export const homeTestAnbieter: HomeTestProvider[] = labCostsData.homeTestAnbieter as HomeTestProvider[];
+export const homeTestHinweis: string = labCostsData.homeTestHinweis;
+
+export const getLabCostByValueId = (id: string): LabCostValue | undefined =>
+  labCostValues.find(v => v.bloodValueId === id);

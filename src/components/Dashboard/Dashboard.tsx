@@ -12,6 +12,7 @@ import {
   Calendar,
   Shield,
   Pill,
+  TestTube2,
 } from 'lucide-react';
 import {
   bloodValues,
@@ -759,6 +760,32 @@ export default function Dashboard() {
           )}
         </p>
       </div>
+
+      {/* Labor-Planer Nudge */}
+      {filledPct < 80 && (
+        <Link
+          to="/labor-planer"
+          className={`rounded-xl border p-4 mb-8 flex items-center justify-between gap-4 transition-colors hover:border-(--color-accent)/50 ${
+            filledPct < 30
+              ? 'border-[var(--color-warning)]/40 bg-[var(--color-warning)]/5'
+              : 'border-(--color-border) bg-(--color-bg-card)'
+          }`}
+        >
+          <div className="flex items-center gap-3 min-w-0">
+            <TestTube2 size={20} className={filledPct < 30 ? 'text-(--color-warning)' : 'text-(--color-accent)'} />
+            <div>
+              <p className="text-sm font-semibold text-(--color-text-primary)">
+                {filledPct < 30 ? 'Viele Werte fehlen noch' : 'Nächsten Bluttest planen'}
+              </p>
+              <p className="text-xs text-(--color-text-muted)">
+                {analysis.totalCount - analysis.filledCount} Werte noch nicht erfasst —
+                Labor-Planer zeigt Kosten und empfohlene Tests
+              </p>
+            </div>
+          </div>
+          <ArrowRight size={16} className="text-(--color-text-muted) shrink-0" />
+        </Link>
+      )}
 
       {/* ================================================================== */}
       {/* CATEGORY CARDS GRID                                                */}

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
-import { Activity, Upload, BarChart3, TrendingUp, Settings, FileText, Users, Plus, Check, X, Trash2, Sparkles, GitBranch, Menu, Pill } from 'lucide-react'
+import { Activity, Upload, BarChart3, TrendingUp, Settings, FileText, Users, Plus, Check, X, Trash2, Sparkles, GitBranch, Menu, Pill, TestTube2 } from 'lucide-react'
 import Dashboard from './components/Dashboard/Dashboard'
 import BloodworkEntry from './components/BloodworkEntry/BloodworkEntry'
 import BloodValueDetail from './components/BloodValueDetail/BloodValueDetail'
@@ -10,6 +10,7 @@ import TrendView from './components/TrendView/TrendView'
 import Report from './components/Report/Report'
 import Medications from './components/Medications/Medications'
 import SettingsPage from './components/SettingsPage/SettingsPage'
+import LabPlanner from './components/LabPlanner/LabPlanner'
 import { useProfile } from './context/ProfileContext'
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
     '/analyse': 'Cross-Analyse',
     '/trend': 'Verlauf',
     '/bericht': 'Bericht',
+    '/labor-planer': 'Labor-Planer',
     '/einstellungen': 'Einstellungen',
   }
   const currentLabel = pageLabels[location.pathname] ?? 'Blutwerte-Tool'
@@ -221,6 +223,7 @@ function App() {
           <SidebarLink to="/eingabe" icon={<Upload className="w-5 h-5" />} label="Werte eingeben" onClick={closeSidebar} />
           <SidebarLink to="/empfehlungen" icon={<Sparkles className="w-5 h-5" />} label="Empfehlungen" onClick={closeSidebar} />
           <SidebarLink to="/medikamente" icon={<Pill className="w-5 h-5" />} label="Medikamente" onClick={closeSidebar} />
+          <SidebarLink to="/labor-planer" icon={<TestTube2 className="w-5 h-5" />} label="Labor-Planer" onClick={closeSidebar} />
           <SidebarLink to="/analyse" icon={<GitBranch className="w-5 h-5" />} label="Cross-Analyse" onClick={closeSidebar} />
           <SidebarLink to="/trend" icon={<TrendingUp className="w-5 h-5" />} label="Verlauf" onClick={closeSidebar} />
           <SidebarLink to="/bericht" icon={<FileText className="w-5 h-5" />} label="Bericht" onClick={closeSidebar} />
@@ -228,7 +231,7 @@ function App() {
         </div>
 
         <div className="mt-auto pt-4 border-t border-(--color-border)">
-          <p className="text-xs text-(--color-text-muted)">v2.0.0 — 78 Blutwerte · 48 Medikamente</p>
+          <p className="text-xs text-(--color-text-muted)">v2.1.0 — 78 Blutwerte · 48 Medikamente</p>
         </div>
       </nav>
 
@@ -240,6 +243,7 @@ function App() {
           <Route path="/eingabe" element={<BloodworkEntry />} />
           <Route path="/empfehlungen" element={<Recommendations />} />
           <Route path="/medikamente" element={<Medications />} />
+          <Route path="/labor-planer" element={<LabPlanner />} />
           <Route path="/analyse" element={<CrossValueAnalysis />} />
           <Route path="/trend" element={<TrendView />} />
           <Route path="/bericht" element={<Report />} />
