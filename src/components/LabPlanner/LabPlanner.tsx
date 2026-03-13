@@ -16,17 +16,19 @@ import {
   ShieldCheck,
   CreditCard,
   BadgeEuro,
+  Printer,
 } from 'lucide-react';
 import {
   bloodValues,
   labPackages,
+  labCostValues,
   labSparTipps,
   labore,
   homeTestAnbieter,
   homeTestHinweis,
   categoryLabels,
 } from '../../data';
-import type { BloodValue, LabPackage, LabInfo, HomeTestProvider } from '../../data';
+import type { BloodValue, LabPackage, LabCostValue, LabInfo, HomeTestProvider } from '../../data';
 import {
   loadEntriesForProfile,
   formatDate,
@@ -97,6 +99,254 @@ function priorityColor(prio: 1 | 2 | 3) {
 
 function formatEuro(amount: number): string {
   return amount.toFixed(2).replace('.', ',') + ' €';
+}
+
+// ---------------------------------------------------------------------------
+// Arzt-Vorlage: Indikationen fuer Kassenleistungen
+// ---------------------------------------------------------------------------
+
+interface Indikation {
+  icd10: string;
+  text: string;
+}
+
+/** Maps bloodValueId (or category) to medically appropriate indications.
+ *  These are common, legitimate reasons a doctor would order these tests. */
+const INDIKATIONEN: Record<string, Indikation[]> = {
+  // Blutbild
+  'erythrozyten':  [{ icd10: 'R53.82', text: 'Abklärung bei Müdigkeit/Leistungsminderung' }, { icd10: 'D64.9', text: 'V.a. Anämie' }],
+  'haemoglobin':   [{ icd10: 'D64.9', text: 'V.a. Anämie' }],
+  'leukozyten':    [{ icd10: 'R50.9', text: 'Abklärung bei rezidivierenden Infekten' }],
+  'thrombozyten':  [{ icd10: 'D69.6', text: 'V.a. Thrombozytopenie' }],
+  'neutrophile':   [{ icd10: 'R50.9', text: 'Infektabklärung (Differentialblutbild)' }],
+  'lymphozyten':   [{ icd10: 'R50.9', text: 'Infektabklärung (Differentialblutbild)' }],
+  'monozyten':     [{ icd10: 'R50.9', text: 'Infektabklärung (Differentialblutbild)' }],
+  'eosinophile':   [{ icd10: 'R50.9', text: 'Infektabklärung / V.a. Allergie' }],
+  'basophile':     [{ icd10: 'R50.9', text: 'Infektabklärung (Differentialblutbild)' }],
+  'rdw':           [{ icd10: 'D64.9', text: 'Differentialdiagnose Anämie' }],
+  'bsg':           [{ icd10: 'R50.9', text: 'Entzündungsdiagnostik' }, { icd10: 'M79.3', text: 'V.a. rheumatische Erkrankung' }],
+  // Entzündung
+  'hs-crp':        [{ icd10: 'R50.9', text: 'Entzündungsdiagnostik' }, { icd10: 'I25.9', text: 'Kardiovaskuläre Risikoabschätzung' }],
+  'ck':            [{ icd10: 'M79.1', text: 'V.a. Muskelerkrankung / Myalgie' }],
+  'ldh':           [{ icd10: 'R74', text: 'Abklärung erhöhter Serumenzyme' }],
+  // Leber
+  'got':           [{ icd10: 'K76.0', text: 'V.a. Fettlebererkrankung' }, { icd10: 'R74', text: 'Kontrolle Leberwerte' }],
+  'gpt':           [{ icd10: 'K76.0', text: 'V.a. Fettlebererkrankung' }],
+  'ggt':           [{ icd10: 'K76.0', text: 'Hepatobiliäre Diagnostik' }],
+  'bilirubin':     [{ icd10: 'R17', text: 'V.a. Ikterus / Leberfunktionsstörung' }],
+  'lipase':        [{ icd10: 'K86.9', text: 'V.a. Pankreaserkrankung' }],
+  // Niere
+  'kreatinin':     [{ icd10: 'N18.9', text: 'Nierenfunktionsdiagnostik' }],
+  'gfr':           [{ icd10: 'N18.9', text: 'Nierenfunktionsdiagnostik (berechnet)' }],
+  'cystatin-c':    [{ icd10: 'N18.9', text: 'Erweiterte Nierenfunktionsdiagnostik' }],
+  'harnsaeure':    [{ icd10: 'E79.0', text: 'V.a. Hyperurikämie / Gicht' }],
+  'harnstoff':     [{ icd10: 'N18.9', text: 'Nierenfunktionsdiagnostik' }],
+  // Blutzucker
+  'nuechtern-glukose': [{ icd10: 'R73.0', text: 'Diabetes-Screening / Prädiabetes-Abklärung' }],
+  'hba1c':             [{ icd10: 'R73.0', text: 'Diabetes-Screening' }, { icd10: 'E11.9', text: 'Verlaufskontrolle Diabetes mellitus Typ 2' }],
+  'nuechtern-insulin': [{ icd10: 'E11.9', text: 'V.a. Insulinresistenz' }, { icd10: 'E88.81', text: 'Metabolisches Syndrom' }],
+  'homa-ir':           [{ icd10: 'E11.9', text: 'Insulinresistenz-Diagnostik (berechnet)' }],
+  // Eisen
+  'ferritin':          [{ icd10: 'D50.9', text: 'V.a. Eisenmangel' }, { icd10: 'R53.82', text: 'Müdigkeit / Leistungsminderung' }],
+  'transferrin':       [{ icd10: 'D50.9', text: 'Eisenstoffwechsel-Diagnostik' }],
+  'transferrinsaettigung': [{ icd10: 'D50.9', text: 'Eisenstoffwechsel-Diagnostik' }],
+  'serum-eisen':       [{ icd10: 'D50.9', text: 'Eisenstoffwechsel-Diagnostik' }],
+  'ferritin-index':    [{ icd10: 'D50.9', text: 'Eisenstoffwechsel-Diagnostik (berechnet)' }],
+  // Vitamine
+  'vitamin-d':         [{ icd10: 'E55.9', text: 'V.a. Vitamin-D-Mangel' }, { icd10: 'M81.0', text: 'Osteoporose-Risiko' }],
+  'vitamin-b12':       [{ icd10: 'D51.9', text: 'V.a. Vitamin-B12-Mangel' }, { icd10: 'G63.4', text: 'Neurologische Symptome' }],
+  'holotranscobalamin':[{ icd10: 'D51.9', text: 'V.a. funktionellen B12-Mangel' }],
+  'folsaeure':         [{ icd10: 'D52.9', text: 'V.a. Folsäuremangel' }],
+  // Schilddrüse
+  'tsh':               [{ icd10: 'E03.9', text: 'V.a. Hypothyreose' }, { icd10: 'R53.82', text: 'Müdigkeit / Gewichtszunahme' }],
+  'ft3':               [{ icd10: 'E03.9', text: 'Schilddrüsenfunktionsdiagnostik' }],
+  'ft4':               [{ icd10: 'E03.9', text: 'Schilddrüsenfunktionsdiagnostik' }],
+  'tpo-ak':            [{ icd10: 'E06.3', text: 'V.a. Hashimoto-Thyreoiditis' }],
+  'rt3':               [{ icd10: 'E07.8', text: 'V.a. T4-Konversionsstörung' }],
+  // Lipide
+  'gesamtcholesterin': [{ icd10: 'E78.0', text: 'Lipidstoffwechsel-Diagnostik' }],
+  'ldl':               [{ icd10: 'E78.0', text: 'V.a. Hypercholesterinämie' }],
+  'hdl':               [{ icd10: 'E78.5', text: 'Dyslipidämie-Diagnostik' }],
+  'triglyceride':      [{ icd10: 'E78.1', text: 'V.a. Hypertriglyzeridämie' }],
+  'apob':              [{ icd10: 'E78.0', text: 'Erweiterte Lipid-Diagnostik' }],
+  'lpa':               [{ icd10: 'E78.0', text: 'Familiäre Risikoevaluation (einmalig)' }],
+  // Hormone
+  'testosteron-gesamt':[{ icd10: 'E29.1', text: 'V.a. Hypogonadismus' }, { icd10: 'R53.82', text: 'Müdigkeit / Libidoverlust' }],
+  'testosteron-frei':  [{ icd10: 'E29.1', text: 'V.a. Hypogonadismus (berechnet)' }],
+  'shbg':              [{ icd10: 'E29.1', text: 'Hormonstatus-Diagnostik' }],
+  'dhea-s':            [{ icd10: 'E27.1', text: 'Nebennierenfunktion' }],
+  'estradiol':         [{ icd10: 'E29.1', text: 'Hormonstatus-Diagnostik' }],
+  'progesteron':       [{ icd10: 'E28.3', text: 'Hormonstatus-Diagnostik' }],
+  'cortisol':          [{ icd10: 'E27.1', text: 'V.a. Nebenniereninsuffizienz' }, { icd10: 'F43.0', text: 'Stressbelastung' }],
+  'lh':                [{ icd10: 'E29.1', text: 'V.a. Hypogonadismus' }, { icd10: 'E28.3', text: 'Fertilitätsdiagnostik' }],
+  'fsh':               [{ icd10: 'E29.1', text: 'V.a. Hypogonadismus' }, { icd10: 'E28.3', text: 'Fertilitätsdiagnostik' }],
+  'prolaktin':         [{ icd10: 'E22.1', text: 'V.a. Hyperprolaktinämie' }],
+  // Elektrolyte / Mineralstoffe
+  'kalium':            [{ icd10: 'E87.6', text: 'V.a. Elektrolytstörung / Hypokaliämie' }],
+  'calcium':           [{ icd10: 'E83.5', text: 'V.a. Calciumstoffwechselstörung' }],
+  'magnesium-serum':   [{ icd10: 'E83.4', text: 'V.a. Magnesiummangel / Muskelkrämpfe' }],
+  // Spezial (oft IGeL — Indikation hilft trotzdem)
+  'homocystein':       [{ icd10: 'E72.1', text: 'V.a. Hyperhomocysteinämie' }, { icd10: 'I25.9', text: 'Kardiovaskuläre Risikoabschätzung' }],
+  'omega-3-index':     [{ icd10: 'I25.9', text: 'Kardiovaskuläre Risikoabschätzung' }],
+  'coenzym-q10':       [{ icd10: 'G72.0', text: 'Statin-Myopathie-Abklärung' }],
+  'kupfer':            [{ icd10: 'E83.0', text: 'V.a. Kupferstoffwechselstörung' }],
+  'zink-serum':        [{ icd10: 'E60', text: 'V.a. Zinkmangel' }],
+  'selen-serum':       [{ icd10: 'E59', text: 'V.a. Selenmangel / Schilddrüsenerkrankung' }],
+};
+
+function getIndikation(valueId: string): Indikation | undefined {
+  return INDIKATIONEN[valueId]?.[0];
+}
+
+// ---------------------------------------------------------------------------
+// Print: Arzt-Vorlage (Laboranforderung)
+// ---------------------------------------------------------------------------
+
+function ArztVorlage({
+  selectedIds,
+  profileName,
+  profileGender,
+}: {
+  selectedIds: Set<string>;
+  profileName: string;
+  profileGender: 'male' | 'female';
+}) {
+  if (selectedIds.size === 0) return null;
+
+  // Build list of values with their lab cost info
+  const items: Array<{
+    bv: BloodValue;
+    lc: LabCostValue | undefined;
+    indikation: Indikation | undefined;
+  }> = [];
+
+  for (const id of selectedIds) {
+    const bv = bloodValues.find(v => v.id === id);
+    if (!bv) continue;
+    const lc = labCostValues.find(v => v.bloodValueId === id);
+    items.push({ bv, lc, indikation: getIndikation(id) });
+  }
+
+  // Split into Kassenleistung vs IGeL
+  const kassenItems = items.filter(i => i.lc?.kassenleistung === true);
+  const igelItems = items.filter(i => !i.lc?.kassenleistung);
+
+  // Group Kassen items by GOÄ-Ziffer to avoid duplicates in the printout
+  const seenZiffern = new Set<string>();
+  const uniqueKassenItems = kassenItems.filter(i => {
+    if (!i.lc || i.lc.goaeZiffer === '–') return true;
+    if (seenZiffern.has(i.lc.goaeZiffer)) return false;
+    seenZiffern.add(i.lc.goaeZiffer);
+    return true;
+  });
+
+  const today = new Date().toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+  return (
+    <div className="print-report">
+      {/* Header */}
+      <div className="print-header">
+        <h1>Laboranforderung</h1>
+        <div className="print-meta">
+          <span>Patient: {profileName}</span>
+          <span>{profileGender === 'male' ? 'Männlich' : 'Weiblich'}</span>
+          <span>Datum: {today}</span>
+        </div>
+      </div>
+
+      {/* Einleitung */}
+      <div style={{ marginBottom: '14pt', fontSize: '10pt', lineHeight: '1.5', color: '#333' }}>
+        <p style={{ marginBottom: '6pt' }}>
+          Sehr geehrte Frau Doktor / Sehr geehrter Herr Doktor,
+        </p>
+        <p style={{ marginBottom: '6pt' }}>
+          ich bitte um Bestimmung der nachfolgenden Laborparameter. Bei den als <strong>Kassenleistung</strong> gekennzeichneten
+          Werten liegt jeweils eine medizinische Indikation vor (siehe Spalte). Die als <strong>IGeL/Selbstzahler</strong> markierten
+          Werte übernehme ich als Privatleistung.
+        </p>
+      </div>
+
+      {/* Kassenleistungen */}
+      {uniqueKassenItems.length > 0 && (
+        <div className="print-category">
+          <h2 className="print-category-title" style={{ background: '#dcfce7', color: '#166534' }}>
+            Kassenleistung (bei medizinischer Indikation) — {uniqueKassenItems.length} Parameter
+          </h2>
+          <table className="print-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>GOÄ-Ziffer</th>
+                <th>Indikation</th>
+                <th>ICD-10</th>
+              </tr>
+            </thead>
+            <tbody>
+              {uniqueKassenItems.map(item => (
+                <tr key={item.bv.id}>
+                  <td style={{ fontWeight: 500 }}>{item.lc?.name || item.bv.name}</td>
+                  <td style={{ fontFamily: 'monospace', fontSize: '9pt' }}>{item.lc?.goaeZiffer || '–'}</td>
+                  <td>{item.indikation?.text || item.lc?.kassenDetails || '–'}</td>
+                  <td style={{ fontFamily: 'monospace', fontSize: '9pt' }}>{item.indikation?.icd10 || '–'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* IGeL */}
+      {igelItems.length > 0 && (
+        <div className="print-category">
+          <h2 className="print-category-title" style={{ background: '#fef3c7', color: '#92400e' }}>
+            IGeL / Selbstzahler — {igelItems.length} Parameter
+          </h2>
+          <table className="print-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>GOÄ-Ziffer</th>
+                <th>Geschätzte Kosten (1.15x)</th>
+                <th>Hinweis</th>
+              </tr>
+            </thead>
+            <tbody>
+              {igelItems.map(item => (
+                <tr key={item.bv.id}>
+                  <td style={{ fontWeight: 500 }}>{item.lc?.name || item.bv.name}</td>
+                  <td style={{ fontFamily: 'monospace', fontSize: '9pt' }}>{item.lc?.goaeZiffer || '–'}</td>
+                  <td style={{ fontFamily: 'monospace' }}>{item.lc && item.lc.cost_1_15x > 0 ? formatEuro(item.lc.cost_1_15x) : '–'}</td>
+                  <td style={{ fontSize: '8pt', color: '#666' }}>{item.indikation?.text || '–'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Unterschrift */}
+      <div style={{ marginTop: '24pt', display: 'flex', justifyContent: 'space-between', paddingTop: '12pt', borderTop: '1px solid #ccc' }}>
+        <div>
+          <div style={{ borderTop: '1px solid #333', width: '200px', marginTop: '40pt', paddingTop: '4pt', fontSize: '9pt', color: '#555' }}>
+            Datum, Unterschrift Patient
+          </div>
+        </div>
+        <div>
+          <div style={{ borderTop: '1px solid #333', width: '200px', marginTop: '40pt', paddingTop: '4pt', fontSize: '9pt', color: '#555' }}>
+            Stempel / Unterschrift Arzt
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="print-footer">
+        <p>
+          Erstellt mit Blutwerte-Tool | ICD-10-Codes und Indikationen sind Vorschläge —
+          die endgültige Indikationsstellung obliegt dem behandelnden Arzt.
+        </p>
+      </div>
+    </div>
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -727,6 +977,10 @@ export default function LabPlanner() {
 
   const clearSelection = useCallback(() => setSelectedIds(new Set()), []);
 
+  const handlePrintVorlage = useCallback(() => {
+    window.print();
+  }, []);
+
   // Empty state
   if (entries.length === 0) return <EmptyState />;
 
@@ -734,7 +988,8 @@ export default function LabPlanner() {
   if (missingValues.length === 0 && retestValues.length === 0) return <AllGoodState />;
 
   return (
-    <div className="w-full max-w-5xl mx-auto">
+    <>
+    <div className="w-full max-w-5xl mx-auto print:hidden">
       {/* Header */}
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-(--color-text-primary) mb-1 flex items-center gap-2">
@@ -785,6 +1040,30 @@ export default function LabPlanner() {
         onClearSelection={clearSelection}
       />
 
+      {/* Arzt-Vorlage Button */}
+      {selectedIds.size > 0 && (
+        <div className="rounded-xl border border-(--color-accent)/30 bg-(--color-accent)/5 p-4 mb-8 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-3 min-w-0">
+            <Printer size={20} className="text-(--color-accent) shrink-0" />
+            <div>
+              <p className="text-sm font-semibold text-(--color-text-primary)">
+                Arzt-Vorlage drucken
+              </p>
+              <p className="text-xs text-(--color-text-muted)">
+                Laboranforderung mit Indikationen und ICD-10-Codes — ideal zum Arzttermin mitnehmen
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={handlePrintVorlage}
+            className="flex items-center gap-2 rounded-xl bg-(--color-accent) hover:bg-(--color-accent-hover) px-5 py-2.5 text-sm font-semibold text-white transition-colors shrink-0"
+          >
+            <Printer size={16} />
+            Vorlage drucken
+          </button>
+        </div>
+      )}
+
       {/* Missing values */}
       <MissingSection missingValues={missingValues} selectedIds={selectedIds} onToggle={toggleValue} />
 
@@ -802,5 +1081,15 @@ export default function LabPlanner() {
         </p>
       </div>
     </div>
+
+    {/* Print content - hidden on screen, shown when printing */}
+    <div className="hidden print:block">
+      <ArztVorlage
+        selectedIds={selectedIds}
+        profileName={activeProfile?.name ?? 'Patient'}
+        profileGender={activeProfile?.defaultGender ?? 'male'}
+      />
+    </div>
+    </>
   );
 }
