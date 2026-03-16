@@ -9,12 +9,12 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - localStorage (Datenhaltung)
 - JSON-basierte Wissensdatenbank
 
-## Status (2026-03-13) — v2.1.0
+## Status (2026-03-16) — v2.2.0
 - [x] **Schritt 1: Wissensdatenbank** - 81 Blutwerte in 13 Kategorien als JSON, TypeScript-Typen + Hilfsfunktionen
 - [x] **Schritt 2: Eingabeformular + CSV/JSON Import** - BloodworkEntry mit manuellem Input, CSV-Upload, localStorage
 - [x] **Schritt 3: Dashboard mit Ampelsystem** - Vollstaendiges Analyse-Dashboard mit Ampel-Uebersicht, Kategorie-Cards, kritische Werte Alert, Erfassungsgrad
 - [x] **Schritt 4: Einzelwert-Detailansicht** - SVG-Range-Bar, Interpretation, Optimierung, verwandte Werte, Quellen. Route /wert/:id
-- [x] **PDF-Import** - pdfjs-dist, positionsbasierte Zeilenrekonstruktion, 50+ Lab-Name-Mappings, Einheiten-Umrechnung, Vitamin B12 Bug gefixt
+- [x] **PDF-Import** - pdfjs-dist, positionsbasierte Zeilenrekonstruktion, 60+ Lab-Name-Mappings (inkl. Bioscentia Laborident-Codes), Einheiten-Umrechnung, Vitamin B12 Bug gefixt
 - [x] **Schritt 5: Cross-Value-Analyse** - 8 Panels (Eisen, Schilddrüse, Lipide, Methylierung, Insulinresistenz, Hormone-Mann, Leber, Niere), regelbasierte Auswertung, Route /analyse
 - [x] **Schritt 7: Empfehlungen & Optimierung** - Personalisierte Supplement-/Ernährungs-/Lifestyle-Tipps, foods.json + supplements.json Integration, Route /empfehlungen
 - [x] **Profile/Personen** - Multi-User mit ProfileContext, Profil-Selector in Sidebar, Migration bestehender Einträge
@@ -26,7 +26,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - [x] **Labor-Planer** - Empfehlungen fuer naechsten Bluttest: Fehlende Werte (priorisiert nach Basis/Erweitert/Komplett), Retest-Erinnerungen, Paket-Empfehlungen mit Coverage-Score, interaktiver Kostenrechner (GOAe 1.0x/1.15x), 12 Labore, 4 Home-Test-Anbieter, 13 Spartipps, Dashboard-Nudge. Route /labor-planer
 
 ## Datenstruktur
-- `src/data/bloodwork-knowledge.json` - Gesamte Wissensdatenbank (81 Werte)
+- `src/data/bloodwork-knowledge.json` - Gesamte Wissensdatenbank (88 Werte)
 - `src/data/supplements.json` - Supplement-Datenbank (17 Supplements, Timing, Interaktionen, Kosten)
 - `src/data/foods.json` - Lebensmittel-Datenbank (17 Kategorien, Top-Foods pro Blutwert)
 - `src/data/lab-costs.json` - GOÄ-Kostenübersicht (63 Werte, Pakete, Spartipps)
@@ -46,7 +46,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - `src/utils/lab-planner-utils.ts` - Berechnungslogik (getMissingValues, getRetestValues, getPackageRecommendations, calculateSelectedCost)
 - Einzeldateien (Quelle): `blutbild-entzuendung.json`, `leber-niere-zucker.json`, `mikronaehrstoffe.json`, `herzgesundheit.json`, `hormone-spezial.json`, `zusatzwerte.json`
 
-## Kategorien (13)
+## Kategorien (14)
 | Kategorie | Label | Anzahl |
 |-----------|-------|--------|
 | blutbild | Großes Blutbild | 14 |
@@ -56,12 +56,13 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 | blutzucker | Blutzucker & Insulin | 4 |
 | eisen | Eisen-Panel | 3 |
 | vitamine | Vitamine | 5 |
-| mineralstoffe | Mineralstoffe (Vollblut) | 6 |
+| mineralstoffe | Mineralstoffe (Vollblut) | 7 |
 | lipide | Herzgesundheit & Lipid-Panel | 8 |
 | schilddruese | Schilddrüse | 3 |
 | sexualhormone | Sexualhormone (Mann) | 10 |
 | stressachse | Stressachse | 1 |
 | spezial | Spezialwerte | 2 |
+| elektrophorese | Eiweiß-Elektrophorese | 6 |
 
 ## Referenz-Quellen
 - "Der Blutwerte-Code" - Thiemo Osterhaus (Primärquelle)

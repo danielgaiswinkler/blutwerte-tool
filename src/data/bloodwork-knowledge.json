@@ -12541,5 +12541,690 @@
       "Labormedizin - Lothar Thomas",
       "Der Blutwerte-Code - Thiemo Osterhaus"
     ]
+  },
+  {
+    "id": "natrium",
+    "name": "Natrium",
+    "category": "mineralstoffe",
+    "categoryLabel": "Mineralstoffe (Vollblut)",
+    "description": "Wichtigster Elektrolyt im Extrazellulärraum. Reguliert den Wasserhaushalt, Blutdruck und die Nervenfunktion. Wird über die Nieren reguliert (ADH, Aldosteron).",
+    "unit": "mmol/l",
+    "alternativeUnits": [
+      {
+        "unit": "mEq/l",
+        "factor": 1
+      }
+    ],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 135,
+        "max": 145
+      },
+      "female": {
+        "min": 135,
+        "max": 145
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 138,
+        "max": 142,
+        "target": 140
+      },
+      "female": {
+        "min": 138,
+        "max": 142,
+        "target": 140
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "SIADH (Syndrom der inadäquaten ADH-Sekretion) – häufigste Ursache bei Älteren",
+          "Diuretika-Einnahme (v.a. Thiazide)",
+          "Übermäßige Wasserzufuhr (Verdünnungshyponatriämie)",
+          "Erbrechen, Durchfall (Natriumverlust)",
+          "Herzinsuffizienz, Leberzirrhose, nephrotisches Syndrom (Verdünnungseffekt)",
+          "Nebenniereninsuffizienz (Morbus Addison – Aldosteronmangel)",
+          "Hypothyreose (verminderte Wasserausscheidung)",
+          "Extremer Ausdauersport (Marathon) mit reiner Wasseraufnahme"
+        ],
+        "symptoms": [
+          "Übelkeit und Erbrechen",
+          "Kopfschmerzen",
+          "Verwirrtheit und Desorientierung",
+          "Müdigkeit und Lethargie",
+          "Muskelkrämpfe und -schwäche",
+          "Bei schwerem Mangel: Krampfanfälle, Koma"
+        ],
+        "relatedValues": [
+          "kalium",
+          "kreatinin",
+          "gfr"
+        ],
+        "actions": [
+          "Bei Natrium <130 mmol/l: Ärztliche Abklärung dringend erforderlich",
+          "Trinkmenge überprüfen – nicht übermäßig viel reines Wasser trinken",
+          "Medikamentenanamnese: Diuretika, SSRI, Antiepileptika?",
+          "Schilddrüse und Nebennierenfunktion prüfen",
+          "Serum-Osmolalität und Urin-Natrium bestimmen zur Differenzierung"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Dehydratation (zu wenig Flüssigkeitszufuhr) – häufigste Ursache",
+          "Diabetes insipidus (zentral oder renal – ADH-Mangel/-Resistenz)",
+          "Übermäßige Natriumzufuhr (salzreiche Ernährung, Infusionen)",
+          "Starkes Schwitzen ohne ausreichenden Flüssigkeitsersatz",
+          "Fieber, Verbrennungen (erhöhter Wasserverlust)",
+          "Osmotische Diurese (Hyperglykämie, Mannitol)"
+        ],
+        "symptoms": [
+          "Starker Durst",
+          "Trockene Schleimhäute",
+          "Unruhe und Reizbarkeit",
+          "Verwirrtheit",
+          "Muskelzuckungen",
+          "Bei schwerem Überschuss: Krampfanfälle, Bewusstseinsstörung"
+        ],
+        "relatedValues": [
+          "kalium",
+          "kreatinin",
+          "nuechtern-glukose"
+        ],
+        "actions": [
+          "Ausreichend trinken (2-2.5 l/Tag, bei Hitze/Sport mehr)",
+          "Salzkonsum überprüfen und ggf. reduzieren",
+          "Bei Natrium >150 mmol/l: Sofortige ärztliche Abklärung!",
+          "Nierenfunktion und Blutzucker kontrollieren"
+        ]
+      },
+      "optimal": {
+        "meaning": "Natrium im optimalen Bereich (138-142 mmol/l) zeigt einen ausgeglichenen Wasser- und Elektrolythaushalt. Das Natrium-Kalium-Gleichgewicht ist stabil. Regelmäßige Kontrolle bei Diuretika-Einnahme oder Herzerkrankungen."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Natrium <125 mmol/l",
+        "interpretation": "SCHWERE Hyponatriämie – Risiko für Hirnödem und Krampfanfälle. Sofortige stationäre Behandlung erforderlich!",
+        "severity": "warning"
+      },
+      {
+        "condition": "Natrium >150 mmol/l",
+        "interpretation": "SCHWERE Hypernatriämie – Risiko für ZNS-Schädigung. Sofortige ärztliche Behandlung mit kontrolliertem Flüssigkeitsausgleich!",
+        "severity": "warning"
+      },
+      {
+        "condition": "Natrium niedrig + Kalium hoch",
+        "interpretation": "Hinweis auf Nebenniereninsuffizienz (Morbus Addison). Cortisol und ACTH bestimmen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Natrium niedrig + Diuretika-Einnahme",
+        "interpretation": "Thiazid-Diuretika sind die häufigste medikamentöse Ursache für Hyponatriämie. Engmaschige Kontrolle nötig.",
+        "severity": "attention"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausgewogene Flüssigkeitszufuhr: 2-2.5 l/Tag (nicht übermäßig viel reines Wasser)",
+        "Salzkonsum moderat halten: 5-6 g NaCl/Tag (WHO-Empfehlung)",
+        "Bei Sport/Hitze: Elektrolytgetränke statt reines Wasser",
+        "Kaliumreiche Ernährung unterstützt das Natrium-Kalium-Gleichgewicht"
+      ],
+      "supplements": [],
+      "redFlags": [
+        "Natrium <125 mmol/l – Hirnödem-Risiko, NOTFALL!",
+        "Natrium >155 mmol/l – ZNS-Schädigung möglich, NOTFALL!",
+        "Schnelle Natriumkorrektur (>10 mmol/24h) kann zentrale pontine Myelinolyse auslösen – nur langsam korrigieren!"
+      ]
+    },
+    "sources": [
+      "Labormedizin - Lothar Thomas",
+      "Harrison's Principles of Internal Medicine",
+      "Der Blutwerte-Code - Thiemo Osterhaus"
+    ]
+  },
+  {
+    "id": "albumin-rel",
+    "name": "Albumin (Elektrophorese)",
+    "category": "elektrophorese",
+    "categoryLabel": "Eiweiß-Elektrophorese",
+    "description": "Hauptprotein im Blut (ca. 60% des Gesamteiweißes). Wird in der Leber gebildet. Transportprotein und wichtig für den onkotischen Druck. Erniedrigt bei Lebererkrankungen, Nierenerkrankungen und Entzündungen.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 55.8,
+        "max": 66.1
+      },
+      "female": {
+        "min": 55.8,
+        "max": 66.1
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 58,
+        "max": 64,
+        "target": 61
+      },
+      "female": {
+        "min": 58,
+        "max": 64,
+        "target": 61
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Lebererkrankungen (Zirrhose, Hepatitis – verminderte Synthese)",
+          "Nephrotisches Syndrom (renaler Verlust)",
+          "Chronische Entzündungen (Akute-Phase-Reaktion – Albumin sinkt als negativer Akute-Phase-Marker)",
+          "Mangelernährung oder Malabsorption",
+          "Verbrennungen (Verlust über geschädigte Haut)",
+          "Eiweißverlust-Enteropathie"
+        ],
+        "symptoms": [
+          "Ödeme (Wassereinlagerungen durch verminderten onkotischen Druck)",
+          "Müdigkeit",
+          "Muskelschwäche",
+          "Wundheilungsstörungen"
+        ],
+        "relatedValues": [
+          "gamma-globulin-rel",
+          "got",
+          "gpt",
+          "hs-crp"
+        ],
+        "actions": [
+          "Leberfunktion prüfen (GOT, GPT, GGT, Bilirubin)",
+          "Nierenfunktion und Urin-Eiweiß bestimmen",
+          "Entzündungsmarker kontrollieren (CRP, BSG)",
+          "Ernährungsstatus evaluieren"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Dehydratation (relative Erhöhung durch Flüssigkeitsmangel)",
+          "Exsikkose"
+        ],
+        "symptoms": [
+          "Durstgefühl",
+          "Trockene Schleimhäute",
+          "Konzentrierter Urin"
+        ],
+        "relatedValues": [
+          "natrium"
+        ],
+        "actions": [
+          "Flüssigkeitsstatus überprüfen",
+          "Ausreichend trinken"
+        ]
+      },
+      "optimal": {
+        "meaning": "Albumin im Normalbereich spricht für eine gute Leberfunktion, ausreichende Eiweißversorgung und keine relevanten Eiweißverluste."
+      }
+    },
+    "contextRules": [],
+    "optimization": {
+      "lifestyle": [
+        "Ausreichend Eiweiß in der Ernährung (0.8-1.2 g/kg Körpergewicht)",
+        "Leberschonende Ernährung bei erhöhten Leberwerten"
+      ],
+      "supplements": [],
+      "redFlags": [
+        "Albumin stark erniedrigt + erhöhte Gamma-Fraktion: Verdacht auf Leberzirrhose oder chronische Entzündung"
+      ]
+    },
+    "sources": [
+      "Labormedizin - Lothar Thomas",
+      "Bioscentia Referenzbereiche"
+    ]
+  },
+  {
+    "id": "alpha1-globulin-rel",
+    "name": "Alpha-1 Globulin (Elektrophorese)",
+    "category": "elektrophorese",
+    "categoryLabel": "Eiweiß-Elektrophorese",
+    "description": "Enthält u.a. Alpha-1-Antitrypsin und saures Alpha-1-Glykoprotein. Akute-Phase-Proteine, die bei Entzündungen ansteigen.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 2.9,
+        "max": 4.9
+      },
+      "female": {
+        "min": 2.9,
+        "max": 4.9
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 3.0,
+        "max": 4.5,
+        "target": 3.8
+      },
+      "female": {
+        "min": 3.0,
+        "max": 4.5,
+        "target": 3.8
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Alpha-1-Antitrypsin-Mangel (genetisch – Risiko für Lungenemphysem und Lebererkrankung)",
+          "Schwere Lebererkrankung (verminderte Synthese)"
+        ],
+        "symptoms": [
+          "Atemnot (bei AAT-Mangel)",
+          "Erhöhte Anfälligkeit für Lungeninfekte"
+        ],
+        "relatedValues": [
+          "albumin-rel",
+          "got",
+          "gpt"
+        ],
+        "actions": [
+          "Alpha-1-Antitrypsin quantitativ bestimmen",
+          "Lungenfunktion prüfen bei V.a. AAT-Mangel"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Akute Entzündung (Akute-Phase-Reaktion)",
+          "Infektionen",
+          "Gewebeschaden (Trauma, OP)",
+          "Maligne Tumoren"
+        ],
+        "symptoms": [],
+        "relatedValues": [
+          "hs-crp",
+          "alpha2-globulin-rel"
+        ],
+        "actions": [
+          "CRP und BSG bestimmen",
+          "Ursache der Entzündung abklären"
+        ]
+      },
+      "optimal": {
+        "meaning": "Alpha-1-Globuline im Normalbereich sprechen gegen eine akute Entzündungsreaktion und gegen einen Alpha-1-Antitrypsin-Mangel."
+      }
+    },
+    "contextRules": [],
+    "optimization": {
+      "lifestyle": [],
+      "supplements": [],
+      "redFlags": [
+        "Stark erniedrigte Alpha-1-Fraktion: An Alpha-1-Antitrypsin-Mangel denken – genetischer Test empfohlen"
+      ]
+    },
+    "sources": [
+      "Labormedizin - Lothar Thomas",
+      "Bioscentia Referenzbereiche"
+    ]
+  },
+  {
+    "id": "alpha2-globulin-rel",
+    "name": "Alpha-2 Globulin (Elektrophorese)",
+    "category": "elektrophorese",
+    "categoryLabel": "Eiweiß-Elektrophorese",
+    "description": "Enthält u.a. Haptoglobin, Alpha-2-Makroglobulin und Coeruloplasmin. Steigt bei akuten Entzündungen und nephrotischem Syndrom.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 7.1,
+        "max": 11.8
+      },
+      "female": {
+        "min": 7.1,
+        "max": 11.8
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 7.5,
+        "max": 10.5,
+        "target": 9.0
+      },
+      "female": {
+        "min": 7.5,
+        "max": 10.5,
+        "target": 9.0
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Hämolyse (Haptoglobin verbraucht)",
+          "Schwere Lebererkrankung",
+          "Mangelernährung"
+        ],
+        "symptoms": [],
+        "relatedValues": [
+          "haemoglobin",
+          "ldh",
+          "bilirubin"
+        ],
+        "actions": [
+          "Haptoglobin und LDH bestimmen (Hämolyse?)",
+          "Leberfunktion prüfen"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Akute Entzündung (Haptoglobin, Alpha-2-Makroglobulin steigen)",
+          "Nephrotisches Syndrom (kompensatorische Überproduktion bei Albuminverlust)",
+          "Diabetes mellitus",
+          "Maligne Tumoren"
+        ],
+        "symptoms": [],
+        "relatedValues": [
+          "hs-crp",
+          "albumin-rel",
+          "kreatinin"
+        ],
+        "actions": [
+          "CRP bestimmen",
+          "Urin-Eiweiß und Nierenfunktion prüfen bei V.a. nephrotisches Syndrom",
+          "Gesamtbild der Elektrophorese zusammen beurteilen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Alpha-2-Globuline im Normalbereich sprechen gegen eine akute Entzündung oder ein nephrotisches Syndrom."
+      }
+    },
+    "contextRules": [],
+    "optimization": {
+      "lifestyle": [],
+      "supplements": [],
+      "redFlags": [
+        "Stark erhöhte Alpha-2-Fraktion + erniedrigtes Albumin: Verdacht auf nephrotisches Syndrom"
+      ]
+    },
+    "sources": [
+      "Labormedizin - Lothar Thomas",
+      "Bioscentia Referenzbereiche"
+    ]
+  },
+  {
+    "id": "beta1-globulin-rel",
+    "name": "Beta-1 Globulin (Elektrophorese)",
+    "category": "elektrophorese",
+    "categoryLabel": "Eiweiß-Elektrophorese",
+    "description": "Enthält u.a. Transferrin und Beta-Lipoprotein. Spiegelt den Eisenstoffwechsel und Lipidtransport wider.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 4.7,
+        "max": 7.2
+      },
+      "female": {
+        "min": 4.7,
+        "max": 7.2
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 5.0,
+        "max": 6.5,
+        "target": 5.8
+      },
+      "female": {
+        "min": 5.0,
+        "max": 6.5,
+        "target": 5.8
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Mangelernährung",
+          "Schwere Lebererkrankung (verminderte Transferrin-Synthese)"
+        ],
+        "symptoms": [],
+        "relatedValues": [
+          "transferrin",
+          "ferritin"
+        ],
+        "actions": [
+          "Eisenstatus komplett bestimmen (Ferritin, Transferrin, Transferrinsättigung)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Eisenmangel (kompensatorisch erhöhtes Transferrin)",
+          "Hypercholesterinämie (erhöhte Beta-Lipoproteine)",
+          "Hypothyreose"
+        ],
+        "symptoms": [],
+        "relatedValues": [
+          "ferritin",
+          "transferrin",
+          "ldl",
+          "gesamtcholesterin"
+        ],
+        "actions": [
+          "Eisenstatus prüfen",
+          "Lipidprofil kontrollieren",
+          "Schilddrüsenwerte bestimmen"
+        ]
+      },
+      "optimal": {
+        "meaning": "Beta-1-Globuline im Normalbereich sprechen für einen normalen Eisenstoffwechsel und Lipidtransport."
+      }
+    },
+    "contextRules": [],
+    "optimization": {
+      "lifestyle": [],
+      "supplements": [],
+      "redFlags": []
+    },
+    "sources": [
+      "Labormedizin - Lothar Thomas",
+      "Bioscentia Referenzbereiche"
+    ]
+  },
+  {
+    "id": "beta2-globulin-rel",
+    "name": "Beta-2 Globulin (Elektrophorese)",
+    "category": "elektrophorese",
+    "categoryLabel": "Eiweiß-Elektrophorese",
+    "description": "Enthält u.a. Komplementfaktoren (C3, C4) und Beta-2-Mikroglobulin. Relevant für Immunsystem und Tumormarker.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 3.2,
+        "max": 6.5
+      },
+      "female": {
+        "min": 3.2,
+        "max": 6.5
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 3.5,
+        "max": 5.5,
+        "target": 4.5
+      },
+      "female": {
+        "min": 3.5,
+        "max": 5.5,
+        "target": 4.5
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Komplementverbrauch bei Autoimmunerkrankungen (SLE)",
+          "Komplementdefekte (angeboren)"
+        ],
+        "symptoms": [],
+        "relatedValues": [
+          "hs-crp"
+        ],
+        "actions": [
+          "Komplement C3 und C4 quantitativ bestimmen",
+          "Autoimmundiagnostik erwägen (ANA, Anti-dsDNA)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Akute Entzündung (Komplementaktivierung)",
+          "Autoimmunerkrankungen",
+          "Maligne Lymphome (Beta-2-Mikroglobulin erhöht)"
+        ],
+        "symptoms": [],
+        "relatedValues": [
+          "hs-crp",
+          "gamma-globulin-rel"
+        ],
+        "actions": [
+          "CRP und BSG bestimmen",
+          "Beta-2-Mikroglobulin quantitativ bestimmen bei V.a. Lymphom"
+        ]
+      },
+      "optimal": {
+        "meaning": "Beta-2-Globuline im Normalbereich sprechen für ein normal funktionierendes Komplementsystem."
+      }
+    },
+    "contextRules": [],
+    "optimization": {
+      "lifestyle": [],
+      "supplements": [],
+      "redFlags": [
+        "Stark erhöhte Beta-2-Fraktion: An Lymphom oder Myelom denken – Beta-2-Mikroglobulin bestimmen"
+      ]
+    },
+    "sources": [
+      "Labormedizin - Lothar Thomas",
+      "Bioscentia Referenzbereiche"
+    ]
+  },
+  {
+    "id": "gamma-globulin-rel",
+    "name": "Gamma Globulin (Elektrophorese)",
+    "category": "elektrophorese",
+    "categoryLabel": "Eiweiß-Elektrophorese",
+    "description": "Enthält die Immunglobuline (IgG, IgA, IgM, IgD, IgE). Wichtigster Marker für die humorale Immunabwehr. M-Gradient weist auf monoklonale Gammopathie hin.",
+    "unit": "%",
+    "alternativeUnits": [],
+    "measurementType": "Serum",
+    "reference": {
+      "male": {
+        "min": 11.1,
+        "max": 18.8
+      },
+      "female": {
+        "min": 11.1,
+        "max": 18.8
+      }
+    },
+    "optimal": {
+      "male": {
+        "min": 12,
+        "max": 17,
+        "target": 14.5
+      },
+      "female": {
+        "min": 12,
+        "max": 17,
+        "target": 14.5
+      }
+    },
+    "interpretation": {
+      "tooLow": {
+        "possibleCauses": [
+          "Antikörpermangelsyndrom (angeboren oder erworben)",
+          "Immunsuppressive Therapie (Cortison, Zytostatika)",
+          "Nephrotisches Syndrom (Immunglobulinverlust)",
+          "Lymphom mit Immundefekt"
+        ],
+        "symptoms": [
+          "Häufige Infektionen",
+          "Rezidivierende Atemwegsinfekte",
+          "Schlechte Wundheilung"
+        ],
+        "relatedValues": [
+          "leukozyten",
+          "albumin-rel"
+        ],
+        "actions": [
+          "Immunglobuline quantitativ bestimmen (IgG, IgA, IgM)",
+          "Differentialblutbild und Lymphozytensubpopulationen prüfen",
+          "Impftiter bestimmen (Immunantwort überprüfen)"
+        ]
+      },
+      "tooHigh": {
+        "possibleCauses": [
+          "Chronische Entzündung oder Infektion (polyklonale Gammopathie)",
+          "Autoimmunerkrankungen (Rheuma, SLE, Sjögren-Syndrom)",
+          "Leberzirrhose (IgA-Erhöhung typisch)",
+          "Monoklonale Gammopathie (MGUS, Multiples Myelom, Morbus Waldenström)",
+          "Chronische Hepatitis"
+        ],
+        "symptoms": [
+          "Abhängig von Grunderkrankung",
+          "Bei Myelom: Knochenschmerzen, Fatigue, Infektanfälligkeit"
+        ],
+        "relatedValues": [
+          "hs-crp",
+          "albumin-rel",
+          "kreatinin"
+        ],
+        "actions": [
+          "Immunfixation durchführen (monoklonale Bande ausschließen!)",
+          "Immunglobuline quantitativ bestimmen (IgG, IgA, IgM)",
+          "Bei M-Gradient: Hämatologische Abklärung (Myelom-Diagnostik)",
+          "Leberdiagnostik bei V.a. Zirrhose",
+          "CRP und BSG zur Entzündungsbeurteilung"
+        ]
+      },
+      "optimal": {
+        "meaning": "Gamma-Globuline im Normalbereich sprechen für eine intakte humorale Immunabwehr ohne Hinweis auf chronische Entzündung oder monoklonale Gammopathie."
+      }
+    },
+    "contextRules": [
+      {
+        "condition": "Gamma-Globuline erhöht + erniedrigtes Albumin",
+        "interpretation": "Typisches Muster bei Leberzirrhose (Beta-Gamma-Brücke) oder chronischer Entzündung. Leberdiagnostik und Immunfixation empfohlen.",
+        "severity": "attention"
+      },
+      {
+        "condition": "Schmaler hoher Peak (M-Gradient) in der Gamma-Fraktion",
+        "interpretation": "Hinweis auf monoklonale Gammopathie (MGUS oder Myelom). Immunfixation und hämatologische Abklärung dringend erforderlich!",
+        "severity": "warning"
+      }
+    ],
+    "optimization": {
+      "lifestyle": [
+        "Ausreichend Eiweiß in der Ernährung für die Immunglobulin-Synthese",
+        "Vitamin D optimieren (moduliert Immunsystem)",
+        "Ausreichend Schlaf (7-8 h) für die Immunfunktion",
+        "Regelmäßige moderate Bewegung stärkt die humorale Immunität"
+      ],
+      "supplements": [],
+      "redFlags": [
+        "M-Gradient in der Elektrophorese: Dringende hämatologische Abklärung (Myelom-Ausschluss)",
+        "Gamma-Globuline stark erniedrigt + rezidivierende Infekte: An Antikörpermangelsyndrom denken"
+      ]
+    },
+    "sources": [
+      "Labormedizin - Lothar Thomas",
+      "Bioscentia Referenzbereiche",
+      "Harrison's Principles of Internal Medicine"
+    ]
   }
 ]

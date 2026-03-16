@@ -23,7 +23,9 @@ const KNOWN_IDS = [
   'ferritin', 'transferrin', 'transferrinsaettigung', 'serum-eisen',
   'vitamin-d', 'vitamin-b12', 'holotranscobalamin', 'folsaeure', 'coenzym-q10',
   'magnesium', 'magnesium-serum', 'zink', 'zink-serum', 'selen', 'selen-serum',
-  'calcium', 'kalium', 'kupfer',
+  'calcium', 'kalium', 'kupfer', 'natrium',
+  'albumin-rel', 'alpha1-globulin-rel', 'alpha2-globulin-rel',
+  'beta1-globulin-rel', 'beta2-globulin-rel', 'gamma-globulin-rel',
   'gesamtcholesterin', 'ldl', 'hdl', 'non-hdl', 'triglyceride', 'apob', 'lpa', 'homocystein',
   'tsh', 'ft3', 'ft4', 'rt3', 'tpo-ak',
   'testosteron-gesamt', 'testosteron-frei', 'shbg', 'dhea-s', 'estradiol',
@@ -55,7 +57,8 @@ Regeln:
 - Bei Werten die keiner bekannten ID zugeordnet werden koennen: id = "unknown" und in warnings auflisten
 - Bei berechneten Werten (GFR, HOMA-Index, Non-HDL etc.) ebenfalls extrahieren
 - Einheiten genau so uebernehmen wie auf dem Befund
-- Serum-Werte fuer Magnesium, Zink, Selen: nutze die -serum IDs (magnesium-serum, zink-serum, selen-serum)`;
+- Serum-Werte fuer Magnesium, Zink, Selen: nutze die -serum IDs (magnesium-serum, zink-serum, selen-serum)
+- Laborident-Codes (Bioscentia etc.) auf IDs mappen: ELALB=albumin-rel, ELA1G=alpha1-globulin-rel, ELA2G=alpha2-globulin-rel, ELB1G=beta1-globulin-rel, ELB2G=beta2-globulin-rel, ELGG=gamma-globulin-rel, NA=natrium`;
 
 export interface VisionResult {
   values: ParsedLabValue[];

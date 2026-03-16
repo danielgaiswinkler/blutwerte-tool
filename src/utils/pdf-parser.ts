@@ -156,6 +156,17 @@ export const LAB_MAPPINGS: LabMapping[] = [
     convert: (v, u) => (u.includes('mol') ? UNIT_CONVERSIONS.zink_umol_to_mg(v) : v),
   },
 
+  // Elektrolyte (erweitert)
+  { pattern: /\bnatrium\b|\bNA\b(?!\s*\/)|\bELNA\b/i, id: 'natrium', dbUnit: 'mmol/l' },
+
+  // Eiweiß-Elektrophorese
+  { pattern: /\bELALB\b|albumin\s*\(?\s*rel\.?\s*\)?|albumin.*elektrophorese/i, id: 'albumin-rel', dbUnit: '%' },
+  { pattern: /\bELA1G\b|alpha[- ]?1[- ]?globulin/i, id: 'alpha1-globulin-rel', dbUnit: '%' },
+  { pattern: /\bELA2G\b|alpha[- ]?2[- ]?globulin/i, id: 'alpha2-globulin-rel', dbUnit: '%' },
+  { pattern: /\bELB1G\b|beta[- ]?1[- ]?globulin/i, id: 'beta1-globulin-rel', dbUnit: '%' },
+  { pattern: /\bELB2G\b|beta[- ]?2[- ]?globulin/i, id: 'beta2-globulin-rel', dbUnit: '%' },
+  { pattern: /\bELGG\b|gamma[- ]?globulin(?!\s)/i, id: 'gamma-globulin-rel', dbUnit: '%' },
+
   // Spezial
   { pattern: /omega[- ]?3[- ]?index/i, id: 'omega-3-index', dbUnit: '%' },
 ];
