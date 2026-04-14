@@ -8,8 +8,8 @@
 
 import type { ParsedLabValue } from './pdf-parser';
 
-// Cloudflare Worker URL (wird nach Deploy eingetragen)
-const WORKER_URL = 'https://blutwerte-vision.danielgaiswinkler.workers.dev';
+// Vision-API Endpoint in der SoD-Toolbox (Fly.io). Früher: Cloudflare Worker.
+const WORKER_URL = 'https://ki.success-on-demand.com/api/tools/public/blutwerte-vision';
 
 // Fuer den Fallback mit eigenem Key: Prompt + IDs
 const KNOWN_IDS = [
