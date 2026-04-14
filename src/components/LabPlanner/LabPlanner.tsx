@@ -12,7 +12,6 @@ import {
   Lightbulb,
   MapPin,
   Home,
-  Activity,
   ShieldCheck,
   CreditCard,
   BadgeEuro,
@@ -20,15 +19,13 @@ import {
 } from 'lucide-react';
 import {
   bloodValues,
-  labPackages,
   labCostValues,
   labSparTipps,
   labore,
   homeTestAnbieter,
   homeTestHinweis,
-  categoryLabels,
 } from '../../data';
-import type { BloodValue, LabPackage, LabCostValue, LabInfo, HomeTestProvider } from '../../data';
+import type { BloodValue, LabCostValue, LabInfo, HomeTestProvider } from '../../data';
 import {
   loadEntriesForProfile,
   formatDate,
