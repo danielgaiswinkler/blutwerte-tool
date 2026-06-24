@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
-import { Activity, Upload, BarChart3, TrendingUp, Settings, FileText, Users, Plus, Check, X, Trash2, Sparkles, GitBranch, Menu, Pill, TestTube2 } from 'lucide-react'
+import { Activity, Upload, BarChart3, TrendingUp, Settings, FileText, Users, Plus, Check, X, Trash2, Sparkles, GitBranch, Menu, Pill, TestTube2, HeartPulse } from 'lucide-react'
 import Dashboard from './components/Dashboard/Dashboard'
 import BloodworkEntry from './components/BloodworkEntry/BloodworkEntry'
 import BloodValueDetail from './components/BloodValueDetail/BloodValueDetail'
@@ -11,6 +11,7 @@ import Report from './components/Report/Report'
 import Medications from './components/Medications/Medications'
 import SettingsPage from './components/SettingsPage/SettingsPage'
 import LabPlanner from './components/LabPlanner/LabPlanner'
+import Vitaldaten from './components/Vitaldaten/Vitaldaten'
 import { useProfile } from './context/ProfileContext'
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
     '/medikamente': 'Medikamente',
     '/analyse': 'Cross-Analyse',
     '/trend': 'Verlauf',
+    '/vitaldaten': 'Vitaldaten',
     '/bericht': 'Bericht',
     '/labor-planer': 'Labor-Planer',
     '/einstellungen': 'Einstellungen',
@@ -226,6 +228,7 @@ function App() {
           <SidebarLink to="/labor-planer" icon={<TestTube2 className="w-5 h-5" />} label="Labor-Planer" onClick={closeSidebar} />
           <SidebarLink to="/analyse" icon={<GitBranch className="w-5 h-5" />} label="Cross-Analyse" onClick={closeSidebar} />
           <SidebarLink to="/trend" icon={<TrendingUp className="w-5 h-5" />} label="Verlauf" onClick={closeSidebar} />
+          <SidebarLink to="/vitaldaten" icon={<HeartPulse className="w-5 h-5" />} label="Vitaldaten" onClick={closeSidebar} />
           <SidebarLink to="/bericht" icon={<FileText className="w-5 h-5" />} label="Bericht" onClick={closeSidebar} />
           <SidebarLink to="/einstellungen" icon={<Settings className="w-5 h-5" />} label="Einstellungen" onClick={closeSidebar} />
         </div>
@@ -246,6 +249,7 @@ function App() {
           <Route path="/labor-planer" element={<LabPlanner />} />
           <Route path="/analyse" element={<CrossValueAnalysis />} />
           <Route path="/trend" element={<TrendView />} />
+          <Route path="/vitaldaten" element={<Vitaldaten />} />
           <Route path="/bericht" element={<Report />} />
           <Route path="/einstellungen" element={<SettingsPage />} />
         </Routes>
