@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { HeartPulse, Plus, Trash2, Activity, Lock, Upload } from 'lucide-react';
+import { HeartPulse, Plus, Trash2, Activity, Lock, Upload, Camera, Loader2 } from 'lucide-react';
 import {
   LineChart,
   Line,
@@ -20,6 +20,7 @@ import {
   bpStatusHex,
   bpStatusBgClass,
   bpMean,
+  callBloodPressureVision,
 } from '../../utils/vitals-utils';
 import type { BloodPressureReading } from '../../utils/vitals-utils';
 
@@ -38,6 +39,8 @@ export default function Vitaldaten() {
   const [showImport, setShowImport] = useState(false);
   const [importText, setImportText] = useState('');
   const [importMsg, setImportMsg] = useState('');
+  const [visionLoading, setVisionLoading] = useState(false);
+  const [visionMsg, setVisionMsg] = useState('');
 
   useEffect(() => {
     if (profileId) setReadings(loadBloodPressure(profileId));
@@ -121,6 +124,48 @@ export default function Vitaldaten() {
     setImportMsg('');
   };
 
+  const handlePhoto = (file: File | undefined) => {
+    if (!file || !profileId) return;
+    setVisionLoading(true);
+    setVisionMsg('');
+    const reader = new FileReader();
+    reader.onerror = () => { setVisionLoading(false); setVisionMsg('Foto konnte nicht gelesen werden.'); };
+    reader.onload = async () => {
+      try {
+        const base64 = (reader.result as string).split(',')[1] || '';
+        const { readings: found, warnings } = await callBloodPressureVision(base64, file.type || 'image/jpeg');
+        const warn = warnings.length ? '  ⚠ ' + warnings.join('; ') : '';
+        if (found.length === 0) {
+          setVisionMsg('Keine Blutdruckwerte erkannt.' + warn);
+        } else if (found.length === 1) {
+          const r = found[0];
+          setSys(String(r.sys));
+          setDia(String(r.dia));
+          setPulse(r.pulse ? String(r.pulse) : '');
+          if (r.date) setDate(r.date);
+          if (r.time) setTime(r.time);
+          setVisionMsg(`Gelesen: ${r.sys}/${r.dia}${r.pulse ? ', Puls ' + r.pulse : ''} — bitte prüfen und „Hinzufügen".${warn}`);
+        } else {
+          const arr = found.map((r) => ({
+            date: r.date || todayISO(),
+            ...(r.time ? { time: r.time } : {}),
+            sys: r.sys,
+            dia: r.dia,
+            ...(r.pulse ? { pulse: r.pulse } : {}),
+          }));
+          setImportText(JSON.stringify(arr));
+          setShowImport(true);
+          setVisionMsg(`${found.length} Messungen erkannt — unten prüfen und „Importieren".${warn}`);
+        }
+      } catch (e) {
+        setVisionMsg((e as Error).message || 'Auslesen fehlgeschlagen.');
+      } finally {
+        setVisionLoading(false);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
   const latest = readings.length ? readings[readings.length - 1] : null;
   const mean7 = useMemo(() => bpMean(readings, 7), [readings]);
   const mean30 = useMemo(() => bpMean(readings, 30), [readings]);
@@ -183,13 +228,24 @@ export default function Vitaldaten() {
           </Field>
         </div>
         {error && <p className="text-xs text-danger mt-2">{error}</p>}
-        <div className="mt-3 flex items-center gap-2">
+        <div className="mt-3 flex flex-wrap items-center gap-2">
           <button
             onClick={addReading}
             className="rounded-md bg-(--color-accent) hover:bg-(--color-accent-hover) px-4 py-1.5 text-sm font-medium text-white transition-colors"
           >
             Hinzufügen
           </button>
+          <label className={`rounded-md border border-(--color-border) px-3 py-1.5 text-sm text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors flex items-center gap-1.5 cursor-pointer ${visionLoading ? 'opacity-60 pointer-events-none' : ''}`}>
+            {visionLoading ? <Loader2 size={14} className="animate-spin" /> : <Camera size={14} />}
+            {visionLoading ? 'Lese Foto…' : 'Foto auslesen'}
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              disabled={visionLoading}
+              onChange={(e) => handlePhoto(e.target.files?.[0])}
+            />
+          </label>
           <button
             onClick={() => { setShowImport((v) => !v); setImportMsg(''); }}
             className="rounded-md border border-(--color-border) px-3 py-1.5 text-sm text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors flex items-center gap-1.5"
@@ -197,6 +253,7 @@ export default function Vitaldaten() {
             <Upload size={14} /> Mehrere importieren
           </button>
         </div>
+        {visionMsg && <p className="text-xs text-(--color-text-secondary) mt-2">{visionMsg}</p>}
 
         {showImport && (
           <div className="mt-3 rounded-lg border border-(--color-border) bg-(--color-bg-input) p-3">

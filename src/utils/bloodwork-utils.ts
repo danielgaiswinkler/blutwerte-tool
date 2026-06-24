@@ -333,3 +333,46 @@ export function getStatusCounts(
   }
   return counts;
 }
+
+// ---------------------------------------------------------------------------
+// Auto-Reparatur: Serum-Mineralstoffe von falscher Vollblut-ID umtragen
+//
+// Bioscentia (und die meisten Labore) messen Magnesium/Zink/Selen im SERUM,
+// das Tool hat fuer 'magnesium'/'zink'/'selen' aber VOLLBLUT-Referenzbereiche.
+// Wurde ein Serum-Wert versehentlich auf die Vollblut-ID gelegt, liegt er
+// physikalisch UNTER dem Vollblut-Minimum (Vollblut enthaelt intrazellulaer
+// viel mehr) -> sicheres Erkennungsmerkmal fuer eine Fehlzuordnung.
+// Dann: in die Serum-Einheit umrechnen und auf die -serum-ID verschieben.
+// ---------------------------------------------------------------------------
+
+const SERUM_FIX = [
+  // Magnesium: mg/l -> mmol/l (Molmasse 24.305)
+  { whole: 'magnesium', serum: 'magnesium-serum', wholeMin: 30, convert: (v: number) => Math.round((v / 24.305) * 100) / 100 },
+  // Zink: mg/l -> µmol/l (Molmasse 65.38)
+  { whole: 'zink', serum: 'zink-serum', wholeMin: 4, convert: (v: number) => Math.round((v / 65.38) * 1000 * 10) / 10 },
+  // Selen: µg/l -> µmol/l (Molmasse 78.97)
+  { whole: 'selen', serum: 'selen-serum', wholeMin: 80, convert: (v: number) => Math.round((v / 78.97) * 100) / 100 },
+];
+
+/**
+ * Trägt fehlplatzierte Serum-Werte (Mg/Zn/Se) von der Vollblut-ID auf die
+ * Serum-ID um. Idempotent — läuft gefahrlos bei jedem App-Start.
+ * Gibt die Anzahl korrigierter Werte zurück.
+ */
+export function migrateMineralSerumValues(): number {
+  const entries = loadEntries();
+  let changed = 0;
+  for (const e of entries) {
+    if (!e.values) continue;
+    for (const fix of SERUM_FIX) {
+      const val = e.values[fix.whole];
+      if (typeof val === 'number' && val < fix.wholeMin) {
+        if (!(fix.serum in e.values)) e.values[fix.serum] = fix.convert(val);
+        delete e.values[fix.whole];
+        changed++;
+      }
+    }
+  }
+  if (changed > 0) saveEntries(entries);
+  return changed;
+}

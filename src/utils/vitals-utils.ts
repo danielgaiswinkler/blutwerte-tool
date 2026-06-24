@@ -106,3 +106,49 @@ export function bpMean(
   const pulse = pulses.length ? Math.round(pulses.reduce((s, p) => s + p, 0) / pulses.length) : null;
   return { sys, dia, pulse, n: rel.length };
 }
+
+// ---------------------------------------------------------------------------
+// Foto-Auslesung (Blutdruckgerät-Display) via SoD-Toolbox-Vision-Endpoint
+//
+// Das Bild geht zur Auswertung an die Claude-API (über Daniels Server),
+// die ausgelesenen Werte landen wieder nur lokal. Dev: lokaler Toolbox-Server.
+// ---------------------------------------------------------------------------
+
+const BP_VISION_URL = import.meta.env.DEV
+  ? 'http://localhost:3000/api/tools/public/blutdruck-vision'
+  : 'https://ki.success-on-demand.com/api/tools/public/blutdruck-vision';
+
+export interface BpVisionReading {
+  sys: number;
+  dia: number;
+  pulse?: number | null;
+  date?: string | null;
+  time?: string | null;
+}
+
+export interface BpVisionResult {
+  readings: BpVisionReading[];
+  warnings: string[];
+}
+
+/** Foto eines Blutdruck-Displays an den Vision-Endpoint schicken und Werte zurückbekommen. */
+export async function callBloodPressureVision(
+  imageBase64: string,
+  mediaType: string,
+): Promise<BpVisionResult> {
+  const res = await fetch(BP_VISION_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ image: imageBase64, mediaType }),
+  });
+  if (!res.ok) {
+    const err = (await res.json().catch(() => ({ error: `Fehler ${res.status}` }))) as { error?: string };
+    throw new Error(err.error || `Server-Fehler (${res.status})`);
+  }
+  const data = (await res.json()) as Partial<BpVisionResult>;
+  return {
+    readings: Array.isArray(data.readings) ? data.readings : [],
+    warnings: Array.isArray(data.warnings) ? data.warnings : [],
+  };
+}
+
