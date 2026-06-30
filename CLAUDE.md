@@ -95,7 +95,7 @@ Persönliches Blutwerte-Analyse-Tool als lokale Web-App. Erfasst Laborwerte, ver
 - Ampel: 🔴 Kritisch / 🟡 Suboptimal / 🟢 Optimal
 
 ## Health Hub Integration (2026-03-06)
-- **Datenbruecke:** `~/Projects/3-privat-ehrenamt/health-hub/scripts/sync_blutwerte.py`
+- **Datenbruecke:** `~/Projects/3-privat/health-hub/scripts/sync_blutwerte.py`
 - **Workflow:** Blutwerte-Tool JSON Export → sync_blutwerte.py → health-hub/data/blutwerte.json
 - **ID-Mapping:** 50+ Werte gemappt (Tool-IDs → Health Hub Kategorien)
 - **Export-Button** noch einzubauen (React-Code in sync_blutwerte.py --show-export-code)
